@@ -1,0 +1,48 @@
+<p>
+  <b>Name:</b>
+  <%=h @community.name %>
+</p>
+
+<p>
+  <b>Short name:</b>
+  <%=h @community.short_name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%=h @community.category %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @community.country %>
+</p>
+
+<p>
+  <b>Prov state:</b>
+  <%=h @community.prov_state %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @community.city %>
+</p>
+
+<p>
+  <b>Official url:</b>
+  <%=h @community.official_url %>
+</p>
+
+<p>
+  <b>Wiki url:</b>
+  <%=h @community.wiki_url %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @community.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_community_path(@community) %> |
+<%= link_to 'Back', communities_path %>
