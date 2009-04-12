@@ -1,2 +1,35 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+<h2>What are the best media/blogs serving your voter communities?</h2>
+
+<p>Add to My Communities those that interest you. Follow links from there or table below to media/blog rankings:</p>
+
+<table id="community-list">
+  <tr class="community-list-header">
+    <td></td>
+    <td class="community-name-header">Community</td>
+    <td class="community-other-header">Link</td>
+    <td class="community-other-header">Type</td>
+    <td class="community-other-header">Country</td>
+    <td class="community-other-header">Prov/State</td>
+  </tr>
+
+  <% for community in @communities %>
+  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <td class="add-button">
+      <input type="submit" value="<< Add" />
+    </td>
+    <div>
+    <td class="community-name"><%=h community.name %></td>
+    <td>&nbsp;<%= link_to "View", community %>&nbsp;</td>
+    <td class="community-other"><%=h community.category %></td>
+    <td class="community-other"><%=h community.country %></td>
+    <td class="community-other"><%=h community.prov_state %></td>
+    </div>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+Is your voter community not in our system? <%= link_to 'Add it!', new_community_path %>
+<br /><br />

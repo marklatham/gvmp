@@ -3,45 +3,51 @@
 <% form_for(@community) do |f| %>
   <%= f.error_messages %>
 
+  <p class="required">
+    * indicates required info
+  </p>
   <p>
-    <%= f.label :name %><br />
+    <b class="required">* Community name</b> [50 characters max]<br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :short_name %><br />
+    <b class="required">* <%= f.label :short_name %></b> [20 characters max]<br />
+    (Can be same as Community name if short enough.)<br />
     <%= f.text_field :short_name %>
   </p>
   <p>
-    <%= f.label :category %><br />
+    <b class="required">* Type</b> [12 characters max]<br />
+    E.g.: Co-op, Corporation, Country, Credit, Homeowner, Investor, Labour, 
+    Municipal, Nonprofit, Political, Province, State, Student, Other<br />
     <%= f.text_field :category %>
   </p>
   <p>
-    <%= f.label :country %><br />
+    <b class="required">* <%= f.label :country %></b> [20 characters max] (Can be "International")<br />
     <%= f.text_field :country %>
   </p>
   <p>
-    <%= f.label :prov_state %><br />
+    <b>Province/State</b> [20 characters max]<br />
     <%= f.text_field :prov_state %>
   </p>
   <p>
-    <%= f.label :city %><br />
+    <b><%= f.label :city %></b> [20 characters max]<br />
     <%= f.text_field :city %>
   </p>
   <p>
-    <%= f.label :official_url %><br />
+    <b>Official website URL</b><br />
     <%= f.text_field :official_url %>
   </p>
   <p>
-    <%= f.label :wiki_url %><br />
+    <b>Wikipedia URL</b><br />
     <%= f.text_field :wiki_url %>
   </p>
   <p>
-    <%= f.label :description %><br />
+    <b><%= f.label :description %></b><br />
     <%= f.text_area :description %>
   </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
+
+  <%= f.submit "Create" %>
+  
 <% end %>
 
-<%= link_to 'Back', communities_path %>
+<br />

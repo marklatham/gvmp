@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>VoterMedia.org</title>
+  <%= stylesheet_link_tag 'main', :media => "all" %>
+  <%= javascript_include_tag :defaults %>
+</head>
+
+<body id="welcome">
+  <div id="banner">
+    <%= link_to 'Voter', home_path %><span class="banner2"><%= link_to 'Media.org', home_path %></span>
+  </div>
+  <div id="top-bottom-nav">
+    <%= link_to 'HOME', home_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    ABOUT &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    FAQ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    CONTACT &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    PUBLICATIONS
+  </div>
+  <div id="columns">
+    <div id="side">
+      <div id="nav-header">
+        My Communities:
+      </div>
+      <div id="nav-table">
+      
+      </div>
+      <div id="search">
+        <br /><br /><br /><br />
+        Find communities:
+        <input type="text" name="fname" size="13" /><br />
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="submit" value="Search" />
+      </div>
+    </div>
+    <div id="main">
+      <% if flash[:notice] -%>
+        <div id="notice"><%= flash[:notice] %></div>
+      <% end -%>
+
+
+      <%= yield  %>
+
+    </div>
+  </div>
+  <div id="top-bottom-nav">
+    <%= link_to 'HOME', home_path %> &nbsp; &nbsp; &nbsp; &nbsp; 
+    FORUM &nbsp; &nbsp; &nbsp; &nbsp; 
+    TERMS &nbsp; &nbsp; &nbsp; &nbsp; 
+    PRIVACY &nbsp; &nbsp; &nbsp; &nbsp; 
+    HOW YOU CAN HELP
+  </div>
+</body>
+</html>

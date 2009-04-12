@@ -1,6 +1,5 @@
 <p>
-  <b>Name:</b>
-  <%=h @community.name %>
+  <h2><%=h @community.name %></h2>
 </p>
 
 <p>
@@ -9,7 +8,7 @@
 </p>
 
 <p>
-  <b>Category:</b>
+  <b>Type:</b>
   <%=h @community.category %>
 </p>
 
@@ -19,7 +18,7 @@
 </p>
 
 <p>
-  <b>Prov state:</b>
+  <b>Province/State:</b>
   <%=h @community.prov_state %>
 </p>
 
@@ -29,13 +28,13 @@
 </p>
 
 <p>
-  <b>Official url:</b>
-  <%=h @community.official_url %>
+  <b>Official website:</b>
+  <%= link_if_url(@community.official_url) %>
 </p>
 
 <p>
-  <b>Wiki url:</b>
-  <%=h @community.wiki_url %>
+  <b>Wiki:</b>
+   <%= link_if_url(@community.wiki_url) %>
 </p>
 
 <p>
@@ -43,6 +42,5 @@
   <%=h @community.description %>
 </p>
 
-
-<%= link_to 'Edit', edit_community_path(@community) %> |
-<%= link_to 'Back', communities_path %>
+<%= link_to 'Edit', edit_community_path(@community) %>
+<br /><br />
