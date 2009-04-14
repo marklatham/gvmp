@@ -11,18 +11,20 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <b class="required">* <%= f.label :short_name %></b> [20 characters max]<br />
-    (Can be same as Community name if short enough.)<br />
+    <b class="required">* <%= f.label :short_name %></b> [20 characters max] (Can be same as Community name if short enough.)<br />
     <%= f.text_field :short_name %>
   </p>
   <p>
-    <b class="required">* Type</b> [12 characters max]<br />
-    E.g.: Co-op, Corporation, Country, Credit, Homeowner, Investor, Labour, 
-    Municipal, Nonprofit, Political, Province, State, Student, Other<br />
+    <b class="required">* Type</b> [12 characters max] (E.g. Co-op, Corporation, Country, Credit, Homeowner, Investor, Labour, 
+    Municipal, Nonprofit, Political, Province, State, Student, Other)<br />
     <%= f.text_field :category %>
   </p>
+  
+  <hr />
+  <p><b>Headquarters location --</b>
+  
   <p>
-    <b class="required">* <%= f.label :country %></b> [20 characters max] (Can be "International")<br />
+    <b> <%= f.label :country %></b> [20 characters max]<br />
     <%= f.text_field :country %>
   </p>
   <p>
@@ -33,9 +35,16 @@
     <b><%= f.label :city %></b> [20 characters max]<br />
     <%= f.text_field :city %>
   </p>
+  
+  <hr />
+  
+  <p>
+    <b>Regional Scope</b> (Where most voters & operations are located. Can be "International".)<br />
+    <%= f.text_field :scope %>
+  </p>
   <p>
     <b>Official website URL</b><br />
-    <%= f.text_field :official_url %>
+    <%= f.text_field :official_url, :value => 'http://' %>
   </p>
   <p>
     <b>Wikipedia URL</b><br />

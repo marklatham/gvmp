@@ -12,6 +12,9 @@
   <%=h @community.category %>
 </p>
 
+<hr />
+<p><b>Headquarters location --</b>
+
 <p>
   <b>Country:</b>
   <%=h @community.country %>
@@ -27,14 +30,22 @@
   <%=h @community.city %>
 </p>
 
+<hr />
+
+<p>
+  <b>Regional Scope:</b>
+  <%=h @community.scope %><br />
+  (where most voters & operations are located)
+</p>
+
 <p>
   <b>Official website:</b>
-  <%= link_if_url(@community.official_url) %>
+  <%= auto_link_urls(@community.official_url, :target => "_blank") %>
 </p>
 
 <p>
   <b>Wiki:</b>
-   <%= link_if_url(@community.wiki_url) %>
+   <%= auto_link_urls(@community.wiki_url, :target => "_blank") %>
 </p>
 
 <p>

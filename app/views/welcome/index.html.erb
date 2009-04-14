@@ -1,8 +1,16 @@
-<h2>What are the best media/blogs serving your voter communities?</h2>
+<h2>What are the best websites/blogs serving your voter communities?</h2>
 
 <p>Add to My Communities those that interest you. Follow links from there or table below to media/blog rankings:</p>
 
 <table id="community-list">
+  <tr class="community-list-header">
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td class="community-other-header" colspan="2">--- Headquarters ---</td>
+    <td class="community-other-header">Regional</td>
+  </tr>
   <tr class="community-list-header">
     <td></td>
     <td class="community-name-header">Community</td>
@@ -10,6 +18,7 @@
     <td class="community-other-header">Type</td>
     <td class="community-other-header">Country</td>
     <td class="community-other-header">Prov/State</td>
+    <td class="community-other-header">Scope</td>
   </tr>
 
   <% for community in @communities %>
@@ -23,6 +32,8 @@
     <td class="community-other"><%=h community.category %></td>
     <td class="community-other"><%=h community.country %></td>
     <td class="community-other"><%=h community.prov_state %></td>
+    <td class="community-other"><%=h truncate(community.scope, 20) %></td>
+    <td>&nbsp;<%= link_to "Edit", edit_community_path(community) %>&nbsp;</td>
     </div>
   </tr>
 <% end %>

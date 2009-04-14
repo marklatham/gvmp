@@ -15,6 +15,10 @@
     Type<br />
     <%= f.text_field :category %>
   </p>
+  
+  <hr />
+  <p><b>Headquarters location --</b>
+  
   <p>
     <%= f.label :country %><br />
     <%= f.text_field :country %>
@@ -26,6 +30,13 @@
   <p>
     <%= f.label :city %><br />
     <%= f.text_field :city %>
+  </p>
+  
+  <hr />
+  
+  <p>
+    Regional Scope (where most voters and operations are located)<br />
+    <%= f.text_field :scope %>
   </p>
   <p>
     <%= f.label :official_url %><br />
