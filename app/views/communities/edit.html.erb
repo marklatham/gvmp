@@ -1,59 +1,6 @@
 <h1>Editing community</h1>
 
-<% form_for(@community) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :short_name %><br />
-    <%= f.text_field :short_name %>
-  </p>
-  <p>
-    Type<br />
-    <%= f.text_field :category %>
-  </p>
-  
-  <hr />
-  <p><b>Headquarters location --</b>
-  
-  <p>
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </p>
-  <p>
-    Province/State<br />
-    <%= f.text_field :prov_state %>
-  </p>
-  <p>
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </p>
-  
-  <hr />
-  
-  <p>
-    Regional Scope (where most voters and operations are located)<br />
-    <%= f.text_field :scope %>
-  </p>
-  <p>
-    <%= f.label :official_url %><br />
-    <%= f.text_field :official_url %>
-  </p>
-  <p>
-    <%= f.label :wiki_url %><br />
-    <%= f.text_field :wiki_url %>
-  </p>
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
-  </p>
-  <p>
-    <%= f.submit "Update" %>
-  </p>
-<% end %>
+<%= render :partial => 'form' %>
 
 <%= link_to 'Show', @community %>
 <br /><br />
