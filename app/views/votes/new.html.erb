@@ -1,0 +1,27 @@
+<h1>New vote</h1>
+
+<% form_for(@vote) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ip_address %><br />
+    <%= f.text_field :ip_address %>
+  </p>
+  <p>
+    <%= f.label :community_id %><br />
+    <%= f.text_field :community_id %>
+  </p>
+  <p>
+    <%= f.label :website_id %><br />
+    <%= f.text_field :website_id %>
+  </p>
+  <p>
+    <%= f.label :support %><br />
+    <%= f.text_field :support %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', votes_path %>

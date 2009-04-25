@@ -1,5 +1,5 @@
 class Website < ActiveRecord::Base
-  
+  has_many :votes
   has_many :rankings
   has_many :communities, :through => :rankings
   

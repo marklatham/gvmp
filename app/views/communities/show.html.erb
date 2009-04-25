@@ -63,6 +63,7 @@
 <table>
   <tr>
     <th>Rank</>
+    <th>Your Vote</th>
     <th>Website</th>
     <th>Date added</th>
   </tr>
@@ -70,6 +71,7 @@
 <% for website in @websites %>
   <tr>   
     <td><%=h website[:rank] %></td>
+    <td><%= button_to 'Vote' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
     <td><a href ="<%= website[:website].url %>" target="_blank"><%=h website[:website].title %></a></td>
 <!-- Why doesn't the first part create any output?: -->
     <td><%=h website[:created_at] %> <%=h website[:website].created_at %></td>

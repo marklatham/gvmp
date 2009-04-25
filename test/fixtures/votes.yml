@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ip_address: MyString
+  community_id: 1
+  website_id: 1
+  support: 1.5
+
+two:
+  ip_address: MyString
+  community_id: 1
+  website_id: 1
+  support: 1.5

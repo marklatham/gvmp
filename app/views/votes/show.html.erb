@@ -1,0 +1,23 @@
+<p>
+  <b>Ip address:</b>
+  <%=h @vote.ip_address %>
+</p>
+
+<p>
+  <b>Community:</b>
+  <%=h @vote.community_id %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%=h @vote.website_id %>
+</p>
+
+<p>
+  <b>Support:</b>
+  <%=h @vote.support %>
+</p>
+
+
+<%= link_to 'Edit', edit_vote_path(@vote) %> |
+<%= link_to 'Back', votes_path %>

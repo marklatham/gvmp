@@ -22,6 +22,13 @@ class CommunitiesController < ApplicationController
     end
   end
 
+  def vote_for_website
+    @website = Website.find(params[:id])
+    @community = Community.find(params[:community])
+    Vote.vote_for_website @community, @website
+    redirect_to :action => :show, :id => @community
+  end
+  
   # GET /communities/new
   # GET /communities/new.xml
   def new
