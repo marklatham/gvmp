@@ -69,11 +69,10 @@
 
 <% for website in @websites %>
   <tr>   
-    <td><%=h website.rank %></td>
-    <td><a href ="<%= website.url %>" target="_blank"><%=h website.title %></a></td>
-<!-- why doesn't this work (even with left angle bracket)? The above website.rank probably doesn't work either.
-    <td>%=h @community.website.created_at %></td>
--->
+    <td><%=h website[:rank] %></td>
+    <td><a href ="<%= website[:website].url %>" target="_blank"><%=h website[:website].title %></a></td>
+<!-- Why doesn't the first part create any output?: -->
+    <td><%=h website[:created_at] %> <%=h website[:website].created_at %></td>
   </tr>
 <% end %>
 </table>
