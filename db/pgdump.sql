@@ -65,6 +65,21 @@ SELECT pg_catalog.setval('communities_id_seq', 182, true);
 
 
 --
+-- Name: communities_websites; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
+--
+
+CREATE TABLE communities_websites (
+    community_id integer NOT NULL,
+    website_id integer NOT NULL,
+    rank double precision,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.communities_websites OWNER TO app62414;
+
+--
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
 --
 
@@ -76,10 +91,59 @@ CREATE TABLE schema_migrations (
 ALTER TABLE public.schema_migrations OWNER TO app62414;
 
 --
+-- Name: websites; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
+--
+
+CREATE TABLE websites (
+    id integer NOT NULL,
+    url character varying(255),
+    title character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.websites OWNER TO app62414;
+
+--
+-- Name: websites_id_seq; Type: SEQUENCE; Schema: public; Owner: app62414
+--
+
+CREATE SEQUENCE websites_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.websites_id_seq OWNER TO app62414;
+
+--
+-- Name: websites_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: app62414
+--
+
+ALTER SEQUENCE websites_id_seq OWNED BY websites.id;
+
+
+--
+-- Name: websites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
+--
+
+SELECT pg_catalog.setval('websites_id_seq', 3, true);
+
+
+--
 -- Name: id; Type: DEFAULT; Schema: public; Owner: app62414
 --
 
 ALTER TABLE communities ALTER COLUMN id SET DEFAULT nextval('communities_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: app62414
+--
+
+ALTER TABLE websites ALTER COLUMN id SET DEFAULT nextval('websites_id_seq'::regclass);
 
 
 --
@@ -273,6 +337,15 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 
 
 --
+-- Data for Name: communities_websites; Type: TABLE DATA; Schema: public; Owner: app62414
+--
+
+COPY communities_websites (community_id, website_id, rank, created_at, updated_at) FROM stdin;
+109	3	\N	2009-04-11 22:52:30.106784	2009-04-11 22:52:30.106784
+\.
+
+
+--
 -- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: app62414
 --
 
@@ -280,6 +353,19 @@ COPY schema_migrations (version) FROM stdin;
 20090411224116
 20090411224737
 20090414164116
+20090425000241
+20090425001622
+\.
+
+
+--
+-- Data for Name: websites; Type: TABLE DATA; Schema: public; Owner: app62414
+--
+
+COPY websites (id, url, title, created_at, updated_at) FROM stdin;
+1	http://thecrandreagoupr.blogspot.com/	Activism - The Crandrea Group	2009-04-25 01:31:44.406356	2009-04-25 01:31:44.406356
+2	http://www.networkworld.com/community/blog/1926	Microsoft Subnet Blog	2009-04-25 02:42:54.585305	2009-04-25 02:42:54.585305
+3	http://thecrandreagoupr.blogspot.com/	Activism - The Crandrea Group	2009-04-25 03:37:43.550101	2009-04-25 03:37:43.550101
 \.
 
 
@@ -289,6 +375,21 @@ COPY schema_migrations (version) FROM stdin;
 
 ALTER TABLE ONLY communities
     ADD CONSTRAINT communities_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: websites_pkey; Type: CONSTRAINT; Schema: public; Owner: app62414; Tablespace: 
+--
+
+ALTER TABLE ONLY websites
+    ADD CONSTRAINT websites_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_communities_websites_on_community_id_and_website_id; Type: INDEX; Schema: public; Owner: app62414; Tablespace: 
+--
+
+CREATE UNIQUE INDEX index_communities_websites_on_community_id_and_website_id ON communities_websites USING btree (community_id, website_id);
 
 
 --
