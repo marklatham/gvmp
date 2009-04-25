@@ -60,5 +60,24 @@
 
 <h4>Which websites/blogs deserve more support from the <%=h @community.short_name %> voter community?</h4>
 
-[Table of websites will be displayed here.]
+<table>
+  <tr>
+    <th>Rank</>
+    <th>Website</th>
+    <th>Date added</th>
+  </tr>
+
+<% for website in @websites %>
+  <tr>   
+    <td><%=h website.rank %></td>
+    <td><a href ="<%= website.url %>" target="_blank"><%=h website.title %></a></td>
+<!-- why doesn't this work (even with left angle bracket)? The above website.rank probably doesn't work either.
+    <td>%=h @community.website.created_at %></td>
+-->
+  </tr>
+<% end %>
+</table>
+
+<br/><br />
+<%= link_to 'Add a Website to this Community', new_website_path(:community => @community) %>
 <br /><br />

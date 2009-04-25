@@ -1,0 +1,19 @@
+<h1>Add new Website to <%=h @community.short_name %></h1>
+
+<% form_for @website, :url => { :action => :create, :community => @community} do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', websites_path %>

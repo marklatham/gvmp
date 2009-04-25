@@ -14,6 +14,7 @@ class CommunitiesController < ApplicationController
   # GET /communities/1.xml
   def show
     @community = Community.find(params[:id])
+    @websites = @community.websites
 
     respond_to do |format|
       format.html # show.html.erb

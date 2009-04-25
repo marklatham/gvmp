@@ -14,7 +14,10 @@
   </p>
   <p>
     <b class="required">* <%= f.label :category, 'Type of community' %></b><br />
-    <%= f.select (:category, ['Other', 'Co-op', 'Corporation', 'Country', 'Credit Union', 'Homeowner', 'Investor', 'Labour', 'Municipal', 'Nonprofit', 'Political', 'Province', 'State', 'Student']) %>
+    <%= f.select (:category, [['Other (none of the below)', 'Other'], 'Co-op', 'Corporation', 'Country', 'Credit Union',
+                              ['Homeowner (association)', 'Homeowner'], ['Investor (mutual fund etc)', 'Investor'], ['Labour (union etc)', 'Labour'],
+                              ['Municipal (city etc.)', 'Municipal'], ['Nonprofit (misc. other)', 'Nonprofit'], ['Political (party etc)', 'Political'],
+                               'Province', 'State', ['Student (union etc)', 'Student']]) %>
   </p>
   
   <hr />
@@ -29,7 +32,7 @@
     <%= f.text_field :prov_state %>
   </p>
   <p>
-    <b><%= f.label :city %></b> [20 characters max]<br />
+    <b><%= f.label :city %></b> [30 characters max]<br />
     <%= f.text_field :city %>
   </p>
   
