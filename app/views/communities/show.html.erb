@@ -1,84 +1,60 @@
 <p>
-  <h2><%=h @community.name %></h2>
+  <h1 id="heading1">&nbsp;<%=h @community.name %></h1>
 </p>
 
-<p>
-  <b>Short name:</b>
-  <%=h @community.short_name %>
-</p>
+<div id="community-box">
 
-<p>
-  <b>Type:</b>
+  <b>Type of community:</b>
   <%=h @community.category %>
-</p>
+  <br />
 
-<hr />
-<p><b>Headquarters location --</b>
-
-<p>
-  <b>Country:</b>
+  <b>Headquarters:</b>
+  <%=h @community.city %>&nbsp
+  <%=h @community.prov_state %>&nbsp
   <%=h @community.country %>
-</p>
+  <br />
 
-<p>
-  <b>Province/State:</b>
-  <%=h @community.prov_state %>
-</p>
+  <b>Regional scope:</b>
+  <%=h @community.scope %>
+  <br />
 
-<p>
-  <b>City:</b>
-  <%=h @community.city %>
-</p>
-
-<hr />
-
-<p>
-  <b>Regional Scope:</b>
-  <%=h @community.scope %><br />
-  (where most voters & operations are located)
-</p>
-
-<p>
   <b>Official website:</b>
   <%= auto_link_urls(@community.official_url, :target => "_blank") %>
-</p>
+  <br />
 
-<p>
   <b>Wiki:</b>
    <%= auto_link_urls(@community.wiki_url, :target => "_blank") %>
-</p>
+  <br />
 
-<p>
-  <b>Description:</b>
-  <%=h @community.description %>
-</p>
+  <b>Description & keywords:</b>
+  <%= truncate(@community.description, 100) %>
+  <br />
 
-<%= link_to 'Edit', edit_community_path(@community) %>
-<br />
+  <%= link_to 'Edit community data', edit_community_path(@community) %>
 
-<hr />
+</div>
 
-<h4>Which websites/blogs deserve more support from the <%=h @community.short_name %> voter community?</h4>
+<h3>Which websites/blogs deserve more support from the <%=h @community.short_name %> voter community?</h3>
 
-<table>
-  <tr>
-    <th>Rank</>
-    <th>Your Vote</th>
-    <th>Website</th>
-    <th>Date added</th>
+<table id="community-list">
+  <tr class="community-list-header">
+    <td class="community-other-header">Rank</td>
+    <td class="community-other-header">Your Vote</td>
+    <td class="community-name-header">Website/Blog</td>
+    <td class="community-other-header">Date added</td>
   </tr>
 
 <% for website in @websites %>
-  <tr>   
-    <td><%=h website[:rank] %></td>
-    <td><%= button_to 'Vote' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
-    <td><a href ="<%= website[:website].url %>" target="_blank"><%=h website[:website].title %></a></td>
+  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+    <td class="community-other"><%=h website[:rank] %></td>
+    <td class="community-other"><%= button_to 'Vote' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
+    <td class="community-name"><b><a href ="<%= website[:website].url %>" target="_blank"><%=h website[:website].title %></a></b></td>
 <!-- Why doesn't the first part create any output?: -->
-    <td><%=h website[:created_at] %> <%=h website[:website].created_at %></td>
+    <td class="community-other"><%=h website[:created_at] %> <%=h website[:website].created_at.to_s(:date) %></td>
   </tr>
 <% end %>
 </table>
 
-<br/><br />
-<%= link_to 'Add a Website to this Community', new_website_path(:community => @community) %>
+<br/>
+<%= link_to 'Add a website/blog to this community', new_website_path(:community => @community) %>
 <br /><br />

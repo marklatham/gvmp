@@ -6,6 +6,19 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+#heading1 {
+  line-height: 26px;
+}
+
+#community-box {
+  border: 1px solid black;
+  padding-left: 1em;
+  padding-bottom: 0.5em;
+  margin-bottom: 1em;
+  background-color: #eee;
+  line-height: 24px;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
@@ -141,11 +154,26 @@ a:hover { color: #d00; }
 #community-list .community-other-header {
   background:   #a00;
   text-align: center;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 
 #community-list .community-name {
   padding-left: 0.5em;
   font-weight: bold;
+}
+
+#community-list .community-name a:link {
+  color: #000;
+  text-decoration: none;
+}
+#community-list .community-name a:visited {
+  color: #000;
+  text-decoration: none;
+}
+#community-list .community-name a:hover {
+  color:#a00;
+  text-decoration: underline;
 }
 
 #community-list .community-other {

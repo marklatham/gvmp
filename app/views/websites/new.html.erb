@@ -1,4 +1,4 @@
-<h1>Add new Website to <%=h @community.short_name %></h1>
+<h2>Add a website/blog to <%=h @community.short_name %> community ranking</h2>
 
 <% form_for @website, :url => { :action => :create, :community => @community} do |f| %>
   <%= f.error_messages %>
@@ -12,8 +12,8 @@
     <%= f.text_field :title %>
   </p>
   <p>
-    <%= f.submit "Create" %>
+    <%= f.submit "Add" %>
   </p>
 <% end %>
 
-<%= link_to 'Back', websites_path %>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

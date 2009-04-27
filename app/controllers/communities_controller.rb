@@ -23,9 +23,10 @@ class CommunitiesController < ApplicationController
   end
 
   def vote_for_website
+    @ip = request.remote_ip
     @website = Website.find(params[:id])
     @community = Community.find(params[:community])
-    Vote.vote_for_website @community, @website
+    Vote.vote_for_website @ip, @community, @website
     redirect_to :action => :show, :id => @community
   end
   

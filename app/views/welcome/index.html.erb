@@ -1,10 +1,9 @@
 <h2>What are the best websites/blogs serving your voter communities?</h2>
 
-<p>Add to My Communities those that interest you. Follow links from there or table below to website/blog rankings:</p>
+<p>Follow links to community ballots, then vote on website/blog rankings:</p>
 
 <table id="community-list">
   <tr class="community-list-header">
-    <td></td>
     <td></td>
     <td></td>
     <td></td>
@@ -14,8 +13,7 @@
   </tr>
   <tr class="community-list-header">
     <td></td>
-    <td class="community-name-header">Community</td>
-    <td class="community-other-header">Link</td>
+    <td class="community-name-header">Link to Community Ballot</td>
     <td class="community-other-header">Type</td>
     <td class="community-other-header">Country</td>
     <td class="community-other-header">Prov/State</td>
@@ -31,8 +29,10 @@
 -->
     </td>
     <div>
-    <td class="community-name"><%=h community.name %></td>
+    <td class="community-name"><%= link_to community.name, community %></td>
+<!-- Uncomment when create Add buttons, add heading, delink community names
     <td>&nbsp;<%= link_to "View", community %>&nbsp;</td>
+-->
     <td class="community-other"><%=h community.category %></td>
     <td class="community-other"><%=h community.country %></td>
     <td class="community-other"><%=h community.prov_state %></td>

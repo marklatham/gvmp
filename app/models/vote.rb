@@ -3,9 +3,9 @@ class Vote < ActiveRecord::Base
   belongs_to :website
   
   #todo need to record ip as well
-  def self.vote_for_website community, website
+  def self.vote_for_website ip, community, website
     
-    vote_row = Vote.new({:community_id => community.id, :website_id =>website.id})
+    vote_row = Vote.new({:ip_address => ip, :community_id => community.id, :website_id =>website.id})
     vote_row.save
     
     #this is temp --very bad implementation -- until a ranking scheme is defined
