@@ -61,23 +61,51 @@ ALTER SEQUENCE communities_id_seq OWNED BY communities.id;
 -- Name: communities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('communities_id_seq', 182, true);
+SELECT pg_catalog.setval('communities_id_seq', 183, true);
 
 
 --
--- Name: communities_websites; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
+-- Name: rankings; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
 --
 
-CREATE TABLE communities_websites (
-    community_id integer NOT NULL,
-    website_id integer NOT NULL,
-    rank double precision,
+CREATE TABLE rankings (
+    id integer NOT NULL,
+    community_id integer,
+    website_id integer,
+    rank double precision DEFAULT 0.0,
     created_at timestamp without time zone,
     updated_at timestamp without time zone
 );
 
 
-ALTER TABLE public.communities_websites OWNER TO app62414;
+ALTER TABLE public.rankings OWNER TO app62414;
+
+--
+-- Name: rankings_id_seq; Type: SEQUENCE; Schema: public; Owner: app62414
+--
+
+CREATE SEQUENCE rankings_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.rankings_id_seq OWNER TO app62414;
+
+--
+-- Name: rankings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: app62414
+--
+
+ALTER SEQUENCE rankings_id_seq OWNED BY rankings.id;
+
+
+--
+-- Name: rankings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
+--
+
+SELECT pg_catalog.setval('rankings_id_seq', 41, true);
+
 
 --
 -- Name: schema_migrations; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
@@ -89,6 +117,50 @@ CREATE TABLE schema_migrations (
 
 
 ALTER TABLE public.schema_migrations OWNER TO app62414;
+
+--
+-- Name: votes; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
+--
+
+CREATE TABLE votes (
+    id integer NOT NULL,
+    ip_address character varying(255),
+    community_id integer,
+    website_id integer,
+    support double precision,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.votes OWNER TO app62414;
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE; Schema: public; Owner: app62414
+--
+
+CREATE SEQUENCE votes_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.votes_id_seq OWNER TO app62414;
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: app62414
+--
+
+ALTER SEQUENCE votes_id_seq OWNED BY votes.id;
+
+
+--
+-- Name: votes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
+--
+
+SELECT pg_catalog.setval('votes_id_seq', 23, true);
+
 
 --
 -- Name: websites; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
@@ -129,7 +201,7 @@ ALTER SEQUENCE websites_id_seq OWNED BY websites.id;
 -- Name: websites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('websites_id_seq', 3, true);
+SELECT pg_catalog.setval('websites_id_seq', 44, true);
 
 
 --
@@ -137,6 +209,20 @@ SELECT pg_catalog.setval('websites_id_seq', 3, true);
 --
 
 ALTER TABLE communities ALTER COLUMN id SET DEFAULT nextval('communities_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: app62414
+--
+
+ALTER TABLE rankings ALTER COLUMN id SET DEFAULT nextval('rankings_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: app62414
+--
+
+ALTER TABLE votes ALTER COLUMN id SET DEFAULT nextval('votes_id_seq'::regclass);
 
 
 --
@@ -151,7 +237,6 @@ ALTER TABLE websites ALTER COLUMN id SET DEFAULT nextval('websites_id_seq'::regc
 --
 
 COPY communities (id, name, short_name, category, country, prov_state, city, official_url, wiki_url, description, created_at, updated_at, scope) FROM stdin;
-31	Harrison Hot Springs	Harrison Hot Springs	Municipal	Canada	B.C.	Harrison Hot Springs	http://www.harrisonhotsprings.ca/	http://en.wikipedia.org/wiki/Harrison_Hot_Springs	GVRD, Metro Vancouver	2009-04-11 22:52:28.938574	2009-04-11 22:52:28.938574	\N
 32	Hope	Hope	Municipal	Canada	B.C.	Hope	http://www.hopebc.ca/	http://en.wikipedia.org/wiki/Hope,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.940921	2009-04-11 22:52:28.940921	\N
 33	Kent	Kent	Municipal	Canada	B.C.	Kent	http://www.district.kent.bc.ca/	http://en.wikipedia.org/wiki/Kent,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.943268	2009-04-11 22:52:28.943268	\N
 34	Langley (City)	Langley (City)	Municipal	Canada	B.C.	Langley (City)	http://www.city.langley.bc.ca/	http://en.wikipedia.org/wiki/Langley,_British_Columbia_(city)	GVRD, Metro Vancouver	2009-04-11 22:52:28.975541	2009-04-11 22:52:28.975541	\N
@@ -171,7 +256,6 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 48	Sechelt	Sechelt	Municipal	Canada	B.C.	Sechelt	http://www.district.sechelt.bc.ca/	http://en.wikipedia.org/wiki/Sechelt	GVRD, Metro Vancouver	2009-04-11 22:52:29.039923	2009-04-11 22:52:29.039923	\N
 49	Squamish	Squamish	Municipal	Canada	B.C.	Squamish	http://www.squamish.ca/	http://en.wikipedia.org/wiki/Squamish	GVRD, Metro Vancouver	2009-04-11 22:52:29.042291	2009-04-11 22:52:29.042291	\N
 50	Surrey	Surrey	Municipal	Canada	B.C.	Surrey	http://www.surrey.ca/default.htm	http://en.wikipedia.org/wiki/Surrey,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:29.044617	2009-04-11 22:52:29.044617	\N
-51	Vancouver	Vancouver	Municipal	Canada	B.C.	Vancouver	http://www.vancouver.ca/	http://en.wikipedia.org/wiki/Vancouver	GVRD, Metro Vancouver	2009-04-11 22:52:29.046943	2009-04-11 22:52:29.046943	\N
 52	Victoria	Victoria	Municipal	Canada	B.C.	Victoria	http://www.victoria.ca	http://en.wikipedia.org/wiki/Victoria,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:29.049228	2009-04-11 22:52:29.049228	\N
 53	West Vancouver	West Vancouver	Municipal	Canada	B.C.	West Vancouver	http://www.westvancouver.net/	http://en.wikipedia.org/wiki/West_Vancouver	GVRD, Metro Vancouver	2009-04-11 22:52:29.05214	2009-04-11 22:52:29.05214	\N
 54	Whistler	Whistler	Municipal	Canada	B.C.	Whistler	http://www.whistler.ca/	http://en.wikipedia.org/wiki/Whistler_(British_Columbia)	GVRD, Metro Vancouver	2009-04-11 22:52:29.054665	2009-04-11 22:52:29.054665	\N
@@ -195,7 +279,6 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 78	Coalition of Progressive Electors	COPE	Political	Canada	B.C.	Vancouver	http://www.cope.bc.ca/	http://en.wikipedia.org/wiki/Coalition_of_Progressive_Electors		2009-04-11 22:52:29.955494	2009-04-11 22:52:29.955494	\N
 79	Non-Partisan Association	NPA	Political	Canada	B.C.	Vancouver	http://www.npavancouver.ca/	http://en.wikipedia.org/wiki/Non-Partisan_Association		2009-04-11 22:52:29.957944	2009-04-11 22:52:29.957944	\N
 80	Vision Vancouver	Vision Vancouver	Political	Canada	B.C.	Vancouver	http://www.votevision.ca/	http://en.wikipedia.org/wiki/Vision_Vancouver		2009-04-11 22:52:29.96093	2009-04-11 22:52:29.96093	\N
-81	British Columbia	British Columbia	Province	Canada	B.C.		http://www.gov.bc.ca/	http://en.wikipedia.org/wiki/British_Columbia		2009-04-11 22:52:29.963613	2009-04-11 22:52:29.963613	\N
 83	BCIT Student Association	BCIT Student Ass'n	Student	Canada	B.C.		http://www.bcitsa.ca/	None as of January 2009	British Columbia Institute of Technology Student Association	2009-04-11 22:52:30.008875	2009-04-11 22:52:30.008875	\N
 84	Canadian Alliance of Student Associations	CASA	Student	Canada			http://www.casa.ca/	http://en.wikipedia.org/wiki/Canadian_Alliance_of_Student_Associations		2009-04-11 22:52:30.011348	2009-04-11 22:52:30.011348	\N
 85	Canadian Federation of Students	CFS	Student	Canada			http://www.cfs-fcee.ca/	http://en.wikipedia.org/wiki/Canadian_Federation_of_Students		2009-04-11 22:52:30.013854	2009-04-11 22:52:30.013854	\N
@@ -209,7 +292,6 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 93	Trinity Western University Students Association	TWU Students Ass'n	Student	Canada	B.C.		http://www.twusa.ca/	http://en.wikipedia.org/wiki/Trinity_Western_University_Students_Association		2009-04-11 22:52:30.065335	2009-04-11 22:52:30.065335	\N
 94	University of Calgary Students' Union	U Calgary Students	Student	Canada	Alberta	Calgary	http://www.su.ucalgary.ca/	http://en.wikipedia.org/wiki/University_of_Calgary_Students%27_Union		2009-04-11 22:52:30.067811	2009-04-11 22:52:30.067811	\N
 95	University of the Fraser Valley Student Union Soc.	UFV Student Union	Student	Canada	B.C.		http://www.ufvsus.ca/	http://en.wikipedia.org/wiki/UFV_Student_Union_Society	University of the Fraser Valley Student Union Society	2009-04-11 22:52:30.070368	2009-04-11 22:52:30.070368	\N
-109	Microsoft	Microsoft	Corporation	USA	Washington	Redmond	http://www.microsoft.com	http://en.wikipedia.org/wiki/Microsoft	NASDAQ	2009-04-11 22:52:30.106784	2009-04-11 22:52:30.106784	\N
 110	Ticketmaster Entertainment, Inc.	Ticketmaster	Corporation	USA	California	West Hollywood	http://www.ticketmaster.com			2009-04-11 22:52:30.10975	2009-04-11 22:52:30.10975	\N
 113	American Funds	American Funds	Investor	USA			http://www.americanfunds.com/	http://en.wikipedia.org/wiki/American_Funds		2009-04-11 22:52:30.273602	2009-04-11 22:52:30.273602	\N
 114	Barclays Global Investors	Barclays Global Inv.	Investor	USA			http://www.barclaysglobal.com/	http://en.wikipedia.org/wiki/Barclays_Global_Investors		2009-04-11 22:52:30.276347	2009-04-11 22:52:30.276347	\N
@@ -296,7 +378,6 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 58	Canadian Automobile Association	Canadian Auto Ass'n	Nonprofit	Canada	Ontario	Ottawa	http://www.caa.ca/	http://en.wikipedia.org/wiki/Canadian_Automobile_Association		2009-04-11 22:52:29.064841	2009-04-14 22:45:17.269499	Canada
 62	Coal Harbour Residents Association	Coal Harbour Res.	Nonprofit	Canada	B.C.	Vancouver	http://www.ch-ra.ca/	http://en.wikipedia.org/wiki/Coal_Harbour		2009-04-11 22:52:29.074609	2009-04-14 22:46:01.156383	Vancouver
 63	Downtown Eastside Residents’ Association	Dntn Eastside Res.	Nonprofit	Canada	B.C.	Vancouver	http://www.dera.bc.ca/	http://en.wikipedia.org/wiki/Downtown_Eastside_Residents_Association		2009-04-11 22:52:29.077159	2009-04-14 22:46:30.743106	Vancouver
-82	Alma Mater Society of the U. of British Columbia	UBC AMS	Student	Canada	B.C.	Vancouver	http://www.amsubc.ca/	http://en.wikipedia.org/wiki/Alma_Mater_Society_of_the_University_of_British_Columbia	Alma Mater Society of the University of British Columbia	2009-04-11 22:52:30.006212	2009-04-14 22:47:42.042216	Vancouver
 96	University of Victoria Students’ Society	UVic Students' Soc.	Student	Canada	B.C.	Victoria	http://www.uvss.uvic.ca/	None as of January 2009		2009-04-11 22:52:30.072951	2009-04-14 22:48:10.31733	Victoria
 98	Greenpeace	Greenpeace	Nonprofit	Netherlands		Amsterdam	http://www.greenpeace.org	http://en.wikipedia.org/wiki/Greenpeace	28 autonomous branches	2009-04-11 22:52:30.077898	2009-04-14 22:53:54.836364	International
 99	International Corporate Governance Network	ICGN	Nonprofit	United Kingdom	London	London	http://www.icgn.org/	None as of January 2009		2009-04-11 22:52:30.08033	2009-04-14 22:54:47.25649	International
@@ -333,15 +414,59 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 30	Gibsons	Gibsons	Municipal	Canada	B.C.	Gibsons	http://www.gibsons.ca/	http://en.wikipedia.org/wiki/Gibsons,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.936198	2009-04-17 22:01:01.37751	Gibsons
 181	British Columbia School Trustees' Association	B.C. School Trustees	Nonprofit	Canada	B.C.	Vancouver	http://www.bcsta.org	None as of April 2009		2009-04-19 05:38:47.495456	2009-04-19 05:41:26.674009	B.C.
 182	Cyberphyber Media	Cyber	Other	Canada	BC	Vancouver	www.cyberphyber.com		webdesign technical writing video production 	2009-04-20 00:00:00	2009-04-20 06:52:33.91475	Vancouver BC Canada
+109	Microsoft	Microsoft	Corporation	USA	Washington	Redmond	http://www.microsoft.com	http://en.wikipedia.org/wiki/Microsoft	NASDAQ; MSFT	2009-04-11 22:52:30.106784	2009-04-25 23:59:05.930728	International
+82	University of British Columbia Alma Mater Society	UBC AMS	Student	Canada	B.C.	Vancouver	http://www.amsubc.ca/	http://en.wikipedia.org/wiki/Alma_Mater_Society_of_the_University_of_British_Columbia	Alma Mater Society of the University of British Columbia	2009-04-11 22:52:30.006212	2009-04-26 16:22:07.940547	Vancouver
+31	Harrison Hot Springs	Harrison Hot Springs	Municipal	Canada	B.C.	Harrison Hot Springs	http://www.harrisonhotsprings.ca/	http://en.wikipedia.org/wiki/Harrison_Hot_Springs	GVRD, Metro Vancouver	2009-04-11 22:52:28.938574	2009-04-26 17:31:38.892451	Harrison Hot Springs
+51	Vancouver	Vancouver	Municipal	Canada	B.C.	Vancouver	http://www.vancouver.ca/	http://en.wikipedia.org/wiki/Vancouver	GVRD, Metro Vancouver	2009-04-11 22:52:29.046943	2009-04-27 01:36:06.378781	Vancouver
+81	British Columbia	British Columbia	Province	Canada	B.C.	Victoria	http://www.gov.bc.ca/	http://en.wikipedia.org/wiki/British_Columbia		2009-04-11 22:52:29.963613	2009-04-27 03:46:56.577419	B.C.
+183	Google	Google	Corporation	USA	California	Mountain View	http://www.google.com/corporate	http://en.wikipedia.org/wiki/Google		2009-04-27 05:25:53.78648	2009-04-27 05:25:53.78648	International
 \.
 
 
 --
--- Data for Name: communities_websites; Type: TABLE DATA; Schema: public; Owner: app62414
+-- Data for Name: rankings; Type: TABLE DATA; Schema: public; Owner: app62414
 --
 
-COPY communities_websites (community_id, website_id, rank, created_at, updated_at) FROM stdin;
-109	3	\N	2009-04-11 22:52:30.106784	2009-04-11 22:52:30.106784
+COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM stdin;
+1	109	4	7	2009-04-25 20:39:59.679721	2009-04-26 02:05:44.258922
+5	81	8	1	2009-04-26 03:32:03.030836	2009-04-26 03:33:26.74235
+4	81	7	2	2009-04-26 03:31:26.670711	2009-04-26 03:33:39.239403
+6	81	9	0	2009-04-26 03:34:10.258173	2009-04-25 20:45:48.32263
+2	51	5	1	2009-04-26 03:28:14.985658	2009-04-26 03:51:32.740477
+7	51	10	0	2009-04-26 04:01:50.324939	2009-04-26 04:01:50.324939
+8	51	11	0	2009-04-26 04:04:22.050182	2009-04-26 04:04:22.050182
+9	51	12	0	2009-04-26 04:04:59.405157	2009-04-26 04:04:59.405157
+10	51	13	0	2009-04-26 04:05:24.601069	2009-04-26 04:05:24.601069
+11	51	14	0	2009-04-26 04:05:45.166779	2009-04-26 04:05:45.166779
+12	51	15	0	2009-04-26 04:06:04.264213	2009-04-26 04:06:04.264213
+13	51	16	0	2009-04-26 04:06:24.086496	2009-04-26 04:06:24.086496
+3	51	6	1	2009-04-26 03:28:49.235068	2009-04-26 04:06:40.197502
+14	51	17	0	2009-04-26 04:09:48.687333	2009-04-26 04:09:48.687333
+15	51	18	0	2009-04-26 04:10:22.820453	2009-04-26 04:10:22.820453
+16	51	19	0	2009-04-26 04:13:11.929084	2009-04-26 04:13:11.929084
+17	81	20	0	2009-04-26 04:13:44.980972	2009-04-26 04:13:44.980972
+20	81	23	0	2009-04-26 04:16:31.662783	2009-04-26 04:16:31.662783
+21	81	24	0	2009-04-26 04:17:45.773059	2009-04-26 04:17:45.773059
+22	81	25	0	2009-04-26 04:18:06.840899	2009-04-26 04:18:06.840899
+24	5	27	0	2009-04-26 04:20:25.001683	2009-04-26 04:20:25.001683
+23	5	26	1	2009-04-26 04:20:00.488142	2009-04-26 04:20:32.984557
+25	47	28	0	2009-04-26 04:24:57.647541	2009-04-26 04:24:57.647541
+26	50	29	0	2009-04-26 04:25:39.695932	2009-04-26 04:25:39.695932
+29	82	32	0	2009-04-26 04:29:55.442211	2009-04-26 04:29:55.442211
+32	82	35	0	2009-04-26 04:30:53.399567	2009-04-26 04:30:53.399567
+33	82	36	0	2009-04-26 04:31:12.730541	2009-04-26 04:31:12.730541
+28	82	31	1	2009-04-26 04:29:36.549209	2009-04-26 04:31:34.647266
+30	82	33	1	2009-04-26 04:30:12.397586	2009-04-26 04:31:45.094693
+27	82	30	2	2009-04-26 04:29:13.576852	2009-04-26 04:31:51.756804
+34	82	37	0	2009-04-26 04:33:08.955204	2009-04-26 04:33:08.955204
+35	81	38	0	2009-04-26 04:35:00.603925	2009-04-26 04:35:00.603925
+36	84	39	0	2009-04-26 04:39:24.276154	2009-04-26 04:39:24.276154
+37	85	40	0	2009-04-26 04:39:51.535455	2009-04-26 04:39:51.535455
+38	14	41	1	2009-04-26 04:40:34.205842	2009-04-26 04:40:50.154602
+39	181	42	1	2009-04-26 04:42:56.886046	2009-04-26 04:46:40.635983
+40	3	43	1	2009-04-26 04:53:57.355461	2009-04-26 04:54:02.42596
+41	109	44	2	2009-04-26 05:20:07.087537	2009-04-26 05:20:20.085529
+31	82	34	1	2009-04-26 04:30:30.862622	2009-04-27 05:30:34.816801
 \.
 
 
@@ -354,7 +479,40 @@ COPY schema_migrations (version) FROM stdin;
 20090411224737
 20090414164116
 20090425000241
-20090425001622
+20090425201039
+20090425231510
+20090426035839
+\.
+
+
+--
+-- Data for Name: votes; Type: TABLE DATA; Schema: public; Owner: app62414
+--
+
+COPY votes (id, ip_address, community_id, website_id, support, created_at, updated_at) FROM stdin;
+1	\N	109	4	\N	2009-04-25 23:37:14.26229	2009-04-25 23:37:14.26229
+2	\N	109	4	\N	2009-04-25 23:53:30.13704	2009-04-25 23:53:30.13704
+3	\N	109	4	\N	2009-04-25 23:54:19.005282	2009-04-25 23:54:19.005282
+4	24.85.86.192	109	4	\N	2009-04-26 01:49:37.363608	2009-04-26 01:49:37.363608
+5	24.85.86.192	109	4	\N	2009-04-26 01:49:57.073294	2009-04-26 01:49:57.073294
+6		1	4	\N	2009-04-25 19:05:08.590595	2009-04-25 19:05:08.590595
+7	24.85.86.192	109	4	\N	2009-04-26 02:05:40.282635	2009-04-26 02:05:40.282635
+8	24.85.86.192	81	7	\N	2009-04-26 03:31:32.96909	2009-04-26 03:31:32.96909
+9	24.85.86.192	81	8	\N	2009-04-26 03:33:26.722239	2009-04-26 03:33:26.722239
+10	24.85.86.192	81	7	\N	2009-04-26 03:33:36.397254	2009-04-26 03:33:36.397254
+11	24.85.86.192	51	5	\N	2009-04-26 03:51:32.329199	2009-04-26 03:51:32.329199
+12	24.85.86.192	51	6	\N	2009-04-26 04:06:37.624845	2009-04-26 04:06:37.624845
+13	24.85.86.192	5	26	\N	2009-04-26 04:20:30.394237	2009-04-26 04:20:30.394237
+14	24.85.86.192	82	30	\N	2009-04-26 04:31:21.13658	2009-04-26 04:31:21.13658
+15	24.85.86.192	82	31	\N	2009-04-26 04:31:32.018142	2009-04-26 04:31:32.018142
+16	24.85.86.192	82	33	\N	2009-04-26 04:31:40.188782	2009-04-26 04:31:40.188782
+17	24.85.86.192	82	30	\N	2009-04-26 04:31:49.805371	2009-04-26 04:31:49.805371
+18	24.85.86.192	14	41	\N	2009-04-26 04:40:50.1178	2009-04-26 04:40:50.1178
+19	24.85.86.192	181	42	\N	2009-04-26 04:46:38.811455	2009-04-26 04:46:38.811455
+20	24.85.86.192	3	43	\N	2009-04-26 04:54:00.460082	2009-04-26 04:54:00.460082
+21	24.85.86.192	109	44	\N	2009-04-26 05:20:10.238236	2009-04-26 05:20:10.238236
+22	24.85.86.192	109	44	\N	2009-04-26 05:20:17.207917	2009-04-26 05:20:17.207917
+23	24.85.86.192	82	34	\N	2009-04-27 05:30:31.190657	2009-04-27 05:30:31.190657
 \.
 
 
@@ -366,6 +524,45 @@ COPY websites (id, url, title, created_at, updated_at) FROM stdin;
 1	http://thecrandreagoupr.blogspot.com/	Activism - The Crandrea Group	2009-04-25 01:31:44.406356	2009-04-25 01:31:44.406356
 2	http://www.networkworld.com/community/blog/1926	Microsoft Subnet Blog	2009-04-25 02:42:54.585305	2009-04-25 02:42:54.585305
 3	http://thecrandreagoupr.blogspot.com/	Activism - The Crandrea Group	2009-04-25 03:37:43.550101	2009-04-25 03:37:43.550101
+4	http://thecrandreagoupr.blogspot.com/	Activism - The Crandrea Group	2009-04-25 20:39:59.598613	2009-04-25 20:39:59.598613
+5	http://stephenrees.wordpress.com/	Stephen Rees	2009-04-26 03:28:13.969479	2009-04-26 03:28:13.969479
+6	http://www.francesbula.com/	State of Vancouver by Frances Bula	2009-04-26 03:28:49.225825	2009-04-26 03:28:49.225825
+7	http://stephenrees.wordpress.com/	Stephen Rees	2009-04-26 03:31:26.604305	2009-04-26 03:31:26.604305
+8	http://www.publiceyeonline.com/	Public Eye Online	2009-04-26 03:32:02.988548	2009-04-26 03:32:02.988548
+9	http://billtieleman.blogspot.com/	Bill Tieleman	2009-04-26 03:34:09.857606	2009-04-26 03:34:09.857606
+10	http://www.thevancouverobserver.com/	The Vancouver Observer	2009-04-26 04:01:50.159167	2009-04-26 04:01:50.159167
+11	http://thetyee.ca/	The Tyee	2009-04-26 04:04:22.039986	2009-04-26 04:04:22.039986
+12	http://davideby.blogspot.com/	David Eby	2009-04-26 04:04:59.395141	2009-04-26 04:04:59.395141
+13	http://www.paulhillsdon.com/blog/	Paul Hillsdon	2009-04-26 04:05:24.59175	2009-04-26 04:05:24.59175
+14	http://www.beyondrobson.com/	Beyond Robson	2009-04-26 04:05:45.023351	2009-04-26 04:05:45.023351
+15	http://pricetags.wordpress.com/	Price Tags	2009-04-26 04:06:04.239695	2009-04-26 04:06:04.239695
+16	http://www.miss604.com/	Miss 604	2009-04-26 04:06:24.077052	2009-04-26 04:06:24.077052
+17	http://hummingbird604.com/	Hummingbird604.com	2009-04-26 04:09:48.576112	2009-04-26 04:09:48.576112
+18	http://thebernermonologues.blogspot.com/	David Talks/The Berner Monologues	2009-04-26 04:10:22.810026	2009-04-26 04:10:22.810026
+19	http://jnarvey.com/	Currents	2009-04-26 04:13:11.919331	2009-04-26 04:13:11.919331
+20	http://jnarvey.com/	Currents	2009-04-26 04:13:44.972037	2009-04-26 04:13:44.972037
+23	http://thetyee.ca/	The Tyee	2009-04-26 04:16:31.653647	2009-04-26 04:16:31.653647
+24	http://davideby.blogspot.com/	David Eby	2009-04-26 04:17:45.715795	2009-04-26 04:17:45.715795
+25	http://www.paulhillsdon.com/blog/	Paul Hillsdon	2009-04-26 04:18:06.827087	2009-04-26 04:18:06.827087
+26	http://thetyee.ca/	The Tyee	2009-04-26 04:20:00.479713	2009-04-26 04:20:00.479713
+27	http://jnarvey.com/	Currents	2009-04-26 04:20:24.992919	2009-04-26 04:20:24.992919
+28	http://stephenrees.wordpress.com/	Stephen Rees	2009-04-26 04:24:57.606095	2009-04-26 04:24:57.606095
+29	http://www.paulhillsdon.com/blog/	Paul Hillsdon	2009-04-26 04:25:39.601611	2009-04-26 04:25:39.601611
+30	http://ubcspectator.blogspot.com/	The UBC Spectator	2009-04-26 04:29:13.5683	2009-04-26 04:29:13.5683
+31	http://radicalbeer.wordpress.com/	Radical Beer Tribune	2009-04-26 04:29:36.540135	2009-04-26 04:29:36.540135
+32	http://ubcstudentmedia.wordpress.com/	UBC Student Media	2009-04-26 04:29:55.43279	2009-04-26 04:29:55.43279
+33	http://ubcinsiders.blogspot.com/	UBC Insiders	2009-04-26 04:30:12.388076	2009-04-26 04:30:12.388076
+34	http://www.knollubc.ca/	The Knoll	2009-04-26 04:30:30.853872	2009-04-26 04:30:30.853872
+35	http://fairvoteubc.wordpress.com/	Fair Vote UBC	2009-04-26 04:30:53.390624	2009-04-26 04:30:53.390624
+36	http://www.ubcdevil.com/	The Devil's Advocate	2009-04-26 04:31:12.721146	2009-04-26 04:31:12.721146
+37	http://blogs.ubc.ca/phoebeyu	UBC Years	2009-04-26 04:33:08.94648	2009-04-26 04:33:08.94648
+38	http://www.bcvote.ca/	BC Vote	2009-04-26 04:35:00.595335	2009-04-26 04:35:00.595335
+39	http://oncampus.macleans.ca/education	Macleans OnCampus	2009-04-26 04:39:24.26765	2009-04-26 04:39:24.26765
+40	http://oncampus.macleans.ca/education	Macleans OnCampus	2009-04-26 04:39:51.488459	2009-04-26 04:39:51.488459
+41	http://communities.canada.com/vancouversun/blogs/reportcard/default.aspx	The Report Card	2009-04-26 04:40:34.140233	2009-04-26 04:40:34.140233
+42	http://communities.canada.com/vancouversun/blogs/reportcard/default.aspx	The Report Card	2009-04-26 04:42:56.877205	2009-04-26 04:42:56.877205
+43	http://www.earsay.com/standonguardforcbc/	Stand On Guard For CBC	2009-04-26 04:53:57.174347	2009-04-26 04:53:57.174347
+44	http://www.networkworld.com/community/blog/1926	Microsoft Subnet Blog	2009-04-26 05:20:07.030718	2009-04-26 05:20:07.030718
 \.
 
 
@@ -378,6 +575,22 @@ ALTER TABLE ONLY communities
 
 
 --
+-- Name: rankings_pkey; Type: CONSTRAINT; Schema: public; Owner: app62414; Tablespace: 
+--
+
+ALTER TABLE ONLY rankings
+    ADD CONSTRAINT rankings_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: votes_pkey; Type: CONSTRAINT; Schema: public; Owner: app62414; Tablespace: 
+--
+
+ALTER TABLE ONLY votes
+    ADD CONSTRAINT votes_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: websites_pkey; Type: CONSTRAINT; Schema: public; Owner: app62414; Tablespace: 
 --
 
@@ -386,10 +599,10 @@ ALTER TABLE ONLY websites
 
 
 --
--- Name: index_communities_websites_on_community_id_and_website_id; Type: INDEX; Schema: public; Owner: app62414; Tablespace: 
+-- Name: index_rankings_on_community_id_and_website_id; Type: INDEX; Schema: public; Owner: app62414; Tablespace: 
 --
 
-CREATE UNIQUE INDEX index_communities_websites_on_community_id_and_website_id ON communities_websites USING btree (community_id, website_id);
+CREATE UNIQUE INDEX index_rankings_on_community_id_and_website_id ON rankings USING btree (community_id, website_id);
 
 
 --

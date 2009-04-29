@@ -1,60 +1,87 @@
+<title>VoterMedia: <%=h @community.short_name %></title>
+
 <p>
-  <h1 id="heading1">&nbsp;<%=h @community.name %></h1>
+  <h1 id="heading1"><%=h @community.name %></h1>
 </p>
 
 <div id="community-box">
 
+  <p>
   <b>Type of community:</b>
   <%=h @community.category %>
-  <br />
+  </p>
 
+  <p>
   <b>Headquarters:</b>
   <%=h @community.city %>&nbsp
   <%=h @community.prov_state %>&nbsp
   <%=h @community.country %>
-  <br />
+  </p>
 
+  <p>
   <b>Regional scope:</b>
   <%=h @community.scope %>
-  <br />
+  </p>
 
+  <p>
   <b>Official website:</b>
   <%= auto_link_urls(@community.official_url, :target => "_blank") %>
-  <br />
+  </p>
 
+  <p>
   <b>Wiki:</b>
    <%= auto_link_urls(@community.wiki_url, :target => "_blank") %>
-  <br />
+  </p>
 
   <b>Description & keywords:</b>
-  <%= truncate(@community.description, 100) %>
-  <br />
+  <%= truncate(@community.description, 200) %>
+  </p>
 
+  <p>
   <%= link_to 'Edit community data', edit_community_path(@community) %>
-
+  </p>
+  
 </div>
 
 <h3>Which websites/blogs deserve more support from the <%=h @community.short_name %> voter community?</h3>
 
-<table id="community-list">
-  <tr class="community-list-header">
-    <td class="community-other-header">Rank</td>
-    <td class="community-other-header">Your Vote</td>
-    <td class="community-name-header">Website/Blog</td>
-    <td class="community-other-header">Date added</td>
-  </tr>
+<% if @community.websites.count > 0 %>
 
-<% for website in @websites %>
-  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-    <td class="community-other"><%=h website[:rank] %></td>
-    <td class="community-other"><%= button_to 'Vote' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
-    <td class="community-name"><b><a href ="<%= website[:website].url %>" target="_blank"><%=h website[:website].title %></a></b></td>
+  Vote for as many as you like,: [link to voting faq]<br /><br />
+
+  <table id="community-list">
+    <tr class="community-list-header">
+      <td class="community-other-header">Votes</td>
+      <td class="community-other-header">Your Vote</td>
+      <td class="community-name-header">Website/Blog</td>
+      <td class="community-other-header">Date added</td>
+    </tr>
+
+  <% for website in @websites %>
+    <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+      <td class="community-other"><%= number_with_precision(website[:rank], 2) %></td>
+      <td class="community-other"><%= button_to 'Support' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
+      <td class="community-name"><b><a href ="<%= website[:website].url %>" target="_blank"><%=h truncate(website[:website].title, 40) %></a></b></td>
 <!-- Why doesn't the first part create any output?: -->
-    <td class="community-other"><%=h website[:created_at] %> <%=h website[:website].created_at.to_s(:date) %></td>
-  </tr>
-<% end %>
-</table>
+      <td class="community-other"><%=h website[:created_at] %> <%=h website[:website].created_at.to_s(:date) %></td>
+    </tr>
+  <% end %>
+  </table>
 
-<br/>
-<%= link_to 'Add a website/blog to this community', new_website_path(:community => @community) %>
-<br /><br />
+  <br/>
+  <%= link_to 'Add a website/blog to this community', new_website_path(:community => @community) %>
+  <br />
+  
+<% else %>
+
+  <p>
+  So far no one has added a website/blog to this community. You can <%= link_to 'add one here', new_website_path(:community => @community) %>.<br />
+  If you don't know of one, try searching e.g. for 
+  "<a href="http://www.google.ca/search?q=<%=h @community.short_name %>+election+blog" target="_blank"><%=h @community.short_name %> election blog</a>".<br />
+  If you still don't find one, how about creating one?! 
+  It's easy with free tools at sites like <a href="http://wordpress.com" target="_blank">Wordpress</a> or <a href="http://blogger.com" target="_blank">Blogger</a>.
+  </p>
+
+<% end %>
+
+<br />

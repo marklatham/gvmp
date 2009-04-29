@@ -8,15 +8,20 @@ body, p, ol, ul, td {
 
 #heading1 {
   line-height: 26px;
+  padding-left: 10px;
 }
 
 #community-box {
   border: 1px solid black;
-  padding-left: 1em;
+  background-color: #eee;
+  padding-left: 10px;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
-  background-color: #eee;
-  line-height: 24px;
+
+}
+
+#community-box p {
+  line-height: 12px;
 }
 
 pre {

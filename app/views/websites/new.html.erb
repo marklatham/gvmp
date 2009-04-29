@@ -1,4 +1,6 @@
-<h2>Add a website/blog to <%=h @community.short_name %> community ranking</h2>
+<title>VoterMedia: Add website to <%=h @community.short_name %> ranking</title>
+
+<h2>Add a website/blog to <%=h @community.short_name %> voter community ranking:</h2>
 
 <% form_for @website, :url => { :action => :create, :community => @community} do |f| %>
   <%= f.error_messages %>

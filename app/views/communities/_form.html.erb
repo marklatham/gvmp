@@ -6,11 +6,11 @@
   </p>
   <p>
     <b class="required">* <%= f.label :name, 'Community name' %></b> [50 characters max]<br />
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :size => 45 %>
   </p>
   <p>
     <b class="required">* <%= f.label :short_name %></b> [20 characters max] (Can be same as Community name if short enough.)<br />
-    <%= f.text_field :short_name %>
+    <%= f.text_field :short_name, :size => 20 %>
   </p>
   <p>
     <b class="required">* <%= f.label :category, 'Type of community' %></b><br />
@@ -25,15 +25,15 @@
   
   <p>
     <b><%= f.label :country %></b> [20 characters max]<br />
-    <%= f.text_field :country %>
+    <%= f.text_field :country, :size => 20 %>
   </p>
   <p>
     <b><%= f.label :prov_state, 'Province/State' %></b> [20 characters max]<br />
-    <%= f.text_field :prov_state %>
+    <%= f.text_field :prov_state, :size => 20 %>
   </p>
   <p>
     <b><%= f.label :city %></b> [30 characters max]<br />
-    <%= f.text_field :city %>
+    <%= f.text_field :city, :size => 30 %>
   </p>
   
   <hr />
@@ -48,10 +48,10 @@
   </p>
   <p>
     <b><%= f.label :wiki_url, 'Wikipedia URL' %></b><br />
-    <%= f.text_field :wiki_url %>
+    <%= f.text_field :wiki_url, :size => 57 %>
   </p>
   <p>
-    <b><%= f.label :description %></b><br />
+    <b><%= f.label :description, 'Description & keywords' %></b><br />
     <%= f.text_area :description, :rows => 8 %>
   </p>
 
