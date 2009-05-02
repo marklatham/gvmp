@@ -14,13 +14,13 @@
 <body id="welcome">
   <div id="banner">
     <%= link_to 'Voter', home_path %><span class="banner2"><%= link_to 'Media.org', home_path %></span>
+    <span class="release"> [alpha pre-release]</span>
   </div>
   <div id="top-bottom-nav">
     <%= link_to 'HOME', home_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    ABOUT &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    FAQ &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    CONTACT &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    PUBLICATIONS
+    <%= link_to 'ABOUT/CONTACT', about_contact_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= link_to 'FAQ', faq_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= link_to 'PUBLICATIONS', publications_path %>
   </div>
   <div id="columns">
     <div id="side">
@@ -65,10 +65,9 @@
   </div>
   <div id="top-bottom-nav">
     <%= link_to 'HOME', home_path %> &nbsp; &nbsp; &nbsp; &nbsp; 
-    FORUM &nbsp; &nbsp; &nbsp; &nbsp; 
-    TERMS &nbsp; &nbsp; &nbsp; &nbsp; 
-    PRIVACY &nbsp; &nbsp; &nbsp; &nbsp; 
-    HOW YOU CAN HELP
+    <%= link_to 'TERMS', terms_path %> &nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= link_to 'PRIVACY', privacy_path %> &nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= link_to 'HOW YOU CAN HELP', how_you_can_help_path %>
   </div>
 </body>
 </html>

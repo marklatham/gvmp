@@ -8,8 +8,13 @@ ActionController::Routing::Routes.draw do |map|
   
   map.home '', :controller => 'welcome', :action => 'index'
   
-  map.about '/about', :controller => 'public', :action => 'about'
-  
+  map.about_contact '/about_contact', :controller => 'public', :action => 'about_contact'
+  map.faq '/faq', :controller => 'public', :action => 'faq'
+  map.publications '/publications', :controller => 'public', :action => 'publications'
+  map.terms '/terms', :controller => 'public', :action => 'terms'
+  map.privacy '/privacy', :controller => 'public', :action => 'privacy'
+  map.how_you_can_help '/how_you_can_help', :controller => 'public', :action => 'how_you_can_help'
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

@@ -59,7 +59,7 @@ a:hover { color: #d00; }
   color: #a00;
   padding-left: 13px;
   padding-bottom: 7px;
-  font-size:   30px;
+  font-size: 30px;
   font-weight: bold;
 }
 #banner a {
@@ -70,6 +70,11 @@ a:hover { color: #d00; }
   color: #444;
 }
 #banner .banner2 a {
+  color: #444;
+}
+#banner .release {
+  font-size: 16px;
+  font-weight: normal;
   color: #444;
 }
 

@@ -61,7 +61,7 @@ ALTER SEQUENCE communities_id_seq OWNED BY communities.id;
 -- Name: communities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('communities_id_seq', 183, true);
+SELECT pg_catalog.setval('communities_id_seq', 193, true);
 
 
 --
@@ -104,7 +104,7 @@ ALTER SEQUENCE rankings_id_seq OWNED BY rankings.id;
 -- Name: rankings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('rankings_id_seq', 41, true);
+SELECT pg_catalog.setval('rankings_id_seq', 71, true);
 
 
 --
@@ -159,7 +159,7 @@ ALTER SEQUENCE votes_id_seq OWNED BY votes.id;
 -- Name: votes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('votes_id_seq', 23, true);
+SELECT pg_catalog.setval('votes_id_seq', 92, true);
 
 
 --
@@ -201,7 +201,7 @@ ALTER SEQUENCE websites_id_seq OWNED BY websites.id;
 -- Name: websites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('websites_id_seq', 44, true);
+SELECT pg_catalog.setval('websites_id_seq', 74, true);
 
 
 --
@@ -239,15 +239,11 @@ ALTER TABLE websites ALTER COLUMN id SET DEFAULT nextval('websites_id_seq'::regc
 COPY communities (id, name, short_name, category, country, prov_state, city, official_url, wiki_url, description, created_at, updated_at, scope) FROM stdin;
 32	Hope	Hope	Municipal	Canada	B.C.	Hope	http://www.hopebc.ca/	http://en.wikipedia.org/wiki/Hope,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.940921	2009-04-11 22:52:28.940921	\N
 33	Kent	Kent	Municipal	Canada	B.C.	Kent	http://www.district.kent.bc.ca/	http://en.wikipedia.org/wiki/Kent,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.943268	2009-04-11 22:52:28.943268	\N
-34	Langley (City)	Langley (City)	Municipal	Canada	B.C.	Langley (City)	http://www.city.langley.bc.ca/	http://en.wikipedia.org/wiki/Langley,_British_Columbia_(city)	GVRD, Metro Vancouver	2009-04-11 22:52:28.975541	2009-04-11 22:52:28.975541	\N
-35	Langley (District Municipality)	Langley (District)	Municipal	Canada	B.C.	Langley (District)	http://www.tol.bc.ca/	http://en.wikipedia.org/wiki/Langley,_British_Columbia_(district_municipality)	GVRD, Metro Vancouver	2009-04-11 22:52:28.978159	2009-04-11 22:52:28.978159	\N
 36	Lillooet	Lillooet	Municipal	Canada	B.C.	Lillooet	http://www.lillooetbc.com/	http://en.wikipedia.org/wiki/Lillooet,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.980576	2009-04-11 22:52:28.980576	\N
 37	Lions Bay	Lions Bay	Municipal	Canada	B.C.	Lions Bay	http://www.lionsbay.citymax.com/page/page/479914.htm	http://en.wikipedia.org/wiki/Lions_Bay	GVRD, Metro Vancouver	2009-04-11 22:52:28.982881	2009-04-11 22:52:28.982881	\N
 38	Maple Ridge	Maple Ridge	Municipal	Canada	B.C.	Maple Ridge	http://www.mapleridge.org/EN/index.html	http://en.wikipedia.org/wiki/Maple_Ridge	GVRD, Metro Vancouver	2009-04-11 22:52:28.985242	2009-04-11 22:52:28.985242	\N
 39	Mission	Mission	Municipal	Canada	B.C.	Mission	http://www.mission.ca/site3.aspx	http://en.wikipedia.org/wiki/District_of_Mission	GVRD, Metro Vancouver	2009-04-11 22:52:28.987557	2009-04-11 22:52:28.987557	\N
 40	New Westminster	New Westminster	Municipal	Canada	B.C.	New Westminster	http://www.newwestcity.ca/	http://en.wikipedia.org/wiki/New_Westminster	GVRD, Metro Vancouver	2009-04-11 22:52:28.989892	2009-04-11 22:52:28.989892	\N
-41	North Vancouver (City)	North Van (City)	Municipal	Canada	B.C.	North Vancouver	http://www.cnv.org/	http://en.wikipedia.org/wiki/North_Vancouver,_British_Columbia_(city)	GVRD, Metro Vancouver	2009-04-11 22:52:28.992266	2009-04-11 22:52:28.992266	\N
-42	North Vancouver (District Municipality)	North Van (District)	Municipal	Canada	B.C.	North Vancouver	http://www.district.north-van.bc.ca/article.asp?c=78	http://en.wikipedia.org/wiki/North_Vancouver,_British_Columbia_(district_municipality)	GVRD, Metro Vancouver	2009-04-11 22:52:28.994659	2009-04-11 22:52:28.994659	\N
 43	Pemberton	Pemberton	Municipal	Canada	B.C.	Pemberton	http://www.pemberton.ca/	http://en.wikipedia.org/wiki/Pemberton,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.997016	2009-04-11 22:52:28.997016	\N
 44	Pitt Meadows	Pitt Meadows	Municipal	Canada	B.C.	Pitt Meadows	http://www.pittmeadows.bc.ca/	http://en.wikipedia.org/wiki/Pitt_Meadows	GVRD, Metro Vancouver	2009-04-11 22:52:28.999333	2009-04-11 22:52:28.999333	\N
 45	Port Coquitlam	Port Coquitlam	Municipal	Canada	B.C.	Port Coquitlam	http://www.city.port-coquitlam.bc.ca/Home_Page.htm	http://en.wikipedia.org/wiki/Port_Coquitlam	GVRD, Metro Vancouver	2009-04-11 22:52:29.001676	2009-04-11 22:52:29.001676	\N
@@ -351,7 +347,6 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 1	Mountain Equipment Co-op	MEC	Co-op	Canada	B.C.	Vancouver	http://mec.ca	http://en.wikipedia.org/wiki/Mountain_Equipment_Co-op		2009-04-11 22:52:28.733021	2009-04-14 18:26:36.981771	Canada
 5	Canada	Canada	Country	Canada	Ontario	Ottawa	http://canada.gc.ca/	http://en.wikipedia.org/wiki/Canada		2009-04-11 22:52:28.781104	2009-04-14 18:27:50.163367	Canada
 2	Ballard Power Systems	Ballard Power	Corporation	Canada	B.C.	Burnaby	http://www.ballard.com/	http://en.wikipedia.org/wiki/Ballard_Power_Systems	TSX, NASDAQ, BLDP	2009-04-11 22:52:28.773431	2009-04-14 22:09:27.166005	Canada, USA
-3	Canadian Broadcasting Corporation	CBC	Corporation	Canada	Ontario	Ottawa	http://www.cbc.radio-canada.ca/	http://en.wikipedia.org/wiki/Canadian_Broadcasting_Corporation	CBC is a crown corporation, not a publicly-traded corporation. So its voter community is all citizens of Canada.	2009-04-11 22:52:28.776363	2009-04-14 22:11:59.889464	Canada
 4	Telus	Telus	Corporation	Canada	B.C.	Burnaby	http://www.telus.com/	http://en.wikipedia.org/wiki/Telus	TSE, T, T.A	2009-04-11 22:52:28.778757	2009-04-14 22:13:32.26464	Canada
 10	Classico condo, 1328 W Pender St, Vancouver	Classico	Homeowner	Canada	B.C.	Vancouver	http://www.theclassico.ca/	None as of March 2009	BCS 460. 1328 West Pender Street, Vancouver, BC, Canada V6E 4T1	2009-04-11 22:52:28.79296	2009-04-14 22:21:11.178295	1328 W Pender St
 11	B.C. Government & Service Employees Union	BCGSEU	Labour	Canada	B.C.	Burnaby	http://www.bcgeu.bc.ca/		British Columbia Government and Service Employees Union	2009-04-11 22:52:28.857262	2009-04-14 22:23:08.712161	B.C.
@@ -420,6 +415,21 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 51	Vancouver	Vancouver	Municipal	Canada	B.C.	Vancouver	http://www.vancouver.ca/	http://en.wikipedia.org/wiki/Vancouver	GVRD, Metro Vancouver	2009-04-11 22:52:29.046943	2009-04-27 01:36:06.378781	Vancouver
 81	British Columbia	British Columbia	Province	Canada	B.C.	Victoria	http://www.gov.bc.ca/	http://en.wikipedia.org/wiki/British_Columbia		2009-04-11 22:52:29.963613	2009-04-27 03:46:56.577419	B.C.
 183	Google	Google	Corporation	USA	California	Mountain View	http://www.google.com/corporate	http://en.wikipedia.org/wiki/Google		2009-04-27 05:25:53.78648	2009-04-27 05:25:53.78648	International
+35	Langley (District Municipality)	Langley (District)	Municipal	Canada	B.C.	Langley (District)	http://www.tol.bc.ca/	http://en.wikipedia.org/wiki/Langley,_British_Columbia_(district_municipality)	Langley District Municipality (also called Langley Township) is not to be confused with the smaller "<a href="./34">City of Langley</a>".  GVRD, Metro Vancouver	2009-04-11 22:52:28.978159	2009-04-27 16:38:28.517528	Langley (District)
+34	Langley (City)	Langley (City)	Municipal	Canada	B.C.	Langley (City)	http://www.city.langley.bc.ca/	http://en.wikipedia.org/wiki/Langley,_British_Columbia_(city)	The City of Langley is not to be confused with the larger "<a href="./35">Township of Langley</a>" (also called "Langley District Municipality"). GVRD, Metro Vancouver.	2009-04-11 22:52:28.975541	2009-04-27 16:39:10.421462	Langley (City)
+42	North Vancouver (District Municipality)	North Van (District)	Municipal	Canada	B.C.	North Vancouver (District)	http://www.district.north-van.bc.ca/	http://en.wikipedia.org/wiki/North_Vancouver,_British_Columbia_(district_municipality)	The City of North Vancouver is distinct from the adjacent <a href="./41">District of North Vancouver</a>. GVRD, Metro Vancouver.	2009-04-11 22:52:28.994659	2009-04-27 17:01:10.012916	North Vancouver (District)
+41	North Vancouver (City)	North Van (City)	Municipal	Canada	B.C.	North Vancouver (City)	http://www.cnv.org/	http://en.wikipedia.org/wiki/North_Vancouver,_British_Columbia_(city)	The City of North Vancouver is distinct from the adjacent <a href="./42">District of North Vancouver</a>. GVRD, Metro Vancouver.	2009-04-11 22:52:28.992266	2009-04-27 17:01:39.762516	North Vancouver (City)
+184	Claremont	Claremont	Municipal	USA	California	Claremont	http://www.ci.claremont.ca.us/	http://en.wikipedia.org/wiki/Claremont,_California		2009-04-27 18:58:20.199139	2009-04-27 18:58:59.137851	Claremont
+185	Upland	Upland	Municipal	USA	California	Upland	http://www.ci.upland.ca.us/	http://en.wikipedia.org/wiki/Upland,_California		2009-04-27 19:05:42.941165	2009-04-27 19:05:42.941165	Upland
+186	Monrovia	Monrovia	Municipal	USA	California	Monrovia	http://www.ci.monrovia.ca.us/	http://en.wikipedia.org/wiki/Monrovia,_California		2009-04-27 19:13:36.786708	2009-04-27 19:13:36.786708	Monrovia
+187	Los Angeles	Los Angeles	Municipal	USA	California	Los Angeles	http://www.lacity.org/	http://en.wikipedia.org/wiki/Los_angeles		2009-04-27 19:17:47.746	2009-04-27 19:17:47.746	Los Angeles
+3	Canadian Broadcasting Corporation	CBC	Corporation	Canada	Ontario	Ottawa	http://www.cbc.radio-canada.ca/	http://en.wikipedia.org/wiki/Canadian_Broadcasting_Corporation	CBC is a crown corporation, not a publicly traded corporation. So its voter community is all citizens of Canada.	2009-04-11 22:52:28.776363	2009-04-27 19:36:09.392158	Canada
+188	Nanaimo	Nanaimo	Municipal	Canada	B.C.	Nanaimo	http://www.nanaimo.ca/	http://en.wikipedia.org/wiki/Nanaimo	Vancouver Island	2009-04-27 21:45:07.563685	2009-04-27 21:48:31.763897	Nanaimo
+189	London	London	Municipal	Canada	Ontario	London	http://www.london.ca/	http://en.wikipedia.org/wiki/London,_Ontario		2009-04-27 22:37:47.313488	2009-04-27 22:39:09.128676	London
+190	Knoxville	Knoxville	Municipal	USA	Tennessee	Knoxville	http://www.cityofknoxville.org/	http://en.wikipedia.org/wiki/Knoxville		2009-04-27 22:46:06.951347	2009-04-27 22:51:26.801025	Knoxville
+191	Chattanooga	Chattanooga	Municipal	USA	Tennessee	Chattanooga	http://www.chattanooga.gov/	http://en.wikipedia.org/wiki/Chattanooga		2009-04-27 22:55:44.777298	2009-04-27 22:57:02.75595	Chattanooga
+192	Tennessee	Tennessee	State	USA	Tennessee	Nashville	http://www.tennessee.gov/	http://en.wikipedia.org/wiki/Tennessee		2009-04-27 22:58:42.867428	2009-04-27 22:58:42.867428	Tennessee
+193	Nashville	Nashville	Municipal	USA	Tennessee	Nashville				2009-04-27 23:19:05.107022	2009-04-27 23:19:05.107022	Nashville
 \.
 
 
@@ -428,28 +438,19 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 --
 
 COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM stdin;
-1	109	4	7	2009-04-25 20:39:59.679721	2009-04-26 02:05:44.258922
-5	81	8	1	2009-04-26 03:32:03.030836	2009-04-26 03:33:26.74235
 4	81	7	2	2009-04-26 03:31:26.670711	2009-04-26 03:33:39.239403
 6	81	9	0	2009-04-26 03:34:10.258173	2009-04-25 20:45:48.32263
 2	51	5	1	2009-04-26 03:28:14.985658	2009-04-26 03:51:32.740477
 7	51	10	0	2009-04-26 04:01:50.324939	2009-04-26 04:01:50.324939
-8	51	11	0	2009-04-26 04:04:22.050182	2009-04-26 04:04:22.050182
 9	51	12	0	2009-04-26 04:04:59.405157	2009-04-26 04:04:59.405157
 10	51	13	0	2009-04-26 04:05:24.601069	2009-04-26 04:05:24.601069
 11	51	14	0	2009-04-26 04:05:45.166779	2009-04-26 04:05:45.166779
 12	51	15	0	2009-04-26 04:06:04.264213	2009-04-26 04:06:04.264213
-13	51	16	0	2009-04-26 04:06:24.086496	2009-04-26 04:06:24.086496
 3	51	6	1	2009-04-26 03:28:49.235068	2009-04-26 04:06:40.197502
-14	51	17	0	2009-04-26 04:09:48.687333	2009-04-26 04:09:48.687333
 15	51	18	0	2009-04-26 04:10:22.820453	2009-04-26 04:10:22.820453
 16	51	19	0	2009-04-26 04:13:11.929084	2009-04-26 04:13:11.929084
 17	81	20	0	2009-04-26 04:13:44.980972	2009-04-26 04:13:44.980972
-20	81	23	0	2009-04-26 04:16:31.662783	2009-04-26 04:16:31.662783
-21	81	24	0	2009-04-26 04:17:45.773059	2009-04-26 04:17:45.773059
 22	81	25	0	2009-04-26 04:18:06.840899	2009-04-26 04:18:06.840899
-24	5	27	0	2009-04-26 04:20:25.001683	2009-04-26 04:20:25.001683
-23	5	26	1	2009-04-26 04:20:00.488142	2009-04-26 04:20:32.984557
 25	47	28	0	2009-04-26 04:24:57.647541	2009-04-26 04:24:57.647541
 26	50	29	0	2009-04-26 04:25:39.695932	2009-04-26 04:25:39.695932
 29	82	32	0	2009-04-26 04:29:55.442211	2009-04-26 04:29:55.442211
@@ -457,7 +458,6 @@ COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM 
 33	82	36	0	2009-04-26 04:31:12.730541	2009-04-26 04:31:12.730541
 28	82	31	1	2009-04-26 04:29:36.549209	2009-04-26 04:31:34.647266
 30	82	33	1	2009-04-26 04:30:12.397586	2009-04-26 04:31:45.094693
-27	82	30	2	2009-04-26 04:29:13.576852	2009-04-26 04:31:51.756804
 34	82	37	0	2009-04-26 04:33:08.955204	2009-04-26 04:33:08.955204
 35	81	38	0	2009-04-26 04:35:00.603925	2009-04-26 04:35:00.603925
 36	84	39	0	2009-04-26 04:39:24.276154	2009-04-26 04:39:24.276154
@@ -465,8 +465,48 @@ COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM 
 38	14	41	1	2009-04-26 04:40:34.205842	2009-04-26 04:40:50.154602
 39	181	42	1	2009-04-26 04:42:56.886046	2009-04-26 04:46:40.635983
 40	3	43	1	2009-04-26 04:53:57.355461	2009-04-26 04:54:02.42596
-41	109	44	2	2009-04-26 05:20:07.087537	2009-04-26 05:20:20.085529
 31	82	34	1	2009-04-26 04:30:30.862622	2009-04-27 05:30:34.816801
+8	51	11	1	2009-04-26 04:04:22.050182	2009-04-27 05:53:35.101378
+42	35	45	1	2009-04-27 16:27:45.69945	2009-04-27 16:28:03.145666
+43	35	46	0	2009-04-27 16:32:50.156501	2009-04-27 16:32:50.156501
+44	34	47	1	2009-04-27 16:34:21.824588	2009-04-27 16:34:28.913515
+45	42	48	0	2009-04-27 16:56:41.455953	2009-04-27 16:56:41.455953
+46	41	49	0	2009-04-27 16:57:06.099788	2009-04-27 16:57:06.099788
+47	54	50	1	2009-04-27 18:22:52.498443	2009-04-27 18:23:26.895104
+48	184	51	1	2009-04-27 18:59:31.076605	2009-04-27 18:59:44.370751
+49	185	52	0	2009-04-27 19:06:13.840957	2009-04-27 19:06:13.840957
+50	186	53	1	2009-04-27 19:14:40.625855	2009-04-27 19:14:48.494546
+51	171	54	1	2009-04-27 19:15:24.060417	2009-04-27 19:15:34.611098
+52	187	55	1	2009-04-27 19:18:25.166866	2009-04-27 19:18:33.987585
+53	3	56	0	2009-04-27 19:22:16.353083	2009-04-27 19:22:16.353083
+56	3	59	0	2009-04-27 19:33:22.008086	2009-04-27 19:33:22.008086
+55	3	58	1	2009-04-27 19:28:44.106692	2009-04-27 19:33:34.43369
+57	188	60	0	2009-04-27 21:45:42.115482	2009-04-27 21:45:42.115482
+58	188	61	0	2009-04-27 21:47:01.318818	2009-04-27 21:47:01.318818
+59	3	62	1	2009-04-27 21:52:36.462633	2009-04-27 21:52:53.03447
+62	111	65	1	2009-04-27 22:34:15.452204	2009-04-27 22:34:26.833115
+63	189	66	1	2009-04-27 22:38:04.2886	2009-04-27 22:39:18.581882
+64	190	67	1	2009-04-27 22:50:19.877971	2009-04-27 22:50:29.169953
+65	191	68	1	2009-04-27 22:56:09.909669	2009-04-27 22:57:14.327736
+66	192	69	2	2009-04-27 22:59:12.239764	2009-04-27 23:09:23.602092
+67	191	70	0	2009-04-27 23:10:24.28752	2009-04-27 23:10:24.28752
+68	190	71	1	2009-04-27 23:16:29.426343	2009-04-27 23:17:00.103382
+69	193	72	1	2009-04-27 23:19:22.129989	2009-04-27 23:19:41.604318
+70	81	73	0	2009-04-28 03:17:07.33159	2009-04-28 03:17:07.33159
+71	104	74	0	2009-04-28 03:46:25.374014	2009-04-28 03:46:25.374014
+24	5	27	1	2009-04-26 04:20:25.001683	2009-04-29 10:05:57.539067
+61	51	64	1	2009-04-27 21:54:25.858281	2009-04-29 15:15:38.946013
+13	51	16	1	2009-04-26 04:06:24.086496	2009-04-29 15:16:04.492577
+14	51	17	2	2009-04-26 04:09:48.687333	2009-04-29 15:16:12.343931
+20	81	23	2	2009-04-26 04:16:31.662783	2009-04-29 15:16:34.59051
+5	81	8	2	2009-04-26 03:32:03.030836	2009-04-29 15:22:01.686121
+54	3	57	1	2009-04-27 19:25:58.2686	2009-04-29 16:18:07.436448
+27	82	30	1	2009-04-26 04:29:13.576852	2009-04-29 16:34:00.995228
+41	109	44	1	2009-04-26 05:20:07.087537	2009-04-29 16:34:36.330299
+1	109	4	1	2009-04-25 20:39:59.679721	2009-04-29 16:36:01.324613
+23	5	26	2	2009-04-26 04:20:00.488142	2009-04-29 16:42:01.529955
+21	81	24	2	2009-04-26 04:17:45.773059	2009-04-29 17:57:27.760896
+60	5	63	1	2009-04-27 21:53:29.66462	2009-04-29 18:20:56.367502
 \.
 
 
@@ -490,12 +530,8 @@ COPY schema_migrations (version) FROM stdin;
 --
 
 COPY votes (id, ip_address, community_id, website_id, support, created_at, updated_at) FROM stdin;
-1	\N	109	4	\N	2009-04-25 23:37:14.26229	2009-04-25 23:37:14.26229
-2	\N	109	4	\N	2009-04-25 23:53:30.13704	2009-04-25 23:53:30.13704
-3	\N	109	4	\N	2009-04-25 23:54:19.005282	2009-04-25 23:54:19.005282
 4	24.85.86.192	109	4	\N	2009-04-26 01:49:37.363608	2009-04-26 01:49:37.363608
 5	24.85.86.192	109	4	\N	2009-04-26 01:49:57.073294	2009-04-26 01:49:57.073294
-6		1	4	\N	2009-04-25 19:05:08.590595	2009-04-25 19:05:08.590595
 7	24.85.86.192	109	4	\N	2009-04-26 02:05:40.282635	2009-04-26 02:05:40.282635
 8	24.85.86.192	81	7	\N	2009-04-26 03:31:32.96909	2009-04-26 03:31:32.96909
 9	24.85.86.192	81	8	\N	2009-04-26 03:33:26.722239	2009-04-26 03:33:26.722239
@@ -513,6 +549,75 @@ COPY votes (id, ip_address, community_id, website_id, support, created_at, updat
 21	24.85.86.192	109	44	\N	2009-04-26 05:20:10.238236	2009-04-26 05:20:10.238236
 22	24.85.86.192	109	44	\N	2009-04-26 05:20:17.207917	2009-04-26 05:20:17.207917
 23	24.85.86.192	82	34	\N	2009-04-27 05:30:31.190657	2009-04-27 05:30:31.190657
+24	24.85.86.192	51	11	\N	2009-04-27 05:53:29.88	2009-04-27 05:53:29.88
+25	24.85.86.192	35	45	\N	2009-04-27 16:27:58.983806	2009-04-27 16:27:58.983806
+26	24.85.86.192	34	47	\N	2009-04-27 16:34:26.989208	2009-04-27 16:34:26.989208
+27	24.85.86.192	54	50	\N	2009-04-27 18:23:24.84924	2009-04-27 18:23:24.84924
+28	24.85.86.192	184	51	\N	2009-04-27 18:59:42.483086	2009-04-27 18:59:42.483086
+29	24.85.86.192	186	53	\N	2009-04-27 19:14:48.432294	2009-04-27 19:14:48.432294
+30	24.85.86.192	171	54	\N	2009-04-27 19:15:30.298698	2009-04-27 19:15:30.298698
+31	24.85.86.192	187	55	\N	2009-04-27 19:18:31.593527	2009-04-27 19:18:31.593527
+32	24.85.86.192	3	58	\N	2009-04-27 19:33:31.861075	2009-04-27 19:33:31.861075
+33	24.85.86.192	51	17	\N	2009-04-27 21:33:15.497857	2009-04-27 21:33:15.497857
+34	24.85.86.192	3	62	\N	2009-04-27 21:52:46.090881	2009-04-27 21:52:46.090881
+35	24.85.86.192	81	23	\N	2009-04-27 22:04:27.651116	2009-04-27 22:04:27.651116
+36	24.85.86.192	111	65	\N	2009-04-27 22:34:24.078567	2009-04-27 22:34:24.078567
+37	24.85.86.192	189	66	\N	2009-04-27 22:39:15.551751	2009-04-27 22:39:15.551751
+38	24.85.86.192	190	67	\N	2009-04-27 22:50:26.46676	2009-04-27 22:50:26.46676
+39	24.85.86.192	191	68	\N	2009-04-27 22:57:11.069163	2009-04-27 22:57:11.069163
+40	24.85.86.192	192	69	\N	2009-04-27 22:59:18.880959	2009-04-27 22:59:18.880959
+41	24.85.86.192	192	69	\N	2009-04-27 23:09:23.331613	2009-04-27 23:09:23.331613
+42	24.85.86.192	190	71	\N	2009-04-27 23:16:56.055555	2009-04-27 23:16:56.055555
+43	24.85.86.192	193	72	\N	2009-04-27 23:19:39.681979	2009-04-27 23:19:39.681979
+44	90.55.145.200	5	27	\N	2009-04-29 10:05:54.645021	2009-04-29 10:05:54.645021
+45	90.55.145.200	5	26	\N	2009-04-29 10:06:06.260198	2009-04-29 10:06:06.260198
+46	90.55.145.200	5	26	\N	2009-04-29 10:06:15.490978	2009-04-29 10:06:15.490978
+47	90.55.14.198	1	1	\N	2009-04-29 14:20:18.241224	2009-04-29 14:20:18.241224
+48	90.55.14.198	1	1	\N	2009-04-29 14:21:40.925325	2009-04-29 14:21:40.925325
+49	90.55.14.198	1	1	\N	2009-04-29 14:23:30.341305	2009-04-29 14:23:30.341305
+50	90.55.14.198	1	1	\N	2009-04-29 14:26:29.840722	2009-04-29 14:26:29.840722
+51	90.55.14.198	1	1	\N	2009-04-29 14:26:36.571074	2009-04-29 14:26:36.571074
+52	90.55.14.198	1	1	\N	2009-04-29 14:26:41.186949	2009-04-29 14:26:41.186949
+53	90.55.14.198	1	1	\N	2009-04-29 14:26:46.584599	2009-04-29 14:26:46.584599
+54	90.55.14.198	1	1	\N	2009-04-29 14:28:25.852945	2009-04-29 14:28:25.852945
+55	90.55.14.198	1	1	\N	2009-04-29 14:28:29.562285	2009-04-29 14:28:29.562285
+56	90.55.14.198	1	1	\N	2009-04-29 14:29:54.252886	2009-04-29 14:29:54.252886
+57	90.55.14.198	1	1	\N	2009-04-29 14:30:37.522258	2009-04-29 14:30:37.522258
+58	90.55.14.198	1	1	\N	2009-04-29 14:30:42.544833	2009-04-29 14:30:42.544833
+59	90.55.14.198	1	1	\N	2009-04-29 14:30:48.523034	2009-04-29 14:30:48.523034
+60	90.55.14.198	1	1	\N	2009-04-29 14:34:40.694737	2009-04-29 14:34:40.694737
+61	90.55.14.198	1	1	\N	2009-04-29 14:35:59.648177	2009-04-29 14:35:59.648177
+62	90.55.14.198	1	1	\N	2009-04-29 14:43:15.359967	2009-04-29 14:43:15.359967
+63	90.55.14.198	1	1	\N	2009-04-29 14:46:42.229528	2009-04-29 14:46:42.229528
+64	90.55.14.198	1	1	\N	2009-04-29 14:46:47.555803	2009-04-29 14:46:47.555803
+65	90.55.14.198	1	1	\N	2009-04-29 15:01:55.936373	2009-04-29 15:01:55.936373
+66	90.55.14.198	1	1	\N	2009-04-29 15:02:02.753393	2009-04-29 15:02:02.753393
+67	90.55.14.198	1	1	\N	2009-04-29 15:10:33.455987	2009-04-29 15:10:33.455987
+68	90.55.14.198	51	64	\N	2009-04-29 15:15:35.25564	2009-04-29 15:15:35.25564
+69	90.55.14.198	51	64	\N	2009-04-29 15:15:52.059951	2009-04-29 15:15:52.059951
+70	90.55.14.198	51	16	\N	2009-04-29 15:16:01.789687	2009-04-29 15:16:01.789687
+71	90.55.14.198	51	17	\N	2009-04-29 15:16:12.192367	2009-04-29 15:16:12.192367
+72	90.55.14.198	81	23	\N	2009-04-29 15:16:31.875508	2009-04-29 15:16:31.875508
+73	90.55.14.198	81	23	\N	2009-04-29 15:16:45.53324	2009-04-29 15:16:45.53324
+74	90.55.14.198	81	24	\N	2009-04-29 15:21:50.322727	2009-04-29 15:21:50.322727
+75	90.55.14.198	81	8	\N	2009-04-29 15:22:01.663642	2009-04-29 15:22:01.663642
+76	24.85.86.192	3	43	\N	2009-04-29 16:17:56.10822	2009-04-29 16:17:56.10822
+77	24.85.86.192	3	57	\N	2009-04-29 16:18:04.598229	2009-04-29 16:18:04.598229
+78	24.85.86.192	3	57	\N	2009-04-29 16:18:14.080844	2009-04-29 16:18:14.080844
+79	24.85.86.192	82	33	\N	2009-04-29 16:33:45.951582	2009-04-29 16:33:45.951582
+80	24.85.86.192	82	30	\N	2009-04-29 16:34:00.690041	2009-04-29 16:34:00.690041
+81	24.85.86.192	109	4	\N	2009-04-29 16:34:21.908601	2009-04-29 16:34:21.908601
+82	24.85.86.192	109	44	\N	2009-04-29 16:34:36.309585	2009-04-29 16:34:36.309585
+83	24.85.86.192	109	44	\N	2009-04-29 16:35:49.943302	2009-04-29 16:35:49.943302
+84	24.85.86.192	109	4	\N	2009-04-29 16:35:59.275879	2009-04-29 16:35:59.275879
+85	24.85.86.192	81	8	\N	2009-04-29 16:36:21.288552	2009-04-29 16:36:21.288552
+86	24.85.86.192	51	17	\N	2009-04-29 16:37:44.406988	2009-04-29 16:37:44.406988
+87	24.85.86.192	51	6	\N	2009-04-29 16:37:51.516286	2009-04-29 16:37:51.516286
+88	24.85.86.192	51	11	\N	2009-04-29 16:40:28.488549	2009-04-29 16:40:28.488549
+89	24.85.86.192	5	26	\N	2009-04-29 16:42:01.479607	2009-04-29 16:42:01.479607
+90	24.85.86.192	81	24	\N	2009-04-29 17:57:25.647577	2009-04-29 17:57:25.647577
+91	24.85.86.192	109	44	\N	2009-04-29 18:17:42.605233	2009-04-29 18:17:42.605233
+92	24.85.86.192	5	63	\N	2009-04-29 18:20:54.463878	2009-04-29 18:20:54.463878
 \.
 
 
@@ -563,6 +668,36 @@ COPY websites (id, url, title, created_at, updated_at) FROM stdin;
 42	http://communities.canada.com/vancouversun/blogs/reportcard/default.aspx	The Report Card	2009-04-26 04:42:56.877205	2009-04-26 04:42:56.877205
 43	http://www.earsay.com/standonguardforcbc/	Stand On Guard For CBC	2009-04-26 04:53:57.174347	2009-04-26 04:53:57.174347
 44	http://www.networkworld.com/community/blog/1926	Microsoft Subnet Blog	2009-04-26 05:20:07.030718	2009-04-26 05:20:07.030718
+45	http://www.langleypolitics.com/	Langley Politics Dotcom	2009-04-27 16:27:44.440782	2009-04-27 16:27:44.440782
+46	http://www.kimrichter.com/Blog/langleyfreepress.html	Langley Free Press	2009-04-27 16:32:50.107279	2009-04-27 16:32:50.107279
+47	http://www.kimrichter.com/Blog/langleyfreepress.html	Langley Free Press	2009-04-27 16:34:21.756654	2009-04-27 16:34:21.756654
+48	http://northvancouverpolitics.com/	North Vancouver Politics.com	2009-04-27 16:56:40.042032	2009-04-27 16:56:40.042032
+49	http://northvancouverpolitics.com/	North Vancouver Politics.com	2009-04-27 16:57:05.839583	2009-04-27 16:57:05.839583
+50	http://www.piquenewsmagazine.com/	Pique newsmagazine	2009-04-27 18:22:52.440678	2009-04-27 18:22:52.440678
+51	http://claremontca.blogspot.com/	Claremont Insider	2009-04-27 18:59:30.948576	2009-04-27 18:59:30.948576
+52	http://www.allthingsupland.com/	All Things Upland	2009-04-27 19:06:13.83117	2009-04-27 19:06:13.83117
+53	http://thefcblog.com/	The Foothill Cities Blog	2009-04-27 19:14:40.54208	2009-04-27 19:14:40.54208
+54	http://thefcblog.com/	The Foothill Cities Blog	2009-04-27 19:15:23.916696	2009-04-27 19:15:23.916696
+55	http://thefcblog.com/	The Foothill Cities Blog	2009-04-27 19:18:25.15654	2009-04-27 19:18:25.15654
+56	http://publicbroadcasting.ca	publicbroadcasting.ca	2009-04-27 19:22:16.343991	2009-04-27 19:22:16.343991
+57	http://peterjanes.homeip.net/cbc/	Planet CBC	2009-04-27 19:25:58.259955	2009-04-27 19:25:58.259955
+58	http://teamakers.blogspot.com/	The Tea Makers	2009-04-27 19:28:44.098236	2009-04-27 19:28:44.098236
+59	http://peterjanes.ca/blog/	Petroglyphs	2009-04-27 19:33:21.998794	2009-04-27 19:33:21.998794
+60	http://nanaimosouthendvotes.wordpress.com/	South End Votes	2009-04-27 21:45:41.937125	2009-04-27 21:45:41.937125
+61	http://www.gonanaimo.com/blog/	Go Nanaimo Blog	2009-04-27 21:47:01.309096	2009-04-27 21:47:01.309096
+62	http://worththefeetoreadit.wordpress.com/	Worth the Fee to Read It	2009-04-27 21:52:35.425928	2009-04-27 21:52:35.425928
+63	http://worththefeetoreadit.wordpress.com/	Worth the Fee to Read It	2009-04-27 21:53:29.609918	2009-04-27 21:53:29.609918
+64	http://worththefeetoreadit.wordpress.com/	Worth the Fee to Read It	2009-04-27 21:54:25.848351	2009-04-27 21:54:25.848351
+65	http://www.michaelbutler.com/blog/civic/	MB Civic	2009-04-27 22:34:13.944714	2009-04-27 22:34:13.944714
+66	http://thelondonfog.blogspot.com/	The London Fog	2009-04-27 22:38:04.247657	2009-04-27 22:38:04.247657
+67	http://knoxvilletennesseeblog.com/	Knoxville Tennessee Blog	2009-04-27 22:50:19.038134	2009-04-27 22:50:19.038134
+68	http://civicforum.chattablogs.com/	TennesseeTicket.com	2009-04-27 22:56:09.789962	2009-04-27 22:56:09.789962
+69	http://civicforum.chattablogs.com/	TennesseeTicket.com	2009-04-27 22:59:12.200103	2009-04-27 22:59:12.200103
+70	http://chattarati.com/	Chattarati, Chattanooga news and opinion	2009-04-27 23:10:24.173053	2009-04-27 23:10:24.173053
+71	http://knoxify.com/	Knoxify - The insider’s take on what makes Knoxville great	2009-04-27 23:16:29.387581	2009-04-27 23:16:29.387581
+72	http://nashvillest.com/	Nashvillest	2009-04-27 23:19:22.120124	2009-04-27 23:19:22.120124
+73	http://bc2009.com/	BC Election 2009	2009-04-28 03:17:07.25782	2009-04-28 03:17:07.25782
+74	http://votermedia.blogspot.com/	VoterMedia Democracy Blog	2009-04-28 03:46:24.290436	2009-04-28 03:46:24.290436
 \.
 
 
