@@ -7,15 +7,19 @@
 
   <p>
     <%= f.label :url %><br />
-    <%= f.text_field :url %>
+    <%= f.text_field :url, :size => 70 %>
   </p>
   <p>
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :size => 70 %>
   </p>
   <p>
     <%= f.submit "Add" %>
   </p>
 <% end %>
 
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br /><br />
+
+<p><%= link_to("Back to " + @community.short_name + " page", @community) %></p>
+
+<br /><br /><br /><br /><br />

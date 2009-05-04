@@ -61,7 +61,52 @@ ALTER SEQUENCE communities_id_seq OWNED BY communities.id;
 -- Name: communities_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('communities_id_seq', 193, true);
+SELECT pg_catalog.setval('communities_id_seq', 203, true);
+
+
+--
+-- Name: faqs; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
+--
+
+CREATE TABLE faqs (
+    id integer NOT NULL,
+    category character varying(255),
+    "sequence" double precision,
+    importance double precision,
+    question character varying(255),
+    answer text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.faqs OWNER TO app62414;
+
+--
+-- Name: faqs_id_seq; Type: SEQUENCE; Schema: public; Owner: app62414
+--
+
+CREATE SEQUENCE faqs_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.faqs_id_seq OWNER TO app62414;
+
+--
+-- Name: faqs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: app62414
+--
+
+ALTER SEQUENCE faqs_id_seq OWNED BY faqs.id;
+
+
+--
+-- Name: faqs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
+--
+
+SELECT pg_catalog.setval('faqs_id_seq', 22, true);
 
 
 --
@@ -159,7 +204,7 @@ ALTER SEQUENCE votes_id_seq OWNED BY votes.id;
 -- Name: votes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('votes_id_seq', 92, true);
+SELECT pg_catalog.setval('votes_id_seq', 94, true);
 
 
 --
@@ -209,6 +254,13 @@ SELECT pg_catalog.setval('websites_id_seq', 74, true);
 --
 
 ALTER TABLE communities ALTER COLUMN id SET DEFAULT nextval('communities_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: app62414
+--
+
+ALTER TABLE faqs ALTER COLUMN id SET DEFAULT nextval('faqs_id_seq'::regclass);
 
 
 --
@@ -430,6 +482,40 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 191	Chattanooga	Chattanooga	Municipal	USA	Tennessee	Chattanooga	http://www.chattanooga.gov/	http://en.wikipedia.org/wiki/Chattanooga		2009-04-27 22:55:44.777298	2009-04-27 22:57:02.75595	Chattanooga
 192	Tennessee	Tennessee	State	USA	Tennessee	Nashville	http://www.tennessee.gov/	http://en.wikipedia.org/wiki/Tennessee		2009-04-27 22:58:42.867428	2009-04-27 22:58:42.867428	Tennessee
 193	Nashville	Nashville	Municipal	USA	Tennessee	Nashville				2009-04-27 23:19:05.107022	2009-04-27 23:19:05.107022	Nashville
+194	Ontario Teachers' Federation	Ontario Teachers	Labour	Canada	Ontario	Toronto	http://www.otffeo.on.ca/	http://en.wikipedia.org/wiki/Ontario_Teachers%27_Federation	OTF-FEO. Fédération des enseignantes et des enseignants de l'Ontario.	2009-05-02 17:09:22.009663	2009-05-02 18:27:53.99997	Ontario
+195	Ontario Teachers' Pension Plan	OTPP	Investor	Canada	Ontario	Toronto	http://www.otpp.com/	http://en.wikipedia.org/wiki/Ontario_Teachers%27_Pension_Plan		2009-05-02 18:31:28.837986	2009-05-02 18:32:09.625099	Ontario
+196	British Columbia Investment Management Corporation	BCIMC	Investor	Canada	B.C.	Victoria	http://www.bcimc.com/	None as of 2009-05-02		2009-05-02 18:34:41.490623	2009-05-02 18:37:04.762008	B.C.
+197	Ontario	Ontario	Province	Canada	Ontario	Toronto	http://www.ontario.ca/	http://en.wikipedia.org/wiki/Ontario		2009-05-02 19:42:26.505419	2009-05-02 19:44:03.396687	Ontario
+198	Toronto	Toronto	Municipal	Canada	Ontario	Toronto	http://www.toronto.ca/	http://en.wikipedia.org/wiki/Toronto		2009-05-02 19:45:07.204811	2009-05-02 19:45:48.247626	Toronto
+199	Ottawa	Ottawa	Municipal	Canada	Ontario	Ottawa	http://www.ottawa.ca/	http://en.wikipedia.org/wiki/Ottawa		2009-05-02 19:47:02.80887	2009-05-02 19:47:48.818344	Ottawa
+200	Alberta	Alberta	Province	Canada	Alberta	Edmonton	http://alberta.ca/	http://en.wikipedia.org/wiki/Alberta		2009-05-02 19:50:02.498541	2009-05-02 19:50:50.775505	Alberta
+201	Edmonton	Edmonton	Municipal	Canada	Alberta	Edmonton	http://www.edmonton.ca/	http://en.wikipedia.org/wiki/Edmonton		2009-05-02 19:52:42.760044	2009-05-02 19:53:24.251954	Edmonton
+202	Calgary	Calgary	Municipal	Canada	Alberta	Calgary	http://www.calgary.ca/	http://en.wikipedia.org/wiki/Calgary		2009-05-02 19:55:13.45492	2009-05-02 19:55:59.54196	Calgary
+203	San Francisco	San Francisco	Municipal	USA	California	San Francisco	http://www.sfgov.org/	http://en.wikipedia.org/wiki/San_francisco		2009-05-02 19:57:14.627282	2009-05-02 19:58:27.878016	San Francisco
+\.
+
+
+--
+-- Data for Name: faqs; Type: TABLE DATA; Schema: public; Owner: app62414
+--
+
+COPY faqs (id, category, "sequence", importance, question, answer, created_at, updated_at) FROM stdin;
+14	Reasoning	7.4000000000000004	7	Wouldn’t some media award contestants be biased, corrupted by bribery or other influence?	Yes, there are likely to be such biases, just as there are in our current news media. But voter funding will add a new incentive for media to build reputations for serving the public interest, so we can expect them to produce better information.	2009-05-02 02:29:10.848869	2009-05-02 05:09:12.304152
+21	Mechanics	3.2999999999999998	7	How are the communities in VoterMedia chosen? What sort of communities should I add?	VoterMedia.org website users and administrators choose what communities to add to the system. We recommend adding communities with over 1,000 voters and annual budgets over US$200,000. That gives enough scale to make a voted ranking of competing websites/blogs a worthwhile benefit to the community.	2009-05-02 03:23:48.451379	2009-05-02 05:07:19.085697
+22	Mechanics	3.3999999999999999	7	How are the listed websites/blogs chosen? What sort of websites/blogs should I add?	VoterMedia.org website users and administrators decide which websites/blogs to add to a community's list. You should add websites that you think provide a service to that voter community. These can be blogs, or websites for other media like newspapers, radio, TV.\r\n\r\nBut it need not be limited to media. You could add websites/blogs from organizations that provide other community benefits that voters may want to support, including charities, events or whatever.	2009-05-02 03:29:21.41655	2009-05-02 05:07:44.618566
+8	Organization	1.3999999999999999	7	How do you make money? How do you plan to make money?	Our goal is saving the world, not making money. However, money can help get things done, so we invite donations from individuals, foundations, and the communities served by VoterMedia.org. So far the main donor to this project has been Mark Latham.\r\n\r\nIn the long run, we expect most donations to come from the communities we serve. Most of those funds will flow through as awards to the websites/blogs serving those communities, ranked by voters. Donors will be able to designate which community's website ranking the funds will flow to, and whether to donate for the expenses of VoterMedia.org.	2009-05-02 02:21:38.064092	2009-05-02 05:08:19.763134
+9	Reasoning	7.2000000000000002	7	Why should I care about VoterMedia? Why should I use the VoterMedia website? How should I use the VoterMedia website?	VoterMedia.org is designed to benefit you by improving accountability of elected leaders. But we need your help to make it happen. Please add relevant blogs and communities to our system, check out some websites/blogs that serve your communities, and vote for those you think deserve higher rankings. Encourage your communities to fund their top-ranked websites/blogs.	2009-05-02 02:22:19.799531	2009-05-02 05:08:43.071369
+20	Reasoning	7.2999999999999998	7	How does this website help achieve the goals of the VoterMedia project?	This website builds support, exposure and reputation of websites/blogs that many voters consider beneficial. They may also receive financial support, when we get donations.\r\n\r\nThese different kinds of support encourage websites/blogs to help voter communities. We think an important type of community benefit they will provide is a check and balance on the power of elected leaders, increasing accountability and thus improving the leaders' policies, decisions and administration.	2009-05-02 03:20:48.255361	2009-05-02 05:08:54.244
+19	Voting	5.5999999999999996	6	What benefit do top-ranked websites get?	As of 2009-05-01 there are no cash awards yet, though we hope this will change soon. But for now, higher ranked websites/blogs get bragging rights and exposure, presumably bringing more readers and more credibility.	2009-05-02 03:15:44.19245	2009-05-02 05:10:55.22098
+16	Voting	5.4000000000000004	7	How are votes tallied?	We often adjust our tallying method. Here's a description as of 2009-05-01, but it may have been adjusted since then:\r\n\r\nWe count your latest vote for each website/blog, subject to "vote decay through time", which means that votes are weighted according to how old they are. Zero through 10 days old gets 100% weight. After 10 days, a vote's weight diminishes by 2% per day, so that its weight falls to zero when it's 60 days old.\r\n\r\nSo if you vote about once a week (as we suggest), your latest vote will always have 100% weight.	2009-05-02 02:58:51.371802	2009-05-02 06:08:27.171737
+18	Voting	5.5	7	By what criteria should I judge the websites when I vote? What do you mean by "Which websites/blogs deserve more support from the ... voter community?"	You can vote based on any criteria you want. The impact of your vote is to push websites you support upward in the ranking. That means more people will probably read them. And if there are cash awards for higher-ranked blogs (which there were not as of 2009-05-01), then your supported websites might get more funding. So presumably you should vote for websites that you think benefit you more than those currently ranked above them. You might also want to consider whether some websites/blogs are already receiving voter community funds (support) through other channels.\r\n\r\nVoterMedia.org is designed to direct funding to websites/blogs that benefit the voter community. Those that are seen as beneficial by the most voters would thus be ranked higher.	2009-05-02 03:06:45.964231	2009-05-02 20:25:22.158867
+15	Reasoning	7.7000000000000002	5	How do we know whether voter-funded media will actually be beneficial?	No one knows for sure. There have only been a few trials so far; see an assessment in <a href="http://votermedia.blogspot.com/2009/02/ubc-ams-vfm-voting-results.html">this blog post</a>. The arguments in the paper "<a href="http://votermedia.org/publications/GlobalVoterMediaPlatform.pdf">Global Voter Media Platform</a>" are plausible, but the only way to find out is to try it. If voter funding for media is beneficial, we can apply it throughout democratic politics as well as for shareowner voting in corporations. So the potential benefits are huge compared to the cost of trying it out.	2009-05-02 02:29:44.589277	2009-05-02 20:27:37.146961
+13	Reasoning	7.5	7	Why would voter-supported news media be any different from the news media we have now?	Voting is a community service. Information to help people vote better is a public good. So it is not surprising that commercial markets do not supply enough of this public good, especially in terms of its quality. Commercial markets supply goods with personal benefits that people will pay for individually.\r\n\r\nMany experts and other citizens agree that we need to improve our public-interest media (see for example <a href="http://freepress.net">freepress.net</a>). The usual way to pay for public goods is with public funds. Normally public funds are controlled by politicians, but for political information that would be a conflict of interest, so voters should control that funding directly.\r\n\r\nThe incentives that determine which media you pay for individually are different from the incentives for voting public funds. It makes sense to pay for your own entertainment, but when you are influencing the media going to all citizens, it is not in your interest to vote for entertainment for everyone, since most of that wouldn’t benefit you. However, information that helps everyone vote more intelligently does benefit you. It is a public good that lacks the private benefit of entertainment. It is rational to be unwilling to pay as an individual for a public good, but to be willing to vote for everyone to pay for it. So the same citizens who buy <i>People</i> magazine at the checkout stand will vote public funds for serious investigative reporting.	2009-05-02 02:28:26.315419	2009-05-02 20:31:52.162036
+1	Organization	1.1000000000000001	8	What the heck is VoterMedia.org? What's it for? Who is behind this? Why are you doing this? What are your goals? Who is funding it? Who is working on it?	Uh... relax, OK? VoterMedia.org is a public interest project for improving the policies of the world's organizations (governments, corporations, unions, nonprofits etc.) by developing better voter information systems. We are implementing voter funded media as explained in the paper Global Voter Media Platform and our other publications.\r\nThis website is built by a group of volunteers, led by <a href="/about_contact">Mark Latham</a>. We plan to create a nonprofit organization to manage the project, with a board of directors elected by the website's users. We are already practising what we preach, by <a href="/communities/104">inviting websites/blogs to critique VoterMedia.org</a>.\r\nThere's a lot more info on <a href="http://votermedia.org">our old website</a>, which we are gradually copying here to build our next release.	2009-05-02 02:11:00.123558	2009-05-02 20:36:02.763214
+12	Voting	5.2999999999999998	7	How often should/can I vote?	You can vote as often as you like. We count your latest vote for each website/blog. We suggest voting about once a week.	2009-05-02 02:26:39.965393	2009-05-02 21:11:28.008472
+11	Voting	5.2000000000000002	8	How many websites/blogs should/can I vote for?	You can vote for as many websites/blogs as you like. Voting for more websites/blogs does not decrease the weight of each of your votes.\r\n\r\nOf course, it makes the most sense to vote for websites/blogs that you know something about. We suggest voting for those that you think should be ranked higher than they are now.	2009-05-02 02:25:15.952006	2009-05-02 21:13:21.628968
+17	Voting	5.3499999999999996	5	How often do you count the votes?	As of 2009-05-01, we were tallying every vote in real time, updating the ranking in response. (We may adjust this at any time though, and might not update this answer right away.)	2009-05-02 03:03:08.771944	2009-05-02 21:13:38.079917
+10	Mechanics	3.2000000000000002	5	Can I use the VoterMedia.org website without a login? What difference does it make whether I have a login here or not?	Yes, you can use the site without a login. Most functions are available without logging in, including browsing the rankings, voting, adding communities and adding websites.\r\n\r\nWe will gradually be adding more functions, and some of them will need you to log in, e.g. to customize your user interface in various ways.\r\n\r\nAs you become comfortable with using the site, we invite you to create a login and participate more fully in the VoterMedia.org community. We plan to elect a board of directors to oversee the website, and our voting members will be active users with logins.	2009-05-02 02:22:50.554336	2009-05-02 22:10:59.830844
 \.
 
 
@@ -450,7 +536,6 @@ COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM 
 15	51	18	0	2009-04-26 04:10:22.820453	2009-04-26 04:10:22.820453
 16	51	19	0	2009-04-26 04:13:11.929084	2009-04-26 04:13:11.929084
 17	81	20	0	2009-04-26 04:13:44.980972	2009-04-26 04:13:44.980972
-22	81	25	0	2009-04-26 04:18:06.840899	2009-04-26 04:18:06.840899
 25	47	28	0	2009-04-26 04:24:57.647541	2009-04-26 04:24:57.647541
 26	50	29	0	2009-04-26 04:25:39.695932	2009-04-26 04:25:39.695932
 29	82	32	0	2009-04-26 04:29:55.442211	2009-04-26 04:29:55.442211
@@ -489,7 +574,6 @@ COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM 
 64	190	67	1	2009-04-27 22:50:19.877971	2009-04-27 22:50:29.169953
 65	191	68	1	2009-04-27 22:56:09.909669	2009-04-27 22:57:14.327736
 66	192	69	2	2009-04-27 22:59:12.239764	2009-04-27 23:09:23.602092
-67	191	70	0	2009-04-27 23:10:24.28752	2009-04-27 23:10:24.28752
 68	190	71	1	2009-04-27 23:16:29.426343	2009-04-27 23:17:00.103382
 69	193	72	1	2009-04-27 23:19:22.129989	2009-04-27 23:19:41.604318
 70	81	73	0	2009-04-28 03:17:07.33159	2009-04-28 03:17:07.33159
@@ -507,6 +591,8 @@ COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM 
 23	5	26	2	2009-04-26 04:20:00.488142	2009-04-29 16:42:01.529955
 21	81	24	2	2009-04-26 04:17:45.773059	2009-04-29 17:57:27.760896
 60	5	63	1	2009-04-27 21:53:29.66462	2009-04-29 18:20:56.367502
+67	191	70	1	2009-04-27 23:10:24.28752	2009-05-01 18:58:02.458847
+22	81	25	1	2009-04-26 04:18:06.840899	2009-05-02 20:03:22.634292
 \.
 
 
@@ -522,6 +608,7 @@ COPY schema_migrations (version) FROM stdin;
 20090425201039
 20090425231510
 20090426035839
+20090502020217
 \.
 
 
@@ -618,6 +705,8 @@ COPY votes (id, ip_address, community_id, website_id, support, created_at, updat
 90	24.85.86.192	81	24	\N	2009-04-29 17:57:25.647577	2009-04-29 17:57:25.647577
 91	24.85.86.192	109	44	\N	2009-04-29 18:17:42.605233	2009-04-29 18:17:42.605233
 92	24.85.86.192	5	63	\N	2009-04-29 18:20:54.463878	2009-04-29 18:20:54.463878
+93	24.85.86.192	191	70	\N	2009-05-01 18:58:00.271538	2009-05-01 18:58:00.271538
+94	24.85.86.192	81	25	\N	2009-05-02 20:03:22.4112	2009-05-02 20:03:22.4112
 \.
 
 
@@ -707,6 +796,14 @@ COPY websites (id, url, title, created_at, updated_at) FROM stdin;
 
 ALTER TABLE ONLY communities
     ADD CONSTRAINT communities_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: faqs_pkey; Type: CONSTRAINT; Schema: public; Owner: app62414; Tablespace: 
+--
+
+ALTER TABLE ONLY faqs
+    ADD CONSTRAINT faqs_pkey PRIMARY KEY (id);
 
 
 --

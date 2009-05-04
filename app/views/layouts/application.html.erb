@@ -19,11 +19,12 @@
   <div id="top-bottom-nav">
     <%= link_to 'HOME', home_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
     <%= link_to 'ABOUT/CONTACT', about_contact_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    <%= link_to 'FAQ', faq_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-    <%= link_to 'PUBLICATIONS', publications_path %>
+    <%= link_to 'FAQ', faqs_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= link_to 'HOW YOU CAN HELP', how_you_can_help_path %>
   </div>
   <div id="columns">
     <div id="side">
+    <br />
 <!-- Uncomment when create nav links function
       <div id="nav-header">
         My Communities:
@@ -32,9 +33,17 @@
       
       </div>
 -->
+      <div id="search">
+        Find communities:
+        <input type="text" name="fname" size="13" value=" ( not built yet! )" /><br />
+        &nbsp; &nbsp; &nbsp; <input type="submit" value="Search" />
+      </div>
+      <br />
 
+      <div id="nav-header">
+        Featured Communities:
+      </div>
       <div id="nav-table">
-        <p><b>Featured Communities:</b></p>
         <p><a href="/communities/81">British Columbia</a></p>
         <p><a href="/communities/51">Vancouver</a></p>
         <p><a href="/communities/35">Langley (District)</a></p>
@@ -44,14 +53,6 @@
         <p><a href="/communities/191">Chattanooga</a></p>
       </div>
 
-<!-- Uncomment when create search function
-      <div id="search">
-        <br /><br /><br /><br />
-        Find communities:
-        <input type="text" name="fname" size="13" /><br />
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<input type="submit" value="Search" />
-      </div>
--->
     </div>
     <div id="main">
       <% if flash[:notice] -%>
@@ -64,10 +65,10 @@
     </div>
   </div>
   <div id="top-bottom-nav">
-    <%= link_to 'HOME', home_path %> &nbsp; &nbsp; &nbsp; &nbsp; 
-    <%= link_to 'TERMS', terms_path %> &nbsp; &nbsp; &nbsp; &nbsp; 
-    <%= link_to 'PRIVACY', privacy_path %> &nbsp; &nbsp; &nbsp; &nbsp; 
-    <%= link_to 'HOW YOU CAN HELP', how_you_can_help_path %>
+    <%= link_to 'HOME', home_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= link_to 'TERMS', terms_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= link_to 'PRIVACY', privacy_path %> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+    <%= link_to 'PUBLICATIONS', publications_path %>
   </div>
 </body>
 </html>

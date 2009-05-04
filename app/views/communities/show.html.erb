@@ -1,14 +1,14 @@
 <title>VoterMedia: <%=h @community.short_name %></title>
 
 <p>
-  <h1 id="heading1"><%=h @community.name %></h1>
+  <h1><%=h @community.name %></h1>
 </p>
 
 <div id="community-box">
 
   <p>
   <b>Type of community:</b>
-  <%=h @community.category %>
+  <%= @community.category %>
   </p>
 
   <p>
@@ -47,23 +47,24 @@
 
 <% if @community.websites.count > 0 %>
 
-  Vote for as many as you like: [link to voting faq]<br /><br />
+  <p>Vote for as many as you like: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<a href="/faqs#Voting">FAQ&nbsp;on&nbsp;voting</a>]</p>
 
-  <table id="community-list">
-    <tr class="community-list-header">
-      <td class="community-other-header">Votes</td>
-      <td class="community-other-header">Your Vote</td>
-      <td class="community-name-header">Website/Blog</td>
-      <td class="community-other-header">Date added</td>
+  <table id="table1">
+    <tr class="header">
+      <td class="header-centred">Votes</td>
+      <td class="header-centred">Your Vote</td>
+      <td class="header-left">Website/Blog</td>
+      <td class="header-centred">Date added</td>
     </tr>
 
   <% for website in @websites %>
     <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-      <td class="community-other"><%= number_with_precision(website[:rank], 2) %></td>
-      <td class="community-other"><%= button_to 'Support' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
-      <td class="community-name"><b><a href ="<%= website[:website].url %>" target="_blank"><%=h truncate(website[:website].title, 40) %></a></b></td>
+      <td class="cell-centred"><%= number_with_precision(website[:rank], 2) %></td>
+      <td class="cell-centred"><%= button_to 'Support' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
+      <td class="cell-link"><b><a href ="<%= website[:website].url %>" target="_blank"><%= truncate(website[:website].title, 53) %></a></b></td>
 <!-- Why doesn't the first part create any output?: -->
-      <td class="community-other"><%=h website[:created_at] %> <%=h website[:website].created_at.to_s(:date) %></td>
+      <td class="cell-centred"><%=h website[:created_at] %> <%=h website[:website].created_at.to_s(:date) %></td>
+      <td><%= link_to 'Edit', edit_website_path(website[:website]) %></td>
     </tr>
   <% end %>
   </table>

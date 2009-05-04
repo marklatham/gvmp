@@ -11,7 +11,7 @@ class Community < ActiveRecord::Base
   validates_presence_of :category, :message => "(Type) can't be blank"
   
   validates_length_of :name, :maximum => 50
-  validates_length_of :short_name, :maximum => 20
+  validates_length_of :short_name, :maximum => 20, :message => ": please shorten to 20 characters or less"
   validates_length_of :category, :maximum => 20
   validates_length_of :country, :maximum => 20
   validates_length_of :prov_state, :maximum => 20

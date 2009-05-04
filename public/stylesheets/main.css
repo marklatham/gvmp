@@ -6,7 +6,19 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
-#heading1 {
+li {
+  margin-bottom: 0.7em;
+}
+
+ol      {font-weight: bold}
+li span {font-weight: normal}
+ul      {font-weight: normal}
+
+h2 {
+  line-height: 22px;
+}
+
+h1 {
   line-height: 26px;
   padding-left: 10px;
 }
@@ -17,7 +29,6 @@ body, p, ol, ul, td {
   padding-left: 10px;
   padding-bottom: 0.5em;
   margin-bottom: 1em;
-
 }
 
 #community-box p {
@@ -99,7 +110,7 @@ a:hover { color: #d00; }
 
 #side {
   float: left;
-  padding-top: 4em;
+  padding-top: 0.5em;
   padding-bottom: 1em;
   padding-left: 1em;
   width: 12em;
@@ -139,55 +150,77 @@ a:hover { color: #d00; }
   background: white;
 }
 
-#community-list .list-line-odd {
+#table1 .list-line-odd {
   background:   #fff;
 }
 
-#community-list .list-line-even {
+#table1 .list-line-even {
   background:   #eee;
 }
 
-#community-list .add-button {
+#table1 .add-button {
   background:   #fff;
 }
 
-#community-list .community-list-header {
+#table1 .header {
   font-weight: bold;
   color: #fff;
 }
 
-#community-list .community-name-header {
+#table1 .header-left {
   background:   #a00;
   padding-left: 0.5em;
 }
 
-#community-list .community-other-header {
+#table1 .header-centred {
   background:   #a00;
   text-align: center;
   padding-left: 0.5em;
   padding-right: 0.5em;
 }
 
-#community-list .community-name {
+#table1 .cell-link {
   padding-left: 0.5em;
   font-weight: bold;
 }
 
-#community-list .community-name a:link {
+#table1 .cell-link a:link {
   color: #000;
   text-decoration: none;
 }
-#community-list .community-name a:visited {
+#table1 .cell-link a:visited {
   color: #000;
   text-decoration: none;
 }
-#community-list .community-name a:hover {
+#table1 .cell-link a:hover {
   color:#a00;
   text-decoration: underline;
 }
 
-#community-list .community-other {
+#table1 .cell-centred {
   text-align: center;
+}
+
+#faq .category {
+  font-weight: bold;
+  background:   #eee;
+  text-align: center;
+}
+
+#faq .question {
+  font-weight: bold;
+  color:#a00;
+  background:   #eee;
+  padding-left: 0.5em;
+}
+
+#faq .answer {
+  padding-left: 3em;
+  padding-bottom: 1em;
+}
+
+#faq .grey {
+  color: #777;
 }
 
 #columns {

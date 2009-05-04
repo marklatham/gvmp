@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date_sequence: 2009-05-02
+  date_text: MyString
+  title: MyString
+  country: MyString
+  journal: MyString
+
+two:
+  date_sequence: 2009-05-02
+  date_text: MyString
+  title: MyString
+  country: MyString
+  journal: MyString

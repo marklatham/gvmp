@@ -1,0 +1,32 @@
+<title>VoterMedia: Publications</title>
+
+<h1>&nbsp;Publications</h1>
+
+<table id="table1">
+  <tr class="header">
+<!--    <td class="header-centred">Date sequence</td> -->
+    <td class="header-centred">Date</td>
+    <td class="header-left">Title</td>
+    <td class="header-centred">Country</td>
+    <td class="header-centred">Journal [etc]</td>
+  </tr>
+
+<% for pub in @pubs %>
+  <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
+<!--    <td><%=h pub.date_sequence %></td>  -->
+    <td class="cell-centred"><%= pub.date_text %></td>
+    <td class="cell-link"><%= pub.title %></td>
+    <td class="cell-centred"><%= pub.country %></td>
+    <td class="cell-centred"><%= pub.journal %></td>
+    <td><%= link_to 'Edit', edit_pub_path(pub) %></td>
+<!--  <td><%= link_to 'Destroy', pub, :confirm => 'Are you sure?', :method => :delete %></td> -->
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add new publication', new_pub_path %>
+
+<br /><br />
+

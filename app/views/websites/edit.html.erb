@@ -5,16 +5,24 @@
 
   <p>
     <%= f.label :url %><br />
-    <%= f.text_field :url %>
+    <%= f.text_field :url, :size => 70 %>
   </p>
   <p>
     <%= f.label :title %><br />
-    <%= f.text_field :title %>
+    <%= f.text_field :title, :size => 70 %>
   </p>
   <p>
     <%= f.submit "Update" %>
   </p>
 <% end %>
 
-<%= link_to 'Show', @website %> |
-<%= link_to 'Back', websites_path %>
+<br /><br />
+
+<!-- doesn't work: <%= link_to 'Back to community page', @community %>
+<br /><br /><br />  -->
+
+<%= link_to 'Show this website\'s data', @website %>
+<br /><br /><br />
+<%= link_to 'List all websites/blogs', websites_path %>
+
+<br /><br /><br /><br />

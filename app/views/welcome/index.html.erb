@@ -4,23 +4,23 @@
 
 <p>Follow links to community ballots, then vote on website/blog rankings:</p>
 
-<table id="community-list">
-  <tr class="community-list-header">
+<table id="table1">
+  <tr class="header">
     <td></td>
     <td></td>
     <td></td>
-    <td class="community-other-header" colspan="2">--- Headquarters ---</td>
-    <td class="community-other-header">Regional</td>
-    <td class="community-other-header">#web-</td>
+    <td class="header-centred" colspan="2">--- Headquarters ---</td>
+    <td class="header-centred">Regional</td>
+    <td class="header-centred">#web-</td>
   </tr>
-  <tr class="community-list-header">
+  <tr class="header">
     <td></td>
-    <td class="community-name-header">Link to Community Ballot</td>
-    <td class="community-other-header">Type</td>
-    <td class="community-other-header">Country</td>
-    <td class="community-other-header">Prov/State</td>
-    <td class="community-other-header">Scope</td>
-    <td class="community-other-header">sites</td>
+    <td class="header-left">Link to Community Ballot</td>
+    <td class="header-centred">Type</td>
+    <td class="header-centred">Country</td>
+    <td class="header-centred">Prov/State</td>
+    <td class="header-centred">Scope</td>
+    <td class="header-centred">sites</td>
   </tr>
 
   <% for community in @communities %>
@@ -31,15 +31,15 @@
 -->
     </td>
     <div>
-    <td class="community-name"><%= link_to community.name, community %></td>
+    <td class="cell-link"><%= link_to community.name, community %></td>
 <!-- Uncomment when create Add buttons, add heading, delink community names
     <td>&nbsp;<%= link_to "View", community %>&nbsp;</td>
 -->
-    <td class="community-other"><%=h community.category %></td>
-    <td class="community-other"><%=h community.country %></td>
-    <td class="community-other"><%=h community.prov_state %></td>
-    <td class="community-other"><%=h truncate(community.scope, 20) %></td>
-    <td class="community-other"><%=h community.websites.count %></td>
+    <td class="cell-centred"><%= community.category %></td>
+    <td class="cell-centred"><%=h community.country %></td>
+    <td class="cell-centred"><%=h community.prov_state %></td>
+    <td class="cell-centred"><%=h truncate(community.scope, 20) %></td>
+    <td class="cell-centred"><%=h community.websites.count %></td>
     <td>&nbsp;<%= link_to "Edit", edit_community_path(community) %>&nbsp;</td>
     </div>
   </tr>

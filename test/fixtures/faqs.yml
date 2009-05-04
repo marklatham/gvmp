@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  category: MyString
+  sequence: 1.5
+  importance: 1.5
+  question: MyString
+  answer: MyText
+
+two:
+  category: MyString
+  sequence: 1.5
+  importance: 1.5
+  question: MyString
+  answer: MyText
