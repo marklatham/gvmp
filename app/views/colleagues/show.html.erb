@@ -1,0 +1,33 @@
+<p>
+  <b>Given name:</b>
+  <%=h @colleague.given_name %>
+</p>
+
+<p>
+  <b>Family name:</b>
+  <%=h @colleague.family_name %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%=h @colleague.role %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @colleague.email %>
+</p>
+
+<p>
+  <b>Photo:</b>
+  <%=h @colleague.photo %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @colleague.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_colleague_path(@colleague) %> |
+<%= link_to 'Back', colleagues_path %>

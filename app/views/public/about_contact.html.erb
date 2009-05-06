@@ -1,3 +1,5 @@
+<title>VoterMedia: About/Contact</title>
+
 <p>
 <b>VoterMedia.org</b> is a public interest project for improving the policies of the world's organizations 
 (governments, corporations, unions, nonprofits etc.) by developing better voter information systems. 
@@ -6,20 +8,32 @@ We are implementing voter funded media as explained in the paper
 and our other <a href="/publications">publications</a>.
 </p>
 <p>
-This website is built by a group of volunteers, led by Mark Latham. 
+This website is built by a group of volunteers (below). 
 We plan to create a nonprofit organization to manage the project, 
 with a board of directors elected by the website's users.
 We are already practising what we preach, by <a href="/communities/104">inviting websites/blogs to critique VoterMedia.org</a>.
 </p>
 <p>
-There's a lot more info on <a href="http://votermedia.org">our main website</a>, 
+There's a lot more info in the <%= link_to 'FAQ', faqs_path %> and on <a href="http://votermedia.org">our main website</a>, 
 which we are gradually copying here to build our next release.
 </p>
+<br />
 
-<p><b>Main contact:</b></p>
-<b>Mark Latham</b> — Executive Director, VoterMedia.org<br />
-<b>Email:</b> mark[at]votermedia.org<br />
-<b>Voicemail:</b> (604) 608-9779<br />
-<b>Paper mail:</b> 1755 Robson Street #469, Vancouver, B.C., Canada V6G 3B7<br />
-
-<br /><br /><br /><br /><br /><br /><br />
+<table id="colleagues" cellspacing="0" cellpadding="2">
+<% for colleague in @colleagues %>
+  <tr>
+    <td class="photo" rowspan="2"><img src="images/<%=h colleague.photo %>" width="80" height="100" /></td>
+    <td class="upper-cell"><b><%=h colleague.given_name %> <%=h colleague.family_name %></b></td>
+    <td class="upper-cell"><b><%=h colleague.role %></b></td>
+  </tr>
+  <tr>
+    <td class="lower-cell"><%=h colleague.email %></td>
+    <td class="lower-cell"><%= colleague.description %></td>
+  </tr>
+<% end %>
+  <tr>
+    <td></td>
+    <td class="upper-cell"></td>
+    <td class="upper-cell"></td>
+  </tr>
+</table>

@@ -167,11 +167,6 @@ a:hover { color: #d00; }
   color: #fff;
 }
 
-#table1 .header-left {
-  background:   #a00;
-  padding-left: 0.5em;
-}
-
 #table1 .header-centred {
   background:   #a00;
   text-align: center;
@@ -179,8 +174,21 @@ a:hover { color: #d00; }
   padding-right: 0.5em;
 }
 
-#table1 .cell-link {
+#table1 .header-left {
+  background:   #a00;
+  padding-left: 4px;
+}
+
+#table1 .cell-centred {
+  text-align: center;
+}
+ 
+#table1 .cell-left {
   padding-left: 0.5em;
+}
+
+#table1 .cell-link {
+  padding: 4px;
   font-weight: bold;
 }
 
@@ -195,10 +203,6 @@ a:hover { color: #d00; }
 #table1 .cell-link a:hover {
   color:#a00;
   text-decoration: underline;
-}
-
-#table1 .cell-centred {
-  text-align: center;
 }
 
 #faq .category {
@@ -221,6 +225,22 @@ a:hover { color: #d00; }
 
 #faq .grey {
   color: #777;
+}
+
+#colleagues .photo {
+  padding-top: 7px;
+  padding-bottom: 4px;
+  padding-right: 6px;
+}
+
+#colleagues .upper-cell {
+  border-top: 2px solid #c00;
+  padding-top: 6px;
+  padding-bottom: 4px;
+}
+
+#colleagues .lower-cell {
+  padding-bottom: 6px;
 }
 
 #columns {

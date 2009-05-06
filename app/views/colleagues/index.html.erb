@@ -1,0 +1,32 @@
+<h1>Listing colleagues</h1>
+
+<table>
+  <tr>
+    <th>Given name</th>
+    <th>Family name</th>
+    <th>Role</th>
+    <th>Sequence</th>
+    <th>Email</th>
+    <th>Photo</th>
+    <th>Description</th>
+  </tr>
+
+<% for colleague in @colleagues %>
+  <tr>
+    <td><%=h colleague.given_name %></td>
+    <td><%=h colleague.family_name %></td>
+    <td><%=h colleague.role %></td>
+    <td><%=h colleague.sequence %></td>
+    <td><%=h colleague.email %></td>
+    <td><%=h colleague.photo %></td>
+    <td><%= colleague.description %></td>
+    <td><%= link_to 'Show', colleague %></td>
+    <td><%= link_to 'Edit', edit_colleague_path(colleague) %></td>
+    <td><%= link_to 'Destroy', colleague, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New colleague', new_colleague_path %>

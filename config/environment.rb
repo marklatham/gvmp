@@ -60,4 +60,6 @@ Rails::Initializer.run do |config|
   
 end
 
-Time::DATE_FORMATS[:date] = "%B %d, %Y"
+Time::DATE_FORMATS[:text_date] = "%B %d, %Y"
+
+Time::DATE_FORMATS[:Ymd] = "%Y-%m-%d"

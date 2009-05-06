@@ -49,7 +49,7 @@
 
   <p>Vote for as many as you like: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [<a href="/faqs#Voting">FAQ&nbsp;on&nbsp;voting</a>]</p>
 
-  <table id="table1">
+  <table id="table1" cellspacing="0" cellpadding="4">
     <tr class="header">
       <td class="header-centred">Votes</td>
       <td class="header-centred">Your Vote</td>
@@ -63,7 +63,7 @@
       <td class="cell-centred"><%= button_to 'Support' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
       <td class="cell-link"><b><a href ="<%= website[:website].url %>" target="_blank"><%= truncate(website[:website].title, 53) %></a></b></td>
 <!-- Why doesn't the first part create any output?: -->
-      <td class="cell-centred"><%=h website[:created_at] %> <%=h website[:website].created_at.to_s(:date) %></td>
+      <td class="cell-centred"><%=h website[:created_at] %> <%=h website[:website].created_at.to_s(:Ymd) %></td>
       <td><%= link_to 'Edit', edit_website_path(website[:website]) %></td>
     </tr>
   <% end %>

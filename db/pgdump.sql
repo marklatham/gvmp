@@ -15,6 +15,53 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
+-- Name: colleagues; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
+--
+
+CREATE TABLE colleagues (
+    id integer NOT NULL,
+    given_name character varying(255),
+    family_name character varying(255),
+    "role" character varying(255),
+    email character varying(255),
+    photo character varying(255),
+    description text,
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone,
+    "sequence" double precision
+);
+
+
+ALTER TABLE public.colleagues OWNER TO app62414;
+
+--
+-- Name: colleagues_id_seq; Type: SEQUENCE; Schema: public; Owner: app62414
+--
+
+CREATE SEQUENCE colleagues_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.colleagues_id_seq OWNER TO app62414;
+
+--
+-- Name: colleagues_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: app62414
+--
+
+ALTER SEQUENCE colleagues_id_seq OWNED BY colleagues.id;
+
+
+--
+-- Name: colleagues_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
+--
+
+SELECT pg_catalog.setval('colleagues_id_seq', 13, true);
+
+
+--
 -- Name: communities; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
 --
 
@@ -106,7 +153,52 @@ ALTER SEQUENCE faqs_id_seq OWNED BY faqs.id;
 -- Name: faqs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('faqs_id_seq', 22, true);
+SELECT pg_catalog.setval('faqs_id_seq', 23, true);
+
+
+--
+-- Name: pubs; Type: TABLE; Schema: public; Owner: app62414; Tablespace: 
+--
+
+CREATE TABLE pubs (
+    id integer NOT NULL,
+    date_sequence date,
+    date_text character varying(255),
+    title character varying(255),
+    country character varying(255),
+    journal character varying(255),
+    created_at timestamp without time zone,
+    updated_at timestamp without time zone
+);
+
+
+ALTER TABLE public.pubs OWNER TO app62414;
+
+--
+-- Name: pubs_id_seq; Type: SEQUENCE; Schema: public; Owner: app62414
+--
+
+CREATE SEQUENCE pubs_id_seq
+    INCREMENT BY 1
+    NO MAXVALUE
+    NO MINVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.pubs_id_seq OWNER TO app62414;
+
+--
+-- Name: pubs_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: app62414
+--
+
+ALTER SEQUENCE pubs_id_seq OWNED BY pubs.id;
+
+
+--
+-- Name: pubs_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
+--
+
+SELECT pg_catalog.setval('pubs_id_seq', 15, true);
 
 
 --
@@ -149,7 +241,7 @@ ALTER SEQUENCE rankings_id_seq OWNED BY rankings.id;
 -- Name: rankings_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('rankings_id_seq', 71, true);
+SELECT pg_catalog.setval('rankings_id_seq', 72, true);
 
 
 --
@@ -204,7 +296,7 @@ ALTER SEQUENCE votes_id_seq OWNED BY votes.id;
 -- Name: votes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('votes_id_seq', 94, true);
+SELECT pg_catalog.setval('votes_id_seq', 100, true);
 
 
 --
@@ -246,7 +338,14 @@ ALTER SEQUENCE websites_id_seq OWNED BY websites.id;
 -- Name: websites_id_seq; Type: SEQUENCE SET; Schema: public; Owner: app62414
 --
 
-SELECT pg_catalog.setval('websites_id_seq', 74, true);
+SELECT pg_catalog.setval('websites_id_seq', 75, true);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: app62414
+--
+
+ALTER TABLE colleagues ALTER COLUMN id SET DEFAULT nextval('colleagues_id_seq'::regclass);
 
 
 --
@@ -261,6 +360,13 @@ ALTER TABLE communities ALTER COLUMN id SET DEFAULT nextval('communities_id_seq'
 --
 
 ALTER TABLE faqs ALTER COLUMN id SET DEFAULT nextval('faqs_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: app62414
+--
+
+ALTER TABLE pubs ALTER COLUMN id SET DEFAULT nextval('pubs_id_seq'::regclass);
 
 
 --
@@ -285,6 +391,27 @@ ALTER TABLE websites ALTER COLUMN id SET DEFAULT nextval('websites_id_seq'::regc
 
 
 --
+-- Data for Name: colleagues; Type: TABLE DATA; Schema: public; Owner: app62414
+--
+
+COPY colleagues (id, given_name, family_name, "role", email, photo, description, created_at, updated_at, "sequence") FROM stdin;
+2	Bradley	Coleman	Strategy	bradley[at]votermedia.org	bradley_coleman.jpg		2009-05-05 04:59:23.892165	2009-05-05 05:28:40.722944	3
+3	Erez	Maharshak	Website Development	erez[at]votermedia.org			2009-05-05 05:00:09.598643	2009-05-05 05:28:52.640514	6
+4	Fanny	Shen	Website Design	fanny[at]votermedia.org		Web Designer, <a href="http://complexmadesimple.com/">Complex Made Simple</a>	2009-05-05 05:01:34.354893	2009-05-05 05:29:08.33228	5
+5	Greg	Moreno	Website Development	greg.moreno[at]gmail.com			2009-05-05 05:05:59.519358	2009-05-05 05:29:35.996467	6
+6	Junho	Lee	Website Development	junho[at]votermedia.org	junho_lee.jpg	M.Sc., Computer Science	2009-05-05 05:06:58.008792	2009-05-05 05:30:02.578571	6
+1	Mark	Latham	Executive Director	mark[at]votermedia.org	mark_latham.jpg	Voicemail: (604) 608-9779<br />\r\nPaper mail: 1755 Robson Street #469,<br />\r\nVancouver, B.C., Canada V6G 3B7	2009-05-05 04:57:09.954251	2009-05-05 17:02:00.695866	1
+13	Rebecca	Bollwitt	Advisory Board			<a href="http://www.miss604.com/about">Editor, Miss604.com</a>	2009-05-05 06:05:09.413832	2009-05-05 19:43:03.404315	9
+10	Jackie	Cook	Advisory Board			<a href="http://www.fundvotes.com/contact.php">Founder, Fund Votes</a>	2009-05-05 06:02:01.239071	2009-05-05 19:44:42.626254	9
+9	Fred	Cutler	Advisory Board			<a href="http://www.politics.ubc.ca/fcutler">\r\nAssistant Professor of Political Science<br />\r\nUniversity of British Columbia</a>	2009-05-05 06:00:58.215109	2009-05-05 19:45:20.514336	9
+12	Mark	Rubinstein	Advisory Board			<a href="http://www.haas.berkeley.edu/faculty/rubinstein.html">\r\nProfessor of Finance <br />\r\nUniversity of California, Berkeley</a>	2009-05-05 06:04:22.065366	2009-05-05 19:45:54.16807	9
+8	Andy	Eggers	Advisory Board			<a href="http://proxydemocracy.org/about/us">\r\nPresident, ProxyDemocracy</a>	2009-05-05 05:58:33.940366	2009-05-05 19:46:36.411998	9
+11	James	McRitchie	Advisory Board			<a href="http://corpgov.net/">Publisher, CorpGov.net</a>	2009-05-05 06:03:22.290472	2009-05-05 19:48:13.750137	9
+7	Naoya	Makino	Website Development	naoya[at]votermedia.org	naoya_makino.jpg	Computer science student, \r\n<a href="http://www.langara.bc.ca/">Langara College</a>	2009-05-05 05:08:18.900317	2009-05-05 19:51:47.362261	6
+\.
+
+
+--
 -- Data for Name: communities; Type: TABLE DATA; Schema: public; Owner: app62414
 --
 
@@ -301,7 +428,6 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 45	Port Coquitlam	Port Coquitlam	Municipal	Canada	B.C.	Port Coquitlam	http://www.city.port-coquitlam.bc.ca/Home_Page.htm	http://en.wikipedia.org/wiki/Port_Coquitlam	GVRD, Metro Vancouver	2009-04-11 22:52:29.001676	2009-04-11 22:52:29.001676	\N
 46	Port Moody	Port Moody	Municipal	Canada	B.C.	Port Moody	http://www.cityofportmoody.com/default.htm	http://en.wikipedia.org/wiki/Port_Moody	GVRD, Metro Vancouver	2009-04-11 22:52:29.004144	2009-04-11 22:52:29.004144	\N
 47	Richmond	Richmond	Municipal	Canada	B.C.	Richmond	http://www.richmond.ca/home.htm	http://en.wikipedia.org/wiki/Richmond,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:29.037383	2009-04-11 22:52:29.037383	\N
-48	Sechelt	Sechelt	Municipal	Canada	B.C.	Sechelt	http://www.district.sechelt.bc.ca/	http://en.wikipedia.org/wiki/Sechelt	GVRD, Metro Vancouver	2009-04-11 22:52:29.039923	2009-04-11 22:52:29.039923	\N
 49	Squamish	Squamish	Municipal	Canada	B.C.	Squamish	http://www.squamish.ca/	http://en.wikipedia.org/wiki/Squamish	GVRD, Metro Vancouver	2009-04-11 22:52:29.042291	2009-04-11 22:52:29.042291	\N
 50	Surrey	Surrey	Municipal	Canada	B.C.	Surrey	http://www.surrey.ca/default.htm	http://en.wikipedia.org/wiki/Surrey,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:29.044617	2009-04-11 22:52:29.044617	\N
 52	Victoria	Victoria	Municipal	Canada	B.C.	Victoria	http://www.victoria.ca	http://en.wikipedia.org/wiki/Victoria,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:29.049228	2009-04-11 22:52:29.049228	\N
@@ -384,7 +510,6 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 153	Seattle	Seattle	Municipal	USA	Washington	Seattle	http://www.seattle.gov/	http://en.wikipedia.org/wiki/Seattle		2009-04-11 22:52:30.519849	2009-04-11 22:52:30.519849	\N
 155	American Association of Retired Persons	AARP	Nonprofit	USA			http://www.aarp.org/	http://en.wikipedia.org/wiki/AARP		2009-04-11 22:52:30.524813	2009-04-11 22:52:30.524813	\N
 156	American Automobile Association	AAA	Nonprofit	USA			http://www.aaa.com/	http://en.wikipedia.org/wiki/American_Automobile_Association		2009-04-11 22:52:30.527241	2009-04-11 22:52:30.527241	\N
-157	American Medical Association	AMA	Nonprofit	USA			http://www.ama-assn.org/	http://en.wikipedia.org/wiki/American_Medical_Association		2009-04-11 22:52:30.52971	2009-04-11 22:52:30.52971	\N
 158	American Red Cross	American Red Cross	Nonprofit	USA			http://www.redcross.org/	http://en.wikipedia.org/wiki/American_Red_Cross		2009-04-11 22:52:30.532128	2009-04-11 22:52:30.532128	\N
 160	Council of Institutional Investors	CII	Nonprofit	USA			http://www.cii.org/	None as of January 2009		2009-04-11 22:52:30.572074	2009-04-11 22:52:30.572074	\N
 161	Nat'l Assoc. for the Advancement of Colored People	NAACP	Nonprofit	USA			http://www.naacp.org/	http://en.wikipedia.org/wiki/Naacp		2009-04-11 22:52:30.574729	2009-04-11 22:52:30.574729	\N
@@ -453,10 +578,6 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 178	Harvard Undergraduate Council	Harvard Undergrads	Student	USA	Massachusetts	Cambridge	http://www.uc.fas.harvard.edu/	None as of January 2009		2009-04-11 22:52:30.696612	2009-04-14 23:26:45.688674	Cambridge, Boston
 179	MIT Undergraduate Association	MIT Undergrad Ass'n	Student	USA	Massachusetts	Cambridge	http://ua.mit.edu/	None as of January 2009	Massachusetts Institute of Technology Undergraduate Association	2009-04-11 22:52:30.699403	2009-04-14 23:27:06.577704	Cambridge
 180	United States Student Association	US Student Ass'n	Student	USA	DC	Washington	http://www.usstudents.org/	http://en.wikipedia.org/wiki/United_States_Student_Association		2009-04-11 22:52:30.702023	2009-04-14 23:27:55.502411	USA
-9	Westminster Savings Credit Union	Westminster Savings	Credit Union	Canada	B.C.	New Westminster	https://www.wscu.com	None as of January 2009		2009-04-11 22:52:28.790541	2009-04-16 22:30:58.326039	B.C.
-7	North Shore Credit Union	North Shore CU	Credit Union	Canada	B.C.	North Vancouver	https://www.nscu.com/	http://en.wikipedia.org/wiki/North_Shore_Credit_Union		2009-04-11 22:52:28.785897	2009-04-16 22:31:33.658048	B.C.
-6	Coast Capital Savings	Coast Capital	Credit Union	Canada	B.C.	Surrey	https://www.coastcapitalsavings.com/	http://en.wikipedia.org/wiki/Coast_Capital_Savings		2009-04-11 22:52:28.783539	2009-04-16 22:31:50.178061	B.C.
-8	Vancouver City Savings Credit Union	Vancity	Credit Union	Canada	B.C.	Vancouver	https://www.vancity.com/	http://en.wikipedia.org/wiki/Vancity		2009-04-11 22:52:28.788238	2009-04-17 18:29:31.604502	B.C.
 29	Delta	Delta	Municipal	Canada	B.C.	Delta	http://www.delta.com/	http://en.wikipedia.org/wiki/Delta,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.933838	2009-04-17 21:57:29.732036	Delta
 30	Gibsons	Gibsons	Municipal	Canada	B.C.	Gibsons	http://www.gibsons.ca/	http://en.wikipedia.org/wiki/Gibsons,_British_Columbia	GVRD, Metro Vancouver	2009-04-11 22:52:28.936198	2009-04-17 22:01:01.37751	Gibsons
 181	British Columbia School Trustees' Association	B.C. School Trustees	Nonprofit	Canada	B.C.	Vancouver	http://www.bcsta.org	None as of April 2009		2009-04-19 05:38:47.495456	2009-04-19 05:41:26.674009	B.C.
@@ -492,6 +613,12 @@ COPY communities (id, name, short_name, category, country, prov_state, city, off
 201	Edmonton	Edmonton	Municipal	Canada	Alberta	Edmonton	http://www.edmonton.ca/	http://en.wikipedia.org/wiki/Edmonton		2009-05-02 19:52:42.760044	2009-05-02 19:53:24.251954	Edmonton
 202	Calgary	Calgary	Municipal	Canada	Alberta	Calgary	http://www.calgary.ca/	http://en.wikipedia.org/wiki/Calgary		2009-05-02 19:55:13.45492	2009-05-02 19:55:59.54196	Calgary
 203	San Francisco	San Francisco	Municipal	USA	California	San Francisco	http://www.sfgov.org/	http://en.wikipedia.org/wiki/San_francisco		2009-05-02 19:57:14.627282	2009-05-02 19:58:27.878016	San Francisco
+6	Coast Capital Savings	Coast Capital	Credit&nbsp;Union	Canada	B.C.	Surrey	https://www.coastcapitalsavings.com/	http://en.wikipedia.org/wiki/Coast_Capital_Savings		2009-04-11 22:52:28.783539	2009-05-04 06:24:53.158216	B.C.
+7	North Shore Credit Union	North Shore CU	Credit&nbsp;Union	Canada	B.C.	North Vancouver	https://www.nscu.com/	http://en.wikipedia.org/wiki/North_Shore_Credit_Union		2009-04-11 22:52:28.785897	2009-05-04 06:27:22.856726	B.C.
+8	Vancouver City Savings Credit Union	Vancity	Credit&nbsp;Union	Canada	B.C.	Vancouver	https://www.vancity.com/	http://en.wikipedia.org/wiki/Vancity		2009-04-11 22:52:28.788238	2009-05-04 06:27:45.927362	B.C.
+9	Westminster Savings Credit Union	Westminster Savings	Credit&nbsp;Union	Canada	B.C.	New Westminster	https://www.wscu.com	None as of January 2009		2009-04-11 22:52:28.790541	2009-05-04 06:28:07.877946	B.C.
+48	Sechelt	Sechelt	Municipal	Canada	B.C.	Sechelt	http://www.district.sechelt.bc.ca/	http://en.wikipedia.org/wiki/Sechelt	GVRD, Metro Vancouver	2009-04-11 22:52:29.039923	2009-05-06 00:21:40.462841	Sechelt
+157	American Medical Association	AMA	Nonprofit	USA			http://www.ama-assn.org/	http://en.wikipedia.org/wiki/American_Medical_Association		2009-04-11 22:52:30.52971	2009-05-06 00:23:13.068775	USA
 \.
 
 
@@ -504,10 +631,8 @@ COPY faqs (id, category, "sequence", importance, question, answer, created_at, u
 21	Mechanics	3.2999999999999998	7	How are the communities in VoterMedia chosen? What sort of communities should I add?	VoterMedia.org website users and administrators choose what communities to add to the system. We recommend adding communities with over 1,000 voters and annual budgets over US$200,000. That gives enough scale to make a voted ranking of competing websites/blogs a worthwhile benefit to the community.	2009-05-02 03:23:48.451379	2009-05-02 05:07:19.085697
 22	Mechanics	3.3999999999999999	7	How are the listed websites/blogs chosen? What sort of websites/blogs should I add?	VoterMedia.org website users and administrators decide which websites/blogs to add to a community's list. You should add websites that you think provide a service to that voter community. These can be blogs, or websites for other media like newspapers, radio, TV.\r\n\r\nBut it need not be limited to media. You could add websites/blogs from organizations that provide other community benefits that voters may want to support, including charities, events or whatever.	2009-05-02 03:29:21.41655	2009-05-02 05:07:44.618566
 8	Organization	1.3999999999999999	7	How do you make money? How do you plan to make money?	Our goal is saving the world, not making money. However, money can help get things done, so we invite donations from individuals, foundations, and the communities served by VoterMedia.org. So far the main donor to this project has been Mark Latham.\r\n\r\nIn the long run, we expect most donations to come from the communities we serve. Most of those funds will flow through as awards to the websites/blogs serving those communities, ranked by voters. Donors will be able to designate which community's website ranking the funds will flow to, and whether to donate for the expenses of VoterMedia.org.	2009-05-02 02:21:38.064092	2009-05-02 05:08:19.763134
-9	Reasoning	7.2000000000000002	7	Why should I care about VoterMedia? Why should I use the VoterMedia website? How should I use the VoterMedia website?	VoterMedia.org is designed to benefit you by improving accountability of elected leaders. But we need your help to make it happen. Please add relevant blogs and communities to our system, check out some websites/blogs that serve your communities, and vote for those you think deserve higher rankings. Encourage your communities to fund their top-ranked websites/blogs.	2009-05-02 02:22:19.799531	2009-05-02 05:08:43.071369
 20	Reasoning	7.2999999999999998	7	How does this website help achieve the goals of the VoterMedia project?	This website builds support, exposure and reputation of websites/blogs that many voters consider beneficial. They may also receive financial support, when we get donations.\r\n\r\nThese different kinds of support encourage websites/blogs to help voter communities. We think an important type of community benefit they will provide is a check and balance on the power of elected leaders, increasing accountability and thus improving the leaders' policies, decisions and administration.	2009-05-02 03:20:48.255361	2009-05-02 05:08:54.244
 19	Voting	5.5999999999999996	6	What benefit do top-ranked websites get?	As of 2009-05-01 there are no cash awards yet, though we hope this will change soon. But for now, higher ranked websites/blogs get bragging rights and exposure, presumably bringing more readers and more credibility.	2009-05-02 03:15:44.19245	2009-05-02 05:10:55.22098
-16	Voting	5.4000000000000004	7	How are votes tallied?	We often adjust our tallying method. Here's a description as of 2009-05-01, but it may have been adjusted since then:\r\n\r\nWe count your latest vote for each website/blog, subject to "vote decay through time", which means that votes are weighted according to how old they are. Zero through 10 days old gets 100% weight. After 10 days, a vote's weight diminishes by 2% per day, so that its weight falls to zero when it's 60 days old.\r\n\r\nSo if you vote about once a week (as we suggest), your latest vote will always have 100% weight.	2009-05-02 02:58:51.371802	2009-05-02 06:08:27.171737
 18	Voting	5.5	7	By what criteria should I judge the websites when I vote? What do you mean by "Which websites/blogs deserve more support from the ... voter community?"	You can vote based on any criteria you want. The impact of your vote is to push websites you support upward in the ranking. That means more people will probably read them. And if there are cash awards for higher-ranked blogs (which there were not as of 2009-05-01), then your supported websites might get more funding. So presumably you should vote for websites that you think benefit you more than those currently ranked above them. You might also want to consider whether some websites/blogs are already receiving voter community funds (support) through other channels.\r\n\r\nVoterMedia.org is designed to direct funding to websites/blogs that benefit the voter community. Those that are seen as beneficial by the most voters would thus be ranked higher.	2009-05-02 03:06:45.964231	2009-05-02 20:25:22.158867
 15	Reasoning	7.7000000000000002	5	How do we know whether voter-funded media will actually be beneficial?	No one knows for sure. There have only been a few trials so far; see an assessment in <a href="http://votermedia.blogspot.com/2009/02/ubc-ams-vfm-voting-results.html">this blog post</a>. The arguments in the paper "<a href="http://votermedia.org/publications/GlobalVoterMediaPlatform.pdf">Global Voter Media Platform</a>" are plausible, but the only way to find out is to try it. If voter funding for media is beneficial, we can apply it throughout democratic politics as well as for shareowner voting in corporations. So the potential benefits are huge compared to the cost of trying it out.	2009-05-02 02:29:44.589277	2009-05-02 20:27:37.146961
 13	Reasoning	7.5	7	Why would voter-supported news media be any different from the news media we have now?	Voting is a community service. Information to help people vote better is a public good. So it is not surprising that commercial markets do not supply enough of this public good, especially in terms of its quality. Commercial markets supply goods with personal benefits that people will pay for individually.\r\n\r\nMany experts and other citizens agree that we need to improve our public-interest media (see for example <a href="http://freepress.net">freepress.net</a>). The usual way to pay for public goods is with public funds. Normally public funds are controlled by politicians, but for political information that would be a conflict of interest, so voters should control that funding directly.\r\n\r\nThe incentives that determine which media you pay for individually are different from the incentives for voting public funds. It makes sense to pay for your own entertainment, but when you are influencing the media going to all citizens, it is not in your interest to vote for entertainment for everyone, since most of that wouldn’t benefit you. However, information that helps everyone vote more intelligently does benefit you. It is a public good that lacks the private benefit of entertainment. It is rational to be unwilling to pay as an individual for a public good, but to be willing to vote for everyone to pay for it. So the same citizens who buy <i>People</i> magazine at the checkout stand will vote public funds for serious investigative reporting.	2009-05-02 02:28:26.315419	2009-05-02 20:31:52.162036
@@ -516,6 +641,32 @@ COPY faqs (id, category, "sequence", importance, question, answer, created_at, u
 11	Voting	5.2000000000000002	8	How many websites/blogs should/can I vote for?	You can vote for as many websites/blogs as you like. Voting for more websites/blogs does not decrease the weight of each of your votes.\r\n\r\nOf course, it makes the most sense to vote for websites/blogs that you know something about. We suggest voting for those that you think should be ranked higher than they are now.	2009-05-02 02:25:15.952006	2009-05-02 21:13:21.628968
 17	Voting	5.3499999999999996	5	How often do you count the votes?	As of 2009-05-01, we were tallying every vote in real time, updating the ranking in response. (We may adjust this at any time though, and might not update this answer right away.)	2009-05-02 03:03:08.771944	2009-05-02 21:13:38.079917
 10	Mechanics	3.2000000000000002	5	Can I use the VoterMedia.org website without a login? What difference does it make whether I have a login here or not?	Yes, you can use the site without a login. Most functions are available without logging in, including browsing the rankings, voting, adding communities and adding websites.\r\n\r\nWe will gradually be adding more functions, and some of them will need you to log in, e.g. to customize your user interface in various ways.\r\n\r\nAs you become comfortable with using the site, we invite you to create a login and participate more fully in the VoterMedia.org community. We plan to elect a board of directors to oversee the website, and our voting members will be active users with logins.	2009-05-02 02:22:50.554336	2009-05-02 22:10:59.830844
+16	Voting	5.4000000000000004	7	How are votes tallied?	We sometimes adjust our tallying method. Here's a description as of 2009-05-01, but it may have been adjusted since then:\r\n\r\nWe count your latest vote for each website/blog, subject to "vote decay through time", which means that votes are weighted according to how old they are. Zero through 10 days old gets 100% weight. After 10 days, a vote's weight diminishes by 2% per day, so that its weight falls to zero when it's 60 days old.\r\n\r\nSo if you vote about once a week (as we suggest), your latest vote will always have 100% weight.	2009-05-02 02:58:51.371802	2009-05-03 20:56:42.849505
+9	Reasoning	7.2000000000000002	7	Why should I care about VoterMedia? Why should I use the VoterMedia website? How should I use the VoterMedia website?	VoterMedia.org is designed to benefit you by improving accountability of elected leaders. But we need your help to make that happen. Please add relevant blogs and communities to our system, check out some websites/blogs that serve your communities, and vote for those you think deserve higher rankings. Encourage your communities to fund their top-ranked websites/blogs.	2009-05-02 02:22:19.799531	2009-05-04 06:07:06.026648
+23	Voting	5.4500000000000002	7	Do I have to be a member of that particular community to vote on its website/blog ranking?	No. You can vote in any community you care about. Later, we plan to also develop rankings based on votes from community members only, and let users see both rankings. Creating a member-votes-only ranking will require some coordination with the community's administration.	2009-05-04 19:43:24.132957	2009-05-06 00:28:35.414625
+\.
+
+
+--
+-- Data for Name: pubs; Type: TABLE DATA; Schema: public; Owner: app62414
+--
+
+COPY pubs (id, date_sequence, date_text, title, country, journal, created_at, updated_at) FROM stdin;
+1	2009-02-12	February 2009	<a href="/publications/GlobalVoterMediaPlatform.pdf">Global Voter Media Platform</a>	Canada	[working paper]	2009-05-03 03:41:25.919416	2009-05-03 03:43:36.241175
+3	1988-06-07	June 1988	<a href="/publications/VFMidea19880607.pdf">First voter-funded media idea</a>	USA	[letter]	2009-05-03 04:18:10.585402	2009-05-03 04:18:10.585402
+2	2007-04-13	April 2007	<a href="/publications/VoterFundedMedia.pdf">Voter-Funded Media: Governance Reform for Democracies and Corporations</a>	Canada	[working paper]	2009-05-03 04:00:14.109741	2009-05-03 04:20:16.95101
+4	2007-01-01	January 2007	<a href="/publications/ProxyVotingBrandCompetition.pdf">Proxy Voting Brand Competition</a>	USA	<a href="http://www.joim.com/">Journal of Investment Management</a>	2009-05-03 05:04:16.650616	2009-05-03 05:05:00.544369
+5	2006-11-15	November 2006	<a href="/publications/HowUBCCanChangeTheWorld.pdf">How UBC Can Change the World</a>	Canada	[press release]	2009-05-03 05:09:41.278637	2009-05-03 05:09:41.278637
+6	2003-04-15	April 2003	<a href="/publications/DemocracyAndInfomediaries.pdf">Democracy and Infomediaries</a>	UK	<a href="http://www.blackwellpublishing.com/journal.asp?ref=0964-8410&site=1">Corporate Governance: An International Review</a>	2009-05-03 05:13:44.314156	2009-05-03 05:13:44.314156
+7	1999-01-01	January 1999	<a href="/publications/CorporateMonitoringFirm.pdf">The Corporate Monitoring Firm</a>	UK	<a href="http://www.blackwellpublishing.com/journal.asp?ref=0964-8410&site=1">Corporate Governance: An International Review</a>	2009-05-03 05:21:05.020991	2009-05-03 05:21:05.020991
+8	1998-09-30	Sept/Oct 1998	<a href="/publications/CorporateMonitoringNewShareholderPowerTool.pdf">Corporate Monitoring: New Shareholder Power Tool</a>	USA	<a href="http://www.cfapubs.org/loi/faj">Financial Analysts Journal</a>	2009-05-03 05:22:34.131199	2009-05-03 05:23:16.600557
+9	1993-07-15	July 1993	<a href="/publications/ManagementAuditingFirm.pdf">The Management Auditing Firm</a>	USA	[working paper]	2009-05-03 05:25:23.434478	2009-05-03 05:25:23.434478
+10	1997-09-30	Sept/Oct 1997	<a href="/publications/ProposedGovernanceMonitor.pdf">Proposed: A Governance "Monitor"</a>	USA	<a href="http://www.corporateboard.com/">The Corporate Board</a>	2009-05-03 05:27:37.461462	2009-05-03 05:27:37.461462
+11	1998-09-26	Sept 1998	<a href="/publications/HowToTransformAFailedJapaneseBank.pdf">How To Transform a Failed Japanese Bank</a>	USA	[working paper]	2009-05-03 05:29:31.368004	2009-05-03 05:30:35.32268
+13	2005-05-21	May 2005	<a href="/publications/VoteYourStock.pdf">Vote Your Stock</a> <span style="font-weight: normal">[superseded by <a href="/publications/ProxyVotingBrandCompetition.pdf">Proxy Voting Brand Competition</a>]</span>	Canada	[working paper]	2009-05-03 22:43:41.583743	2009-05-03 22:47:20.393321
+14	2004-06-12	June 2004	<a href="http://www.citizensassembly.bc.ca/resources/submissions/csharman-10_0406151124-834.pdf">Presentation favouring STV over MMP</a>	Canada	<a href="http://www.citizensassembly.bc.ca/">British Columbia Citizens' Assembly on Electoral Reform</a>	2009-05-03 22:49:51.037782	2009-05-03 22:53:54.700573
+15	2000-06-15	June 2000	<a href="/publications/InternetWillDriveCorporateMonitoring.pdf">The Internet Will Drive Corporate Monitoring</a>	China (Hong&nbsp;Kong)	<a href="http://www.hkics.org.hk/index.php?_room=10&searchDone=1&_action=detail&_page=39">Corporate Governance International</a>	2009-05-03 22:58:27.474599	2009-05-05 21:40:11.341913
+12	1999-09-15	Sept 1999	<a href="/publications/CollectiveAction.pdf">Collective Action for Dispersed Shareowners</a>	China (Hong&nbsp;Kong)	<a href="http://www.hkics.org.hk/index.php?_room=10&searchDone=1&_action=detail&_page=39">Corporate Governance International</a>	2009-05-03 05:36:45.238489	2009-05-05 21:40:31.166249
 \.
 
 
@@ -529,7 +680,6 @@ COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM 
 2	51	5	1	2009-04-26 03:28:14.985658	2009-04-26 03:51:32.740477
 7	51	10	0	2009-04-26 04:01:50.324939	2009-04-26 04:01:50.324939
 9	51	12	0	2009-04-26 04:04:59.405157	2009-04-26 04:04:59.405157
-10	51	13	0	2009-04-26 04:05:24.601069	2009-04-26 04:05:24.601069
 11	51	14	0	2009-04-26 04:05:45.166779	2009-04-26 04:05:45.166779
 12	51	15	0	2009-04-26 04:06:04.264213	2009-04-26 04:06:04.264213
 3	51	6	1	2009-04-26 03:28:49.235068	2009-04-26 04:06:40.197502
@@ -563,7 +713,6 @@ COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM 
 50	186	53	1	2009-04-27 19:14:40.625855	2009-04-27 19:14:48.494546
 51	171	54	1	2009-04-27 19:15:24.060417	2009-04-27 19:15:34.611098
 52	187	55	1	2009-04-27 19:18:25.166866	2009-04-27 19:18:33.987585
-53	3	56	0	2009-04-27 19:22:16.353083	2009-04-27 19:22:16.353083
 56	3	59	0	2009-04-27 19:33:22.008086	2009-04-27 19:33:22.008086
 55	3	58	1	2009-04-27 19:28:44.106692	2009-04-27 19:33:34.43369
 57	188	60	0	2009-04-27 21:45:42.115482	2009-04-27 21:45:42.115482
@@ -593,6 +742,9 @@ COPY rankings (id, community_id, website_id, rank, created_at, updated_at) FROM 
 60	5	63	1	2009-04-27 21:53:29.66462	2009-04-29 18:20:56.367502
 67	191	70	1	2009-04-27 23:10:24.28752	2009-05-01 18:58:02.458847
 22	81	25	1	2009-04-26 04:18:06.840899	2009-05-02 20:03:22.634292
+72	111	75	1	2009-05-03 16:20:00.645521	2009-05-03 16:20:12.177001
+10	51	13	1	2009-04-26 04:05:24.601069	2009-05-03 21:32:03.778407
+53	3	56	1	2009-04-27 19:22:16.353083	2009-05-04 03:33:00.012511
 \.
 
 
@@ -609,6 +761,9 @@ COPY schema_migrations (version) FROM stdin;
 20090425231510
 20090426035839
 20090502020217
+20090503033828
+20090505045317
+20090505051246
 \.
 
 
@@ -707,6 +862,12 @@ COPY votes (id, ip_address, community_id, website_id, support, created_at, updat
 92	24.85.86.192	5	63	\N	2009-04-29 18:20:54.463878	2009-04-29 18:20:54.463878
 93	24.85.86.192	191	70	\N	2009-05-01 18:58:00.271538	2009-05-01 18:58:00.271538
 94	24.85.86.192	81	25	\N	2009-05-02 20:03:22.4112	2009-05-02 20:03:22.4112
+95	24.85.86.192	111	75	\N	2009-05-03 16:20:07.008123	2009-05-03 16:20:07.008123
+96	24.85.86.192	51	13	\N	2009-05-03 21:32:01.935916	2009-05-03 21:32:01.935916
+97	24.85.86.192	51	13	\N	2009-05-03 21:32:11.976477	2009-05-03 21:32:11.976477
+98	96.49.64.179	3	56	\N	2009-05-04 03:32:57.292451	2009-05-04 03:32:57.292451
+99	96.49.64.179	3	56	\N	2009-05-04 03:33:14.521603	2009-05-04 03:33:14.521603
+100	96.49.64.179	3	56	\N	2009-05-04 03:33:22.77909	2009-05-04 03:33:22.77909
 \.
 
 
@@ -718,51 +879,25 @@ COPY websites (id, url, title, created_at, updated_at) FROM stdin;
 1	http://thecrandreagoupr.blogspot.com/	Activism - The Crandrea Group	2009-04-25 01:31:44.406356	2009-04-25 01:31:44.406356
 2	http://www.networkworld.com/community/blog/1926	Microsoft Subnet Blog	2009-04-25 02:42:54.585305	2009-04-25 02:42:54.585305
 3	http://thecrandreagoupr.blogspot.com/	Activism - The Crandrea Group	2009-04-25 03:37:43.550101	2009-04-25 03:37:43.550101
-4	http://thecrandreagoupr.blogspot.com/	Activism - The Crandrea Group	2009-04-25 20:39:59.598613	2009-04-25 20:39:59.598613
-5	http://stephenrees.wordpress.com/	Stephen Rees	2009-04-26 03:28:13.969479	2009-04-26 03:28:13.969479
-6	http://www.francesbula.com/	State of Vancouver by Frances Bula	2009-04-26 03:28:49.225825	2009-04-26 03:28:49.225825
-7	http://stephenrees.wordpress.com/	Stephen Rees	2009-04-26 03:31:26.604305	2009-04-26 03:31:26.604305
 8	http://www.publiceyeonline.com/	Public Eye Online	2009-04-26 03:32:02.988548	2009-04-26 03:32:02.988548
 9	http://billtieleman.blogspot.com/	Bill Tieleman	2009-04-26 03:34:09.857606	2009-04-26 03:34:09.857606
-10	http://www.thevancouverobserver.com/	The Vancouver Observer	2009-04-26 04:01:50.159167	2009-04-26 04:01:50.159167
-11	http://thetyee.ca/	The Tyee	2009-04-26 04:04:22.039986	2009-04-26 04:04:22.039986
-12	http://davideby.blogspot.com/	David Eby	2009-04-26 04:04:59.395141	2009-04-26 04:04:59.395141
-13	http://www.paulhillsdon.com/blog/	Paul Hillsdon	2009-04-26 04:05:24.59175	2009-04-26 04:05:24.59175
-14	http://www.beyondrobson.com/	Beyond Robson	2009-04-26 04:05:45.023351	2009-04-26 04:05:45.023351
 15	http://pricetags.wordpress.com/	Price Tags	2009-04-26 04:06:04.239695	2009-04-26 04:06:04.239695
-16	http://www.miss604.com/	Miss 604	2009-04-26 04:06:24.077052	2009-04-26 04:06:24.077052
 17	http://hummingbird604.com/	Hummingbird604.com	2009-04-26 04:09:48.576112	2009-04-26 04:09:48.576112
 18	http://thebernermonologues.blogspot.com/	David Talks/The Berner Monologues	2009-04-26 04:10:22.810026	2009-04-26 04:10:22.810026
 19	http://jnarvey.com/	Currents	2009-04-26 04:13:11.919331	2009-04-26 04:13:11.919331
 20	http://jnarvey.com/	Currents	2009-04-26 04:13:44.972037	2009-04-26 04:13:44.972037
-23	http://thetyee.ca/	The Tyee	2009-04-26 04:16:31.653647	2009-04-26 04:16:31.653647
-24	http://davideby.blogspot.com/	David Eby	2009-04-26 04:17:45.715795	2009-04-26 04:17:45.715795
-25	http://www.paulhillsdon.com/blog/	Paul Hillsdon	2009-04-26 04:18:06.827087	2009-04-26 04:18:06.827087
-26	http://thetyee.ca/	The Tyee	2009-04-26 04:20:00.479713	2009-04-26 04:20:00.479713
 27	http://jnarvey.com/	Currents	2009-04-26 04:20:24.992919	2009-04-26 04:20:24.992919
-28	http://stephenrees.wordpress.com/	Stephen Rees	2009-04-26 04:24:57.606095	2009-04-26 04:24:57.606095
-29	http://www.paulhillsdon.com/blog/	Paul Hillsdon	2009-04-26 04:25:39.601611	2009-04-26 04:25:39.601611
 30	http://ubcspectator.blogspot.com/	The UBC Spectator	2009-04-26 04:29:13.5683	2009-04-26 04:29:13.5683
-31	http://radicalbeer.wordpress.com/	Radical Beer Tribune	2009-04-26 04:29:36.540135	2009-04-26 04:29:36.540135
 32	http://ubcstudentmedia.wordpress.com/	UBC Student Media	2009-04-26 04:29:55.43279	2009-04-26 04:29:55.43279
 33	http://ubcinsiders.blogspot.com/	UBC Insiders	2009-04-26 04:30:12.388076	2009-04-26 04:30:12.388076
-34	http://www.knollubc.ca/	The Knoll	2009-04-26 04:30:30.853872	2009-04-26 04:30:30.853872
 35	http://fairvoteubc.wordpress.com/	Fair Vote UBC	2009-04-26 04:30:53.390624	2009-04-26 04:30:53.390624
-36	http://www.ubcdevil.com/	The Devil's Advocate	2009-04-26 04:31:12.721146	2009-04-26 04:31:12.721146
-37	http://blogs.ubc.ca/phoebeyu	UBC Years	2009-04-26 04:33:08.94648	2009-04-26 04:33:08.94648
 38	http://www.bcvote.ca/	BC Vote	2009-04-26 04:35:00.595335	2009-04-26 04:35:00.595335
 39	http://oncampus.macleans.ca/education	Macleans OnCampus	2009-04-26 04:39:24.26765	2009-04-26 04:39:24.26765
 40	http://oncampus.macleans.ca/education	Macleans OnCampus	2009-04-26 04:39:51.488459	2009-04-26 04:39:51.488459
-41	http://communities.canada.com/vancouversun/blogs/reportcard/default.aspx	The Report Card	2009-04-26 04:40:34.140233	2009-04-26 04:40:34.140233
-42	http://communities.canada.com/vancouversun/blogs/reportcard/default.aspx	The Report Card	2009-04-26 04:42:56.877205	2009-04-26 04:42:56.877205
-43	http://www.earsay.com/standonguardforcbc/	Stand On Guard For CBC	2009-04-26 04:53:57.174347	2009-04-26 04:53:57.174347
 44	http://www.networkworld.com/community/blog/1926	Microsoft Subnet Blog	2009-04-26 05:20:07.030718	2009-04-26 05:20:07.030718
 45	http://www.langleypolitics.com/	Langley Politics Dotcom	2009-04-27 16:27:44.440782	2009-04-27 16:27:44.440782
 46	http://www.kimrichter.com/Blog/langleyfreepress.html	Langley Free Press	2009-04-27 16:32:50.107279	2009-04-27 16:32:50.107279
 47	http://www.kimrichter.com/Blog/langleyfreepress.html	Langley Free Press	2009-04-27 16:34:21.756654	2009-04-27 16:34:21.756654
-48	http://northvancouverpolitics.com/	North Vancouver Politics.com	2009-04-27 16:56:40.042032	2009-04-27 16:56:40.042032
-49	http://northvancouverpolitics.com/	North Vancouver Politics.com	2009-04-27 16:57:05.839583	2009-04-27 16:57:05.839583
-50	http://www.piquenewsmagazine.com/	Pique newsmagazine	2009-04-27 18:22:52.440678	2009-04-27 18:22:52.440678
 51	http://claremontca.blogspot.com/	Claremont Insider	2009-04-27 18:59:30.948576	2009-04-27 18:59:30.948576
 52	http://www.allthingsupland.com/	All Things Upland	2009-04-27 19:06:13.83117	2009-04-27 19:06:13.83117
 53	http://thefcblog.com/	The Foothill Cities Blog	2009-04-27 19:14:40.54208	2009-04-27 19:14:40.54208
@@ -787,7 +922,42 @@ COPY websites (id, url, title, created_at, updated_at) FROM stdin;
 72	http://nashvillest.com/	Nashvillest	2009-04-27 23:19:22.120124	2009-04-27 23:19:22.120124
 73	http://bc2009.com/	BC Election 2009	2009-04-28 03:17:07.25782	2009-04-28 03:17:07.25782
 74	http://votermedia.blogspot.com/	VoterMedia Democracy Blog	2009-04-28 03:46:24.290436	2009-04-28 03:46:24.290436
+75	http://factcheck.org/	FactCheck.org	2009-05-03 16:19:59.928711	2009-05-03 16:19:59.928711
+16	http://www.miss604.com/	Vancouver Blog Miss 604 by Rebecca Bollwitt	2009-04-26 04:06:24.077052	2009-05-03 14:04:17.38986
+13	http://www.paulhillsdon.com/blog/	paulhillsdon.com	2009-04-26 04:05:24.59175	2009-05-04 04:35:52.248343
+11	http://thetyee.ca/	Tyee Home :: thetyee.ca	2009-04-26 04:04:22.039986	2009-05-04 04:44:24.378037
+23	http://thetyee.ca/	Tyee Home :: thetyee.ca	2009-04-26 04:16:31.653647	2009-05-04 04:45:37.152132
+25	http://www.paulhillsdon.com/blog/	paulhillsdon.com	2009-04-26 04:18:06.827087	2009-05-04 04:46:09.24218
+7	http://stephenrees.wordpress.com/	Stephen Rees's blog	2009-04-26 03:31:26.604305	2009-05-04 04:48:09.099606
+24	http://davideby.blogspot.com/	David Eby - Blog	2009-04-26 04:17:45.715795	2009-05-04 04:48:30.591219
+6	http://www.francesbula.com/	Frances Bula &#8212; Vancouver city life and politics	2009-04-26 03:28:49.225825	2009-05-04 04:50:36.560812
+5	http://stephenrees.wordpress.com/	Stephen Rees's blog	2009-04-26 03:28:13.969479	2009-05-04 04:55:26.134479
+14	http://www.beyondrobson.com/	Beyond Robson | Vancouver blog	2009-04-26 04:05:45.023351	2009-05-04 04:56:15.857592
+12	http://davideby.blogspot.com/	David Eby - Blog	2009-04-26 04:04:59.395141	2009-05-04 04:57:13.935325
+10	http://www.thevancouverobserver.com/	Vancouver  Observer: Frontpage	2009-04-26 04:01:50.159167	2009-05-04 04:58:44.444759
+34	http://www.knollubc.ca/	http://www.knollubc.ca/	2009-04-26 04:30:30.853872	2009-05-04 05:02:02.213059
+31	http://radicalbeer.wordpress.com/	The Radical Beer Tribune	2009-04-26 04:29:36.540135	2009-05-04 05:02:33.824523
+37	http://blogs.ubc.ca/phoebeyu	UBC Years - Phoebe Yu » The loquacious musings of a caffeinated UBC student	2009-04-26 04:33:08.94648	2009-05-04 05:03:15.714885
+36	http://www.ubcdevil.com/	UBC Devil's Advocate	2009-04-26 04:31:12.721146	2009-05-04 05:04:04.509911
+43	http://www.earsay.com/standonguardforcbc/	About Us | Stand On Guard For CBC	2009-04-26 04:53:57.174347	2009-05-04 05:07:40.066872
+4	http://thecrandreagoupr.blogspot.com/	Activism-The Crandrea Group	2009-04-25 20:39:59.598613	2009-05-04 05:10:26.249179
+26	http://thetyee.ca/	Tyee Home :: thetyee.ca	2009-04-26 04:20:00.479713	2009-05-04 05:17:25.186805
+41	http://communities.canada.com/vancouversun/blogs/reportcard/default.aspx	Report Card - Vancouver Sun blogs	2009-04-26 04:40:34.140233	2009-05-04 05:19:04.098488
+49	http://northvancouverpolitics.com/	northvancouverpolitics.com	2009-04-27 16:57:05.839583	2009-05-04 05:20:52.400877
+48	http://northvancouverpolitics.com/	northvancouverpolitics.com	2009-04-27 16:56:40.042032	2009-05-04 05:21:27.063035
+28	http://stephenrees.wordpress.com/	Stephen Rees's blog	2009-04-26 04:24:57.606095	2009-05-04 05:22:03.577318
+29	http://www.paulhillsdon.com/blog/	paulhillsdon.com	2009-04-26 04:25:39.601611	2009-05-04 05:22:44.409977
+50	http://www.piquenewsmagazine.com/	Pique newsmagazine| Whistler, CANADA	2009-04-27 18:22:52.440678	2009-05-04 05:23:34.085806
+42	http://communities.canada.com/vancouversun/blogs/reportcard/default.aspx	Report Card - Vancouver Sun blogs	2009-04-26 04:42:56.877205	2009-05-04 05:24:43.09906
 \.
+
+
+--
+-- Name: colleagues_pkey; Type: CONSTRAINT; Schema: public; Owner: app62414; Tablespace: 
+--
+
+ALTER TABLE ONLY colleagues
+    ADD CONSTRAINT colleagues_pkey PRIMARY KEY (id);
 
 
 --
@@ -804,6 +974,14 @@ ALTER TABLE ONLY communities
 
 ALTER TABLE ONLY faqs
     ADD CONSTRAINT faqs_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: pubs_pkey; Type: CONSTRAINT; Schema: public; Owner: app62414; Tablespace: 
+--
+
+ALTER TABLE ONLY pubs
+    ADD CONSTRAINT pubs_pkey PRIMARY KEY (id);
 
 
 --

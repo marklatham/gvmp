@@ -1,7 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :colleagues
   map.resources :pubs
-
-
   map.resources :faqs
   map.resources :votes
   map.resources :websites
