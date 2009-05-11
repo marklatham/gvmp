@@ -2,11 +2,12 @@ class WebsitesController < ApplicationController
   # GET /websites
   # GET /websites.xml
   def index
-    @websites = Website.find(:all)
+    @websites = Website.find(:all, :order => "id")
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @websites }
+      format.yaml  { render :yaml => @websites }
     end
   end
 

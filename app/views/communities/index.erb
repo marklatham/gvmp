@@ -1,0 +1,19 @@
+<% for community in @communities %>
+<%= community.id %>:
+  id: <%= community.id %>
+  name: |
+    <%= community.name %>
+  short_name: |
+    <%= community.short_name %>
+  category: <%= community.category %>
+  country: <%= community.country %>
+  prov_state: <%= community.prov_state %>
+  city: <%= community.city %>
+  scope: <%= community.scope %>
+  wiki_url: <%= community.wiki_url %>
+  official_url: <%= community.official_url %>
+  description: |
+    <%= community.description.gsub(/\n/,"\n    ") %>
+  created_at: <%= community.created_at %>
+  updated_at: <%= community.updated_at %>
+<% end %>

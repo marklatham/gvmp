@@ -7,6 +7,7 @@ class FaqsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @faqs }
+      format.yaml  { render :yaml => @faqs }
     end
   end
 

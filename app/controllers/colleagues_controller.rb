@@ -7,6 +7,7 @@ class ColleaguesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @colleagues }
+      format.yaml  { render :yaml => @colleagues }
     end
   end
 

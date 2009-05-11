@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.terms '/terms', :controller => 'public', :action => 'terms'
   map.privacy '/privacy', :controller => 'public', :action => 'privacy'
   map.how_you_can_help '/how_you_can_help', :controller => 'public', :action => 'how_you_can_help'
+  map.admin '/admin', :controller => 'public', :action => 'admin'
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -51,6 +52,8 @@ ActionController::Routing::Routes.draw do |map|
   # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
+
+  map.connect ':controller.:format'
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

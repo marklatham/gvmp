@@ -1,0 +1,12 @@
+<% for faq in @faqs %>
+<%= faq.id %>:
+  id: <%= faq.id %>
+  category: <%= faq.category %>
+  sequence: <%= faq.sequence %>
+  importance: <%= faq.importance %>
+  question: <%= faq.question %>
+  answer: |
+    <%= faq.answer.gsub(/\n/,"\n    ") %>
+  created_at: <%= faq.created_at %>
+  updated_at: <%= faq.updated_at %>
+<% end %>

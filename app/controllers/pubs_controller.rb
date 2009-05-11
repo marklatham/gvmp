@@ -7,6 +7,7 @@ class PubsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @pubs }
+      format.yaml  { render :yaml => @pubs }
     end
   end
 

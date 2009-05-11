@@ -1,0 +1,15 @@
+<% for colleague in @colleagues %>
+<%= colleague.id %>:
+  id: <%= colleague.id %>
+  given_name: <%= colleague.given_name %>
+  family_name: <%= colleague.family_name %>
+  role: |
+    <%= colleague.role %>
+  email: <%= colleague.email %>
+  photo: <%= colleague.photo %>
+  description: |
+    <%= colleague.description.gsub(/\n/,"\n    ") %>
+  created_at: <%= colleague.created_at %>
+  updated_at: <%= colleague.updated_at %>
+  sequence: <%= colleague.sequence %>
+<% end %>

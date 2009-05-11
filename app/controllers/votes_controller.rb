@@ -2,11 +2,12 @@ class VotesController < ApplicationController
   # GET /votes
   # GET /votes.xml
   def index
-    @votes = Vote.find(:all)
+    @votes = Vote.find(:all, :order => "id")
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @votes }
+      format.yaml  { render :yaml => @votes }
     end
   end
 
