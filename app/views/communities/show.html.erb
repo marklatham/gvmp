@@ -52,19 +52,18 @@
   <table id="table1" cellspacing="0" cellpadding="4">
     <tr class="header">
       <td class="header-centred">Votes</td>
-      <td class="header-centred">Your Vote</td>
+      <td class="header-centred">YourVote</td>
       <td class="header-left">Website/Blog</td>
-      <td class="header-centred">Date added</td>
+      <td class="header-centred">Date Added</td>
     </tr>
 
-  <% for website in @websites %>
+  <% for ranking in @rankings %>
     <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-      <td class="cell-centred"><%= number_with_precision(website[:rank], 2) %></td>
-      <td class="cell-centred"><%= button_to 'Support' , :action => :vote_for_website, :id => website[:website], :community => @community %> </td>
-      <td class="cell-link"><b><a href ="<%= website[:website].url %>" target="_blank"><%= truncate(website[:website].title, 53) %></a></b></td>
-<!-- Why doesn't the first part create any output?: -->
-      <td class="cell-centred"><%=h website[:created_at] %> <%=h website[:website].created_at.to_s(:Ymd) %></td>
-      <td><%= link_to 'Edit', edit_website_path(website[:website]) %></td>
+      <td class="cell-centred"><%= number_with_precision(ranking[:rank], 2) %></td>
+      <td class="cell-centred"><%= button_to 'Support' , :action => :vote_for_website, :id => ranking[:website], :community => @community %> </td>
+      <td class="cell-link"><b><a href ="<%= ranking[:website].url %>" target="_blank"><%= truncate(ranking[:website].title, 53) %></a></b></td>
+      <td class="cell-centred"><%=h ranking[:created_at].to_s(:Ymd) %></td>
+      <td><%= link_to 'Edit', edit_website_path(ranking[:website]) %></td>
     </tr>
   <% end %>
   </table>
@@ -76,11 +75,14 @@
 <% else %>
 
   <p>
-  So far no one has added a website/blog to this community. You can <%= link_to 'add one here', new_website_path(:community => @community) %>.<br />
+  So far no one has added a website/blog to this community. 
+  You can <b><%= link_to 'add one here', new_website_path(:community => @community) %></b>.<br />
   If you don't know of one, try searching e.g. for 
-  "<a href="http://www.google.ca/search?q=<%=h @community.short_name %>+election+blog" target="_blank"><%=h @community.short_name %> election blog</a>".<br />
+  "<a href="http://www.google.ca/search?q=<%=h @community.short_name %>+election+blog" target="_blank">
+  <%=h @community.short_name %> election blog</a>".<br />
   If you still don't find one, how about creating one?! 
-  It's easy with free tools at sites like <a href="http://wordpress.com" target="_blank">Wordpress</a> or <a href="http://blogger.com" target="_blank">Blogger</a>.
+  It's easy with free tools at sites like <a href="http://wordpress.com" target="_blank">Wordpress</a> or
+   <a href="http://blogger.com" target="_blank">Blogger</a>.
   </p>
 
 <% end %>

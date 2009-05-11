@@ -2,11 +2,12 @@ class CommunitiesController < ApplicationController
   # GET /communities
   # GET /communities.xml
   def index
-    @communities = Community.find(:all)
+    @communities = Community.find(:all, :order => "id")
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @communities }
+      format.yaml  { render :yaml => @communities }
     end
   end
 
@@ -14,7 +15,7 @@ class CommunitiesController < ApplicationController
   # GET /communities/1.xml
   def show
     @community = Community.find(params[:id])
-    @websites = @community.rankings.with_websites
+    @rankings = @community.rankings.with_websites
 
     respond_to do |format|
       format.html # show.html.erb
