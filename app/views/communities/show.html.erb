@@ -34,7 +34,7 @@
   </p>
 
   <b>Description & keywords:</b>
-  <%= truncate(@community.description, 200) %>
+  <%= truncate(@community.description, :length => 200) %>
   </p>
 
   <p>
@@ -59,9 +59,10 @@
 
   <% for ranking in @rankings %>
     <tr class="<%= cycle('list-line-odd', 'list-line-even') %>">
-      <td class="cell-centred"><%= number_with_precision(ranking[:rank], 2) %></td>
+      <td class="cell-centred"><%= number_with_precision(ranking[:rank], :precision => 2) %></td>
       <td class="cell-centred"><%= button_to 'Support' , :action => :vote_for_website, :id => ranking[:website], :community => @community %> </td>
-      <td class="cell-link"><b><a href ="<%= ranking[:website].url %>" target="_blank"><%= truncate(ranking[:website].title, 53) %></a></b></td>
+      <td class="cell-link"><b><a href ="<%= ranking[:website].url %>" target="_blank">
+	    <%= truncate(ranking[:website].title, :length => 53) %></a></b></td>
       <td class="cell-centred"><%=h ranking[:created_at].to_s(:Ymd) %></td>
       <td><%= link_to 'Edit', edit_website_path(ranking[:website]) %></td>
     </tr>

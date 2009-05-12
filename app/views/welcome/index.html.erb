@@ -39,7 +39,7 @@
     <td class="cell-centred"><%= community.category %></td>
     <td class="cell-centred"><%=h community.country %></td>
     <td class="cell-centred"><%=h community.prov_state %></td>
-    <td class="cell-centred"><%=h truncate(community.scope, 20) %></td>
+    <td class="cell-centred"><%=h truncate(community.scope, :length => 20) %></td>
     <td class="cell-centred"><%=h community.websites.count %></td>
     <td>&nbsp;<%= link_to "Edit", edit_community_path(community) %>&nbsp;</td>
     </div>
