@@ -19,7 +19,7 @@ development:
   encoding: utf8
   database: gvmp_development
   username: root
-  password:
+  password: puccini
   # JRuby doesn't support socket:
   host: 127.0.0.1
   #socket: /var/run/mysqld/mysqld.sock
@@ -32,7 +32,7 @@ test:
   encoding: utf8
   database: gvmp_test
   username: root
-  password:
+  password: puccini
   socket: /var/run/mysqld/mysqld.sock
 
 production:
@@ -40,5 +40,5 @@ production:
   encoding: utf8
   database: gvmp_production
   username: root
-  password:
+  password: puccini
   socket: /var/run/mysqld/mysqld.sock
