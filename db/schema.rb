@@ -9,7 +9,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090425000241) do
+ActiveRecord::Schema.define(:version => 20090510234033) do
+
+  create_table "colleagues", :force => true do |t|
+    t.string   "given_name"
+    t.string   "family_name"
+    t.string   "role"
+    t.string   "email"
+    t.string   "photo"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "sequence"
+  end
 
   create_table "communities", :force => true do |t|
     t.string   "name"
@@ -24,6 +36,45 @@ ActiveRecord::Schema.define(:version => 20090425000241) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "scope"
+  end
+
+  create_table "faqs", :force => true do |t|
+    t.string   "category"
+    t.float    "sequence"
+    t.float    "importance"
+    t.string   "question"
+    t.text     "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pubs", :force => true do |t|
+    t.date     "date_sequence"
+    t.string   "date_text"
+    t.string   "title"
+    t.string   "country"
+    t.string   "journal"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rankings", :force => true do |t|
+    t.integer  "community_id"
+    t.integer  "website_id"
+    t.float    "rank",         :default => 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rankings", ["community_id", "website_id"], :name => "index_rankings_on_community_id_and_website_id", :unique => true
+
+  create_table "votes", :force => true do |t|
+    t.string   "ip_address"
+    t.integer  "community_id"
+    t.integer  "website_id"
+    t.float    "support"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "websites", :force => true do |t|
