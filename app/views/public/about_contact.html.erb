@@ -22,7 +22,11 @@ which we are gradually copying here to build our next release.
 <table id="colleagues" cellspacing="0" cellpadding="2">
 <% for colleague in @colleagues %>
   <tr>
-    <td class="photo" rowspan="2"><img src="images/<%=h colleague.photo %>" width="80" height="100" /></td>
+    <td class="photo" rowspan="2">
+	  <% if colleague.photo %>
+  	    <img src="images/<%=h colleague.photo %>" width="80" height="100" />
+	  <% end %>
+	</td>
     <td class="upper-cell"><b><%=h colleague.given_name %> <%=h colleague.family_name %></b></td>
     <td class="upper-cell"><b><%=h colleague.role %></b></td>
   </tr>
