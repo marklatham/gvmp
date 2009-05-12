@@ -1,4 +1,12 @@
-log
+.DS_Store
+*.swp
+config/database.yml
+log/*.log
+tmp/**/*
 tmp
-db/*.sqlite3
-db/data.yml
+vendor/plugins/**/.git
+public/system
+*.o
+*.so
+Makefile
+*.bundle
