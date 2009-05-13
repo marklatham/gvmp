@@ -13,7 +13,7 @@
   wiki_url: <%= community.wiki_url %>
   official_url: <%= community.official_url %>
   description: |
-    <%= community.description.gsub(/\n/,"\n    ") %>
+    <% if community.description %><%= community.description.gsub(/\n/,"\n    ") %><% end %>
   created_at: <%= community.created_at %>
   updated_at: <%= community.updated_at %>
 <% end %>

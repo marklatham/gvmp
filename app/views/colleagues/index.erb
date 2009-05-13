@@ -8,7 +8,7 @@
   email: <%= colleague.email %>
   photo: <%= colleague.photo %>
   description: |
-    <%= colleague.description.gsub(/\n/,"\n    ") %>
+    <% if colleague.description %><%= colleague.description.gsub(/\n/,"\n    ") %><% end %>
   created_at: <%= colleague.created_at %>
   updated_at: <%= colleague.updated_at %>
   sequence: <%= colleague.sequence %>
