@@ -20,13 +20,16 @@ class Ranking < ActiveRecord::Base
    
     new_rank = 0          
                     
-    latest_vote.each do |lv| 
+    latest_vote.each do |lv|
+	
+	  days_old = (Time.now.to_date - lv[1].to_date).to_i
       
-      if lv[1].advance(:days => days_full_value) > Time.now
+      if days_old < days_full_value
         new_rank += 1
-      elsif lv[1].advance(:days => days_valid) > Time.now
-        new_rank += (days_valid - (lv[1].advance(:days => days_valid).day - Time.now.day)) / ranking_formula_denominator 
-      end 
+      elsif days_old < days_valid
+        new_rank += (days_valid - days_old) / ranking_formula_denominator.to_f
+      end
+
     end
     
     self.rank = new_rank
