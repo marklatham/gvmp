@@ -60,6 +60,9 @@ Rails::Initializer.run do |config|
   
 end
 
+
+ENV['FIXTURES_PATH'] = File.join('spec', 'fixtures')
+
 Time::DATE_FORMATS[:text_date] = "%B %d, %Y"
 
 Time::DATE_FORMATS[:Ymd] = "%Y-%m-%d"
