@@ -1,5 +1,6 @@
 class Community < ActiveRecord::Base
-
+  # TODO: protect attributes from mass-assignment
+  
   has_many :rankings do
     def with_websites
       # sort first on rank, then on created_at; pass both values to caller
