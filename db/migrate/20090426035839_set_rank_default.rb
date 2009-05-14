@@ -4,6 +4,6 @@ class SetRankDefault < ActiveRecord::Migration
   end
 
   def self.down
-    change_column_default :rankings, :rank
+    change_column_default :rankings, :rank, nil
   end
 end
