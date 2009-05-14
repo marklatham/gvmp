@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(:version => 20090510234012) do
   add_index "rankings", ["community_id", "website_id"], :name => "index_rankings_on_community_id_and_website_id", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.string   "ip_address"
     t.integer  "community_id"
     t.integer  "website_id"
+    t.string   "ip_address"
     t.float    "support"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,8 +1,7 @@
 class CreateRankings < ActiveRecord::Migration
   def self.up
     create_table :rankings do |t|
-      t.integer :community_id
-      t.integer :website_id
+      t.references :community, :website
       t.float :rank
       t.timestamps
     end
