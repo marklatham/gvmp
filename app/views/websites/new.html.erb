@@ -2,7 +2,7 @@
 
 <h2>Add a website/blog to <%=h @community.short_name %> voter community ranking:</h2>
 
-<% form_for @website, :url => { :action => :create, :community => @community} do |f| %>
+<% form_for @website, :url => { :action => :create, :community_id => @community} do |f| %>
   <%= f.error_messages %>
 
   <p>

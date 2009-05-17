@@ -1,94 +1,14 @@
 class WebsitesController < ApplicationController
-  # GET /websites
-  # GET /websites.xml
-  def index
-    @websites = Website.find(:all, :order => "id")
+  resource_controller
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @websites }
-      format.yaml  { render :yaml => @websites }
-    end
+  new_action.before do
+    @community = Community.find(params[:community_id])
   end
 
-  # GET /websites/1
-  # GET /websites/1.xml
-  def show
-    @website = Website.find(params[:id])
+  private
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @website }
-    end
+  def build_object
+    @object ||= end_of_association_chain.build_for_community(params[:community_id], object_params)
   end
 
-  # GET /websites/new
-  # GET /websites/new.xml
-  def new
-    @community = Community.find(params[:community])
-    
-    @website = Website.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @website }
-    end
-  end
-
-  # GET /websites/1/edit
-  def edit
-    @website = Website.find(params[:id])
-  end
-
-  # POST /websites
-  # POST /websites.xml
-  def create
-    @community = Community.find(params[:community])
-    
-    @website = Website.new(params[:website])
-    
-    unless @website.ranked_for?(@community)
-      @website.communities << @community
-    end
-
-    respond_to do |format|
-      if @website.save
-        flash[:notice] = 'Website was successfully created.'
-        format.html { redirect_to(@community) }
-        format.xml  { render :xml => @website, :status => :created, :location => @website }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @website.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # PUT /websites/1
-  # PUT /websites/1.xml
-  def update
-    @website = Website.find(params[:id])
-
-    respond_to do |format|
-      if @website.update_attributes(params[:website])
-        flash[:notice] = 'Website was successfully updated.'
-        format.html { redirect_to(@website) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @website.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /websites/1
-  # DELETE /websites/1.xml
-  def destroy
-    @website = Website.find(params[:id])
-    @website.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(websites_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

@@ -61,14 +61,13 @@
         %td= ranking[:created_at].to_s(:Ymd)
         %td= link_to 'Edit', edit_object_path(ranking[:website]) 
 
-  -# Use proper route/resource
-  %p= link_to 'Add a website/blog to this community', new_website_path(:community => @community)
+  %p= link_to 'Add a website/blog to this community', new_website_path(:community_id => @community)
   
 - else
   %p
     So far no one has added a website/blog to this community. 
     You can 
-    %strong= link_to 'add one here', new_website_path(:community => @community)
+    %strong= link_to 'add one here', new_website_path(:community_id => @community)
 
   %p
     If you don't know of one, try searching e.g. for 
