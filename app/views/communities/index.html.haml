@@ -12,7 +12,7 @@
     %tr
       %td= link_to community.name, community
       %td= h community.short_name
-      %td= h community.category
+      %td= community.category
       %td= h community.country
       %td= h community.prov_state 
       %td= h community.city 
@@ -24,3 +24,5 @@
 
 %h2
   = link_to 'New community', new_object_path
+
+%br

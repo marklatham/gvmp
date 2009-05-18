@@ -42,23 +42,24 @@
 
 - if @community.websites.any?
   %p
-    Vote for as many as you like: 
+    Vote for as many as you like: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [
     = link_to 'FAQ', '/faqs/#Voting'
-
-  %table
-    %tr
-      %th= "Votes"
-      %th= "Your vote"
-      %th= "Website/Blog"
-      %th= "Date added"
+    on voting ]
+	
+  %table#table1
+    %tr.header
+      %th.header-centred= "Votes"
+      %th.header-centred= "Your Vote"
+      %th.header-left= "Website/Blog"
+      %th.header-centred= "Date added"
 
     - @rankings.each do |ranking|
       %tr{:class => cycle('list-line-odd', 'list-line-even')}
-        %td= number_with_precision(ranking[:rank], :precision => 2)
+        %td.cell-centred= number_with_precision(ranking[:rank], :precision => 2)
         -# TODO: use named_route/resource
-        %td= button_to 'Suport', :action => :vote_for_website, :id => ranking[:website], :community => @community
-        %td= link_to truncate(ranking[:website].title, :lenth => 50), ranking[:website].url
-        %td= ranking[:created_at].to_s(:Ymd)
+        %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
+        %td.cell-link= link_to truncate(ranking[:website].title, :lenth => 50), ranking[:website].url
+        %td.cell-centred= ranking[:created_at].to_s(:Ymd)
         %td= link_to 'Edit', edit_website_path(ranking[:website])
 
   %p= link_to 'Add a website/blog to this community', new_website_path(:community_id => @community)
@@ -79,3 +80,4 @@
     or
     = link_to 'Blogger', 'http://blogger.com/', :target => '_blank'
 
+%br
