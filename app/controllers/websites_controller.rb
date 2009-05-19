@@ -5,6 +5,8 @@ class WebsitesController < ApplicationController
     @community = Community.find(params[:community_id])
   end
 
+  index.wants.yaml { render :yaml => collection }
+
   private
 
   def build_object

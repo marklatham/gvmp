@@ -8,6 +8,8 @@ class CommunitiesController < ApplicationController
   show.before do
     @rankings = @community.rankings.with_websites
   end
+  
+  index.wants.yaml { render :yaml => collection }
 
   # TODO: should be done on a votes controller
   def vote_for_website
