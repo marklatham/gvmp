@@ -20,12 +20,12 @@
   %p
     %label
       Official website:
-    = auto_link_urls(@community.official_url)
+    = auto_link_urls(@community.official_url, :target => "_blank")
 
   %p
     %label
       Wiki:
-    = auto_link_urls(@community.wiki_url)
+    = auto_link_urls(@community.wiki_url, :target => "_blank")
 
   %p
     %label
@@ -58,7 +58,7 @@
         %td.cell-centred= number_with_precision(ranking[:rank], :precision => 2)
         -# TODO: use named_route/resource
         %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
-        %td.cell-link= link_to truncate(ranking[:website].title, :lenth => 50), ranking[:website].url
+        %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"
         %td.cell-centred= ranking[:created_at].to_s(:Ymd)
         %td= link_to 'Edit', edit_website_path(ranking[:website])
 

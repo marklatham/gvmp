@@ -1,0 +1,20 @@
+%h1 Listing websites
+
+%table
+  %tr
+    %th id
+    %th Url
+    %th Title
+
+  - for website in @websites
+    %tr
+      %td= website.id
+      %td= h website.url
+      %td= h website.title
+      %td= link_to 'Show', website
+      %td= link_to 'Edit', edit_website_path(website)
+      %td= link_to 'Destroy', website, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New website', new_website_path

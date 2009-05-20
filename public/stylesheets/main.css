@@ -35,6 +35,10 @@ h1 {
   line-height: 12px;
 }
 
+#community-box label {
+  font-weight: bold
+}
+
 pre {
   background-color: #eee;
   padding: 10px;

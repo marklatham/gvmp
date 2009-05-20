@@ -1,0 +1,16 @@
+%title
+  VoterMedia: Add website to
+  = h @community.short_name
+  ranking
+
+%h2
+  Add a website/blog to
+  = h @community.short_name
+  voter community ranking:
+
+= render :partial => 'form'
+
+%p= link_to("Back to " + @community.short_name + " page", @community)
+%br
+%br
+%br
