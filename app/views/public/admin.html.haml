@@ -1,0 +1,26 @@
+%title VoterMedia: Admin
+ 
+%h2 Website Administration
+
+%h4 Data dumps:
+ 
+%p= link_to 'communities.yaml', '/communities.yaml'
+
+%p= link_to 'websites.yaml', '/websites.yaml'
+
+%p= link_to 'rankings.yaml', '/rankings.yaml'
+
+%p= link_to 'votes.yaml', '/votes.yaml'
+
+%p= link_to 'colleagues.yaml', '/colleagues.yaml'
+
+%p= link_to 'faqs.yaml', '/faqs.yaml'
+
+%p= link_to 'pubs.yaml', '/pubs.yaml'
+
+%h4 Recalculate all rankings:
+
+%p= button_to 'Rerank all', :action => :rerank_all
+
+%br
+%br

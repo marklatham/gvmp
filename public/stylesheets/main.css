@@ -241,6 +241,7 @@ a:hover { color: #d00; }
   border-top: 2px solid #c00;
   padding-top: 6px;
   padding-bottom: 4px;
+  font-weight: bold;
 }
 
 #colleagues .lower-cell {
