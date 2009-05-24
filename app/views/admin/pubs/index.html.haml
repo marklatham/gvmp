@@ -1,0 +1,25 @@
+%title VoterMedia: Publications
+
+%h1 &nbsp;Publications
+
+%table#table1{:cellspacing => 0}
+  %tr.header 
+    %td.header-centred Date
+    %td.header-left Title
+    %td.header-centred Country
+    %td.header-left Journal [etc]
+
+  - for pub in @pubs
+    %tr{:class => cycle('list-line-odd', 'list-line-even')}
+      %td.cell-centred= pub.date_text
+      %td.cell-link= pub.title
+      %td.cell-centred= pub.country
+      %td.cell-left= pub.journal
+      %td= link_to 'Edit', edit_pub_path(pub)
+      / %td= link_to 'Destroy', pub, :confirm => 'Are you sure?', :method => :delete
+
+%br
+= link_to 'Add new publication', new_pub_path
+%br
+%br
+

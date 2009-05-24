@@ -1,0 +1,9 @@
+<% for website in @websites %>
+<%= website.id %>:
+  id: <%= website.id %>
+  url: <%= website.url %>
+  title: |
+    <%= website.title %>
+  created_at: <%= website.created_at %>
+  updated_at: <%= website.updated_at %>
+<% end %>

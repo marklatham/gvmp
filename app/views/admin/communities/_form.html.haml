@@ -1,0 +1,85 @@
+- form_for(@community) do |f|
+  = f.error_messages
+
+  %p.required
+    * indicates required info
+
+  %p.required
+    %b
+      *
+      = f.label :name, 'Community name'
+    [50 characters max]
+    %br
+    = f.text_field :name, :size => 45
+
+  %p.required
+    %b
+      *
+      = f.label :short_name
+    [20 characters max] (Can be same as Community name if short enough.)
+    %br
+    = f.text_field :short_name, :size => 20
+
+  %p.required
+    %b
+      *
+      = f.label :category, 'Type of community'
+    %br
+    = f.select (:category, [['Other (none of the below)', 'Other'], 'Co-op', 'Corporation', 'Country', ['Credit Union', 'Credit&nbsp;Union'], |
+      ['Homeowner (association)', 'Homeowner'], ['Investor (mutual fund etc)', 'Investor'], ['Labour (union etc)', 'Labour'], |
+      ['Municipal (city etc.)', 'Municipal'], ['Nonprofit (misc. other)', 'Nonprofit'], ['Political (party etc)', 'Political'], |
+      'Province', 'State', ['Student (union etc)', 'Student']]) |
+
+  %hr
+  %p 
+    %b Headquarters location --
+  
+  %p
+    %b
+      = f.label :country
+    [20 characters max]
+    %br
+    = f.text_field :country, :size => 20
+
+  %p
+    %b
+      = f.label :prov_state, 'Province/State'
+    [20 characters max]
+    %br
+    = f.text_field :prov_state, :size => 20
+
+  %p
+    %b
+      = f.label :city
+    [30 characters max]
+    %br
+    = f.text_field :city, :size => 30
+
+  %hr
+  
+  %p
+    %b
+      = f.label :scope, 'Regional Scope'
+    (Where most voters & operations are located. Can be "International".)
+    %br
+    = f.text_field :scope
+
+  %p
+    %b
+      = f.label :official_url, 'Official website URL'
+    %br
+    = f.text_field :official_url
+
+  %p
+    %b
+      = f.label :wiki_url, 'Wikipedia URL'
+    %br
+    = f.text_field :wiki_url, :size => 57
+
+  %p
+    %b
+      = f.label :description, 'Description & keywords'
+    %br
+    = f.text_area :description, :rows => 8
+
+  = f.submit "Submit"

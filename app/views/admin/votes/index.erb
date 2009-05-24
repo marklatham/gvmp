@@ -1,0 +1,10 @@
+<% for vote in @votes %>
+<%= vote.id %>:
+  id: <%= vote.id %>
+  ip_address: <%= vote.ip_address %>
+  community_id: <%= vote.community_id %>
+  website_id: <%= vote.website_id %>
+  support: <%= vote.support %>
+  created_at: <%= vote.created_at %>
+  updated_at: <%= vote.updated_at %>
+<% end %>

@@ -1,10 +1,21 @@
 ActionController::Routing::Routes.draw do |map|
+
   map.resources :colleagues
   map.resources :pubs
   map.resources :faqs
   map.resources :votes
   map.resources :websites
   map.resources :communities
+
+  map.namespace :admin do |admin|
+    admin.resources :colleagues
+    admin.resources :communities
+    admin.resources :faqs
+    admin.resources :pubs
+    admin.resources :rankings
+    admin.resources :votes
+    admin.resources :websites
+  end
   
   map.home '', :controller => 'welcome', :action => 'index'
   
@@ -13,8 +24,8 @@ ActionController::Routing::Routes.draw do |map|
   map.terms '/terms', :controller => 'public', :action => 'terms'
   map.privacy '/privacy', :controller => 'public', :action => 'privacy'
   map.how_you_can_help '/how_you_can_help', :controller => 'public', :action => 'how_you_can_help'
-  map.admin '/admin', :controller => 'public', :action => 'admin'
-
+  map.admin '/admin', :controller => 'admin', :action => 'admin'
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

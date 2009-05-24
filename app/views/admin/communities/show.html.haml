@@ -1,0 +1,82 @@
+%h1
+  = h @community.name
+
+#community-box
+  %p
+    %label
+      Type of community:
+    = h @community.category  # TODO: This should be pulled from lookup table
+  
+  %p
+    %label
+      Headquarters:
+    = "#{@community.city}&nbsp; #{@community.prov_state}&nbsp; #{@community.country}"
+
+  %p
+    %label
+      Regional scope:
+    = h @community.scope
+
+  %p
+    %label
+      Official website:
+    = auto_link_urls(@community.official_url, :target => "_blank")
+
+  %p
+    %label
+      Wiki:
+    = auto_link_urls(@community.wiki_url, :target => "_blank")
+
+  %p
+    %label
+      Description:
+    = truncate(@community.description, :length => 200)
+
+  %p
+    = link_to('Edit community data', edit_object_path(@community))
+
+%h3
+  Which websites/blogs deserve more support from the 
+  = h @community.short_name 
+  voter community?
+
+- if @community.websites.any?
+  %p
+    Vote for as many as you like: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    = '[' + link_to('FAQ on voting', '/faqs/#Voting') + ']'
+	
+  %table#table1
+    %tr.header
+      %th.header-centred= "Votes"
+      %th.header-centred= "Your Vote"
+      %th.header-left= "Website/Blog"
+      %th.header-centred= "Date added"
+
+    - @rankings.each do |ranking|
+      %tr{:class => cycle('list-line-odd', 'list-line-even')}
+        %td.cell-centred= number_with_precision(ranking[:rank], :precision => 2)
+        -# TODO: use named_route/resource
+        %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
+        %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"
+        %td.cell-centred= ranking[:created_at].to_s(:Ymd)
+        %td= link_to 'Edit', edit_website_path(ranking[:website])
+
+  %p= link_to 'Add a website/blog to this community', new_website_path(:community_id => @community)
+  
+- else
+  %p
+    So far no one has added a website/blog to this community. 
+    You can 
+    %strong= link_to 'add one here', new_website_path(:community_id => @community)
+
+  %p
+    If you don't know of one, try searching e.g. for 
+    = link_to "#{@community.short_name} election blog", "http://www.google.ca/search?q=#{@community.short_name.strip}+election+blog", :target => "_blank"
+
+  %p
+    If you still don't find one, how about creating one?! It's easy with free tools at sites like
+    = link_to 'Wordpress', 'http://wordpress.com/', :target => '_blank'
+    or
+    = link_to 'Blogger', 'http://blogger.com/', :target => '_blank'
+
+%br
