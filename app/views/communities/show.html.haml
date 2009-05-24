@@ -42,9 +42,8 @@
 
 - if @community.websites.any?
   %p
-    Vote for as many as you like: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [
-    = link_to 'FAQ', '/faqs/#Voting'
-    on voting ]
+    Vote for as many as you like: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    = '[' + link_to('FAQ on voting', '/faqs/#Voting') + ']'
 	
   %table#table1
     %tr.header
