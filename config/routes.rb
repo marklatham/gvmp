@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.create_user '/create_user', :controller => 'users', :action => 'create'
@@ -8,22 +9,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
 
   map.resources :colleagues
-  map.resources :pubs
+  map.resources :communities
   map.resources :faqs
+  map.resources :pubs
+  map.resources :rankings
   map.resources :votes
   map.resources :websites
-  map.resources :communities
 
-  map.namespace :admin do |admin|
-    admin.resources :colleagues
-    admin.resources :communities
-    admin.resources :faqs
-    admin.resources :pubs
-    admin.resources :rankings
-    admin.resources :votes
-    admin.resources :websites
-  end
-  
   map.home '', :controller => 'welcome', :action => 'index'
   
   map.about_contact '/about_contact', :controller => 'public', :action => 'about_contact'
