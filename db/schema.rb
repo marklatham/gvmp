@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090505051246) do
+ActiveRecord::Schema.define(:version => 20090526025707) do
 
   create_table "colleagues", :force => true do |t|
     t.string   "given_name"
@@ -68,10 +68,24 @@ ActiveRecord::Schema.define(:version => 20090505051246) do
 
   add_index "rankings", ["community_id", "website_id"], :name => "index_rankings_on_community_id_and_website_id", :unique => true
 
+  create_table "users", :force => true do |t|
+    t.string   "login",                     :limit => 40
+    t.string   "name",                      :limit => 100, :default => ""
+    t.string   "email",                     :limit => 100
+    t.string   "crypted_password",          :limit => 40
+    t.string   "salt",                      :limit => 40
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "remember_token",            :limit => 40
+    t.datetime "remember_token_expires_at"
+  end
+
+  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
   create_table "votes", :force => true do |t|
+    t.string   "ip_address"
     t.integer  "community_id"
     t.integer  "website_id"
-    t.string   "ip_address"
     t.float    "support"
     t.datetime "created_at"
     t.datetime "updated_at"
