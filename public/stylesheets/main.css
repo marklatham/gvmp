@@ -93,6 +93,25 @@ a:hover { color: #d00; }
   color: #444;
 }
 
+#login-nav {
+  padding-right: 10px;
+  text-align: right;
+  font-size: 14px;
+  color: #888;
+}
+#login-nav a:link {
+  color: #888;
+  text-decoration: none;
+}
+#login-nav a:visited {
+  color: #888;
+  text-decoration: none;
+}
+#login-nav a:hover {
+  color:#a00;
+  text-decoration: underline;
+}
+
 #top-bottom-nav {
   background-color: #a00;
   color: #fff;

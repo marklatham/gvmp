@@ -9,10 +9,21 @@
 
   %body#welcome
 
-    #banner
-      = link_to 'Voter', home_path
-      %span.banner2>= link_to 'Media.org', home_path
-      %span.release &nbsp; [alpha pre-release]
+    %table{:width => "100%"}
+      %tr
+        %td#banner
+          = link_to 'Voter', home_path
+          %span.banner2>= link_to 'Media.org', home_path
+          %span.release &nbsp; [alpha pre-release]
+        %td#login-nav
+          - if current_user
+            = h current_user.login
+            &nbsp; | &nbsp;
+            = link_to 'Logout', logout_path
+          - else
+            = link_to 'Register', register_path
+            &nbsp; | &nbsp;
+            = link_to 'Login', login_path
 
     #top-bottom-nav
       = link_to 'HOME', home_path
