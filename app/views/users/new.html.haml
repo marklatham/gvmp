@@ -1,3 +1,5 @@
+- @page_title = 'Register'
+
 %h1 Register as a new user of VoterMedia.org
 
 - @user.password = @user.password_confirmation = nil
@@ -10,11 +12,6 @@
     = label_tag 'login'
     %br
     = f.text_field :login
-
-  %p
-    = label_tag('email') + ' [optional]'
-    %br
-    = f.text_field :email
 
   %p
     = label_tag 'password'

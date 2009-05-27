@@ -1,4 +1,7 @@
 class RankingsController < ApplicationController
+
+  before_filter :redirect_unless_admin_user
+
   def index
     @rankings = Ranking.find(:all, :order => "id")
  
@@ -8,4 +11,5 @@ class RankingsController < ApplicationController
       format.yaml  { render :yaml => @rankings }
     end
   end
+
 end

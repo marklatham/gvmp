@@ -1,5 +1,5 @@
-%title VoterMedia: Admin
- 
+- @page_title = 'Admin'
+
 %h2 Website Administration
 
 %h4 Recalculate all rankings:
@@ -24,18 +24,32 @@
 
 %h4 Data downloads:
  
-%p= link_to 'colleagues.yaml', '/colleagues.yaml'
+%p
+  = link_to 'colleagues.yaml', '/colleagues.yaml'
+  \[uncomment index.wants.yaml in colleagues_controller only when you want to use this link]
 
-%p= link_to 'communities.yaml', '/communities.yaml'
+%p
+  = link_to 'communities.yaml', '/communities.yaml'
+  \[uncomment index.wants.yaml in communities_controller only when you want to use this link]
 
-%p= link_to 'faqs.yaml', '/faqs.yaml'
+%p
+  = link_to 'faqs.yaml', '/faqs.yaml'
+  \[always enabled -- no confidential data]
 
-%p= link_to 'pubs.yaml', '/pubs.yaml'
+%p
+  = link_to 'pubs.yaml', '/pubs.yaml'
+  \[always enabled -- no confidential data]
 
-%p= link_to 'rankings.yaml', '/rankings.yaml'
+%p
+  = link_to 'rankings.yaml', '/rankings.yaml'
+  \[index listing restricted to admin]
 
-%p= link_to 'votes.yaml', '/votes.yaml'
+%p
+  = link_to 'votes.yaml', '/votes.yaml'
+  \[index listing restricted to admin]
 
-%p= link_to 'websites.yaml', '/websites.yaml'
+%p
+  = link_to 'websites.yaml', '/websites.yaml'
+  \[index listing restricted to admin]
 
 %br

@@ -1,6 +1,8 @@
 class CommunitiesController < ApplicationController
   resource_controller
 
+  before_filter :redirect_unless_admin_user, :only => :destroy
+
   create.flash  "Community successfully created."
   update.flash  'Community was successfully updated.'
   destroy.flash "Community removed."
@@ -9,7 +11,7 @@ class CommunitiesController < ApplicationController
     @rankings = @community.rankings.with_websites
   end
   
-  index.wants.yaml { render :yaml => collection }
+  # index.wants.yaml { render :yaml => collection }
 
   # TODO: should be done on a votes controller
   def vote_for_website

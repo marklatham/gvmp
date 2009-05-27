@@ -1,6 +1,8 @@
 class PubsController < ApplicationController
   resource_controller
 
+  before_filter :redirect_unless_admin_user, :except => :index
+
   create.flash  "Publication successfully created."
   update.flash  "Publication was successfully updated."
   destroy.flash "Publication removed."

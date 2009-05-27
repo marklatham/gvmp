@@ -1,6 +1,8 @@
 class WebsitesController < ApplicationController
   resource_controller
 
+  before_filter :redirect_unless_admin_user, :except => [:new, :create]
+
   new_action.before do
     @community = Community.find(params[:community_id])
   end
