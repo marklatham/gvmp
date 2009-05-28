@@ -1,0 +1,21 @@
+%h1 Listing rankings
+
+%table
+  %tr
+    %th Community id
+    %th Website id
+    %th Rank
+    %th Created at
+    %th Updated at
+
+  - for ranking in @rankings
+    %tr
+      %td= h ranking.community_id
+      %td= h ranking.website_id
+      %td= h ranking.rank
+      %td= h ranking.created_at
+      %td= h ranking.updated_at
+      %td= link_to 'Show', ranking
+      %td= link_to 'Destroy', ranking, :confirm => 'Are you sure?', :method => :delete
+
+%br

@@ -5,7 +5,23 @@
   = h @community.short_name
   voter community ranking:
 
-= render :partial => 'form'
+- form_for @website, :url => { :action => :create, :community_id => @community} do |f|
+  = f.error_messages
+
+  %p
+    = f.label :url
+    %br
+    = f.text_field :url, :size => 70
+  
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title, :size => 70
+  
+  %p
+    = f.submit "Add"
+%br
+%br
 
 %p= link_to("Back to " + @community.short_name + " page", @community)
 
