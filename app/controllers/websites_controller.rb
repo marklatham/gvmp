@@ -1,7 +1,9 @@
 class WebsitesController < ApplicationController
   resource_controller
 
-  before_filter :redirect_unless_admin_user, :except => [:new, :create]
+  before_filter :except => [:new, :create] do |c|
+    c.redirect_if_permission_less_than 7.0
+  end
 
   index.before do
     @websites = Website.find(:all, :order => "id DESC")

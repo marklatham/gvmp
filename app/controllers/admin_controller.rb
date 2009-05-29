@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 
-  before_filter :redirect_unless_admin_user
+  before_filter { |c| c.redirect_if_permission_less_than 7.0 }
 
   # Recalculate all rankings (button on admin page)
   def rerank_all

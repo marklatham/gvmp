@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090526215721) do
+ActiveRecord::Schema.define(:version => 20090528224238) do
 
   create_table "colleagues", :force => true do |t|
     t.string   "given_name"
@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(:version => 20090526215721) do
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
-    t.string   "name",                      :limit => 100, :default => ""
+    t.string   "name",                      :limit => 100,                               :default => ""
     t.string   "email",                     :limit => 100
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
@@ -78,7 +78,7 @@ ActiveRecord::Schema.define(:version => 20090526215721) do
     t.datetime "updated_at"
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
-    t.boolean  "admin_user",                               :default => false, :null => false
+    t.decimal  "permission",                               :precision => 8, :scale => 3, :default => 0.0
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true

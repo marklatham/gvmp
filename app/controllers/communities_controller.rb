@@ -1,7 +1,9 @@
 class CommunitiesController < ApplicationController
   resource_controller
 
-  before_filter :redirect_unless_admin_user, :only => :destroy
+  before_filter :only => :destroy do |c|
+    c.redirect_if_permission_less_than 7.0
+  end
 
   create.flash  "Community successfully created."
   update.flash  'Community was successfully updated.'

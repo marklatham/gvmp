@@ -1,6 +1,8 @@
 class RankingsController < ApplicationController
 
-  before_filter :redirect_unless_admin_user
+  before_filter do |c|
+    c.redirect_if_permission_less_than 7.0
+  end
 
   def index
     @rankings = Ranking.find(:all, :order => "created_at DESC")

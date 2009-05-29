@@ -1,8 +1,19 @@
 class UsersController < ApplicationController
 
-  # render new.rhtml
+  before_filter :except => [:new, :create] do |c|
+    c.redirect_if_permission_less_than 7.0
+  end
+
+  def index
+    @users = User.find(:all, :order => "id")
+  end
+  
   def new
     @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
  
   def create
@@ -22,4 +33,18 @@ class UsersController < ApplicationController
       render :action => 'new'
     end
   end
+  
+  def update
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        flash[:notice] = 'User was successfully updated.'
+        format.html { redirect_to(users_url) }
+      else
+        format.html { render :action => "edit" }
+      end
+    end
+  end
+
 end

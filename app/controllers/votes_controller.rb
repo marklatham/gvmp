@@ -1,7 +1,9 @@
 class VotesController < ApplicationController
   resource_controller
-  
-  before_filter :redirect_unless_admin_user
+
+  before_filter do |c|
+    c.redirect_if_permission_less_than 7.0
+  end
 
   create.flash  "Vote successfully created."
   update.flash  "Vote was successfully updated."

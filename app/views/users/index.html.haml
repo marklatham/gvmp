@@ -1,0 +1,20 @@
+%h1 Listing users
+
+%table
+  %tr
+    %th Id
+    %th Login
+    %th Permission
+    %th remember_token
+    %th remember_token_expires_at
+
+  - for user in @users
+    %tr
+      %td= h user.id
+      %td= h user.login
+      %td= h user.permission
+      %td= h user.remember_token
+      %td= h user.remember_token_expires_at
+      %td= link_to 'Edit', edit_user_path(user)
+
+%br

@@ -16,7 +16,18 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   filter_parameter_logging :password
-  
+
+  # Checks permission, and redirects to an error page if not sufficient.
+  def redirect_if_permission_less_than(required_permission)
+    unless @current_user and (@current_user.permission >= required_permission)
+      url = url_for login_path
+      @page_title = "Permission required"
+      @message = "Sorry -- you must be logged in and have permission to do that."
+      render :template => 'shared/generic_error'
+      return false
+    end
+  end
+
   protected
 
   # Checks for User in session, and redirects to an error page if none found.
@@ -30,19 +41,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  # Checks for User in session, and redirects to an error page if not an admin_user.
-  def redirect_unless_admin_user
-    unless @current_user and @current_user.admin_user?
-      url = url_for login_path
-      @page_title = "Admin login required"
-      @message = "Sorry -- you must be logged in as an admin to do that. You can <a href=\"#{url}\">log in here</a>."
-      render :template => 'shared/generic_error'
-      return false
-    end
-  end
-
   private
-  
+
   def set_current_user 
     begin
       @current_user = User.find(session[:user_id]) unless session[:user_id].blank?
