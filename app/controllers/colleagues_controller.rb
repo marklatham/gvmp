@@ -1,7 +1,7 @@
 class ColleaguesController < ApplicationController
   resource_controller
   
-  before_filter :except => :index do |c|
+  before_filter do |c|
     c.redirect_if_permission_less_than 7.0
   end
 
@@ -13,6 +13,6 @@ class ColleaguesController < ApplicationController
     @colleagues = Colleague.find(:all, :order => "sequence, given_name, family_name")
   end
   
-  # index.wants.yaml { render :yaml => collection }
+  index.wants.yaml { render :yaml => collection }
 
 end

@@ -35,9 +35,9 @@
       %td.cell-centred= h truncate(community.scope, :length => 20)
       %td.cell-centred= h community.websites.count
       - if current_user and (current_user.permission >= 4.0)
-        %td= link_to 'Edit', edit_community_path(community)
+        %td.permission= link_to 'Edit', edit_community_path(community)
       - if current_user and (current_user.permission >= 7.0)
-        %td= link_to 'Destroy', community, :confirm => 'Are you sure?', :method => :delete
+        %td.permission= link_to 'Destroy', community, :confirm => 'Are you sure?', :method => :delete
 
 %br
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 

@@ -21,8 +21,8 @@
         = h faq.question
       %td.category= h faq.category
       - if current_user and (current_user.permission >= 7.0)
-        %td= link_to 'Edit', edit_faq_path(faq)
-        %td= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
+        %td.permission= link_to 'Edit', edit_faq_path(faq)
+        %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
 
     %tr
       %td.answer{:colspan => 2}
@@ -31,6 +31,6 @@
 %br
 
 - if current_user and (current_user.permission >= 7.0)
-  = link_to 'Create new FAQ', new_faq_path
+  %span.permission= link_to 'Create new FAQ', new_faq_path
   %br
   %br

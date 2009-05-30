@@ -2,6 +2,8 @@
 
 %h1 Register as a new user of VoterMedia.org
 
+%br
+
 - @user.password = @user.password_confirmation = nil
 
 = error_messages_for :user
@@ -27,6 +29,7 @@
   %p
     = submit_tag 'Register'
 
+  %br
   %br
   %br
   %br

@@ -1,10 +1,15 @@
-%h1 Listing votes
+%h1.permission Listing votes
 
 %table
   %tr
     %th Ip address
     %th Community
     %th Website
+    %th
+    %th
+    %th
+    %th Created
+    %th Updated
     %th Support
 
   - for vote in @votes
@@ -12,10 +17,14 @@
       %td= h vote.ip_address
       %td= h vote.community_id
       %td= h vote.website_id
-      %td= h vote.support
       %td= link_to 'Show', vote
       %td= link_to 'Edit', edit_vote_path(vote)
       %td= link_to 'Destroy', vote, :confirm => 'Are you sure?', :method => :delete
+      %td= h vote.created_at
+      %td
+        - unless vote.updated_at == vote.created_at
+          = h vote.updated_at
+      %td= h vote.support
 
 %br
 

@@ -16,11 +16,11 @@
       %td.cell-centred= pub.country
       %td.cell-left= pub.journal
       - if current_user and (current_user.permission >= 7.0)
-        %td= link_to 'Edit', edit_pub_path(pub)
-        %td= link_to 'Destroy', pub, :confirm => 'Are you sure?', :method => :delete
+        %td.permission= link_to 'Edit', edit_pub_path(pub)
+        %td.permission= link_to 'Destroy', pub, :confirm => 'Are you sure?', :method => :delete
 
 %br
 - if current_user and (current_user.permission >= 7.0)
-  = link_to 'Add new publication', new_pub_path
+  %span.permission= link_to 'Add new publication', new_pub_path
   %br
   %br
