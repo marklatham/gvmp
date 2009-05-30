@@ -19,6 +19,12 @@
         %td#login-nav
           - if current_user
             = h current_user.login
+            - if current_user.permission >= 7.0
+              (
+              %span>= link_to('admin', admin_path)
+              )
+            - elsif current_user.permission >= 4.0
+              (editor)
             &nbsp; | &nbsp;
             = link_to 'Logout', logout_path
           - else

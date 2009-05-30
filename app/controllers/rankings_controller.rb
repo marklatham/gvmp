@@ -14,7 +14,6 @@ class RankingsController < ApplicationController
     end
   end
 
-
   # DELETE /rankings/1
   # DELETE /rankings/1.xml
   def destroy

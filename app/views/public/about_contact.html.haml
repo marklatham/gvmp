@@ -36,6 +36,9 @@
         = h colleague.family_name
       %td.upper-cell
         = h colleague.role
+      - if current_user and (current_user.permission >= 7.0)
+        %td= link_to 'Edit', edit_colleague_path(colleague)
+        %td= link_to 'Destroy', colleague, :confirm => 'Are you sure?', :method => :delete
     %tr
       %td.lower-cell
         = h colleague.email
@@ -45,3 +48,8 @@
     %td
     %td.upper-cell
     %td.upper-cell
+
+- if current_user and (current_user.permission >= 7.0)
+  = link_to 'Create new colleague', new_colleague_path
+  %br
+  %br

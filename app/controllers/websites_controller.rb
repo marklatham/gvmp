@@ -1,6 +1,10 @@
 class WebsitesController < ApplicationController
   resource_controller
 
+  before_filter :only => [:edit, :update] do |c|
+    c.redirect_if_permission_less_than 4.0
+  end
+
   before_filter :except => [:new, :create] do |c|
     c.redirect_if_permission_less_than 7.0
   end
