@@ -1,5 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   
+  map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
+  
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'
   map.create_user '/create_user', :controller => 'users', :action => 'create'

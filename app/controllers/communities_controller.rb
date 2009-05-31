@@ -18,6 +18,32 @@ class CommunitiesController < ApplicationController
   end
   
   # index.wants.yaml { render :yaml => collection }
+  
+  def add_to
+    @community = Community.find(params[:id])
+  end
+  
+  def add_to_update
+    @community = Community.find(params[:id])
+
+    respond_to do |format|
+      if @community.update_attributes(params[:community])
+        if @community.description.blank?
+          @community.description = @community.add_to_description
+        else
+          @community.description = @community.description + '<br />' + @community.add_to_description
+        end
+        @community.add_to_description = ''
+        @community.save!
+        flash[:notice] = 'Community data was successfully added.'
+        format.html { redirect_to(@community) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "add_to" }
+        format.xml  { render :xml => @community.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # TODO: should be done on a votes controller
   def vote_for_website

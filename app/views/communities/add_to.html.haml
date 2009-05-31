@@ -1,0 +1,112 @@
+- @page_title = 'Add to community data'
+
+%h2= "Adding to #{@community.short_name} voter community data:"
+
+%p Thanks for improving this community's data! Here's what we have so far:
+
+#community-box
+  %p
+    %label
+      Community name:
+    = h @community.name
+
+  %p
+    %label
+      Short name:
+    = h @community.short_name
+ 
+  %p
+    %label
+      Type of community:
+    = h @community.category  # TODO: This should be pulled from lookup table
+  
+  %p
+    %label
+      Headquarters:
+    = "#{@community.city}&nbsp; #{@community.prov_state}&nbsp; #{@community.country}"
+
+  %p
+    %label
+      Regional scope (where most operations & voters are):
+    = h @community.scope
+
+  %p
+    %label
+      Official website:
+    = auto_link_urls(@community.official_url, :target => "_blank")
+
+  %p
+    %label
+      Wiki:
+    = auto_link_urls(@community.wiki_url, :target => "_blank")
+
+  %p
+    %label
+      Description:
+    = @community.description
+
+Here's where you can add data:
+
+- form_for @community, :url => { :id => @community.id, :action => :add_to_update } do |f|
+  = f.error_messages
+
+  - if @community.city.blank?
+    %p
+      %b
+        = f.label :city, 'Headquarters City'
+      [30 characters max]
+      %br
+      = f.text_field :city, :size => 30
+
+  - if @community.prov_state.blank?
+    %p
+      %b
+        = f.label :prov_state, 'Headquarters Province/State'
+      [20 characters max]
+      %br
+      = f.text_field :prov_state, :size => 20
+
+  - if @community.country.blank?
+    %p
+      %b
+        = f.label :country, 'Headquarters Country'
+      [20 characters max]
+      %br
+      = f.text_field :country, :size => 20
+  
+  - if @community.scope.blank?
+    %p
+      %b
+        = f.label :scope, 'Regional Scope'
+      (Where most voters & operations are located. Can be "International".)
+      %br
+      = f.text_field :scope
+
+  - if @community.official_url.blank?
+    %p
+      %b
+        = f.label :official_url, 'Official website URL'
+      %br
+      = f.text_field :official_url
+
+  - if @community.wiki_url.blank?
+    %p
+      %b
+        = f.label :wiki_url, 'Wikipedia URL'
+      %br
+      = f.text_field :wiki_url, :size => 57
+
+  %p
+    %b
+      = f.label :add_to_description, 'Add more info to "Description"'
+    %br
+    = f.text_area :add_to_description, :rows => 8
+
+  = f.submit "Submit"
+
+%p
+  To change bad data or send other info that doesn't go in our web forms, please email to: editors[at]votermedia.org
+
+%br
+
+
