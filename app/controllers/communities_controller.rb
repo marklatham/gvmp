@@ -17,7 +17,7 @@ class CommunitiesController < ApplicationController
     @rankings = @community.rankings.with_websites
   end
   
-  # index.wants.yaml { render :yaml => collection }
+  index.wants.yaml { render :yaml => collection }
   
   def add_to
     @community = Community.find(params[:id])
@@ -31,7 +31,7 @@ class CommunitiesController < ApplicationController
         if @community.description.blank?
           @community.description = @community.add_to_description
         else
-          @community.description = @community.description + '<br />' + @community.add_to_description
+          @community.description = @community.description + '\n' + @community.add_to_description
         end
         @community.add_to_description = ''
         @community.save!

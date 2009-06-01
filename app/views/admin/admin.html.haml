@@ -30,7 +30,7 @@
 
 %p
   = link_to 'communities.yaml', '/communities.yaml'
-  \[uncomment index.wants.yaml in communities_controller only when you want to use this link]
+  \[may want to comment out index.wants.yaml in communities_controller when not using this link]
 
 %p
   = link_to 'faqs.yaml', '/faqs.yaml'
@@ -51,5 +51,11 @@
 %p
   = link_to 'websites.yaml', '/websites.yaml'
   \[index listing restricted to admin]
+
+%p
+  = button_to 'Clean data', :action => :clean_data
+  (Do this once after uploading data from yaml files.
+  It trims the newlines & whitespace off the end of three fields. Newlines got added as a way of
+  handling special characters like colons or pipes -- I forget which.)
 
 %br

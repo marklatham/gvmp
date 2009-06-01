@@ -2,7 +2,7 @@
 
 %h1.permission Listing communities
 
-- cols = ['Name', 'Short name', 'Type', 'Country', 'Prov state', 'City', 'Official url', 'Wiki url', 'Description']
+- cols = ['ID', 'Name', 'Short name', 'Type', 'Country', 'Prov state', 'City', 'Official url', 'Wiki url', 'Description']
 %table
   %tr
     - cols.each do |col|
@@ -11,12 +11,13 @@
       %th
   - @communities.each do |community|
     %tr
+      %td= community.id
       %td= link_to community.name, community
       %td= h community.short_name
       %td= community.category
       %td= h community.country
-      %td= h community.prov_state 
-      %td= h community.city 
+      %td= h community.prov_state
+      %td= h community.city
       %td= h community.official_url
       %td= h community.wiki_url
       %td= h community.description
