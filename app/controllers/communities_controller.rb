@@ -31,10 +31,10 @@ class CommunitiesController < ApplicationController
         if @community.description.blank?
           @community.description = @community.add_to_description
         else
-          @community.description = @community.description + '\n' + @community.add_to_description
+          @community.description = @community.description + '<br />' + @community.add_to_description
         end
         @community.add_to_description = ''
-        @community.save!
+        @community.save
         flash[:notice] = 'Community data was successfully added.'
         format.html { redirect_to(@community) }
         format.xml  { head :ok }

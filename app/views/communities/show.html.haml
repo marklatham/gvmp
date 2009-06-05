@@ -51,15 +51,20 @@
 	
   %table#table1
     %tr.header
+      %th.header-centred= "Rank"
       %th.header-centred= "Votes"
       %th.header-centred= "Your Vote"
       %th.header-left= "Website/Blog"
       %th.header-centred= "Date added"
 
+    - @rank_sequence = 0
+
     - @rankings.each do |ranking|
       / In case website was deleted but orphaned ranking record still exists:
       - if ranking[:website]
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
+          - @rank_sequence += 1
+          %td.cell-centred= @rank_sequence
           %td.cell-centred= number_with_precision(ranking[:rank], :precision => 2)
           -# TODO: use named_route/resource
           %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
