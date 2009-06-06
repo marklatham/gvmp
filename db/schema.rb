@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090531173322) do
+ActiveRecord::Schema.define(:version => 20090606000344) do
 
   create_table "colleagues", :force => true do |t|
     t.string   "given_name"
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20090531173322) do
     t.string   "scope"
     t.text     "add_to_description"
   end
+
+  add_index "communities", ["category"], :name => "index_communities_on_category"
+  add_index "communities", ["city"], :name => "index_communities_on_city"
+  add_index "communities", ["country"], :name => "index_communities_on_country"
+  add_index "communities", ["name"], :name => "index_communities_on_name"
+  add_index "communities", ["prov_state"], :name => "index_communities_on_prov_state"
+  add_index "communities", ["scope"], :name => "index_communities_on_scope"
+  add_index "communities", ["short_name"], :name => "index_communities_on_short_name"
 
   create_table "faqs", :force => true do |t|
     t.string   "category"

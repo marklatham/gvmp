@@ -45,11 +45,14 @@
       #side
         %br
         #search
-          Find communities:
-          %input{:type => "text", :name => "fname", :size => "13", :value => " ( not built yet! )"}/
-          %br
-          &nbsp; &nbsp; &nbsp;
-          %input{:type => "submit", :value => "Search"}/
+          - form_tag(search_communities_path, {:method => 'get'}) do
+            %div
+              Find communities:<br />
+              %input{:type => "text", :name => "query", :size => "18"}/
+              %br
+              &nbsp; &nbsp; &nbsp;
+              %input{:type => "submit", :value => "Search"}/
+
         %br
 
         #nav-header

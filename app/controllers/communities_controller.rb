@@ -44,6 +44,12 @@ class CommunitiesController < ApplicationController
       end
     end
   end
+  
+  def search
+    @communities = Community.find_with_ferret(:query)
+#    Not even this one works:
+#    @communities = Community.find(:all)    
+  end
 
   # TODO: should be done on a votes controller
   def vote_for_website
