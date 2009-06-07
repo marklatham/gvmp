@@ -11,7 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :session
 
   map.resources :colleagues
-  map.resources :communities
+  map.resources :communities, :collection => { :search => :get }
   map.resources :faqs
   map.resources :pubs
   map.resources :rankings
@@ -27,7 +27,6 @@ ActionController::Routing::Routes.draw do |map|
   map.how_you_can_help '/how_you_can_help', :controller => 'public', :action => 'how_you_can_help'
   map.admin '/admin', :controller => 'admin', :action => 'admin'
 
-  map.search_communities  '/communities/search', :controller => 'communities', :action => 'search'
   
   # The priority is based upon order of creation: first created -> highest priority.
 
