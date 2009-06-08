@@ -1,7 +1,7 @@
 class Community < ActiveRecord::Base
   # TODO: protect attributes from mass-assignment
   
-  acts_as_ferret
+  #acts_as_ferret :fields => [:name, :short_name]
   
   has_many :rankings do
     def with_websites
@@ -21,5 +21,10 @@ class Community < ActiveRecord::Base
   validates_length_of :country, :maximum => 30
   validates_length_of :prov_state, :maximum => 30
   validates_length_of :city, :maximum => 30
+
+  # Required by sphinx
+  define_index do
+    indexes name, short_name
+  end
 
 end
