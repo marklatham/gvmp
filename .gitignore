@@ -1,6 +1,7 @@
 .DS_Store
 *.swp
 config/database.yml
+log
 log/*.log
 tmp/**/*
 tmp
@@ -10,3 +11,6 @@ public/system
 *.so
 Makefile
 *.bundle
+index
+index/**/*
+db/sphinx/**/*
