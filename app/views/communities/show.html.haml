@@ -21,12 +21,14 @@
   %p
     %label
       Official website:
-    = auto_link_urls(@community.official_url, :target => "_blank")
+    = if @community.official_url
+      = auto_link_urls(@community.official_url, :target => "_blank")
 
   %p
     %label
       Wiki:
-    = auto_link_urls(@community.wiki_url, :target => "_blank")
+    = if @community.wiki_url
+      = auto_link_urls(@community.wiki_url, :target => "_blank")
 
   %p
     %label
@@ -52,7 +54,8 @@
   %table#table1
     %tr.header
       %th.header-centred= "Rank"
-      %th.header-centred= "Votes"
+      - if current_user and (current_user.permission >= 7.0)
+        %th.header-centred.permission= "Votes"
       %th.header-centred= "Your Vote"
       %th.header-left= "Website/Blog"
       %th.header-centred= "Date added"
@@ -65,7 +68,8 @@
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
           - @rank_sequence += 1
           %td.cell-centred= @rank_sequence
-          %td.cell-centred= number_with_precision(ranking[:rank], :precision => 2)
+          - if current_user and (current_user.permission >= 7.0)
+            %td.cell-centred.permission= number_with_precision(ranking[:rank], :precision => 2)
           -# TODO: use named_route/resource
           %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"

@@ -46,7 +46,6 @@ class CommunitiesController < ApplicationController
   end
   
   def search
-    #@communities = Community.find_with_ferret(params[:query])
     @communities = Community.search(params[:query])
   end
 

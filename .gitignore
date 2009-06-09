@@ -1,6 +1,7 @@
 .DS_Store
 *.swp
 config/database.yml
+config/development.sphinx.conf
 log
 log/*.log
 tmp/**/*

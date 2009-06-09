@@ -24,7 +24,7 @@ class Community < ActiveRecord::Base
 
   # Required by sphinx
   define_index do
-    indexes name, short_name
+    indexes name, short_name, category, country, prov_state, city, scope
   end
 
 end
