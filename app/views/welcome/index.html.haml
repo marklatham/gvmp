@@ -1,3 +1,50 @@
 %h2 What are the best websites/blogs serving your voter communities?
+%p Follow links to community ballots, then vote on website/blog rankings:
 
-= render :partial => "communities/table"
+- will_paginate @communities
+
+%table#table1{:cellspacing => 0}
+
+  %tr.header
+    %td
+    %td.header-left Community Name
+    %td.header-centred Type
+    %td.header-centred{:colspan => 3} --------- Headquarters ---------
+    %td.header-centred Regional
+    %td.header-centred #web-
+  
+  %tr.header 
+    %td
+    %td.header-left &nbsp; &nbsp; &nbsp; & link to ballot
+    %td.header-centred 
+    %td.header-centred Country
+    %td.header-centred Prov/State
+    %td.header-centred City
+    %td.header-centred Scope
+    %td.header-centred sites
+
+  - for community in @communities
+    %tr{:class => cycle('list-line-odd', 'list-line-even')}
+      %td.add-button 
+      / Uncomment to create Add buttons
+      / <input type="submit" value="<< Add" />
+      %td.cell-link= link_to community.name, community
+      / Uncomment when create Add buttons, add heading, delink community names
+      / %td= link_to "View", community
+      %td.cell-centred= community.category
+      %td.cell-centred= h community.country
+      %td.cell-centred= h community.prov_state
+      %td.cell-centred= h truncate(community.city, :length => 15)
+      %td.cell-centred= h truncate(community.scope, :length => 20)
+      %td.cell-centred= h community.websites.count
+      - if current_user and (current_user.permission >= 4.0)
+        %td.permission= link_to 'Edit', edit_community_path(community)
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= link_to 'Destroy', community, :confirm => 'Are you sure?', :method => :delete
+
+%br
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+Is your voter community not in our system?
+= link_to 'Add it!', new_community_path
+%br
+%br

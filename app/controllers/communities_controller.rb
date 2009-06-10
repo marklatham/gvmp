@@ -46,7 +46,7 @@ class CommunitiesController < ApplicationController
   end
   
   def search
-    @communities = Community.search(params[:query])
+    @communities = Community.search(params[:query], :page => params[:page], :per_page => 30)
   end
 
   # TODO: should be done on a votes controller

@@ -2,7 +2,7 @@ class WelcomeController < ApplicationController
   # GET /communities
   # GET /communities.xml
   def index
-    @communities = Community.find(:all, :order => "country, category, name")
+    @communities = Community.paginate :page => params[:page], :order => 'country, category, name'
 
     respond_to do |format|
       format.html # index.html.erb

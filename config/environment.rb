@@ -5,6 +5,8 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 
+  config.gem 'mislav-will_paginate', :version => '~> 2.3.8', :lib => 'will_paginate', 
+    :source => 'http://gems.github.com'
 
   config.gem 'haml', :version => '= 2.0.9'
 
@@ -27,5 +29,3 @@ Rails::Initializer.run do |config|
   # (create the session table with "rake db:sessions:create")
   # config.action_controller.session_store = :active_record_store
 end
-
-
