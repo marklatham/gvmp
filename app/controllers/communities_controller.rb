@@ -18,7 +18,15 @@ class CommunitiesController < ApplicationController
   end
   
   index.wants.yaml { render :yaml => collection }
-  
+
+
+  # TODO: Do this site-wide
+  def collection
+    scope = end_of_association_chain
+    scope.paginate :page => params[:page]
+  end
+
+
   def add_to
     @community = Community.find(params[:id])
   end
