@@ -1,6 +1,7 @@
 %p Follow links to community ballots, then vote on website/blog rankings:
 
-- will_paginate @communities
+%p= will_paginate @communities
+%p
 
 %table#table1{:cellspacing => 0}
 
@@ -41,9 +42,9 @@
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= link_to 'Destroy', community, :confirm => 'Are you sure?', :method => :delete
 
-%br
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-Is your voter community not in our system?
-= link_to 'Add it!', new_community_path
-%br
+  %tr
+    %td.footer-row{:colspan => 3}= will_paginate @communities
+    %td.footer-row{:colspan => 5, :align => "right"}
+      Is your voter community not in our system?
+      = link_to 'Add it!', new_community_path
 %br

@@ -235,6 +235,10 @@ a:hover { color: #d00; }
   color:#a00;
   text-decoration: underline;
 }
+#table1 .footer-row {
+  border-top: 2px solid #c00;
+  padding-top: 6px;
+}
 
 #faq .category {
   font-weight: bold;

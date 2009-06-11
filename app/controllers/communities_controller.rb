@@ -14,11 +14,12 @@ class CommunitiesController < ApplicationController
   destroy.flash "Community removed."
 
   show.before do
-    @rankings = @community.rankings.with_websites
+    @rankings = @community.rankings.with_websites.paginate :page => params[:page], :per_page => 20
   end
   
   index.wants.yaml { render :yaml => collection }
 
+  destroy.wants.html { redirect_back_or('/') }
 
   # TODO: Do this site-wide
   def collection

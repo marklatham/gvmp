@@ -79,6 +79,8 @@
           - if current_user and (current_user.permission >= 5.0)
             %td.permission= link_to 'Destroy', ranking[:website], :confirm => 'Are you sure?', :method => :delete
 
+  %p= will_paginate @rankings
+
   %p= link_to 'Add a website/blog to this community', new_website_path(:community_id => @community)
   
 - else
