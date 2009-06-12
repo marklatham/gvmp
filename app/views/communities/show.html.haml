@@ -73,18 +73,23 @@
           -# TODO: use named_route/resource
           %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
           %td
-            /- if @ballot.clicks.find(:first, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id])
-            ✔
+            /- if @ballot.clicks.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below:
+            - @flag = 0
+            - for click in @ballot.clicks
+              - if click.community_id == @community.id && click.website_id == ranking[:website].id
+                - @flag = 1
+            - if @flag == 1
+              ✔
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"
           %td.cell-centred= ranking[:created_at].to_s(:Ymd)
-          %td= @community.id
-          %td= ranking[:website].id
           - if current_user and (current_user.permission >= 4.0)
             %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
           - if current_user and (current_user.permission >= 5.0)
             %td.permission= link_to 'Destroy', ranking[:website], :confirm => 'Are you sure?', :method => :delete
 
   %p= will_paginate @rankings
+  
+  %p If you don't want other users of this computer to see your votes, please exit browser when finished voting.
 
   %p= link_to 'Add a website/blog to this community', new_website_path(:community_id => @community)
   
@@ -104,16 +109,5 @@
     or
     = link_to 'Blogger', 'http://blogger.com/', :target => '_blank'
     \.
-
-%br
-
-%table
-  %tr
-    %th Community_id
-    %th Website_id
-  - for click in @ballot.clicks
-    %tr
-      %td= click.community_id
-      %td= click.website_id
 
 %br
