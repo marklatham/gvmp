@@ -15,6 +15,7 @@ class CommunitiesController < ApplicationController
 
   show.before do
     @rankings = @community.rankings.with_websites.paginate :page => params[:page], :per_page => 20
+    @ballot = find_ballot
   end
   
   index.wants.yaml { render :yaml => collection }
@@ -64,12 +65,21 @@ class CommunitiesController < ApplicationController
     @website = Website.find(params[:id])
     @community = Community.find(params[:community])
     
-    Vote.create!({:ip_address => @ip, :community_id => @community.id, :website_id => @website.id})
+    vote = Vote.create!({:ip_address => @ip, :community_id => @community.id, :website_id => @website.id})
+
+    @ballot = find_ballot
+    @ballot.add_vote(vote)
     
     website_rank_in_community = Ranking.find(:first, :conditions => ["community_id = ? and website_id = ?", @community, @website])
     website_rank_in_community.rerank
     
     redirect_to :action => :show, :id => @community
   end
+
+  private
+
+    def find_ballot 
+      session[:ballot] ||= Ballot.new 
+    end
 
 end

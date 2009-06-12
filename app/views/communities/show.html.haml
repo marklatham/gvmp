@@ -56,7 +56,7 @@
       %th.header-centred= "Rank"
       - if current_user and (current_user.permission >= 7.0)
         %th.header-centred.permission= "Votes"
-      %th.header-centred= "Your Vote"
+      %th.header-centred{:colspan => 2}= "Your Vote"
       %th.header-left= "Website/Blog"
       %th.header-centred= "Date added"
 
@@ -72,8 +72,13 @@
             %td.cell-centred.permission= number_with_precision(ranking[:rank], :precision => 2)
           -# TODO: use named_route/resource
           %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
+          %td
+            /- if @ballot.clicks.find(:first, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id])
+            ✔
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"
           %td.cell-centred= ranking[:created_at].to_s(:Ymd)
+          %td= @community.id
+          %td= ranking[:website].id
           - if current_user and (current_user.permission >= 4.0)
             %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
           - if current_user and (current_user.permission >= 5.0)
@@ -99,5 +104,16 @@
     or
     = link_to 'Blogger', 'http://blogger.com/', :target => '_blank'
     \.
+
+%br
+
+%table
+  %tr
+    %th Community_id
+    %th Website_id
+  - for click in @ballot.clicks
+    %tr
+      %td= click.community_id
+      %td= click.website_id
 
 %br
