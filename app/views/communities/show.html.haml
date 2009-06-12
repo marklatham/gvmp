@@ -56,14 +56,14 @@
       %th.header-centred= "Rank"
       - if current_user and (current_user.permission >= 7.0)
         %th.header-centred.permission= "Votes"
-      %th.header-centred{:colspan => 2}= "Your Vote"
+      %th.header-centred= "Your Vote"
       %th.header-left= "Website/Blog"
       %th.header-centred= "Date added"
 
     - @rank_sequence = 0
 
     - @rankings.each do |ranking|
-      / In case website was deleted but orphaned ranking record still exists:
+      -# In case website was deleted but orphaned ranking record still exists:
       - if ranking[:website]
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
           - @rank_sequence += 1
@@ -71,15 +71,15 @@
           - if current_user and (current_user.permission >= 7.0)
             %td.cell-centred.permission= number_with_precision(ranking[:rank], :precision => 2)
           -# TODO: use named_route/resource
-          %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
-          %td
-            /- if @ballot.clicks.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below:
-            - @flag = 0
-            - for click in @ballot.clicks
-              - if click.community_id == @community.id && click.website_id == ranking[:website].id
-                - @flag = 1
-            - if @flag == 1
-              ✔
+          -# if @ballot.clicks.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below:
+          - @flag = 0
+          - for click in @ballot.clicks
+            - if click.community_id == @community.id && click.website_id == ranking[:website].id
+              - @flag = 1
+          - if @flag == 1
+            %td.cell-centred ✔
+          - else
+            %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"
           %td.cell-centred= ranking[:created_at].to_s(:Ymd)
           - if current_user and (current_user.permission >= 4.0)
