@@ -33,12 +33,14 @@
   %p
     %label
       Official website:
-    = auto_link_urls(@community.official_url, :target => "_blank")
+    = if @community.official_url
+      = auto_link_urls(@community.official_url, :target => "_blank")
 
   %p
     %label
       Wiki:
-    = auto_link_urls(@community.wiki_url, :target => "_blank")
+    = if @community.wiki_url
+      = auto_link_urls(@community.wiki_url, :target => "_blank")
 
   %p
     %label
