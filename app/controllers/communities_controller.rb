@@ -18,16 +18,20 @@ class CommunitiesController < ApplicationController
     @ballot = find_ballot
   end
   
-  index.wants.yaml { render :yaml => collection }
-
   destroy.wants.html { redirect_back_or('/') }
 
-  # TODO: Do this site-wide
   def collection
     scope = end_of_association_chain
     scope.paginate :page => params[:page]
   end
 
+  def manage
+    @communities = collection
+  end
+
+  def search
+    @communities = Community.search(params[:query], :page => params[:page], :per_page => 30)
+  end
 
   def add_to
     @community = Community.find(params[:id])
@@ -55,9 +59,6 @@ class CommunitiesController < ApplicationController
     end
   end
   
-  def search
-    @communities = Community.search(params[:query], :page => params[:page], :per_page => 30)
-  end
 
   # TODO: should be done on a votes controller
   def vote_for_website

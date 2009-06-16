@@ -2,23 +2,25 @@ ActionController::Routing::Routes.draw do |map|
   
   map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
   
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.login '/login', :controller => 'sessions', :action => 'new'
+  map.root :controller => 'communities'
+
+  map.logout      '/logout', :controller => 'sessions', :action => 'destroy'
+  map.login       '/login', :controller => 'sessions', :action => 'new'
   map.create_user '/create_user', :controller => 'users', :action => 'create'
-  map.register '/register', :controller => 'users', :action => 'new'
+  map.register    '/register', :controller => 'users', :action => 'new'
+
   map.resources :users
 
   map.resource :session
 
   map.resources :colleagues
-  map.resources :communities, :collection => { :search => :get }
+  map.resources :communities, :collection => { :search => :get, :manage => :get }
   map.resources :faqs
   map.resources :pubs
   map.resources :rankings
   map.resources :votes
   map.resources :websites
 
-  map.home '', :controller => 'welcome', :action => 'index'
   
   map.about_contact '/about_contact', :controller => 'public', :action => 'about_contact'
   map.publications '/publications', :controller => 'pubs', :action => 'index'

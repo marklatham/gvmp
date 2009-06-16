@@ -11,6 +11,8 @@ class Community < ActiveRecord::Base
     end
   end
   has_many :websites, :through => :rankings
+
+  default_scope :order => 'country, category, name'
   
   validates_presence_of :name, :short_name
   validates_presence_of :category, :message => "(Type) can't be blank"
@@ -26,5 +28,6 @@ class Community < ActiveRecord::Base
   define_index do
     indexes name, short_name, category, country, prov_state, city, scope
   end
+
 
 end

@@ -13,8 +13,8 @@
     %table{:width => "100%"}
       %tr
         %td#banner
-          = link_to 'Voter', home_path
-          %span.banner2>= link_to 'Media.org', home_path
+          = link_to 'Voter', root_path
+          %span.banner2>= link_to 'Media.org', root_path
           %span.release &nbsp; [beta]
         %td#login-nav
           - if current_user
@@ -33,7 +33,7 @@
               = link_to 'Login', login_path
 
     #top-bottom-nav
-      = link_to 'HOME', home_path
+      = link_to 'HOME', root_path
       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
       = link_to 'FAQ', faqs_path
       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
@@ -73,7 +73,7 @@
         = yield
 
     #top-bottom-nav
-      = link_to 'HOME', home_path
+      = link_to 'HOME', root_path
       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
       = link_to 'TERMS', terms_path
       &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 

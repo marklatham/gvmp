@@ -1,32 +1,3 @@
-- @page_title = 'Listing communities'
+%h2 What are the best websites/blogs serving your voter communities?
 
-%h1.permission Listing communities
-
-- cols = ['ID', 'Name', 'Short name', 'Type', 'Country', 'Prov state', 'City', 'Official url', 'Wiki url', 'Description']
-%table
-  %tr
-    - cols.each do |col|
-      %th= col
-    - 2.times do |i|  # for the actions
-      %th
-  - @communities.each do |community|
-    %tr
-      %td= community.id
-      %td= link_to community.name, community
-      %td= h community.short_name
-      %td= community.category
-      %td= h community.country
-      %td= h community.prov_state
-      %td= h community.city
-      %td= h community.official_url
-      %td= h community.wiki_url
-      %td= h community.description
-      %td= link_to 'Edit', edit_object_path(community)
-      %td= link_to 'Destroy', object_path(community), :method => :delete, :confirm => 'Are you sure?'
-
-%h2
-  = link_to 'New community', new_object_path
-
-%br
-
-= will_paginate(@communities)
+= render :partial => "communities/table"
