@@ -13,17 +13,4 @@ class Website < ActiveRecord::Base
     self.communities.include?(community)
   end
 
-
-  class << self
-    def build_for_community(community_id, params) 
-      if params
-        # TODO: handle if community doesn't exist
-        community = Community.find(community_id)
-        community.websites.create(params)
-      else
-        new
-      end
-    end
-  end
-  
 end
