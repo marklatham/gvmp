@@ -1,8 +1,6 @@
 class Community < ActiveRecord::Base
   # TODO: protect attributes from mass-assignment
   
-  #acts_as_ferret :fields => [:name, :short_name]
-  
   has_many :rankings do
     def with_websites
       # sort first on rank, then on created_at; pass both values to caller
