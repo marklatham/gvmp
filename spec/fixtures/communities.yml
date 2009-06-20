@@ -15,7 +15,7 @@
   description: |
     
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 18:26:36 UTC
+  updated_at: 2009-06-01 05:08:01 UTC
 
 2:
   id: 2
@@ -32,8 +32,9 @@
   official_url: http://www.ballard.com/
   description: |
     TSX, NASDAQ, BLDP
+    
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:09:27 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
 3:
   id: 3
@@ -51,7 +52,7 @@
   description: |
     CBC is a crown corporation, not a publicly traded corporation. So its voter community is all citizens of Canada.
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-27 19:36:09 UTC
+  updated_at: 2009-06-01 18:58:35 UTC
 
 4:
   id: 4
@@ -69,7 +70,7 @@
   description: |
     TSE, T, T.A
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:13:32 UTC
+  updated_at: 2009-05-31 22:10:29 UTC
 
 5:
   id: 5
@@ -87,7 +88,7 @@
   description: |
     
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 18:27:50 UTC
+  updated_at: 2009-05-31 22:12:48 UTC
 
 6:
   id: 6
@@ -105,7 +106,7 @@
   description: |
     
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-05-04 06:24:53 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
 7:
   id: 7
@@ -123,7 +124,7 @@
   description: |
     
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-05-04 06:27:22 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
 8:
   id: 8
@@ -141,7 +142,7 @@
   description: |
     
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-05-04 06:27:45 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
 9:
   id: 9
@@ -159,7 +160,7 @@
   description: |
     
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-05-04 06:28:07 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
 10:
   id: 10
@@ -176,3338 +177,9 @@
   official_url: http://www.theclassico.ca/
   description: |
     BCS 460. 1328 West Pender Street, Vancouver, BC, Canada V6E 4T1
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:21:11 UTC
-
-11:
-  id: 11
-  name: |
-    B.C. Government & Service Employees Union
-  short_name: |
-    BCGSEU
-  category: Labour
-  country: Canada
-  prov_state: B.C.
-  city: Burnaby
-  scope: B.C.
-  wiki_url: 
-  official_url: http://www.bcgeu.bc.ca/
-  description: |
-    British Columbia Government and Service Employees Union
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:23:08 UTC
-
-12:
-  id: 12
-  name: |
-    British Columbia Federation of Labour
-  short_name: |
-    BC Fed'n of Labour
-  category: Labour
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: B.C.
-  wiki_url: http://en.wikipedia.org/wiki/British_Columbia_Federation_of_Labour
-  official_url: http://www.bcfed.com/
-  description: |
     
   created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:24:22 UTC
-
-13:
-  id: 13
-  name: |
-    British Columbia Nurses' Union
-  short_name: |
-    BC Nurses' Union
-  category: Labour
-  country: Canada
-  prov_state: B.C.
-  city: Burnaby
-  scope: B.C.
-  wiki_url: None as of January 2009
-  official_url: http://www.bcnu.org
-  description: |
-    
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:26:51 UTC
-
-14:
-  id: 14
-  name: |
-    British Columbia Teachers' Federation
-  short_name: |
-    BCTF
-  category: Labour
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: B.C.
-  wiki_url: http://en.wikipedia.org/wiki/British_Columbia_Teachers_Federation
-  official_url: http://www.bctf.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:28:24 UTC
-
-15:
-  id: 15
-  name: |
-    Canadian Association of University Teachers
-  short_name: |
-    Cdn Ass'n U Teachers
-  category: Labour
-  country: Canada
-  prov_state: Ontario
-  city: Ottawa
-  scope: Canada
-  wiki_url: 
-  official_url: http://www.caut.ca
-  description: |
-    
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:29:38 UTC
-
-16:
-  id: 16
-  name: |
-    Canadian Auto Workers
-  short_name: |
-    Cdn Auto Workers
-  category: Labour
-  country: Canada
-  prov_state: Ontario
-  city: Toronto
-  scope: Canada
-  wiki_url: http://en.wikipedia.org/wiki/Canadian_Auto_Workers
-  official_url: http://www.caw.ca
-  description: |
-    
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:31:01 UTC
-
-17:
-  id: 17
-  name: |
-    Canadian Auto Workers Local 111
-  short_name: |
-    CAW Local 111
-  category: Labour
-  country: Canada
-  prov_state: B.C.
-  city: New Westminster
-  scope: B.C.
-  wiki_url: http://en.wikipedia.org/wiki/CAW_Local_111
-  official_url: http://www.caw111.com/
-  description: |
-    bus drivers
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:32:56 UTC
-
-18:
-  id: 18
-  name: |
-    Canadian Union of Public Employees
-  short_name: |
-    CUPE
-  category: Labour
-  country: Canada
-  prov_state: Ontario
-  city: Ottawa
-  scope: Canada
-  wiki_url: http://en.wikipedia.org/wiki/CUPE
-  official_url: http://cupe.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:33:55 UTC
-
-19:
-  id: 19
-  name: |
-    Fédération des travailleurs/-euses du Québec
-  short_name: |
-    Féd'n trav. Québec
-  category: Labour
-  country: Canada
-  prov_state: Québec
-  city: Montréal
-  scope: Québec
-  wiki_url: http://en.wikipedia.org/wiki/Fédération_des_travailleurs_du_Québec
-  official_url: http://www.ftq.qc.ca/
-  description: |
-    Fédération des travailleurs et travailleuses du Québec, QFL, Quebec Federation of Labour
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:35:46 UTC
-
-20:
-  id: 20
-  name: |
-    Hospital Employees' Union (British Columbia)
-  short_name: |
-    HospitalEmployees BC
-  category: Labour
-  country: Canada
-  prov_state: B.C.
-  city: Burnaby
-  scope: B.C.
-  wiki_url: http://en.wikipedia.org/wiki/Hospital_Employees%27_Union
-  official_url: http://www.heu.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:37:01 UTC
-
-21:
-  id: 21
-  name: |
-    Vancouver Police Union
-  short_name: |
-    Vancouver Police
-  category: Labour
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: Vancouver
-  wiki_url: http://en.wikipedia.org/wiki/Vancouver_Police_Union
-  official_url: http://www.vpu.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:37:52 UTC
-
-22:
-  id: 22
-  name: |
-    Abbotsford
-  short_name: |
-    Abbotsford
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Abbotsford
-  scope: Abbotsford
-  wiki_url: http://en.wikipedia.org/wiki/Abbotsford,_British_Columbia
-  official_url: http://www.abbotsford.ca/site4.aspx
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:38:13 UTC
-
-23:
-  id: 23
-  name: |
-    Anmore
-  short_name: |
-    Anmore
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Anmore
-  scope: Anmore
-  wiki_url: http://en.wikipedia.org/wiki/Anmore
-  official_url: http://www.anmore.com/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:38:30 UTC
-
-24:
-  id: 24
-  name: |
-    Belcarra
-  short_name: |
-    Belcarra
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Belcarra
-  scope: Belcarra
-  wiki_url: http://en.wikipedia.org/wiki/Belcarra,_British_Columbia
-  official_url: http://www.belcarra.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:38:47 UTC
-
-25:
-  id: 25
-  name: |
-    Bowen Island
-  short_name: |
-    Bowen Island
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Bowen Island
-  scope: Bowen Island
-  wiki_url: http://en.wikipedia.org/wiki/Bowen_island
-  official_url: http://www.bowenisland.com/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:39:06 UTC
-
-26:
-  id: 26
-  name: |
-    Burnaby
-  short_name: |
-    Burnaby
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Burnaby
-  scope: Burnaby
-  wiki_url: http://en.wikipedia.org/wiki/Burnaby
-  official_url: http://www.city.burnaby.bc.ca/Home.html
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:39:46 UTC
-
-27:
-  id: 27
-  name: |
-    Chilliwack
-  short_name: |
-    Chilliwack
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Chilliwack
-  scope: Chilliwack
-  wiki_url: http://en.wikipedia.org/wiki/Chilliwack,_British_Columbia
-  official_url: http://www.gov.chilliwack.bc.ca/main/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:40:06 UTC
-
-28:
-  id: 28
-  name: |
-    Coquitlam
-  short_name: |
-    Coquitlam
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Coquitlam
-  scope: Coquitlam
-  wiki_url: http://en.wikipedia.org/wiki/Coquitlam
-  official_url: http://www.coquitlam.ca/default.htm
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-14 22:40:24 UTC
-
-29:
-  id: 29
-  name: |
-    Delta
-  short_name: |
-    Delta
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Delta
-  scope: Delta
-  wiki_url: http://en.wikipedia.org/wiki/Delta,_British_Columbia
-  official_url: http://www.delta.com/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-17 21:57:29 UTC
-
-30:
-  id: 30
-  name: |
-    Gibsons
-  short_name: |
-    Gibsons
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Gibsons
-  scope: Gibsons
-  wiki_url: http://en.wikipedia.org/wiki/Gibsons,_British_Columbia
-  official_url: http://www.gibsons.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-17 22:01:01 UTC
-
-31:
-  id: 31
-  name: |
-    Harrison Hot Springs
-  short_name: |
-    Harrison Hot Springs
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Harrison Hot Springs
-  scope: Harrison Hot Springs
-  wiki_url: http://en.wikipedia.org/wiki/Harrison_Hot_Springs
-  official_url: http://www.harrisonhotsprings.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-26 17:31:38 UTC
-
-32:
-  id: 32
-  name: |
-    Hope
-  short_name: |
-    Hope
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Hope
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Hope,_British_Columbia
-  official_url: http://www.hopebc.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-33:
-  id: 33
-  name: |
-    Kent
-  short_name: |
-    Kent
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Kent
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Kent,_British_Columbia
-  official_url: http://www.district.kent.bc.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-34:
-  id: 34
-  name: |
-    Langley (City)
-  short_name: |
-    Langley (City)
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Langley (City)
-  scope: Langley (City)
-  wiki_url: http://en.wikipedia.org/wiki/Langley,_British_Columbia_(city)
-  official_url: http://www.city.langley.bc.ca/
-  description: |
-    The City of Langley is not to be confused with the larger "<a href="./35">Township of Langley</a>" (also called "Langley District Municipality"). GVRD, Metro Vancouver.
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-27 16:39:10 UTC
-
-35:
-  id: 35
-  name: |
-    Langley (District Municipality)
-  short_name: |
-    Langley (District)
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Langley (District)
-  scope: Langley (District)
-  wiki_url: http://en.wikipedia.org/wiki/Langley,_British_Columbia_(district_municipality)
-  official_url: http://www.tol.bc.ca/
-  description: |
-    Langley District Municipality (also called Langley Township) is not to be confused with the smaller "<a href="./34">City of Langley</a>".  GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-27 16:38:28 UTC
-
-36:
-  id: 36
-  name: |
-    Lillooet
-  short_name: |
-    Lillooet
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Lillooet
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Lillooet,_British_Columbia
-  official_url: http://www.lillooetbc.com/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-37:
-  id: 37
-  name: |
-    Lions Bay
-  short_name: |
-    Lions Bay
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Lions Bay
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Lions_Bay
-  official_url: http://www.lionsbay.citymax.com/page/page/479914.htm
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-38:
-  id: 38
-  name: |
-    Maple Ridge
-  short_name: |
-    Maple Ridge
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Maple Ridge
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Maple_Ridge
-  official_url: http://www.mapleridge.org/EN/index.html
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-39:
-  id: 39
-  name: |
-    Mission
-  short_name: |
-    Mission
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Mission
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/District_of_Mission
-  official_url: http://www.mission.ca/site3.aspx
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-40:
-  id: 40
-  name: |
-    New Westminster
-  short_name: |
-    New Westminster
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: New Westminster
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/New_Westminster
-  official_url: http://www.newwestcity.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-41:
-  id: 41
-  name: |
-    North Vancouver (City)
-  short_name: |
-    North Van (City)
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: North Vancouver (City)
-  scope: North Vancouver (City)
-  wiki_url: http://en.wikipedia.org/wiki/North_Vancouver,_British_Columbia_(city)
-  official_url: http://www.cnv.org/
-  description: |
-    The City of North Vancouver is distinct from the adjacent <a href="./42">District of North Vancouver</a>. GVRD, Metro Vancouver.
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-27 17:01:39 UTC
-
-42:
-  id: 42
-  name: |
-    North Vancouver (District Municipality)
-  short_name: |
-    North Van (District)
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: North Vancouver (District)
-  scope: North Vancouver (District)
-  wiki_url: http://en.wikipedia.org/wiki/North_Vancouver,_British_Columbia_(district_municipality)
-  official_url: http://www.district.north-van.bc.ca/
-  description: |
-    The City of North Vancouver is distinct from the adjacent <a href="./41">District of North Vancouver</a>. GVRD, Metro Vancouver.
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-27 17:01:10 UTC
-
-43:
-  id: 43
-  name: |
-    Pemberton
-  short_name: |
-    Pemberton
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Pemberton
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Pemberton,_British_Columbia
-  official_url: http://www.pemberton.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-44:
-  id: 44
-  name: |
-    Pitt Meadows
-  short_name: |
-    Pitt Meadows
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Pitt Meadows
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Pitt_Meadows
-  official_url: http://www.pittmeadows.bc.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:28 UTC
-  updated_at: 2009-04-11 22:52:28 UTC
-
-45:
-  id: 45
-  name: |
-    Port Coquitlam
-  short_name: |
-    Port Coquitlam
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Port Coquitlam
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Port_Coquitlam
-  official_url: http://www.city.port-coquitlam.bc.ca/Home_Page.htm
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-46:
-  id: 46
-  name: |
-    Port Moody
-  short_name: |
-    Port Moody
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Port Moody
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Port_Moody
-  official_url: http://www.cityofportmoody.com/default.htm
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-47:
-  id: 47
-  name: |
-    Richmond
-  short_name: |
-    Richmond
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Richmond
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Richmond,_British_Columbia
-  official_url: http://www.richmond.ca/home.htm
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-48:
-  id: 48
-  name: |
-    Sechelt
-  short_name: |
-    Sechelt
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Sechelt
-  scope: Sechelt
-  wiki_url: http://en.wikipedia.org/wiki/Sechelt
-  official_url: http://www.district.sechelt.bc.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-05-06 00:21:40 UTC
-
-49:
-  id: 49
-  name: |
-    Squamish
-  short_name: |
-    Squamish
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Squamish
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Squamish
-  official_url: http://www.squamish.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-50:
-  id: 50
-  name: |
-    Surrey
-  short_name: |
-    Surrey
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Surrey
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Surrey,_British_Columbia
-  official_url: http://www.surrey.ca/default.htm
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-51:
-  id: 51
-  name: |
-    Vancouver
-  short_name: |
-    Vancouver
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: Vancouver
-  wiki_url: http://en.wikipedia.org/wiki/Vancouver
-  official_url: http://www.vancouver.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-27 01:36:06 UTC
-
-52:
-  id: 52
-  name: |
-    Victoria
-  short_name: |
-    Victoria
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Victoria
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Victoria,_British_Columbia
-  official_url: http://www.victoria.ca
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-53:
-  id: 53
-  name: |
-    West Vancouver
-  short_name: |
-    West Vancouver
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: West Vancouver
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/West_Vancouver
-  official_url: http://www.westvancouver.net/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-54:
-  id: 54
-  name: |
-    Whistler
-  short_name: |
-    Whistler
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Whistler
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Whistler_(British_Columbia)
-  official_url: http://www.whistler.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-55:
-  id: 55
-  name: |
-    White Rock
-  short_name: |
-    White Rock
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: White Rock
-  scope: White Rock
-  wiki_url: http://en.wikipedia.org/wiki/White_Rock,_British_Columbia
-  official_url: http://www.city.whiterock.bc.ca/
-  description: |
-    GVRD, Metro Vancouver
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-14 22:40:41 UTC
-
-56:
-  id: 56
-  name: |
-    British Columbia Automobile Association
-  short_name: |
-    BC Auto Association
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Burnaby
-  scope: B.C.
-  wiki_url: None as of January 2009
-  official_url: http://www.bcaa.com
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-14 22:41:32 UTC
-
-57:
-  id: 57
-  name: |
-    British Columbia Medical Association
-  short_name: |
-    BC Medical Ass'n
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: B.C.
-  wiki_url: None as of January 2009
-  official_url: http://www.bcma.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-14 22:42:39 UTC
-
-58:
-  id: 58
-  name: |
-    Canadian Automobile Association
-  short_name: |
-    Canadian Auto Ass'n
-  category: Nonprofit
-  country: Canada
-  prov_state: Ontario
-  city: Ottawa
-  scope: Canada
-  wiki_url: http://en.wikipedia.org/wiki/Canadian_Automobile_Association
-  official_url: http://www.caa.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-14 22:45:17 UTC
-
-59:
-  id: 59
-  name: |
-    Canadian Internet Registration Authority
-  short_name: |
-    Cdn Internet Reg Aut
-  category: Nonprofit
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Canadian_Internet_Registration_Authority
-  official_url: http://www.cira.ca/en/home.html
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-60:
-  id: 60
-  name: |
-    Canadian Red Cross
-  short_name: |
-    Canadian Red Cross
-  category: Nonprofit
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Canadian_Red_Cross
-  official_url: http://www.redcross.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-61:
-  id: 61
-  name: |
-    Canadian Standards Association
-  short_name: |
-    Cdn Standards Ass'n
-  category: Nonprofit
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Canadian_Standards_Association
-  official_url: http://www.csa.ca
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-62:
-  id: 62
-  name: |
-    Coal Harbour Residents Association
-  short_name: |
-    Coal Harbour Res.
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: Vancouver
-  wiki_url: http://en.wikipedia.org/wiki/Coal_Harbour
-  official_url: http://www.ch-ra.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-14 22:46:01 UTC
-
-63:
-  id: 63
-  name: |
-    Downtown Eastside Residents’ Association
-  short_name: |
-    Dntn Eastside Res.
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: Vancouver
-  wiki_url: http://en.wikipedia.org/wiki/Downtown_Eastside_Residents_Association
-  official_url: http://www.dera.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-14 22:46:30 UTC
-
-64:
-  id: 64
-  name: |
-    Fair Vote Canada
-  short_name: |
-    Fair Vote Canada
-  category: Nonprofit
-  country: Canada
-  prov_state: 
-  city: 
-  scope: Canada
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-14 22:46:57 UTC
-
-65:
-  id: 65
-  name: |
-    Law Society of BC
-  short_name: |
-    Law Society of BC
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: http://www.lawsociety.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-66:
-  id: 66
-  name: |
-    University of British Columbia Alumni Association
-  short_name: |
-    UBC Alumni Ass'n
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/University_of_British_Columbia
-  official_url: http://www.alumni.ubc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-67:
-  id: 67
-  name: |
-    Vancouver Board of Trade
-  short_name: |
-    Van. Board of Trade
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Vancouver_Board_of_Trade
-  official_url: http://www.boardoftrade.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-68:
-  id: 68
-  name: |
-    Vancouver Community Network
-  short_name: |
-    Van. Comm'y Network
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Vancouver_Community_Network
-  official_url: http://www2.vcn.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-69:
-  id: 69
-  name: |
-    West End Residents Association
-  short_name: |
-    West End Res. Ass'n
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: 
-  wiki_url: None as of January 2009
-  official_url: http://www.wera.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-70:
-  id: 70
-  name: |
-    Bloc Québécois
-  short_name: |
-    Bloc Québécois
-  category: Political
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Bloc_Québécois
-  official_url: http://www.blocquebecois.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-71:
-  id: 71
-  name: |
-    Conservative Party of Canada
-  short_name: |
-    Conservative Party
-  category: Political
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Conservative_Party_of_Canada
-  official_url: http://www.conservative.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-72:
-  id: 72
-  name: |
-    Green Party of Canada
-  short_name: |
-    Green Party
-  category: Political
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Green_Party_of_Canada
-  official_url: http://www.green.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-73:
-  id: 73
-  name: |
-    Liberal Party of Canada
-  short_name: |
-    Liberal Party
-  category: Political
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Liberal_Party_of_Canada
-  official_url: http://www.liberal.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-74:
-  id: 74
-  name: |
-    New Democratic Party
-  short_name: |
-    NDP
-  category: Political
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/New_Democratic_Party
-  official_url: http://www.ndp.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-75:
-  id: 75
-  name: |
-    British Columbia Liberal Party
-  short_name: |
-    BC Liberals
-  category: Political
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/British_Columbia_Liberal_Party
-  official_url: http://www.bcliberals.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-76:
-  id: 76
-  name: |
-    Green Party of British Columbia
-  short_name: |
-    Green Party of BC
-  category: Political
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Green_Party_of_British_Columbia
-  official_url: http://www.greenparty.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-77:
-  id: 77
-  name: |
-    New Democratic Party of British Columbia
-  short_name: |
-    BC NDP
-  category: Political
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/New_Democratic_Party_of_British_Columbia
-  official_url: http://www.bcndp.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-78:
-  id: 78
-  name: |
-    Coalition of Progressive Electors
-  short_name: |
-    COPE
-  category: Political
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Coalition_of_Progressive_Electors
-  official_url: http://www.cope.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-79:
-  id: 79
-  name: |
-    Non-Partisan Association
-  short_name: |
-    NPA
-  category: Political
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Non-Partisan_Association
-  official_url: http://www.npavancouver.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-80:
-  id: 80
-  name: |
-    Vision Vancouver
-  short_name: |
-    Vision Vancouver
-  category: Political
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Vision_Vancouver
-  official_url: http://www.votevision.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-11 22:52:29 UTC
-
-81:
-  id: 81
-  name: |
-    British Columbia
-  short_name: |
-    British Columbia
-  category: Province
-  country: Canada
-  prov_state: B.C.
-  city: Victoria
-  scope: B.C.
-  wiki_url: http://en.wikipedia.org/wiki/British_Columbia
-  official_url: http://www.gov.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:29 UTC
-  updated_at: 2009-04-27 03:46:56 UTC
-
-82:
-  id: 82
-  name: |
-    University of British Columbia Alma Mater Society
-  short_name: |
-    UBC AMS
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: Vancouver
-  wiki_url: http://en.wikipedia.org/wiki/Alma_Mater_Society_of_the_University_of_British_Columbia
-  official_url: http://www.amsubc.ca/
-  description: |
-    Alma Mater Society of the University of British Columbia
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-26 16:22:07 UTC
-
-83:
-  id: 83
-  name: |
-    BCIT Student Association
-  short_name: |
-    BCIT Student Ass'n
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: None as of January 2009
-  official_url: http://www.bcitsa.ca/
-  description: |
-    British Columbia Institute of Technology Student Association
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-84:
-  id: 84
-  name: |
-    Canadian Alliance of Student Associations
-  short_name: |
-    CASA
-  category: Student
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Canadian_Alliance_of_Student_Associations
-  official_url: http://www.casa.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-85:
-  id: 85
-  name: |
-    Canadian Federation of Students
-  short_name: |
-    CFS
-  category: Student
-  country: Canada
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Canadian_Federation_of_Students
-  official_url: http://www.cfs-fcee.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-86:
-  id: 86
-  name: |
-    Capilano Students' Union
-  short_name: |
-    Capilano Students
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: North Vancouver
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Capilano_University
-  official_url: http://www.csu.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-87:
-  id: 87
-  name: |
-    Douglas Students' Union
-  short_name: |
-    Douglas Students
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: None as of January 2009
-  official_url: http://www.cfslocal18.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-88:
-  id: 88
-  name: |
-    Kwantlen Student Association
-  short_name: |
-    Kwantlen Students
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Alma_Mater_Society_of_the_University_of_British_Columbia
-  official_url: http://www.kusa.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-89:
-  id: 89
-  name: |
-    Langara Students Union
-  short_name: |
-    Langara Students
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: 
-  wiki_url: None as of January 2009
-  official_url: http://www.lsu.bc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-90:
-  id: 90
-  name: |
-    Northern Undergraduate Student Society
-  short_name: |
-    Northern Undergrads
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Northern_Undergraduate_Student_Society
-  official_url: http://nugss.unbc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-91:
-  id: 91
-  name: |
-    Simon Fraser Student Society
-  short_name: |
-    Simon Fraser Student
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Simon_Fraser_Student_Society
-  official_url: http://www.sfss.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-92:
-  id: 92
-  name: |
-    Students' Unions of Vancouver Community College
-  short_name: |
-    Students' Unions VCC
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Vancouver_Community_College
-  official_url: http://www.suvcc.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-93:
-  id: 93
-  name: |
-    Trinity Western University Students Association
-  short_name: |
-    TWU Students Ass'n
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Trinity_Western_University_Students_Association
-  official_url: http://www.twusa.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-94:
-  id: 94
-  name: |
-    University of Calgary Students' Union
-  short_name: |
-    U Calgary Students
-  category: Student
-  country: Canada
-  prov_state: Alberta
-  city: Calgary
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/University_of_Calgary_Students%27_Union
-  official_url: http://www.su.ucalgary.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-95:
-  id: 95
-  name: |
-    University of the Fraser Valley Student Union Soc.
-  short_name: |
-    UFV Student Union
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/UFV_Student_Union_Society
-  official_url: http://www.ufvsus.ca/
-  description: |
-    University of the Fraser Valley Student Union Society
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-96:
-  id: 96
-  name: |
-    University of Victoria Students’ Society
-  short_name: |
-    UVic Students' Soc.
-  category: Student
-  country: Canada
-  prov_state: B.C.
-  city: Victoria
-  scope: Victoria
-  wiki_url: None as of January 2009
-  official_url: http://www.uvss.uvic.ca/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 22:48:10 UTC
-
-97:
-  id: 97
-  name: |
-    Conference Board
-  short_name: |
-    Conference Board
-  category: Nonprofit
-  country: USA
-  prov_state: New York
-  city: New York
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/Conference_Board
-  official_url: http://www.conference-board.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:12:39 UTC
-
-98:
-  id: 98
-  name: |
-    Greenpeace
-  short_name: |
-    Greenpeace
-  category: Nonprofit
-  country: Netherlands
-  prov_state: 
-  city: Amsterdam
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/Greenpeace
-  official_url: http://www.greenpeace.org
-  description: |
-    28 autonomous branches
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 22:53:54 UTC
-
-99:
-  id: 99
-  name: |
-    International Corporate Governance Network
-  short_name: |
-    ICGN
-  category: Nonprofit
-  country: United Kingdom
-  prov_state: London
-  city: London
-  scope: International
-  wiki_url: None as of January 2009
-  official_url: http://www.icgn.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 22:54:47 UTC
-
-100:
-  id: 100
-  name: |
-    Red Cross & Red Crescent Societies (Int'l Fed'n)
-  short_name: |
-    Red Cross/Crescent
-  category: Nonprofit
-  country: Switzerland
-  prov_state: 
-  city: Geneva
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/International_Federation_of_Red_Cross_and_Red_Crescent_Societies
-  official_url: http://www.ifrc.org/
-  description: |
-    International Federation of Red Cross and Red Crescent Societies
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 22:56:07 UTC
-
-101:
-  id: 101
-  name: |
-    Servas International
-  short_name: |
-    Servas International
-  category: Nonprofit
-  country: Switzerland
-  prov_state: 
-  city: 
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/Servas_Open_Doors
-  official_url: http://joomla.servas.org/
-  description: |
-    open doors
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:00:48 UTC
-
-102:
-  id: 102
-  name: |
-    Toastmasters International
-  short_name: |
-    Toastmasters
-  category: Nonprofit
-  country: USA
-  prov_state: California
-  city: Rancho Santa Margarita
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/Toastmasters_International
-  official_url: http://www.toastmasters.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:13:17 UTC
-
-103:
-  id: 103
-  name: |
-    Transparency International
-  short_name: |
-    Transparency Int'l
-  category: Nonprofit
-  country: Germany
-  prov_state: Berlin
-  city: Berlin
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/Transparency_International
-  official_url: http://www.transparency.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:04:49 UTC
-
-104:
-  id: 104
-  name: |
-    VoterMedia.org
-  short_name: |
-    VoterMedia.org
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: International
-  wiki_url: None as of January 2009
-  official_url: http://votermedia.org
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:05:22 UTC
-
-105:
-  id: 105
-  name: |
-    Wikimedia Foundation
-  short_name: |
-    Wikimedia Foundation
-  category: Nonprofit
-  country: USA
-  prov_state: California
-  city: San Francisco
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/Wikimedia
-  official_url: http://wikimediafoundation.org/wiki/Home
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:13:35 UTC
-
-106:
-  id: 106
-  name: |
-    UK Shareholders' Association
-  short_name: |
-    UK Shareholders Assn
-  category: Nonprofit
-  country: United Kingdom
-  prov_state: 
-  city: Chislehurst
-  scope: United Kingdom
-  wiki_url: 
-  official_url: http://www.uksa.org.uk/index.htm
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:09:08 UTC
-
-107:
-  id: 107
-  name: |
-    Harvard/MIT Cooperative Society
-  short_name: |
-    Harvard/MIT Coop
-  category: Co-op
-  country: USA
-  prov_state: Massachusetts
-  city: Cambridge
-  scope: Cambridge, Boston
-  wiki_url: http://en.wikipedia.org/wiki/Harvard/MIT_Cooperative_Society
-  official_url: http://www.thecoop.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:11:29 UTC
-
-108:
-  id: 108
-  name: |
-    Recreational Equipment Inc.
-  short_name: |
-    REI
-  category: Co-op
-  country: USA
-  prov_state: Washington
-  city: Seattle
-  scope: USA
-  wiki_url: http://en.wikipedia.org/wiki/REI
-  official_url: http://www.rei.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:12:04 UTC
-
-109:
-  id: 109
-  name: |
-    Microsoft
-  short_name: |
-    Microsoft
-  category: Corporation
-  country: USA
-  prov_state: Washington
-  city: Redmond
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/Microsoft
-  official_url: http://www.microsoft.com
-  description: |
-    NASDAQ; MSFT
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-25 23:59:05 UTC
-
-110:
-  id: 110
-  name: |
-    Ticketmaster Entertainment, Inc.
-  short_name: |
-    Ticketmaster
-  category: Corporation
-  country: USA
-  prov_state: California
-  city: West Hollywood
-  scope: 
-  wiki_url: 
-  official_url: http://www.ticketmaster.com
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-111:
-  id: 111
-  name: |
-    United States of America
-  short_name: |
-    USA
-  category: Country
-  country: USA
-  prov_state: DC
-  city: Washington
-  scope: USA
-  wiki_url: http://en.wikipedia.org/wiki/Usa
-  official_url: http://www.usa.gov/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:14:13 UTC
-
-112:
-  id: 112
-  name: |
-    American Century Investments
-  short_name: |
-    American Century
-  category: Investor
-  country: USA
-  prov_state: Missouri
-  city: Kansas City
-  scope: USA
-  wiki_url: http://en.wikipedia.org/wiki/American_Century_Investments
-  official_url: https://www.americancentury.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:15:43 UTC
-
-113:
-  id: 113
-  name: |
-    American Funds
-  short_name: |
-    American Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/American_Funds
-  official_url: http://www.americanfunds.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-114:
-  id: 114
-  name: |
-    Barclays Global Investors
-  short_name: |
-    Barclays Global Inv.
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Barclays_Global_Investors
-  official_url: http://www.barclaysglobal.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-115:
-  id: 115
-  name: |
-    Blackrock Funds
-  short_name: |
-    Blackrock Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-116:
-  id: 116
-  name: |
-    California Public Employees Retirement System
-  short_name: |
-    CalPERS
-  category: Investor
-  country: USA
-  prov_state: California
-  city: Sacramento
-  scope: California
-  wiki_url: http://en.wikipedia.org/wiki/Calpers
-  official_url: http://www.calpers.ca.gov/
-  description: |
-    CalPERS manages pension and health benefits for more than 1.6 million California public employees, retirees, and their families. The second largest public pension fund in the US, they are internationally known for their shareowner activism.
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-05-08 01:58:02 UTC
-
-117:
-  id: 117
-  name: |
-    Calvert Funds
-  short_name: |
-    Calvert Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: None as of January 2009
-  official_url: http://www.calvert.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-118:
-  id: 118
-  name: |
-    Columbia Funds
-  short_name: |
-    Columbia Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-119:
-  id: 119
-  name: |
-    DFA Funds
-  short_name: |
-    DFA Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-120:
-  id: 120
-  name: |
-    Dodge & Cox Funds
-  short_name: |
-    Dodge & Cox Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-121:
-  id: 121
-  name: |
-    Domini Social Investments
-  short_name: |
-    Domini Social Inv'ts
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: None as of January 2009
-  official_url: http://www.domini.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-122:
-  id: 122
-  name: |
-    Dreyfus Funds
-  short_name: |
-    Dreyfus Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-123:
-  id: 123
-  name: |
-    DWS Funds
-  short_name: |
-    DWS Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-124:
-  id: 124
-  name: |
-    Evergreen Funds
-  short_name: |
-    Evergreen Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-125:
-  id: 125
-  name: |
-    Federated Funds
-  short_name: |
-    Federated Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-126:
-  id: 126
-  name: |
-    Fidelity Investments
-  short_name: |
-    Fidelity
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Fidelity_Investments
-  official_url: http://www.fidelity.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-127:
-  id: 127
-  name: |
-    Franklin Templeton Funds
-  short_name: |
-    Franklin Templeton
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-128:
-  id: 128
-  name: |
-    Goldman Sachs Funds
-  short_name: |
-    Goldman Sachs Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-129:
-  id: 129
-  name: |
-    Janus Funds
-  short_name: |
-    Janus Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-130:
-  id: 130
-  name: |
-    MFS Funds
-  short_name: |
-    MFS Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-131:
-  id: 131
-  name: |
-    MMA Praxis Funds
-  short_name: |
-    MMA Praxis Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-132:
-  id: 132
-  name: |
-    Morgan Stanley Funds
-  short_name: |
-    Morgan Stanley Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-133:
-  id: 133
-  name: |
-    Nationwide Funds
-  short_name: |
-    Nationwide Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-134:
-  id: 134
-  name: |
-    Neuberger Berman Funds
-  short_name: |
-    Neuberger Berman
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-135:
-  id: 135
-  name: |
-    Parnassus Funds
-  short_name: |
-    Parnassus Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-136:
-  id: 136
-  name: |
-    Pax World Funds
-  short_name: |
-    Pax World Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-137:
-  id: 137
-  name: |
-    Putnam Funds
-  short_name: |
-    Putnam Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-138:
-  id: 138
-  name: |
-    RiverSource Funds
-  short_name: |
-    RiverSource Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-139:
-  id: 139
-  name: |
-    Schwab Funds
-  short_name: |
-    Schwab Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-140:
-  id: 140
-  name: |
-    Sentinel Funds
-  short_name: |
-    Sentinel Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    Formerly Citizens
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-141:
-  id: 141
-  name: |
-    Smith Barney Funds
-  short_name: |
-    Smith Barney Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-142:
-  id: 142
-  name: |
-    State Street Global Advisors
-  short_name: |
-    State Street Global
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-143:
-  id: 143
-  name: |
-    T Rowe Price Funds
-  short_name: |
-    T Rowe Price Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-144:
-  id: 144
-  name: |
-    TIAA – CREF
-  short_name: |
-    TIAA-CREF
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/TIAA-CREF_Investment_Management
-  official_url: http://www.tiaa-cref.org/
-  description: |
-    Teachers Insurance and Annuity Association - College Retirement Equities Fund
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-145:
-  id: 145
-  name: |
-    Trillium Asset Management
-  short_name: |
-    Trillium Asset Mgt
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: None as of January 2009
-  official_url: http://trilliuminvest.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-146:
-  id: 146
-  name: |
-    United Services Automobile Association
-  short_name: |
-    USAA
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/USAA
-  official_url: http://www.usaa.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-147:
-  id: 147
-  name: |
-    Van Kampen Funds
-  short_name: |
-    Van Kampen Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-148:
-  id: 148
-  name: |
-    Vanguard Group, The
-  short_name: |
-    Vanguard Group
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/The_Vanguard_Group
-  official_url: http://www.vanguard.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-149:
-  id: 149
-  name: |
-    Wells Fargo Funds
-  short_name: |
-    Wells Fargo Funds
-  category: Investor
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-150:
-  id: 150
-  name: |
-    Bellingham
-  short_name: |
-    Bellingham
-  category: Municipal
-  country: USA
-  prov_state: Washington
-  city: Bellingham
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Bellingham,_Washington
-  official_url: http://www.bellingham.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-151:
-  id: 151
-  name: |
-    Berkeley
-  short_name: |
-    Berkeley
-  category: Municipal
-  country: USA
-  prov_state: California
-  city: Berkeley
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Berkeley,_California
-  official_url: http://www.ci.berkeley.ca.us/Home.aspx
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-152:
-  id: 152
-  name: |
-    Cambridge
-  short_name: |
-    Cambridge
-  category: Municipal
-  country: USA
-  prov_state: Massachusetts
-  city: Cambridge
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Cambridge,_Massachusetts
-  official_url: http://www.cambridgema.gov/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-153:
-  id: 153
-  name: |
-    Seattle
-  short_name: |
-    Seattle
-  category: Municipal
-  country: USA
-  prov_state: Washington
-  city: Seattle
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Seattle
-  official_url: http://www.seattle.gov/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-154:
-  id: 154
-  name: |
-    American Association of Individual Investors
-  short_name: |
-    AAII
-  category: Nonprofit
-  country: USA
-  prov_state: Illinois
-  city: Chicago
-  scope: USA
-  wiki_url: http://en.wikipedia.org/wiki/AAII
-  official_url: http://www.aaii.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:17:18 UTC
-
-155:
-  id: 155
-  name: |
-    American Association of Retired Persons
-  short_name: |
-    AARP
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/AARP
-  official_url: http://www.aarp.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-156:
-  id: 156
-  name: |
-    American Automobile Association
-  short_name: |
-    AAA
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/American_Automobile_Association
-  official_url: http://www.aaa.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-157:
-  id: 157
-  name: |
-    American Medical Association
-  short_name: |
-    AMA
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: USA
-  wiki_url: http://en.wikipedia.org/wiki/American_Medical_Association
-  official_url: http://www.ama-assn.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-05-06 00:23:13 UTC
-
-158:
-  id: 158
-  name: |
-    American Red Cross
-  short_name: |
-    American Red Cross
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/American_Red_Cross
-  official_url: http://www.redcross.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-159:
-  id: 159
-  name: |
-    Consumers Union
-  short_name: |
-    Consumers Union
-  category: Nonprofit
-  country: USA
-  prov_state: New York
-  city: Yonkers
-  scope: USA, Canada
-  wiki_url: http://en.wikipedia.org/wiki/Consumers_Union
-  official_url: http://www.consumersunion.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:13:01 UTC
-
-160:
-  id: 160
-  name: |
-    Council of Institutional Investors
-  short_name: |
-    CII
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: None as of January 2009
-  official_url: http://www.cii.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-161:
-  id: 161
-  name: |
-    Nat'l Assoc. for the Advancement of Colored People
-  short_name: |
-    NAACP
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Naacp
-  official_url: http://www.naacp.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-162:
-  id: 162
-  name: |
-    National Organization for Women
-  short_name: |
-    NOW
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/National_Organization_for_Women
-  official_url: http://www.now.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-163:
-  id: 163
-  name: |
-    National Rifle Association
-  short_name: |
-    NRA
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/National_Rifle_Association
-  official_url: http://www.nra.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-164:
-  id: 164
-  name: |
-    The Authors Guild
-  short_name: |
-    Authors Guild
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Authors_Guild
-  official_url: http://www.authorsguild.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-165:
-  id: 165
-  name: |
-    United Way of America
-  short_name: |
-    United Way America
-  category: Nonprofit
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/United_Way_of_America
-  official_url: http://www.liveunited.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-166:
-  id: 166
-  name: |
-    Democratic Party (USA)
-  short_name: |
-    Democratic Party
-  category: Political
-  country: USA
-  prov_state: DC
-  city: Washington
-  scope: USA
-  wiki_url: http://en.wikipedia.org/wiki/Democratic_Party_(United_States)
-  official_url: http://www.democrats.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:19:00 UTC
-
-167:
-  id: 167
-  name: |
-    Green Party (USA)
-  short_name: |
-    Green Party (USA)
-  category: Political
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Green_Party_(United_States)
-  official_url: http://www.gp.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-168:
-  id: 168
-  name: |
-    Libertarian Party (USA)
-  short_name: |
-    Libertarian Party
-  category: Political
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Libertarian_Party_(United_States)
-  official_url: http://www.lp.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-169:
-  id: 169
-  name: |
-    MoveOn.org
-  short_name: |
-    MoveOn.org
-  category: Political
-  country: USA
-  prov_state: 
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Moveon
-  official_url: http://www.moveon.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-170:
-  id: 170
-  name: |
-    Republican Party (USA)
-  short_name: |
-    GOP
-  category: Political
-  country: USA
-  prov_state: DC
-  city: Washington
-  scope: USA
-  wiki_url: http://en.wikipedia.org/wiki/Republican_Party_(United_States)
-  official_url: http://www.gop.com/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:19:56 UTC
-
-171:
-  id: 171
-  name: |
-    California
-  short_name: |
-    California
-  category: State
-  country: USA
-  prov_state: California
-  city: Sacramento
-  scope: California
-  wiki_url: http://en.wikipedia.org/wiki/Massachusetts
-  official_url: http://www.ca.gov/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:20:32 UTC
-
-172:
-  id: 172
-  name: |
-    Massachusetts
-  short_name: |
-    Massachusetts
-  category: State
-  country: USA
-  prov_state: Massachusetts
-  city: 
-  scope: 
-  wiki_url: http://en.wikipedia.org/wiki/Massachusetts
-  official_url: http://www.mass.gov/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-11 22:52:30 UTC
-
-173:
-  id: 173
-  name: |
-    Washington State
-  short_name: |
-    Washington
-  category: State
-  country: USA
-  prov_state: Washington
-  city: Olympia
-  scope: Washington State
-  wiki_url: http://en.wikipedia.org/wiki/Washington
-  official_url: http://access.wa.gov/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:22:05 UTC
-
-174:
-  id: 174
-  name: |
-    Associated Students of Stanford University
-  short_name: |
-    Stanford Students
-  category: Student
-  country: USA
-  prov_state: California
-  city: Stanford
-  scope: Stanford
-  wiki_url: None as of January 2009
-  official_url: http://assu.stanford.edu/home/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:24:46 UTC
-
-175:
-  id: 175
-  name: |
-    Associated Students of U. of California, Berkeley
-  short_name: |
-    Assoc Students of UC
-  category: Student
-  country: USA
-  prov_state: California
-  city: Berkeley
-  scope: Berkeley
-  wiki_url: http://en.wikipedia.org/wiki/Associated_Students_of_the_University_of_California
-  official_url: http://www.asuc.org/
-  description: |
-    Associated Students of the University of California, Berkeley
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:25:48 UTC
-
-176:
-  id: 176
-  name: |
-    Associated Students of University of Washington
-  short_name: |
-    Assoc Students of UW
-  category: Student
-  country: USA
-  prov_state: Washington
-  city: Seattle
-  scope: Seattle
-  wiki_url: http://en.wikipedia.org/wiki/Associated_Students_of_the_University_of_Washington
-  official_url: http://www.asuw.org/
-  description: |
-    Associated Students of the University of Washington
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:25:19 UTC
-
-177:
-  id: 177
-  name: |
-    Associated Students of Western Washington Univ.
-  short_name: |
-    Assoc. Students WWU
-  category: Student
-  country: USA
-  prov_state: Washington
-  city: Bellingham
-  scope: Bellingham
-  wiki_url: None as of January 2009
-  official_url: http://www.as.wwu.edu/
-  description: |
-    Associated Students of Western Washington University
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:26:09 UTC
-
-178:
-  id: 178
-  name: |
-    Harvard Undergraduate Council
-  short_name: |
-    Harvard Undergrads
-  category: Student
-  country: USA
-  prov_state: Massachusetts
-  city: Cambridge
-  scope: Cambridge, Boston
-  wiki_url: None as of January 2009
-  official_url: http://www.uc.fas.harvard.edu/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:26:45 UTC
-
-179:
-  id: 179
-  name: |
-    MIT Undergraduate Association
-  short_name: |
-    MIT Undergrad Ass'n
-  category: Student
-  country: USA
-  prov_state: Massachusetts
-  city: Cambridge
-  scope: Cambridge
-  wiki_url: None as of January 2009
-  official_url: http://ua.mit.edu/
-  description: |
-    Massachusetts Institute of Technology Undergraduate Association
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:27:06 UTC
-
-180:
-  id: 180
-  name: |
-    United States Student Association
-  short_name: |
-    US Student Ass'n
-  category: Student
-  country: USA
-  prov_state: DC
-  city: Washington
-  scope: USA
-  wiki_url: http://en.wikipedia.org/wiki/United_States_Student_Association
-  official_url: http://www.usstudents.org/
-  description: |
-    
-  created_at: 2009-04-11 22:52:30 UTC
-  updated_at: 2009-04-14 23:27:55 UTC
-
-181:
-  id: 181
-  name: |
-    British Columbia School Trustees' Association
-  short_name: |
-    B.C. School Trustees
-  category: Nonprofit
-  country: Canada
-  prov_state: B.C.
-  city: Vancouver
-  scope: B.C.
-  wiki_url: None as of April 2009
-  official_url: http://www.bcsta.org
-  description: |
-    
-  created_at: 2009-04-19 05:38:47 UTC
-  updated_at: 2009-04-19 05:41:26 UTC
-
-182:
-  id: 182
-  name: |
-    Cyberphyber Media
-  short_name: |
-    Cyber
-  category: Other
-  country: Canada
-  prov_state: BC
-  city: Vancouver
-  scope: Vancouver BC Canada
-  wiki_url: 
-  official_url: www.cyberphyber.com
-  description: |
-    webdesign technical writing video production
-  created_at: 2009-04-20 00:00:00 UTC
-  updated_at: 2009-04-20 06:52:33 UTC
-
-183:
-  id: 183
-  name: |
-    Google
-  short_name: |
-    Google
-  category: Corporation
-  country: USA
-  prov_state: California
-  city: Mountain View
-  scope: International
-  wiki_url: http://en.wikipedia.org/wiki/Google
-  official_url: http://www.google.com/corporate
-  description: |
-    
-  created_at: 2009-04-27 05:25:53 UTC
-  updated_at: 2009-04-27 05:25:53 UTC
-
-184:
-  id: 184
-  name: |
-    Claremont
-  short_name: |
-    Claremont
-  category: Municipal
-  country: USA
-  prov_state: California
-  city: Claremont
-  scope: Claremont
-  wiki_url: http://en.wikipedia.org/wiki/Claremont,_California
-  official_url: http://www.ci.claremont.ca.us/
-  description: |
-    
-  created_at: 2009-04-27 18:58:20 UTC
-  updated_at: 2009-04-27 18:58:59 UTC
-
-185:
-  id: 185
-  name: |
-    Upland
-  short_name: |
-    Upland
-  category: Municipal
-  country: USA
-  prov_state: California
-  city: Upland
-  scope: Upland
-  wiki_url: http://en.wikipedia.org/wiki/Upland,_California
-  official_url: http://www.ci.upland.ca.us/
-  description: |
-    
-  created_at: 2009-04-27 19:05:42 UTC
-  updated_at: 2009-04-27 19:05:42 UTC
-
-186:
-  id: 186
-  name: |
-    Monrovia
-  short_name: |
-    Monrovia
-  category: Municipal
-  country: USA
-  prov_state: California
-  city: Monrovia
-  scope: Monrovia
-  wiki_url: http://en.wikipedia.org/wiki/Monrovia,_California
-  official_url: http://www.ci.monrovia.ca.us/
-  description: |
-    
-  created_at: 2009-04-27 19:13:36 UTC
-  updated_at: 2009-04-27 19:13:36 UTC
-
-187:
-  id: 187
-  name: |
-    Los Angeles
-  short_name: |
-    Los Angeles
-  category: Municipal
-  country: USA
-  prov_state: California
-  city: Los Angeles
-  scope: Los Angeles
-  wiki_url: http://en.wikipedia.org/wiki/Los_angeles
-  official_url: http://www.lacity.org/
-  description: |
-    
-  created_at: 2009-04-27 19:17:47 UTC
-  updated_at: 2009-04-27 19:17:47 UTC
-
-188:
-  id: 188
-  name: |
-    Nanaimo
-  short_name: |
-    Nanaimo
-  category: Municipal
-  country: Canada
-  prov_state: B.C.
-  city: Nanaimo
-  scope: Nanaimo
-  wiki_url: http://en.wikipedia.org/wiki/Nanaimo
-  official_url: http://www.nanaimo.ca/
-  description: |
-    Vancouver Island
-  created_at: 2009-04-27 21:45:07 UTC
-  updated_at: 2009-04-27 21:48:31 UTC
-
-189:
-  id: 189
-  name: |
-    London
-  short_name: |
-    London
-  category: Municipal
-  country: Canada
-  prov_state: Ontario
-  city: London
-  scope: London
-  wiki_url: http://en.wikipedia.org/wiki/London,_Ontario
-  official_url: http://www.london.ca/
-  description: |
-    
-  created_at: 2009-04-27 22:37:47 UTC
-  updated_at: 2009-04-27 22:39:09 UTC
-
-190:
-  id: 190
-  name: |
-    Knoxville
-  short_name: |
-    Knoxville
-  category: Municipal
-  country: USA
-  prov_state: Tennessee
-  city: Knoxville
-  scope: Knoxville
-  wiki_url: http://en.wikipedia.org/wiki/Knoxville
-  official_url: http://www.cityofknoxville.org/
-  description: |
-    
-  created_at: 2009-04-27 22:46:06 UTC
-  updated_at: 2009-04-27 22:51:26 UTC
-
-191:
-  id: 191
-  name: |
-    Chattanooga
-  short_name: |
-    Chattanooga
-  category: Municipal
-  country: USA
-  prov_state: Tennessee
-  city: Chattanooga
-  scope: Chattanooga
-  wiki_url: http://en.wikipedia.org/wiki/Chattanooga
-  official_url: http://www.chattanooga.gov/
-  description: |
-    
-  created_at: 2009-04-27 22:55:44 UTC
-  updated_at: 2009-04-27 22:57:02 UTC
-
-192:
-  id: 192
-  name: |
-    Tennessee
-  short_name: |
-    Tennessee
-  category: State
-  country: USA
-  prov_state: Tennessee
-  city: Nashville
-  scope: Tennessee
-  wiki_url: http://en.wikipedia.org/wiki/Tennessee
-  official_url: http://www.tennessee.gov/
-  description: |
-    
-  created_at: 2009-04-27 22:58:42 UTC
-  updated_at: 2009-04-27 22:58:42 UTC
-
-193:
-  id: 193
-  name: |
-    Nashville
-  short_name: |
-    Nashville
-  category: Municipal
-  country: USA
-  prov_state: Tennessee
-  city: Nashville
-  scope: Nashville
-  wiki_url: 
-  official_url: 
-  description: |
-    
-  created_at: 2009-04-27 23:19:05 UTC
-  updated_at: 2009-04-27 23:19:05 UTC
-
-194:
-  id: 194
-  name: |
-    Ontario Teachers' Federation
-  short_name: |
-    Ontario Teachers
-  category: Labour
-  country: Canada
-  prov_state: Ontario
-  city: Toronto
-  scope: Ontario
-  wiki_url: http://en.wikipedia.org/wiki/Ontario_Teachers%27_Federation
-  official_url: http://www.otffeo.on.ca/
-  description: |
-    OTF-FEO. Fédération des enseignantes et des enseignants de l'Ontario.
-  created_at: 2009-05-02 17:09:22 UTC
-  updated_at: 2009-05-02 18:27:53 UTC
-
-195:
-  id: 195
-  name: |
-    Ontario Teachers' Pension Plan
-  short_name: |
-    OTPP
-  category: Investor
-  country: Canada
-  prov_state: Ontario
-  city: Toronto
-  scope: Ontario
-  wiki_url: http://en.wikipedia.org/wiki/Ontario_Teachers%27_Pension_Plan
-  official_url: http://www.otpp.com/
-  description: |
-    
-  created_at: 2009-05-02 18:31:28 UTC
-  updated_at: 2009-05-02 18:32:09 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
 196:
   id: 196
@@ -3525,167 +197,355 @@
   description: |
     
   created_at: 2009-05-02 18:34:41 UTC
-  updated_at: 2009-05-02 18:37:04 UTC
+  updated_at: 2009-06-01 03:29:54 UTC
 
-197:
-  id: 197
+195:
+  id: 195
   name: |
-    Ontario
+    Ontario Teachers' Pension Plan
   short_name: |
-    Ontario
-  category: Province
+    OTPP
+  category: Investor
   country: Canada
   prov_state: Ontario
   city: Toronto
   scope: Ontario
-  wiki_url: http://en.wikipedia.org/wiki/Ontario
-  official_url: http://www.ontario.ca/
+  wiki_url: http://en.wikipedia.org/wiki/Ontario_Teachers%27_Pension_Plan
+  official_url: http://www.otpp.com/
   description: |
     
-  created_at: 2009-05-02 19:42:26 UTC
-  updated_at: 2009-05-02 19:44:03 UTC
+  created_at: 2009-05-02 18:31:28 UTC
+  updated_at: 2009-06-01 03:29:54 UTC
 
-198:
-  id: 198
+11:
+  id: 11
   name: |
-    Toronto
+    B.C. Government & Service Employees Union
   short_name: |
-    Toronto
-  category: Municipal
+    BCGSEU
+  category: Labour
   country: Canada
-  prov_state: Ontario
-  city: Toronto
-  scope: Toronto
-  wiki_url: http://en.wikipedia.org/wiki/Toronto
-  official_url: http://www.toronto.ca/
+  prov_state: B.C.
+  city: Burnaby
+  scope: B.C.
+  wiki_url: 
+  official_url: http://www.bcgeu.bc.ca/
+  description: |
+    British Columbia Government and Service Employees Union
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+12:
+  id: 12
+  name: |
+    British Columbia Federation of Labour
+  short_name: |
+    BC Fed'n of Labour
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/British_Columbia_Federation_of_Labour
+  official_url: http://www.bcfed.com/
   description: |
     
-  created_at: 2009-05-02 19:45:07 UTC
-  updated_at: 2009-05-02 19:45:48 UTC
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
-199:
-  id: 199
+13:
+  id: 13
   name: |
-    Ottawa
+    British Columbia Nurses' Union
   short_name: |
-    Ottawa
-  category: Municipal
+    BC Nurses' Union
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: B.C.
+  wiki_url: None as of January 2009
+  official_url: http://www.bcnu.org
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+14:
+  id: 14
+  name: |
+    British Columbia Teachers' Federation
+  short_name: |
+    BCTF
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/British_Columbia_Teachers_Federation
+  official_url: http://www.bctf.ca/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-05-31 22:16:32 UTC
+
+15:
+  id: 15
+  name: |
+    Canadian Association of University Teachers
+  short_name: |
+    Cdn Ass'n U Teachers
+  category: Labour
   country: Canada
   prov_state: Ontario
   city: Ottawa
-  scope: Ottawa
-  wiki_url: http://en.wikipedia.org/wiki/Ottawa
-  official_url: http://www.ottawa.ca/
+  scope: Canada
+  wiki_url: 
+  official_url: http://www.caut.ca
   description: |
     
-  created_at: 2009-05-02 19:47:02 UTC
-  updated_at: 2009-05-02 19:47:48 UTC
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
-200:
-  id: 200
+16:
+  id: 16
   name: |
-    Alberta
+    Canadian Auto Workers
   short_name: |
-    Alberta
-  category: Province
+    Cdn Auto Workers
+  category: Labour
   country: Canada
-  prov_state: Alberta
-  city: Edmonton
-  scope: Alberta
-  wiki_url: http://en.wikipedia.org/wiki/Alberta
-  official_url: http://alberta.ca/
+  prov_state: Ontario
+  city: Toronto
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/Canadian_Auto_Workers
+  official_url: http://www.caw.ca
   description: |
     
-  created_at: 2009-05-02 19:50:02 UTC
-  updated_at: 2009-05-02 19:50:50 UTC
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
-201:
-  id: 201
+17:
+  id: 17
   name: |
-    Edmonton
+    Canadian Auto Workers Local 111
   short_name: |
-    Edmonton
+    CAW Local 111
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: New Westminster
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/CAW_Local_111
+  official_url: http://www.caw111.com/
+  description: |
+    bus drivers
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+206:
+  id: 206
+  name: |
+    Canadian Media Guild
+  short_name: |
+    CMG
+  category: Labour
+  country: Canada
+  prov_state: Ontario
+  city: Toronto
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/Canadian_Media_Guild
+  official_url: http://www.cmg.ca/
+  description: |
+    CBC employees
+  created_at: 2009-05-29 16:41:02 UTC
+  updated_at: 2009-05-29 16:41:02 UTC
+
+18:
+  id: 18
+  name: |
+    Canadian Union of Public Employees
+  short_name: |
+    CUPE
+  category: Labour
+  country: Canada
+  prov_state: Ontario
+  city: Ottawa
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/CUPE
+  official_url: http://cupe.ca/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+19:
+  id: 19
+  name: |
+    Fédération des travailleurs/-euses du Québec
+  short_name: |
+    Féd'n trav. Québec
+  category: Labour
+  country: Canada
+  prov_state: Quebec
+  city: Montreal
+  scope: Quebec
+  wiki_url: http://en.wikipedia.org/wiki/Fédération_des_travailleurs_du_Québec
+  official_url: http://www.ftq.qc.ca/
+  description: |
+    Fédération des travailleurs et travailleuses du Québec, QFL, Quebec Federation of Labour
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-11 18:05:31 UTC
+
+20:
+  id: 20
+  name: |
+    Hospital Employees' Union (British Columbia)
+  short_name: |
+    HospitalEmployees BC
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/Hospital_Employees%27_Union
+  official_url: http://www.heu.org/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+194:
+  id: 194
+  name: |
+    Ontario Teachers' Federation
+  short_name: |
+    Ontario Teachers
+  category: Labour
+  country: Canada
+  prov_state: Ontario
+  city: Toronto
+  scope: Ontario
+  wiki_url: http://en.wikipedia.org/wiki/Ontario_Teachers%27_Federation
+  official_url: http://www.otffeo.on.ca/
+  description: |
+    OTF-FEO. Fédération des enseignantes et des enseignants de l'Ontario.
+    
+  created_at: 2009-05-02 17:09:22 UTC
+  updated_at: 2009-06-01 03:29:54 UTC
+
+21:
+  id: 21
+  name: |
+    Vancouver Police Union
+  short_name: |
+    Vancouver Police
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: Vancouver
+  wiki_url: http://en.wikipedia.org/wiki/Vancouver_Police_Union
+  official_url: http://www.vpu.ca/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+22:
+  id: 22
+  name: |
+    Abbotsford
+  short_name: |
+    Abbotsford
   category: Municipal
   country: Canada
-  prov_state: Alberta
-  city: Edmonton
-  scope: Edmonton
-  wiki_url: http://en.wikipedia.org/wiki/Edmonton
-  official_url: http://www.edmonton.ca/
+  prov_state: B.C.
+  city: Abbotsford
+  scope: Abbotsford
+  wiki_url: http://en.wikipedia.org/wiki/Abbotsford,_British_Columbia
+  official_url: http://www.abbotsford.ca/site4.aspx
   description: |
+    GVRD, Metro Vancouver
     
-  created_at: 2009-05-02 19:52:42 UTC
-  updated_at: 2009-05-02 19:53:24 UTC
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
-202:
-  id: 202
+23:
+  id: 23
   name: |
-    Calgary
+    Anmore
   short_name: |
-    Calgary
+    Anmore
   category: Municipal
   country: Canada
-  prov_state: Alberta
-  city: Calgary
-  scope: Calgary
-  wiki_url: http://en.wikipedia.org/wiki/Calgary
-  official_url: http://www.calgary.ca/
+  prov_state: B.C.
+  city: Anmore
+  scope: Anmore
+  wiki_url: http://en.wikipedia.org/wiki/Anmore
+  official_url: http://www.anmore.com/
   description: |
+    GVRD, Metro Vancouver
     
-  created_at: 2009-05-02 19:55:13 UTC
-  updated_at: 2009-05-02 19:55:59 UTC
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
-203:
-  id: 203
+24:
+  id: 24
   name: |
-    San Francisco
+    Belcarra
   short_name: |
-    San Francisco
+    Belcarra
   category: Municipal
-  country: USA
-  prov_state: California
-  city: San Francisco
-  scope: San Francisco
-  wiki_url: http://en.wikipedia.org/wiki/San_francisco
-  official_url: http://www.sfgov.org/
+  country: Canada
+  prov_state: B.C.
+  city: Belcarra
+  scope: Belcarra
+  wiki_url: http://en.wikipedia.org/wiki/Belcarra,_British_Columbia
+  official_url: http://www.belcarra.ca/
   description: |
+    GVRD, Metro Vancouver
     
-  created_at: 2009-05-02 19:57:14 UTC
-  updated_at: 2009-05-02 19:58:27 UTC
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
-204:
-  id: 204
+25:
+  id: 25
   name: |
-    California State Teachers Retirement System
+    Bowen Island
   short_name: |
-    CalSTRS
-  category: Investor
-  country: USA
-  prov_state: California
-  city: West Sacramento
-  scope: California
-  wiki_url: http://en.wikipedia.org/wiki/CalSTRS
-  official_url: http://www.calstrs.com/
+    Bowen Island
+  category: Municipal
+  country: Canada
+  prov_state: B.C.
+  city: Bowen Island
+  scope: Bowen Island
+  wiki_url: http://en.wikipedia.org/wiki/Bowen_island
+  official_url: http://www.bowenisland.com/
   description: |
-    CalSTRS provides retirement related benefits and services to teachers in California public schools and community colleges. It is the largest U.S. teachers' retirement fund with 833,000 members and assets of $111.6 billion as of March 31, 2009. Like CalPERS, they have an international reputation for corporate governance activism.
-  created_at: 2009-05-08 02:27:02 UTC
-  updated_at: 2009-05-09 02:44:06 UTC
-
-205:
-  id: 205
-  name: |
-    Iran
-  short_name: |
-    Iran
-  category: Country
-  country: Iran
-  prov_state: Tehran
-  city: Tehran
-  scope: Iran
-  wiki_url: http://en.wikipedia.org/wiki/Iran
-  official_url: http://www.iran.ir/
-  description: |
+    GVRD, Metro Vancouver
     
-  created_at: 2009-05-11 15:47:44 UTC
-  updated_at: 2009-05-11 16:49:19 UTC
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
 
+26:
+  id: 26
+  name: |
+    Burnaby
+  short_name: |
+    Burnaby
+  category: Municipal
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: Burnaby
+  wiki_url: http://en.wikipedia.org/wiki/Burnaby
+  official_url: http://www.city.burnaby.bc.ca/Home.html
+  description: |
+    GVRD, Metro Vancouver
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC

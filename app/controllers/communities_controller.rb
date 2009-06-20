@@ -17,7 +17,8 @@ class CommunitiesController < ApplicationController
     @rankings = @community.rankings.with_websites.paginate :page => params[:page], :per_page => 20
     @ballot = find_ballot
   end
-  
+
+  index.wants.yaml { render :yaml => collection }
   destroy.wants.html { redirect_back_or('/') }
 
   def collection

@@ -13,6 +13,7 @@ class WebsitesController < ApplicationController
   create.after do
     @community.websites << @website
   end
-  
+
+  index.wants.yaml { render :yaml => collection }
   create.wants.html { redirect_to community_path(@community) }
 end

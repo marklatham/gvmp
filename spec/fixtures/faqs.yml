@@ -6,11 +6,12 @@
   importance: 8.0
   question: What the heck is VoterMedia.org? What's it for? Who is behind this? Why are you doing this? What are your goals? Who is funding it? Who is working on it?
   answer: |
-    Uh... relax, OK? VoterMedia.org is a public interest project for improving the policies of the world's organizations (governments, corporations, unions, nonprofits etc.) by developing better voter information systems. We are implementing voter funded media as explained in the paper Global Voter Media Platform and our other publications.
+    Uh... relax, OK? VoterMedia.org is a public interest project for improving the policies of the world's organizations (governments, corporations, unions, nonprofits etc.) by developing better voter information systems. We are implementing voter funded media as explained in the paper <a href="/publications/GlobalVoterMediaPlatform.pdf">Global Voter Media Platform</a> and our other <a href="/publications">publications</a>.
     This website is built by a group of volunteers, led by <a href="/about_contact">Mark Latham</a>. We plan to create a nonprofit organization to manage the project, with a board of directors elected by the website's users. We are already practising what we preach, by <a href="/communities/104">inviting websites/blogs to critique VoterMedia.org</a>.
     There's a lot more info on <a href="http://votermedia.org">our old website</a>, which we are gradually copying here to build our next release.
+    
   created_at: 2009-05-02 02:11:00 UTC
-  updated_at: 2009-05-02 20:36:02 UTC
+  updated_at: 2009-06-16 05:49:06 UTC
 
 8:
   id: 8
@@ -22,6 +23,7 @@
     Our goal is saving the world, not making money. However, money can help get things done, so we invite donations from individuals, foundations, and the communities served by VoterMedia.org. So far the main donor to this project has been Mark Latham.
     
     In the long run, we expect most donations to come from the communities we serve. Most of those funds will flow through as awards to the websites/blogs serving those communities, ranked by voters. Donors will be able to designate which community's website ranking the funds will flow to, and whether to donate for the expenses of VoterMedia.org.
+    
   created_at: 2009-05-02 02:21:38 UTC
   updated_at: 2009-05-02 05:08:19 UTC
 
@@ -37,6 +39,7 @@
     We will gradually be adding more functions, and some of them will need you to log in, e.g. to customize your user interface in various ways.
     
     As you become comfortable with using the site, we invite you to create a login and participate more fully in the VoterMedia.org community. We plan to elect a board of directors to oversee the website, and our voting members will be active users with logins.
+    
   created_at: 2009-05-02 02:22:50 UTC
   updated_at: 2009-05-02 22:10:59 UTC
 
@@ -48,6 +51,7 @@
   question: How are the communities in VoterMedia chosen? What sort of communities should I add?
   answer: |
     VoterMedia.org website users and administrators choose what communities to add to the system. We recommend adding communities with over 1,000 voters and annual budgets over US$200,000. That gives enough scale to make a voted ranking of competing websites/blogs a worthwhile benefit to the community.
+    
   created_at: 2009-05-02 03:23:48 UTC
   updated_at: 2009-05-02 05:07:19 UTC
 
@@ -61,8 +65,21 @@
     VoterMedia.org website users and administrators decide which websites/blogs to add to a community's list. You should add websites that you think provide a service to that voter community. These can be blogs, or websites for other media like newspapers, radio, TV.
     
     But it need not be limited to media. You could add websites/blogs from organizations that provide other community benefits that voters may want to support, including charities, events or whatever.
+    
   created_at: 2009-05-02 03:29:21 UTC
   updated_at: 2009-05-02 05:07:44 UTC
+
+23:
+  id: 23
+  category: Voting
+  sequence: 5.1
+  importance: 7.0
+  question: Do I have to log in to vote? Do I have to be a member of that particular community to vote on its website/blog ranking?
+  answer: |
+    No and no. You can vote in any community you care about, whether you log in or not. Later, we plan to also develop rankings based on votes from community members only, and let users see both rankings. Creating a member-votes-only ranking will require some coordination with the community's administration.
+    
+  created_at: 2009-05-04 19:43:24 UTC
+  updated_at: 2009-05-26 05:07:47 UTC
 
 11:
   id: 11
@@ -74,6 +91,7 @@
     You can vote for as many websites/blogs as you like. Voting for more websites/blogs does not decrease the weight of each of your votes.
     
     Of course, it makes the most sense to vote for websites/blogs that you know something about. We suggest voting for those that you think should be ranked higher than they are now.
+    
   created_at: 2009-05-02 02:25:15 UTC
   updated_at: 2009-05-02 21:13:21 UTC
 
@@ -85,6 +103,7 @@
   question: How often should/can I vote?
   answer: |
     You can vote as often as you like. We count your latest vote for each website/blog. We suggest voting about once a week.
+    
   created_at: 2009-05-02 02:26:39 UTC
   updated_at: 2009-05-02 21:11:28 UTC
 
@@ -96,6 +115,7 @@
   question: How often do you count the votes?
   answer: |
     As of 2009-05-01, we were tallying every vote in real time, updating the ranking in response. (We may adjust this at any time though, and might not update this answer right away.)
+    
   created_at: 2009-05-02 03:03:08 UTC
   updated_at: 2009-05-02 21:13:38 UTC
 
@@ -111,19 +131,9 @@
     We count your latest vote for each website/blog, subject to "vote decay through time", which means that votes are weighted according to how old they are. Zero through 10 days old gets 100% weight. After 10 days, a vote's weight diminishes by 2% per day, so that its weight falls to zero when it's 60 days old.
     
     So if you vote about once a week (as we suggest), your latest vote will always have 100% weight.
+    
   created_at: 2009-05-02 02:58:51 UTC
   updated_at: 2009-05-03 20:56:42 UTC
-
-23:
-  id: 23
-  category: Voting
-  sequence: 5.45
-  importance: 7.0
-  question: Do I have to be a member of that particular community to vote on its website/blog ranking?
-  answer: |
-    No. You can vote in any community you care about. Later, we plan to also develop rankings based on votes from community members only, and let users see both rankings. Creating a member-votes-only ranking will require some coordination with the community's administration.
-  created_at: 2009-05-04 19:43:24 UTC
-  updated_at: 2009-05-06 00:28:35 UTC
 
 18:
   id: 18
@@ -135,6 +145,7 @@
     You can vote based on any criteria you want. The impact of your vote is to push websites you support upward in the ranking. That means more people will probably read them. And if there are cash awards for higher-ranked blogs (which there were not as of 2009-05-01), then your supported websites might get more funding. So presumably you should vote for websites that you think benefit you more than those currently ranked above them. You might also want to consider whether some websites/blogs are already receiving voter community funds (support) through other channels.
     
     VoterMedia.org is designed to direct funding to websites/blogs that benefit the voter community. Those that are seen as beneficial by the most voters would thus be ranked higher.
+    
   created_at: 2009-05-02 03:06:45 UTC
   updated_at: 2009-05-02 20:25:22 UTC
 
@@ -146,6 +157,7 @@
   question: What benefit do top-ranked websites get?
   answer: |
     As of 2009-05-01 there are no cash awards yet, though we hope this will change soon. But for now, higher ranked websites/blogs get bragging rights and exposure, presumably bringing more readers and more credibility.
+    
   created_at: 2009-05-02 03:15:44 UTC
   updated_at: 2009-05-02 05:10:55 UTC
 
@@ -157,6 +169,7 @@
   question: Why should I care about VoterMedia? Why should I use the VoterMedia website? How should I use the VoterMedia website?
   answer: |
     VoterMedia.org is designed to benefit you by improving accountability of elected leaders. But we need your help to make that happen. Please add relevant blogs and communities to our system, check out some websites/blogs that serve your communities, and vote for those you think deserve higher rankings. Encourage your communities to fund their top-ranked websites/blogs.
+    
   created_at: 2009-05-02 02:22:19 UTC
   updated_at: 2009-05-04 06:07:06 UTC
 
@@ -170,6 +183,7 @@
     This website builds support, exposure and reputation of websites/blogs that many voters consider beneficial. They may also receive financial support, when we get donations.
     
     These different kinds of support encourage websites/blogs to help voter communities. We think an important type of community benefit they will provide is a check and balance on the power of elected leaders, increasing accountability and thus improving the leaders' policies, decisions and administration.
+    
   created_at: 2009-05-02 03:20:48 UTC
   updated_at: 2009-05-02 05:08:54 UTC
 
@@ -181,6 +195,7 @@
   question: Wouldn’t some media award contestants be biased, corrupted by bribery or other influence?
   answer: |
     Yes, there are likely to be such biases, just as there are in our current news media. But voter funding will add a new incentive for media to build reputations for serving the public interest, so we can expect them to produce better information.
+    
   created_at: 2009-05-02 02:29:10 UTC
   updated_at: 2009-05-02 05:09:12 UTC
 
@@ -196,6 +211,7 @@
     Many experts and other citizens agree that we need to improve our public-interest media (see for example <a href="http://freepress.net">freepress.net</a>). The usual way to pay for public goods is with public funds. Normally public funds are controlled by politicians, but for political information that would be a conflict of interest, so voters should control that funding directly.
     
     The incentives that determine which media you pay for individually are different from the incentives for voting public funds. It makes sense to pay for your own entertainment, but when you are influencing the media going to all citizens, it is not in your interest to vote for entertainment for everyone, since most of that wouldn’t benefit you. However, information that helps everyone vote more intelligently does benefit you. It is a public good that lacks the private benefit of entertainment. It is rational to be unwilling to pay as an individual for a public good, but to be willing to vote for everyone to pay for it. So the same citizens who buy <i>People</i> magazine at the checkout stand will vote public funds for serious investigative reporting.
+    
   created_at: 2009-05-02 02:28:26 UTC
   updated_at: 2009-05-02 20:31:52 UTC
 
@@ -207,6 +223,7 @@
   question: How do we know whether voter-funded media will actually be beneficial?
   answer: |
     No one knows for sure. There have only been a few trials so far; see an assessment in <a href="http://votermedia.blogspot.com/2009/02/ubc-ams-vfm-voting-results.html">this blog post</a>. The arguments in the paper "<a href="http://votermedia.org/publications/GlobalVoterMediaPlatform.pdf">Global Voter Media Platform</a>" are plausible, but the only way to find out is to try it. If voter funding for media is beneficial, we can apply it throughout democratic politics as well as for shareowner voting in corporations. So the potential benefits are huge compared to the cost of trying it out.
+    
   created_at: 2009-05-02 02:29:44 UTC
   updated_at: 2009-05-02 20:27:37 UTC
 
