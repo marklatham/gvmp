@@ -1,17 +1,181 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  given_name: MyString
-  family_name: MyString
-  role: MyString
-  email: MyString
-  photo: MyString
-  description: MyText
+1:
+  id: 1
+  given_name: Mark
+  family_name: Latham
+  role: |
+    Executive Director
 
-two:
-  given_name: MyString
-  family_name: MyString
-  role: MyString
-  email: MyString
-  photo: MyString
-  description: MyText
+  email: mark[at]votermedia.org
+  photo: mark_latham.jpg
+  description: |
+    Voicemail: (604) 608-9779<br />
+    Paper mail: 1755 Robson Street #469,<br />
+    Vancouver, B.C., Canada V6G 3B7
+    
+  created_at: 2009-05-05 04:57:09 UTC
+  updated_at: 2009-05-05 17:02:00 UTC
+  sequence: 1.0
+
+2:
+  id: 2
+  given_name: Bradley
+  family_name: Coleman
+  role: |
+    Strategy
+
+  email: bradley[at]votermedia.org
+  photo: bradley_coleman.jpg
+  description: |
+    
+  created_at: 2009-05-05 04:59:23 UTC
+  updated_at: 2009-05-05 05:28:40 UTC
+  sequence: 3.0
+
+3:
+  id: 3
+  given_name: Erez
+  family_name: Maharshak
+  role: |
+    Website Development
+
+  email: erez[at]votermedia.org
+  photo: 
+  description: |
+    
+  created_at: 2009-05-05 05:00:09 UTC
+  updated_at: 2009-05-05 05:28:52 UTC
+  sequence: 6.0
+
+5:
+  id: 5
+  given_name: Greg
+  family_name: Moreno
+  role: |
+    Website Development
+
+  email: greg.moreno[at]gmail.com
+  photo: 
+  description: |
+    
+  created_at: 2009-05-05 05:05:59 UTC
+  updated_at: 2009-05-05 05:29:35 UTC
+  sequence: 6.0
+
+7:
+  id: 7
+  given_name: Naoya
+  family_name: Makino
+  role: |
+    Content Editor        
+  email: naoya[at]votermedia.org
+  photo: naoya_makino.jpg
+  description: |
+    Computer science student, 
+    <a href="http://www.langara.bc.ca/">Langara College</a>
+    
+  created_at: 2009-05-05 05:08:18 UTC
+  updated_at: 2009-06-16 22:58:50 UTC
+  sequence: 6.0
+
+8:
+  id: 8
+  given_name: Andy
+  family_name: Eggers
+  role: |
+    Advisory Board
+
+  email: 
+  photo: 
+  description: |
+    <a href="http://proxydemocracy.org/about/us">
+    President, ProxyDemocracy</a>
+    
+  created_at: 2009-05-05 05:58:33 UTC
+  updated_at: 2009-05-05 19:46:36 UTC
+  sequence: 9.0
+
+9:
+  id: 9
+  given_name: Fred
+  family_name: Cutler
+  role: |
+    Advisory Board
+
+  email: 
+  photo: 
+  description: |
+    <a href="http://www.politics.ubc.ca/fcutler">
+    Assistant Professor of Political Science<br />
+    University of British Columbia</a>
+    
+  created_at: 2009-05-05 06:00:58 UTC
+  updated_at: 2009-05-05 19:45:20 UTC
+  sequence: 9.0
+
+10:
+  id: 10
+  given_name: Jackie
+  family_name: Cook
+  role: |
+    Advisory Board
+
+  email: 
+  photo: 
+  description: |
+    <a href="http://www.fundvotes.com/contact.php">Founder, Fund Votes</a>
+    
+  created_at: 2009-05-05 06:02:01 UTC
+  updated_at: 2009-05-05 19:44:42 UTC
+  sequence: 9.0
+
+11:
+  id: 11
+  given_name: James
+  family_name: McRitchie
+  role: |
+    Advisory Board
+
+  email: 
+  photo: 
+  description: |
+    <a href="http://corpgov.net/">Publisher, CorpGov.net</a>
+    
+  created_at: 2009-05-05 06:03:22 UTC
+  updated_at: 2009-05-05 19:48:13 UTC
+  sequence: 9.0
+
+12:
+  id: 12
+  given_name: Mark
+  family_name: Rubinstein
+  role: |
+    Advisory Board
+
+  email: 
+  photo: 
+  description: |
+    <a href="http://www.haas.berkeley.edu/faculty/rubinstein.html">
+    Professor of Finance <br />
+    University of California, Berkeley</a>
+    
+  created_at: 2009-05-05 06:04:22 UTC
+  updated_at: 2009-05-05 19:45:54 UTC
+  sequence: 9.0
+
+13:
+  id: 13
+  given_name: Rebecca
+  family_name: Bollwitt
+  role: |
+    Advisory Board
+
+  email: 
+  photo: 
+  description: |
+    <a href="http://www.miss604.com/about">Editor, Miss604.com</a>
+    
+  created_at: 2009-05-05 06:05:09 UTC
+  updated_at: 2009-05-05 19:43:03 UTC
+  sequence: 9.0
+

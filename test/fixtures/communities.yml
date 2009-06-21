@@ -1,23 +1,551 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  name: MyString
-  short_name: MyString
-  category: MyString
-  country: MyString
-  prov_state: MyString
-  city: MyString
-  official_url: MyString
-  wiki_url: MyString
-  description: MyText
+1:
+  id: 1
+  name: |
+    Mountain Equipment Co-op
+  short_name: |
+    MEC
+  category: Co-op
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/Mountain_Equipment_Co-op
+  official_url: http://mec.ca
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 05:08:01 UTC
 
-two:
-  name: MyString
-  short_name: MyString
-  category: MyString
-  country: MyString
-  prov_state: MyString
-  city: MyString
-  official_url: MyString
-  wiki_url: MyString
-  description: MyText
+2:
+  id: 2
+  name: |
+    Ballard Power Systems
+  short_name: |
+    Ballard Power
+  category: Corporation
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: Canada, USA
+  wiki_url: http://en.wikipedia.org/wiki/Ballard_Power_Systems
+  official_url: http://www.ballard.com/
+  description: |
+    TSX, NASDAQ, BLDP
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+3:
+  id: 3
+  name: |
+    Canadian Broadcasting Corporation
+  short_name: |
+    CBC
+  category: Corporation
+  country: Canada
+  prov_state: Ontario
+  city: Ottawa
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/Canadian_Broadcasting_Corporation
+  official_url: http://www.cbc.radio-canada.ca/
+  description: |
+    CBC is a crown corporation, not a publicly traded corporation. So its voter community is all citizens of Canada.
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 18:58:35 UTC
+
+4:
+  id: 4
+  name: |
+    Telus
+  short_name: |
+    Telus
+  category: Corporation
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/Telus
+  official_url: http://www.telus.com/
+  description: |
+    TSE, T, T.A
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-05-31 22:10:29 UTC
+
+5:
+  id: 5
+  name: |
+    Canada
+  short_name: |
+    Canada
+  category: Country
+  country: Canada
+  prov_state: Ontario
+  city: Ottawa
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/Canada
+  official_url: http://canada.gc.ca/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-05-31 22:12:48 UTC
+
+6:
+  id: 6
+  name: |
+    Coast Capital Savings
+  short_name: |
+    Coast Capital
+  category: Credit&nbsp;Union
+  country: Canada
+  prov_state: B.C.
+  city: Surrey
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/Coast_Capital_Savings
+  official_url: https://www.coastcapitalsavings.com/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+7:
+  id: 7
+  name: |
+    North Shore Credit Union
+  short_name: |
+    North Shore CU
+  category: Credit&nbsp;Union
+  country: Canada
+  prov_state: B.C.
+  city: North Vancouver
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/North_Shore_Credit_Union
+  official_url: https://www.nscu.com/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+8:
+  id: 8
+  name: |
+    Vancouver City Savings Credit Union
+  short_name: |
+    Vancity
+  category: Credit&nbsp;Union
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/Vancity
+  official_url: https://www.vancity.com/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+9:
+  id: 9
+  name: |
+    Westminster Savings Credit Union
+  short_name: |
+    Westminster Savings
+  category: Credit&nbsp;Union
+  country: Canada
+  prov_state: B.C.
+  city: New Westminster
+  scope: B.C.
+  wiki_url: None as of January 2009
+  official_url: https://www.wscu.com
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+10:
+  id: 10
+  name: |
+    Classico condo, 1328 W Pender St, Vancouver
+  short_name: |
+    Classico
+  category: Homeowner
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: 1328 W Pender St
+  wiki_url: None as of March 2009
+  official_url: http://www.theclassico.ca/
+  description: |
+    BCS 460. 1328 West Pender Street, Vancouver, BC, Canada V6E 4T1
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+196:
+  id: 196
+  name: |
+    British Columbia Investment Management Corporation
+  short_name: |
+    BCIMC
+  category: Investor
+  country: Canada
+  prov_state: B.C.
+  city: Victoria
+  scope: B.C.
+  wiki_url: None as of 2009-05-02
+  official_url: http://www.bcimc.com/
+  description: |
+    
+  created_at: 2009-05-02 18:34:41 UTC
+  updated_at: 2009-06-01 03:29:54 UTC
+
+195:
+  id: 195
+  name: |
+    Ontario Teachers' Pension Plan
+  short_name: |
+    OTPP
+  category: Investor
+  country: Canada
+  prov_state: Ontario
+  city: Toronto
+  scope: Ontario
+  wiki_url: http://en.wikipedia.org/wiki/Ontario_Teachers%27_Pension_Plan
+  official_url: http://www.otpp.com/
+  description: |
+    
+  created_at: 2009-05-02 18:31:28 UTC
+  updated_at: 2009-06-01 03:29:54 UTC
+
+11:
+  id: 11
+  name: |
+    B.C. Government & Service Employees Union
+  short_name: |
+    BCGSEU
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: B.C.
+  wiki_url: 
+  official_url: http://www.bcgeu.bc.ca/
+  description: |
+    British Columbia Government and Service Employees Union
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+12:
+  id: 12
+  name: |
+    British Columbia Federation of Labour
+  short_name: |
+    BC Fed'n of Labour
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/British_Columbia_Federation_of_Labour
+  official_url: http://www.bcfed.com/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+13:
+  id: 13
+  name: |
+    British Columbia Nurses' Union
+  short_name: |
+    BC Nurses' Union
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: B.C.
+  wiki_url: None as of January 2009
+  official_url: http://www.bcnu.org
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+14:
+  id: 14
+  name: |
+    British Columbia Teachers' Federation
+  short_name: |
+    BCTF
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/British_Columbia_Teachers_Federation
+  official_url: http://www.bctf.ca/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-05-31 22:16:32 UTC
+
+15:
+  id: 15
+  name: |
+    Canadian Association of University Teachers
+  short_name: |
+    Cdn Ass'n U Teachers
+  category: Labour
+  country: Canada
+  prov_state: Ontario
+  city: Ottawa
+  scope: Canada
+  wiki_url: 
+  official_url: http://www.caut.ca
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+16:
+  id: 16
+  name: |
+    Canadian Auto Workers
+  short_name: |
+    Cdn Auto Workers
+  category: Labour
+  country: Canada
+  prov_state: Ontario
+  city: Toronto
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/Canadian_Auto_Workers
+  official_url: http://www.caw.ca
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+17:
+  id: 17
+  name: |
+    Canadian Auto Workers Local 111
+  short_name: |
+    CAW Local 111
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: New Westminster
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/CAW_Local_111
+  official_url: http://www.caw111.com/
+  description: |
+    bus drivers
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+206:
+  id: 206
+  name: |
+    Canadian Media Guild
+  short_name: |
+    CMG
+  category: Labour
+  country: Canada
+  prov_state: Ontario
+  city: Toronto
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/Canadian_Media_Guild
+  official_url: http://www.cmg.ca/
+  description: |
+    CBC employees
+  created_at: 2009-05-29 16:41:02 UTC
+  updated_at: 2009-05-29 16:41:02 UTC
+
+18:
+  id: 18
+  name: |
+    Canadian Union of Public Employees
+  short_name: |
+    CUPE
+  category: Labour
+  country: Canada
+  prov_state: Ontario
+  city: Ottawa
+  scope: Canada
+  wiki_url: http://en.wikipedia.org/wiki/CUPE
+  official_url: http://cupe.ca/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+19:
+  id: 19
+  name: |
+    Fédération des travailleurs/-euses du Québec
+  short_name: |
+    Féd'n trav. Québec
+  category: Labour
+  country: Canada
+  prov_state: Quebec
+  city: Montreal
+  scope: Quebec
+  wiki_url: http://en.wikipedia.org/wiki/Fédération_des_travailleurs_du_Québec
+  official_url: http://www.ftq.qc.ca/
+  description: |
+    Fédération des travailleurs et travailleuses du Québec, QFL, Quebec Federation of Labour
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-11 18:05:31 UTC
+
+20:
+  id: 20
+  name: |
+    Hospital Employees' Union (British Columbia)
+  short_name: |
+    HospitalEmployees BC
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: B.C.
+  wiki_url: http://en.wikipedia.org/wiki/Hospital_Employees%27_Union
+  official_url: http://www.heu.org/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+194:
+  id: 194
+  name: |
+    Ontario Teachers' Federation
+  short_name: |
+    Ontario Teachers
+  category: Labour
+  country: Canada
+  prov_state: Ontario
+  city: Toronto
+  scope: Ontario
+  wiki_url: http://en.wikipedia.org/wiki/Ontario_Teachers%27_Federation
+  official_url: http://www.otffeo.on.ca/
+  description: |
+    OTF-FEO. Fédération des enseignantes et des enseignants de l'Ontario.
+    
+  created_at: 2009-05-02 17:09:22 UTC
+  updated_at: 2009-06-01 03:29:54 UTC
+
+21:
+  id: 21
+  name: |
+    Vancouver Police Union
+  short_name: |
+    Vancouver Police
+  category: Labour
+  country: Canada
+  prov_state: B.C.
+  city: Vancouver
+  scope: Vancouver
+  wiki_url: http://en.wikipedia.org/wiki/Vancouver_Police_Union
+  official_url: http://www.vpu.ca/
+  description: |
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+22:
+  id: 22
+  name: |
+    Abbotsford
+  short_name: |
+    Abbotsford
+  category: Municipal
+  country: Canada
+  prov_state: B.C.
+  city: Abbotsford
+  scope: Abbotsford
+  wiki_url: http://en.wikipedia.org/wiki/Abbotsford,_British_Columbia
+  official_url: http://www.abbotsford.ca/site4.aspx
+  description: |
+    GVRD, Metro Vancouver
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+23:
+  id: 23
+  name: |
+    Anmore
+  short_name: |
+    Anmore
+  category: Municipal
+  country: Canada
+  prov_state: B.C.
+  city: Anmore
+  scope: Anmore
+  wiki_url: http://en.wikipedia.org/wiki/Anmore
+  official_url: http://www.anmore.com/
+  description: |
+    GVRD, Metro Vancouver
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+24:
+  id: 24
+  name: |
+    Belcarra
+  short_name: |
+    Belcarra
+  category: Municipal
+  country: Canada
+  prov_state: B.C.
+  city: Belcarra
+  scope: Belcarra
+  wiki_url: http://en.wikipedia.org/wiki/Belcarra,_British_Columbia
+  official_url: http://www.belcarra.ca/
+  description: |
+    GVRD, Metro Vancouver
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+25:
+  id: 25
+  name: |
+    Bowen Island
+  short_name: |
+    Bowen Island
+  category: Municipal
+  country: Canada
+  prov_state: B.C.
+  city: Bowen Island
+  scope: Bowen Island
+  wiki_url: http://en.wikipedia.org/wiki/Bowen_island
+  official_url: http://www.bowenisland.com/
+  description: |
+    GVRD, Metro Vancouver
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC
+
+26:
+  id: 26
+  name: |
+    Burnaby
+  short_name: |
+    Burnaby
+  category: Municipal
+  country: Canada
+  prov_state: B.C.
+  city: Burnaby
+  scope: Burnaby
+  wiki_url: http://en.wikipedia.org/wiki/Burnaby
+  official_url: http://www.city.burnaby.bc.ca/Home.html
+  description: |
+    GVRD, Metro Vancouver
+    
+  created_at: 2009-04-11 22:52:28 UTC
+  updated_at: 2009-06-01 03:11:16 UTC

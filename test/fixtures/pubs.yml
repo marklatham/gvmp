@@ -1,15 +1,210 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  date_sequence: 2009-05-02
-  date_text: MyString
-  title: MyString
-  country: MyString
-  journal: MyString
+1:
+  id: 1
+  date_sequence: 2009-02-12
+  date_text: February 2009
+  title: |
+    <a href="/publications/GlobalVoterMediaPlatform.pdf">Global Voter Media Platform</a>
 
-two:
-  date_sequence: 2009-05-02
-  date_text: MyString
-  title: MyString
-  country: MyString
-  journal: MyString
+  country: Canada
+  journal: |
+    [working paper]
+
+  created_at: 2009-05-03 03:41:25 UTC
+  updated_at: 2009-05-03 03:43:36 UTC
+
+2:
+  id: 2
+  date_sequence: 2007-04-13
+  date_text: April 2007
+  title: |
+    <a href="/publications/VoterFundedMedia.pdf">Voter-Funded Media: Governance Reform for Democracies and Corporations</a>
+
+  country: Canada
+  journal: |
+    [working paper]
+
+  created_at: 2009-05-03 04:00:14 UTC
+  updated_at: 2009-05-03 04:20:16 UTC
+
+4:
+  id: 4
+  date_sequence: 2007-01-01
+  date_text: January 2007
+  title: |
+    <a href="/publications/ProxyVotingBrandCompetition.pdf">Proxy Voting Brand Competition</a>
+
+  country: USA
+  journal: |
+    <a href="http://www.joim.com/">Journal of Investment Management</a>
+
+  created_at: 2009-05-03 05:04:16 UTC
+  updated_at: 2009-05-03 05:05:00 UTC
+
+5:
+  id: 5
+  date_sequence: 2006-11-15
+  date_text: November 2006
+  title: |
+    <a href="/publications/HowUBCCanChangeTheWorld.pdf">How UBC Can Change the World</a>
+
+  country: Canada
+  journal: |
+    [press release]
+
+  created_at: 2009-05-03 05:09:41 UTC
+  updated_at: 2009-05-03 05:09:41 UTC
+
+13:
+  id: 13
+  date_sequence: 2005-05-21
+  date_text: May 2005
+  title: |
+    <a href="/publications/VoteYourStock.pdf">Vote Your Stock</a> <span style="font-weight: normal">[superseded by <a href="/publications/ProxyVotingBrandCompetition.pdf">Proxy Voting Brand Competition</a>]</span>
+
+  country: Canada
+  journal: |
+    [working paper]
+
+  created_at: 2009-05-03 22:43:41 UTC
+  updated_at: 2009-05-03 22:47:20 UTC
+
+14:
+  id: 14
+  date_sequence: 2004-06-12
+  date_text: June 2004
+  title: |
+    <a href="http://www.citizensassembly.bc.ca/resources/submissions/csharman-10_0406151124-834.pdf">Presentation favouring STV over MMP</a>
+
+  country: Canada
+  journal: |
+    <a href="http://www.citizensassembly.bc.ca/">British Columbia Citizens' Assembly on Electoral Reform</a>
+
+  created_at: 2009-05-03 22:49:51 UTC
+  updated_at: 2009-05-03 22:53:54 UTC
+
+6:
+  id: 6
+  date_sequence: 2003-04-15
+  date_text: April 2003
+  title: |
+    <a href="/publications/DemocracyAndInfomediaries.pdf">Democracy and Infomediaries</a>
+
+  country: UK
+  journal: |
+    <a href="http://www.blackwellpublishing.com/journal.asp?ref=0964-8410&site=1">Corporate Governance: An International Review</a>
+
+  created_at: 2009-05-03 05:13:44 UTC
+  updated_at: 2009-05-03 05:13:44 UTC
+
+15:
+  id: 15
+  date_sequence: 2000-06-15
+  date_text: June 2000
+  title: |
+    <a href="/publications/InternetWillDriveCorporateMonitoring.pdf">The Internet Will Drive Corporate Monitoring</a>
+
+  country: China (Hong&nbsp;Kong)
+  journal: |
+    <a href="http://www.hkics.org.hk/index.php?_room=10&searchDone=1&_action=detail&_page=39">Corporate Governance International</a>
+
+  created_at: 2009-05-03 22:58:27 UTC
+  updated_at: 2009-05-05 21:40:11 UTC
+
+12:
+  id: 12
+  date_sequence: 1999-09-15
+  date_text: Sept 1999
+  title: |
+    <a href="/publications/CollectiveAction.pdf">Collective Action for Dispersed Shareowners</a>
+
+  country: China (Hong&nbsp;Kong)
+  journal: |
+    <a href="http://www.hkics.org.hk/index.php?_room=10&searchDone=1&_action=detail&_page=39">Corporate Governance International</a>
+
+  created_at: 2009-05-03 05:36:45 UTC
+  updated_at: 2009-05-05 21:40:31 UTC
+
+7:
+  id: 7
+  date_sequence: 1999-01-01
+  date_text: January 1999
+  title: |
+    <a href="/publications/CorporateMonitoringFirm.pdf">The Corporate Monitoring Firm</a>
+
+  country: UK
+  journal: |
+    <a href="http://www.blackwellpublishing.com/journal.asp?ref=0964-8410&site=1">Corporate Governance: An International Review</a>
+
+  created_at: 2009-05-03 05:21:05 UTC
+  updated_at: 2009-05-03 05:21:05 UTC
+
+8:
+  id: 8
+  date_sequence: 1998-09-30
+  date_text: Sept/Oct 1998
+  title: |
+    <a href="/publications/CorporateMonitoringNewShareholderPowerTool.pdf">Corporate Monitoring: New Shareholder Power Tool</a>
+
+  country: USA
+  journal: |
+    <a href="http://www.cfapubs.org/loi/faj">Financial Analysts Journal</a>
+
+  created_at: 2009-05-03 05:22:34 UTC
+  updated_at: 2009-05-03 05:23:16 UTC
+
+11:
+  id: 11
+  date_sequence: 1998-09-26
+  date_text: Sept 1998
+  title: |
+    <a href="/publications/HowToTransformAFailedJapaneseBank.pdf">How To Transform a Failed Japanese Bank</a>
+
+  country: USA
+  journal: |
+    [working paper]
+
+  created_at: 2009-05-03 05:29:31 UTC
+  updated_at: 2009-05-03 05:30:35 UTC
+
+10:
+  id: 10
+  date_sequence: 1997-09-30
+  date_text: Sept/Oct 1997
+  title: |
+    <a href="/publications/ProposedGovernanceMonitor.pdf">Proposed: A Governance "Monitor"</a>
+
+  country: USA
+  journal: |
+    <a href="http://www.corporateboard.com/">The Corporate Board</a>
+
+  created_at: 2009-05-03 05:27:37 UTC
+  updated_at: 2009-05-03 05:27:37 UTC
+
+9:
+  id: 9
+  date_sequence: 1993-07-15
+  date_text: July 1993
+  title: |
+    <a href="/publications/ManagementAuditingFirm.pdf">The Management Auditing Firm</a>
+
+  country: USA
+  journal: |
+    [working paper]
+
+  created_at: 2009-05-03 05:25:23 UTC
+  updated_at: 2009-05-03 05:25:23 UTC
+
+3:
+  id: 3
+  date_sequence: 1988-06-07
+  date_text: June 1988
+  title: |
+    <a href="/publications/VFMidea19880607.pdf">First voter-funded media idea</a>
+
+  country: USA
+  journal: |
+    [letter]
+
+  created_at: 2009-05-03 04:18:10 UTC
+  updated_at: 2009-05-03 04:18:10 UTC

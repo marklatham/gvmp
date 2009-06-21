@@ -1,7 +1,705 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-# one:
-#   column: value
-#
-# two:
-#   column: value
+92:
+  id: 92
+  community_id: 208
+  website_id: 95
+  rank: 1.0
+  created_at: 2009-06-17 17:11:08 UTC
+  updated_at: 2009-06-17 17:11:14 UTC
+
+91:
+  id: 91
+  community_id: 207
+  website_id: 94
+  rank: 0.96
+  created_at: 2009-06-05 18:52:03 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+90:
+  id: 90
+  community_id: 207
+  website_id: 93
+  rank: 0.96
+  created_at: 2009-06-05 18:50:05 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+89:
+  id: 89
+  community_id: 63
+  website_id: 92
+  rank: 0.96
+  created_at: 2009-06-05 18:46:37 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+88:
+  id: 88
+  community_id: 51
+  website_id: 91
+  rank: 0.0
+  created_at: 2009-05-28 20:46:56 UTC
+  updated_at: 2009-05-28 20:46:56 UTC
+
+86:
+  id: 86
+  community_id: 81
+  website_id: 89
+  rank: 0.98
+  created_at: 2009-05-28 18:43:32 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+85:
+  id: 85
+  community_id: 81
+  website_id: 88
+  rank: 0.8
+  created_at: 2009-05-28 18:31:20 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+84:
+  id: 84
+  community_id: 205
+  website_id: 87
+  rank: 1.0
+  created_at: 2009-05-11 15:49:58 UTC
+  updated_at: 2009-06-18 04:14:46 UTC
+
+82:
+  id: 82
+  community_id: 204
+  website_id: 85
+  rank: 0.0
+  created_at: 2009-05-08 02:30:24 UTC
+  updated_at: 2009-05-08 02:30:24 UTC
+
+81:
+  id: 81
+  community_id: 204
+  website_id: 84
+  rank: 0.0
+  created_at: 2009-05-08 02:29:39 UTC
+  updated_at: 2009-05-08 02:29:39 UTC
+
+80:
+  id: 80
+  community_id: 116
+  website_id: 83
+  rank: 0.0
+  created_at: 2009-05-08 02:18:31 UTC
+  updated_at: 2009-05-08 02:18:31 UTC
+
+79:
+  id: 79
+  community_id: 116
+  website_id: 82
+  rank: 0.0
+  created_at: 2009-05-08 02:17:33 UTC
+  updated_at: 2009-05-08 02:17:33 UTC
+
+78:
+  id: 78
+  community_id: 116
+  website_id: 81
+  rank: 0.0
+  created_at: 2009-05-08 02:16:19 UTC
+  updated_at: 2009-05-08 02:16:19 UTC
+
+77:
+  id: 77
+  community_id: 116
+  website_id: 80
+  rank: 0.0
+  created_at: 2009-05-08 02:04:22 UTC
+  updated_at: 2009-05-08 02:04:22 UTC
+
+76:
+  id: 76
+  community_id: 116
+  website_id: 79
+  rank: 0.0
+  created_at: 2009-05-08 02:02:58 UTC
+  updated_at: 2009-05-08 02:02:58 UTC
+
+75:
+  id: 75
+  community_id: 116
+  website_id: 78
+  rank: 0.0
+  created_at: 2009-05-08 02:02:06 UTC
+  updated_at: 2009-05-08 02:02:06 UTC
+
+74:
+  id: 74
+  community_id: 116
+  website_id: 77
+  rank: 0.0
+  created_at: 2009-05-08 02:01:01 UTC
+  updated_at: 2009-05-08 02:01:01 UTC
+
+73:
+  id: 73
+  community_id: 116
+  website_id: 76
+  rank: 0.4
+  created_at: 2009-05-08 01:59:15 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+72:
+  id: 72
+  community_id: 111
+  website_id: 75
+  rank: 0.3
+  created_at: 2009-05-03 16:20:00 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+71:
+  id: 71
+  community_id: 104
+  website_id: 74
+  rank: 0.0
+  created_at: 2009-04-28 03:46:25 UTC
+  updated_at: 2009-04-28 03:46:25 UTC
+
+70:
+  id: 70
+  community_id: 81
+  website_id: 73
+  rank: 0.0
+  created_at: 2009-04-28 03:17:07 UTC
+  updated_at: 2009-04-28 03:17:07 UTC
+
+69:
+  id: 69
+  community_id: 193
+  website_id: 72
+  rank: 0.18
+  created_at: 2009-04-27 23:19:22 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+68:
+  id: 68
+  community_id: 190
+  website_id: 71
+  rank: 0.18
+  created_at: 2009-04-27 23:16:29 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+67:
+  id: 67
+  community_id: 191
+  website_id: 70
+  rank: 0.78
+  created_at: 2009-04-27 23:10:24 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+66:
+  id: 66
+  community_id: 192
+  website_id: 69
+  rank: 0.18
+  created_at: 2009-04-27 22:59:12 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+65:
+  id: 65
+  community_id: 191
+  website_id: 68
+  rank: 0.18
+  created_at: 2009-04-27 22:56:09 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+64:
+  id: 64
+  community_id: 190
+  website_id: 67
+  rank: 0.18
+  created_at: 2009-04-27 22:50:19 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+63:
+  id: 63
+  community_id: 189
+  website_id: 66
+  rank: 0.18
+  created_at: 2009-04-27 22:38:04 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+62:
+  id: 62
+  community_id: 111
+  website_id: 65
+  rank: 0.18
+  created_at: 2009-04-27 22:34:15 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+61:
+  id: 61
+  community_id: 51
+  website_id: 64
+  rank: 0.22
+  created_at: 2009-04-27 21:54:25 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+60:
+  id: 60
+  community_id: 5
+  website_id: 63
+  rank: 0.22
+  created_at: 2009-04-27 21:53:29 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+59:
+  id: 59
+  community_id: 3
+  website_id: 62
+  rank: 1.18
+  created_at: 2009-04-27 21:52:36 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+58:
+  id: 58
+  community_id: 188
+  website_id: 61
+  rank: 0.0
+  created_at: 2009-04-27 21:47:01 UTC
+  updated_at: 2009-04-27 21:47:01 UTC
+
+57:
+  id: 57
+  community_id: 188
+  website_id: 60
+  rank: 0.0
+  created_at: 2009-04-27 21:45:42 UTC
+  updated_at: 2009-04-27 21:45:42 UTC
+
+56:
+  id: 56
+  community_id: 3
+  website_id: 59
+  rank: 0.52
+  created_at: 2009-04-27 19:33:22 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+55:
+  id: 55
+  community_id: 3
+  website_id: 58
+  rank: 0.18
+  created_at: 2009-04-27 19:28:44 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+54:
+  id: 54
+  community_id: 3
+  website_id: 57
+  rank: 0.22
+  created_at: 2009-04-27 19:25:58 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+53:
+  id: 53
+  community_id: 3
+  website_id: 56
+  rank: 0.32
+  created_at: 2009-04-27 19:22:16 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+52:
+  id: 52
+  community_id: 187
+  website_id: 55
+  rank: 0.18
+  created_at: 2009-04-27 19:18:25 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+51:
+  id: 51
+  community_id: 171
+  website_id: 54
+  rank: 0.18
+  created_at: 2009-04-27 19:15:24 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+50:
+  id: 50
+  community_id: 186
+  website_id: 53
+  rank: 0.18
+  created_at: 2009-04-27 19:14:40 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+49:
+  id: 49
+  community_id: 185
+  website_id: 52
+  rank: 0.52
+  created_at: 2009-04-27 19:06:13 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+48:
+  id: 48
+  community_id: 184
+  website_id: 51
+  rank: 0.18
+  created_at: 2009-04-27 18:59:31 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+47:
+  id: 47
+  community_id: 54
+  website_id: 50
+  rank: 0.18
+  created_at: 2009-04-27 18:22:52 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+46:
+  id: 46
+  community_id: 41
+  website_id: 49
+  rank: 0.0
+  created_at: 2009-04-27 16:57:06 UTC
+  updated_at: 2009-04-27 16:57:06 UTC
+
+45:
+  id: 45
+  community_id: 42
+  website_id: 48
+  rank: 0.0
+  created_at: 2009-04-27 16:56:41 UTC
+  updated_at: 2009-04-27 16:56:41 UTC
+
+44:
+  id: 44
+  community_id: 34
+  website_id: 47
+  rank: 0.18
+  created_at: 2009-04-27 16:34:21 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+43:
+  id: 43
+  community_id: 35
+  website_id: 46
+  rank: 0.0
+  created_at: 2009-04-27 16:32:50 UTC
+  updated_at: 2009-04-27 16:32:50 UTC
+
+42:
+  id: 42
+  community_id: 35
+  website_id: 45
+  rank: 1.18
+  created_at: 2009-04-27 16:27:45 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+41:
+  id: 41
+  community_id: 109
+  website_id: 44
+  rank: 0.22
+  created_at: 2009-04-26 05:20:07 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+40:
+  id: 40
+  community_id: 3
+  website_id: 43
+  rank: 0.22
+  created_at: 2009-04-26 04:53:57 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+39:
+  id: 39
+  community_id: 181
+  website_id: 42
+  rank: 0.16
+  created_at: 2009-04-26 04:42:56 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+38:
+  id: 38
+  community_id: 14
+  website_id: 41
+  rank: 1.0
+  created_at: 2009-04-26 04:40:34 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+37:
+  id: 37
+  community_id: 85
+  website_id: 40
+  rank: 0.0
+  created_at: 2009-04-26 04:39:51 UTC
+  updated_at: 2009-04-26 04:39:51 UTC
+
+36:
+  id: 36
+  community_id: 84
+  website_id: 39
+  rank: 0.0
+  created_at: 2009-04-26 04:39:24 UTC
+  updated_at: 2009-04-26 04:39:24 UTC
+
+35:
+  id: 35
+  community_id: 81
+  website_id: 38
+  rank: 0.0
+  created_at: 2009-04-26 04:35:00 UTC
+  updated_at: 2009-04-26 04:35:00 UTC
+
+34:
+  id: 34
+  community_id: 82
+  website_id: 37
+  rank: 0.0
+  created_at: 2009-04-26 04:33:08 UTC
+  updated_at: 2009-04-26 04:33:08 UTC
+
+33:
+  id: 33
+  community_id: 82
+  website_id: 36
+  rank: 0.0
+  created_at: 2009-04-26 04:31:12 UTC
+  updated_at: 2009-04-26 04:31:12 UTC
+
+32:
+  id: 32
+  community_id: 82
+  website_id: 35
+  rank: 0.0
+  created_at: 2009-04-26 04:30:53 UTC
+  updated_at: 2009-04-26 04:30:53 UTC
+
+31:
+  id: 31
+  community_id: 82
+  website_id: 34
+  rank: 0.18
+  created_at: 2009-04-26 04:30:30 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+30:
+  id: 30
+  community_id: 82
+  website_id: 33
+  rank: 1.22
+  created_at: 2009-04-26 04:30:12 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+29:
+  id: 29
+  community_id: 82
+  website_id: 32
+  rank: 0.0
+  created_at: 2009-04-26 04:29:55 UTC
+  updated_at: 2009-04-26 04:29:55 UTC
+
+28:
+  id: 28
+  community_id: 82
+  website_id: 31
+  rank: 1.16
+  created_at: 2009-04-26 04:29:36 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+27:
+  id: 27
+  community_id: 82
+  website_id: 30
+  rank: 1.22
+  created_at: 2009-04-26 04:29:13 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+26:
+  id: 26
+  community_id: 50
+  website_id: 29
+  rank: 0.0
+  created_at: 2009-04-26 04:25:39 UTC
+  updated_at: 2009-04-26 04:25:39 UTC
+
+25:
+  id: 25
+  community_id: 47
+  website_id: 28
+  rank: 0.0
+  created_at: 2009-04-26 04:24:57 UTC
+  updated_at: 2009-04-26 04:24:57 UTC
+
+24:
+  id: 24
+  community_id: 5
+  website_id: 27
+  rank: 0.22
+  created_at: 2009-04-26 04:20:25 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+23:
+  id: 23
+  community_id: 5
+  website_id: 26
+  rank: 0.44
+  created_at: 2009-04-26 04:20:00 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+22:
+  id: 22
+  community_id: 81
+  website_id: 25
+  rank: 1.28
+  created_at: 2009-04-26 04:18:06 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+21:
+  id: 21
+  community_id: 81
+  website_id: 24
+  rank: 0.44
+  created_at: 2009-04-26 04:17:45 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+20:
+  id: 20
+  community_id: 81
+  website_id: 23
+  rank: 1.4
+  created_at: 2009-04-26 04:16:31 UTC
+  updated_at: 2009-06-18 04:21:50 UTC
+
+17:
+  id: 17
+  community_id: 81
+  website_id: 20
+  rank: 0.0
+  created_at: 2009-04-26 04:13:44 UTC
+  updated_at: 2009-04-26 04:13:44 UTC
+
+16:
+  id: 16
+  community_id: 51
+  website_id: 19
+  rank: 0.0
+  created_at: 2009-04-26 04:13:11 UTC
+  updated_at: 2009-04-26 04:13:11 UTC
+
+15:
+  id: 15
+  community_id: 51
+  website_id: 18
+  rank: 0.0
+  created_at: 2009-04-26 04:10:22 UTC
+  updated_at: 2009-05-13 23:07:35 UTC
+
+14:
+  id: 14
+  community_id: 51
+  website_id: 17
+  rank: 0.44
+  created_at: 2009-04-26 04:09:48 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+13:
+  id: 13
+  community_id: 51
+  website_id: 16
+  rank: 0.22
+  created_at: 2009-04-26 04:06:24 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+12:
+  id: 12
+  community_id: 51
+  website_id: 15
+  rank: 0.0
+  created_at: 2009-04-26 04:06:04 UTC
+  updated_at: 2009-04-26 04:06:04 UTC
+
+11:
+  id: 11
+  community_id: 51
+  website_id: 14
+  rank: 0.0
+  created_at: 2009-04-26 04:05:45 UTC
+  updated_at: 2009-04-26 04:05:45 UTC
+
+10:
+  id: 10
+  community_id: 51
+  website_id: 13
+  rank: 0.8
+  created_at: 2009-04-26 04:05:24 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+9:
+  id: 9
+  community_id: 51
+  website_id: 12
+  rank: 0.0
+  created_at: 2009-04-26 04:04:59 UTC
+  updated_at: 2009-04-26 04:04:59 UTC
+
+8:
+  id: 8
+  community_id: 51
+  website_id: 11
+  rank: 1.22
+  created_at: 2009-04-26 04:04:22 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+7:
+  id: 7
+  community_id: 51
+  website_id: 10
+  rank: 1.0
+  created_at: 2009-04-26 04:01:50 UTC
+  updated_at: 2009-06-11 06:25:23 UTC
+
+6:
+  id: 6
+  community_id: 81
+  website_id: 9
+  rank: 1.0
+  created_at: 2009-04-26 03:34:10 UTC
+  updated_at: 2009-06-09 03:20:04 UTC
+
+5:
+  id: 5
+  community_id: 81
+  website_id: 8
+  rank: 1.44
+  created_at: 2009-04-26 03:32:03 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
+4:
+  id: 4
+  community_id: 81
+  website_id: 7
+  rank: 1.16
+  created_at: 2009-04-26 03:31:26 UTC
+  updated_at: 2009-06-18 04:21:47 UTC
+
+3:
+  id: 3
+  community_id: 51
+  website_id: 6
+  rank: 1.22
+  created_at: 2009-04-26 03:28:49 UTC
+  updated_at: 2009-06-18 04:25:30 UTC
+
+2:
+  id: 2
+  community_id: 51
+  website_id: 5
+  rank: 1.16
+  created_at: 2009-04-26 03:28:14 UTC
+  updated_at: 2009-06-18 04:24:53 UTC
+
+1:
+  id: 1
+  community_id: 109
+  website_id: 4
+  rank: 0.8
+  created_at: 2009-04-25 20:39:59 UTC
+  updated_at: 2009-06-18 04:24:02 UTC
+
