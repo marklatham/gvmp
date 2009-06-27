@@ -32,4 +32,14 @@ class Community < ActiveRecord::Base
   end
 
 
+  class << self
+    # TODO: A community should be marked by admin as featured
+    # Should be a named_scope 
+    def featured
+      ids = [51, 81, 5, 205, 82, 94, 209, 3, 109, 191, 116]
+      Community.find(:all, :conditions => {:id => ids})
+    end
+  end
+
+
 end
