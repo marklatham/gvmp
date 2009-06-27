@@ -31,7 +31,8 @@ class CommunitiesController < ApplicationController
   end
 
   def search
-    @communities = Community.search(params[:query], :page => params[:page], :per_page => 30)
+    @keywords = params[:q]
+    @communities = Community.search(@keywords, :page => params[:page], :per_page => 30)
   end
 
   def add_to
