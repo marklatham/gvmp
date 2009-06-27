@@ -6,81 +6,21 @@
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
     %title= 'VoterMedia' + (@page_title.blank? ? '' : ": #{@page_title}")
     = stylesheet_link_tag 'main', :media => "all"
-    = javascript_include_tag :defaults
 
   %body#welcome
-
-    %table{:width => "100%"}
-      %tr
-        %td#banner
-          = link_to 'Voter', root_path
-          %span.banner2>= link_to 'Media.org', root_path
-          %span.release &nbsp; [beta]
-        %td#login-nav
-          - if current_user
-            %span.perm0= h current_user.login
-            - if current_user.permission >= 7.0
-              %span.permission= '(' + link_to('admin', admin_path) + ')'
-            - elsif current_user.permission >= 4.0
-              %span.permission= '(editor)'
-            %span.perm0
-              &nbsp; | &nbsp;
-              = link_to 'Logout', logout_path
-          - else
-            %span.perm0
-              = link_to 'Register', register_path
-              &nbsp; | &nbsp;
-              = link_to 'Login', login_path
-
-    #top-bottom-nav
-      = link_to 'HOME', root_path
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-      = link_to 'FAQ', faqs_path
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-      = link_to 'ABOUT/CONTACT', about_contact_path
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-      = link_to 'HOW YOU CAN HELP', how_you_can_help_path
+    = render 'layouts/header'
+    = render 'layouts/main_nav'    
 
     #columns
       #side
-        %br
-        #search
-          - form_tag(search_communities_path, {:method => 'get'}) do
-            %div
-              Find communities:<br />
-              = text_field_tag :q, @keywords, :maxlength => 100
-              %br
-              &nbsp; &nbsp; &nbsp;
-              = submit_tag 'Search'
-
-        %br
-
-        #nav-header
-          Featured Communities:
-          #nav-table
-            %p= link_to 'Vancouver', '/communities/51'
-            %p= link_to 'British Columbia', '/communities/81'
-            %p= link_to 'Canada', '/communities/5'
-            %p= link_to 'Iran', '/communities/205'
-            %p= link_to 'UBC AMS', '/communities/82'
-            %p= link_to 'U Calgary Students', '/communities/94'
-            %p= link_to 'Fair Voting BC', '/communities/209'
-            %p= link_to 'CBC', '/communities/3'
-            %p= link_to 'Microsoft', '/communities/109'
-            %p= link_to 'Chattanooga', '/communities/191'
-            %p= link_to 'CalPERS', '/communities/116'
+        = render 'layouts/search'
+        = render 'layouts/featured'
 
       #main
         - if flash[:notice]
           #notice= flash[:notice]
-
         = yield
 
-    #top-bottom-nav
-      = link_to 'HOME', root_path
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-      = link_to 'TERMS', terms_path
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-      = link_to 'PRIVACY', privacy_path
-      &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
-      = link_to 'PUBLICATIONS', publications_path
+    = render 'layouts/main_nav' 
+
+  = javascript_include_tag :defaults
