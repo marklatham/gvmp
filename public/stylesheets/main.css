@@ -120,22 +120,27 @@ a:hover { color: #d00; }
   color: #a00;
 }
 
-#top-bottom-nav {
+#main-nav {
   background-color: #a00;
   color: #fff;
   text-align: center;
   font-size:   11px;
   font-weight: bold;
 }
-#top-bottom-nav a:link {
+
+#main-nav span {
+  margin: 0 20px;
+}
+
+#main-nav a:link {
   color: #fff;
   text-decoration: none;
 }
-#top-bottom-nav a:visited {
+#main-nav a:visited {
   color: #fff;
   text-decoration: none;
 }
-#top-bottom-nav a:hover {
+#main-nav a:hover {
   text-decoration: underline;
 }
 
