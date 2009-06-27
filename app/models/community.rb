@@ -27,5 +27,9 @@ class Community < ActiveRecord::Base
     indexes name, short_name, category, country, prov_state, city, scope
   end
 
+  def to_param
+    short_name.blank? ? id : "#{id}-#{short_name.parameterize}"
+  end
+
 
 end
