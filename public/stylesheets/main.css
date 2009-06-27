@@ -110,6 +110,10 @@ a:hover { color: #d00; }
   text-decoration: underline;
 }
 
+#login-nav .separator {
+  margin: 0 10px;
+}
+
 .permission {
   color: #060;
 }

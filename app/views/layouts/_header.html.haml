@@ -1,9 +1,12 @@
 %table{:width => "100%"}
   %tr
     %td#banner
-      = link_to 'Voter', root_path
-      %span.banner2>= link_to 'Media.org', root_path
-      %span.release &nbsp; [beta]
+      - site = 'Voter' + content_tag(:span, 'Media.org', :class => 'banner2')
+      = link_to site, root_path
+      %span.release 
+        [beta]
+
+
     %td#login-nav
       - if current_user
         %span.perm0= h current_user.login
@@ -12,10 +15,10 @@
         - elsif current_user.permission >= 4.0
           %span.permission= '(editor)'
         %span.perm0
-          &nbsp; | &nbsp;
+          = link_separator
           = link_to 'Logout', logout_path
       - else
         %span.perm0
           = link_to 'Register', register_path
-          &nbsp; | &nbsp;
+          = link_separator
           = link_to 'Login', login_path
