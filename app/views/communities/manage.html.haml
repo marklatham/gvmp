@@ -21,11 +21,11 @@
       %td= h community.official_url
       %td= h community.wiki_url
       %td= h community.description
-      %td= link_to 'Edit', edit_object_path(community)
-      %td= link_to 'Destroy', object_path(community), :method => :delete, :confirm => 'Are you sure?'
+      %td= link_to 'Edit', edit_community_path(community)
+      %td= link_to 'Destroy', community_path(community), :method => :delete, :confirm => 'Are you sure?'
 
 %h2
-  = link_to 'New community', new_object_path
+  = link_to 'New community', new_community_path
 
 %br
 

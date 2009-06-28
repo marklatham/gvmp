@@ -11,7 +11,7 @@ class Community < ActiveRecord::Base
   has_many :websites, :through => :rankings
 
   default_scope :order => 'country, category, name'
-  
+
   validates_presence_of :name, :short_name
   validates_presence_of :category, :message => "(Type) can't be blank"
   
@@ -27,12 +27,25 @@ class Community < ActiveRecord::Base
     indexes name, short_name, category, country, prov_state, city, scope
   end
 
+  cattr_reader :per_page
+  @@per_page = 30
+
   def to_param
     short_name.blank? ? id : "#{id}-#{short_name.parameterize}"
   end
 
-
   class << self
+    def filter(params)
+      scope = self
+      if params[:q]
+        # Unfortunately, sphinx's search doesn't want to play nice with will_paginate
+        return search(params[:q], :page => params[:page], :per_page => @@per_page)
+      end
+
+      scope.paginate :page => params[:page]
+    end
+
+
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope 
     def featured

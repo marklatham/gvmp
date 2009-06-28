@@ -59,5 +59,26 @@ class ApplicationController < ActionController::Base
     rescue ActionController::RedirectBackError
     redirect_to path
   end
+
+  def render_invalid_create(record)
+    respond_to do |wants|
+      wants.html do
+        render :action => :new
+      end
+    end
+  end
+
+  def render_invalid_update(record)
+    respond_to do |wants|
+      wants.html do
+        render :action => :edit
+      end
+    end
+  end
+
+
+  def notify(s)
+    flash[:notice] = s
+  end
   
 end
