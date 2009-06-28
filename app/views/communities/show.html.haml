@@ -6,17 +6,17 @@
   %p
     %label
       Type of community:
-    = h @community.category  # TODO: This should be pulled from lookup table
+    = link_to @community.category, communities_path(:q => @community.category)  # TODO: This should be pulled from lookup table
   
   %p
     %label
       Headquarters:
-    = "#{@community.city}&nbsp; #{@community.prov_state}&nbsp; #{@community.country}"
+    = @community.location
 
   %p
     %label
       Regional scope:
-    = h @community.scope
+    = link_to @community.scope, communities_path(:q => @community.scope)
 
   %p
     %label

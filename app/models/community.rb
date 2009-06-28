@@ -34,6 +34,10 @@ class Community < ActiveRecord::Base
     short_name.blank? ? id : "#{id}-#{short_name.parameterize}"
   end
 
+  def location
+    "#{city} #{prov_state} #{country}"
+  end
+
   class << self
     def filter(params)
       scope = self
