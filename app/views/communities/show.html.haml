@@ -39,7 +39,7 @@
 
   - if current_user and (current_user.permission >= 4.0)
     %p.permission
-      = link_to('Edit community data', edit_object_path(@community))
+      = link_to('Edit community data', edit_community_path(@community))
 
 %h3
   Which websites/blogs deserve more support from the 
