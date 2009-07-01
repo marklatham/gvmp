@@ -9,7 +9,7 @@
 
   %body#welcome
     = render 'layouts/header'
-    = render 'layouts/main_nav'    
+    = render 'layouts/main_nav_top'    
 
     #columns
       #side
@@ -21,6 +21,6 @@
           #notice= flash[:notice]
         = yield
 
-    = render 'layouts/main_nav' 
+    = render 'layouts/main_nav_bottom' 
 
   = javascript_include_tag :defaults
