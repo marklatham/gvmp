@@ -19,7 +19,7 @@ set :repository,  "git://git.assembla.com/gvmp.git"
 
 
 ###### There is no need to edit anything below this line ######
-set :deploy_to, "/home/#{user}/#{application}"
+set :deploy_to, "/home/#{user}/apps/#{application}"
 set :use_sudo, false
 set :group_writable, false
 default_run_options[:pty] = true 
@@ -30,21 +30,33 @@ role :db,  server_name, :primary => true
 
 # set the proper permission of the public folder
 task :after_update_code, :roles => [:web, :db, :app] do
-  run "chmod 755 #{release_path}/public"
+  db.symlink
 end
 
 namespace :deploy do
 
   desc "restart passenger"
   task :restart do
-    passenger::restart
+    passenger.restart
   end
 
 end
 
 namespace :passenger do
+
   desc "Restart dispatchers"
   task :restart do
     run "touch #{current_path}/tmp/restart.txt"
   end
 end
+
+namespace :db do
+
+  task :symlink do
+    run "ln -nfs #{shared_path}/system/database.yml #{release_path}/config"
+  end
+
+end
+
+
+
