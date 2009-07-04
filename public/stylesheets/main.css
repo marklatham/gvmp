@@ -324,13 +324,19 @@ a:hover { color: #d00; }
   list-style: square;
 }
 
+#cv td {
+  line-height: 17px;
+}
+
+#cv .pad {
+  padding-top: 4px;
+}
+
 #cv .heading {
-  margin-top: 12px;
   font-weight: bold;
 }
 
 #cv .subheading {
-  margin-top: 12px;
   font-weight: bold;
 }
 

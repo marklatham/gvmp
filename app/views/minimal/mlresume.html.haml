@@ -1,20 +1,15 @@
 - @page_title = 'Mark Latham\'s Résumé'
 
-%table#cv
+%table#cv{:cellspacing => "1px", :cellpadding => 0}
 
   %tr
     %td.heading RÉSUMÉ
     %td.heading{:colspan => 2} MARK LATHAM 	
 
   %tr
-    %td Address
-    %td &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    %td 1755 Robson Street #469, Vancouver BC, Canada V6G 3B7
-
-  %tr
-    %td Phone
+    %td.pad Phone
     %td
-    %td (604) 608-9779
+    %td.pad (604) 608-9779
 
   %tr
     %td Email
@@ -22,11 +17,20 @@
     %td mark [at] votermedia.org
 
   %tr
+    %td Address
+    %td &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    %td 1755 Robson Street #469, Vancouver BC, Canada V6G 3B7
+
+  %tr
+    %td{:colspan => 3}
+      %hr
+
+  %tr
     %td.heading EXPERIENCE
 
   %tr
-    %td 2006 - present
-    %td.subheading{:colspan => 2}= link_to('VoterMedia.org', 'http://votermedia.org')
+    %td.pad 2006 - present
+    %td.pad.subheading{:colspan => 2}= link_to('VoterMedia.org', 'http://votermedia.org')
 
   %tr
     %td
@@ -41,8 +45,8 @@
       = link_to('Global Voter Media Platform', 'http://votermedia.org/publications/GlobalVoterMediaPlatform.pdf') + '.'
 
   %tr
-    %td 2007 - present
-    %td.subheading{:colspan => 2}= link_to('ProxyDemocracy', 'http://proxydemocracy.org')
+    %td.pad 2007 - present
+    %td.pad.subheading{:colspan => 2}= link_to('ProxyDemocracy', 'http://proxydemocracy.org')
 
   %tr
     %td
@@ -57,8 +61,8 @@
       = link_to('Proxy Voting Brand Competition', 'http://votermedia.org/publications/ProxyVotingBrandCompetition.pdf') + '.'
 
   %tr
-    %td 1996 - 2007
-    %td.subheading{:colspan => 2} The Corporate Monitoring Project
+    %td.pad 1996 - 2007
+    %td.pad.subheading{:colspan => 2} The Corporate Monitoring Project
 
   %tr
     %td
@@ -71,8 +75,8 @@
     %td Developing and promoting a new approach to improving shareowner oversight of corporate management.
 
   %tr
-    %td 1994 - 1995
-    %td{:colspan => 2}
+    %td.pad 1994 - 1995
+    %td.pad{:colspan => 2}
       %span.subheading Merrill Lynch
       %span (Tokyo)
 
@@ -87,8 +91,8 @@
     %td Created and traded quantitative strategies in Japanese equity and derivative instruments, including stocks, warrants and futures.
 
   %tr
-    %td 1994 - 1995
-    %td{:colspan => 2}
+    %td.pad 1994 - 1995
+    %td.pad{:colspan => 2}
       %span.subheading Salomon Brothers
       %span (New York)
 
@@ -103,8 +107,8 @@
     %td Firmwide risk measurement – model development, system integration, risk pricing, forecasting, monitoring, validation.
 
   %tr
-    %td 1994 - 1995
-    %td{:colspan => 2}
+    %td.pad 1994 - 1995
+    %td.pad{:colspan => 2}
       %span.subheading Salomon Brothers Asia
       %span (Tokyo)
 
@@ -120,7 +124,7 @@
 
   %tr
     %td
-    %td{:colspan => 2}
+    %td.pad{:colspan => 2}
       %span.subheading University of California at Berkeley
       %span (School of Business Administration)
 
@@ -150,11 +154,15 @@
     %td - Research on information, risk, and security pricing.
 
   %tr
+    %td{:colspan => 3}
+      %hr
+
+  %tr
     %td.heading EDUCATION
 
   %tr
     %td
-    %td{:colspan => 2}
+    %td.pad{:colspan => 2}
       %span.subheading M.I.T. Sloan School of Management
       %span (Cambridge, Massachusetts)
 
@@ -170,7 +178,7 @@
 
   %tr
     %td
-    %td{:colspan => 2}
+    %td.pad{:colspan => 2}
       %span.subheading University of British Columbia
       %span (Vancouver, Canada)
 
@@ -185,6 +193,10 @@
     %td.emphasis B.Sc. in Mathematics
 
   %tr
+    %td{:colspan => 3}
+      %hr
+
+  %tr
     %td.heading PUBLICATIONS
     %td
     %td
@@ -192,8 +204,8 @@
       %em= link_to('votermedia.org/publications', 'http://votermedia.org/publications') + ')'
 
   %tr
-    %td February 2009
-    %td.subheading{:colspan => 2}= link_to('Global Voter Media Platform', 'http://votermedia.org/publications/GlobalVoterMediaPlatform.pdf')
+    %td.pad February 2009
+    %td.pad.subheading{:colspan => 2}= link_to('Global Voter Media Platform', 'http://votermedia.org/publications/GlobalVoterMediaPlatform.pdf')
 
   %tr
     %td
@@ -201,8 +213,8 @@
     %td Working paper
 
   %tr
-    %td April 2007
-    %td.subheading{:colspan => 2} Voter-Funded Media: Governance Reform for Democracies and Corporations
+    %td.pad April 2007
+    %td.pad.subheading{:colspan => 2} Voter-Funded Media: Governance Reform for Democracies and Corporations
 
   %tr
     %td
@@ -210,8 +222,8 @@
     %td Working paper
 
   %tr
-    %td January 2007
-    %td.subheading{:colspan => 2}= link_to('Proxy Voting Brand Competition', 'http://votermedia.org/publications/ProxyVotingBrandCompetition.pdf')
+    %td.pad January 2007
+    %td.pad.subheading{:colspan => 2}= link_to('Proxy Voting Brand Competition', 'http://votermedia.org/publications/ProxyVotingBrandCompetition.pdf')
 
   %tr
     %td
@@ -221,8 +233,8 @@
       , vol. 5, no. 1
 
   %tr
-    %td May 2005
-    %td.subheading{:colspan => 2} Vote Your Stock
+    %td.pad May 2005
+    %td.pad.subheading{:colspan => 2} Vote Your Stock
 
   %tr
     %td
@@ -230,8 +242,8 @@
     %td Working paper
 
   %tr
-    %td April 2003
-    %td.subheading{:colspan => 2} Democracy and Infomediaries
+    %td.pad April 2003
+    %td.pad.subheading{:colspan => 2} Democracy and Infomediaries
 
   %tr
     %td
@@ -241,8 +253,8 @@
       , vol. 11, no. 2
 
   %tr
-    %td June 2000
-    %td.subheading{:colspan => 2} The Internet Will Drive Corporate Monitoring
+    %td.pad June 2000
+    %td.pad.subheading{:colspan => 2} The Internet Will Drive Corporate Monitoring
 
   %tr
     %td
@@ -260,8 +272,8 @@
       , vol. 1, no. 2, Summer 2000.)
 
   %tr
-    %td January 2000
-    %td.subheading{:colspan => 2} Corporate Governance in Japan: A Future Scenario
+    %td.pad January 2000
+    %td.pad.subheading{:colspan => 2} Corporate Governance in Japan: A Future Scenario
 
   %tr
     %td
@@ -272,8 +284,8 @@
       , vol. 38, no. 1
 
   %tr
-    %td September 1999
-    %td.subheading{:colspan => 2} Collective Action for Dispersed Shareowners
+    %td.pad September 1999
+    %td.pad.subheading{:colspan => 2} Collective Action for Dispersed Shareowners
 
   %tr
     %td
@@ -283,8 +295,8 @@
       , vol. 2, no. 3
 
   %tr
-    %td January 1999
-    %td.subheading{:colspan => 2} The Corporate Monitoring Firm
+    %td.pad January 1999
+    %td.pad.subheading{:colspan => 2} The Corporate Monitoring Firm
 
   %tr
     %td
@@ -304,8 +316,8 @@
       , vol. 36, no. 8, August 1998.)
 
   %tr
-    %td Sept/Oct 1998
-    %td.subheading{:colspan => 2} Corporate Monitoring: New Shareholder Power Tool
+    %td.pad Sept/Oct 1998
+    %td.pad.subheading{:colspan => 2} Corporate Monitoring: New Shareholder Power Tool
 
   %tr
     %td
@@ -315,8 +327,8 @@
       , vol. 54, no. 5
 
   %tr
-    %td Sept/Oct 1997
-    %td.subheading{:colspan => 2} Proposed: A Governance ‘Monitor’
+    %td.pad Sept/Oct 1997
+    %td.pad.subheading{:colspan => 2} Proposed: A Governance ‘Monitor’
 
   %tr
     %td
@@ -334,8 +346,8 @@
       , Sept/Oct 1998 issue.)
 
   %tr
-    %td June 1989
-    %td.subheading{:colspan => 2} The Arbitrage Pricing Theory and Supershares
+    %td.pad June 1989
+    %td.pad.subheading{:colspan => 2} The Arbitrage Pricing Theory and Supershares
 
   %tr
     %td
@@ -345,8 +357,8 @@
       , vol. 44, no. 2
 
   %tr
-    %td March 1986
-    %td.subheading{:colspan => 2} Informational Efficiency and Information Subsets
+    %td.pad March 1986
+    %td.pad.subheading{:colspan => 2} Informational Efficiency and Information Subsets
 
   %tr
     %td
@@ -356,11 +368,15 @@
       , vol. 41, no. 1
 
   %tr
+    %td{:colspan => 3}
+      %hr
+
+  %tr
     %td.heading OTHER
 
   %tr
-    %td 2009 - 2011
-    %td.subheading{:colspan => 2} U.S. Securities & Exchange Commission Investor Advisory Committee
+    %td.pad 2009 - 2011
+    %td.pad.subheading{:colspan => 2} U.S. Securities & Exchange Commission Investor Advisory Committee
 
   %tr
     %td
@@ -369,7 +385,7 @@
 
   %tr
     %td
-    %td{:colspan => 2}
+    %td.pad{:colspan => 2}
       %span.subheading Strata Corporation BCS 460
       %span (Condominium "The Classico")
 
@@ -384,29 +400,29 @@
     %td.emphasis President
 
   %tr
-    %td 1999 - 2007
-    %td{:colspan => 2}
+    %td.pad 1999 - 2007
+    %td.pad{:colspan => 2}
       %span.subheading International Corporate Governance Network
       %span –
       %span.emphasis Member
 
   %tr
     %td
-    %td{:colspan => 2}
+    %td.pad{:colspan => 2}
       %span.subheading American Association of Individual Investors
       %span –
       %span.emphasis Life Member
 
   %tr
     %td
-    %td{:colspan => 2}
+    %td.pad{:colspan => 2}
       %span.subheading Consumers Union
       %span –
       %span.emphasis Life Member
 
   %tr
     %td
-    %td{:colspan => 2}
+    %td.pad{:colspan => 2}
       %span.subheading Languages
       %span –
       %span.emphasis English, Japanese and French
@@ -418,6 +434,16 @@
 
   %tr
     %td
-    %td{:colspan => 2}
+    %td.pad{:colspan => 2}
       %span.subheading Citizen
       %span of Canada, USA and UK
+
+  %tr
+    %td{:colspan => 3}
+      %hr
+
+  %tr
+    %td
+    %td
+    %td
+      %em (Updated as of July 2009)
