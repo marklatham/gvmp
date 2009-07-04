@@ -323,3 +323,17 @@ a:hover { color: #d00; }
   font-size: 12px;
   list-style: square;
 }
+
+#cv .heading {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+#cv .subheading {
+  margin-top: 12px;
+  font-weight: bold;
+}
+
+#cv .emphasis {
+  font-style: italic;
+}

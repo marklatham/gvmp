@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   map.privacy '/privacy', :controller => 'public', :action => 'privacy'
   map.how_you_can_help '/how_you_can_help', :controller => 'public', :action => 'how_you_can_help'
   map.admin '/admin', :controller => 'admin', :action => 'admin'
-
+  map.mlresume '/mlresume', :controller => 'minimal', :action => 'mlresume'
   
   # The priority is based upon order of creation: first created -> highest priority.
 
