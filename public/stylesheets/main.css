@@ -332,6 +332,11 @@ a:hover { color: #d00; }
   padding-top: 4px;
 }
 
+#cv .col1 {
+  text-align: right;
+  padding-right: 14px;
+}
+
 #cv .heading {
   font-weight: bold;
 }
