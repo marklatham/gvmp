@@ -5,12 +5,14 @@
     %th id
     %th Url
     %th Title
+    %th Creator_ip
 
   - for website in @websites
     %tr
       %td= website.id
       %td= h website.url
       %td= h website.title
+      %td= h website.creator_ip
       %td= link_to 'Show', website
       %td= link_to 'Edit', edit_website_path(website)
       %td= link_to 'Destroy', website, :confirm => 'Are you sure?', :method => :delete

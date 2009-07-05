@@ -2,7 +2,7 @@
 
 %h1.permission Listing communities
 
-- cols = ['ID', 'Name', 'Short name', 'Type', 'Country', 'Prov state', 'City', 'Official url', 'Wiki url', 'Description']
+- cols = ['ID', 'Name', 'Short name', 'Type', 'Country', 'Prov state', 'City', 'Official url', 'Wiki url', 'Description', 'Creator_ip', 'Adder_ip']
 %table
   %tr
     - cols.each do |col|
@@ -21,6 +21,8 @@
       %td= h community.official_url
       %td= h community.wiki_url
       %td= h community.description
+      %td= h community.creator_ip
+      %td= h community.adder_ip
       %td= link_to 'Edit', edit_community_path(community)
       %td= link_to 'Destroy', community_path(community), :method => :delete, :confirm => 'Are you sure?'
 

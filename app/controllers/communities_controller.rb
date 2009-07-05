@@ -28,6 +28,7 @@ class CommunitiesController < ApplicationController
 
   def create
     @community = Community.new(params[:community])
+    @community.creator_ip = request.remote_ip
     if @community.save
       notify "Community successfully created."
       redirect_to @community
@@ -62,6 +63,7 @@ class CommunitiesController < ApplicationController
   end
   
   def add_to_update
+    @ip = request.remote_ip
     @community = Community.find(params[:id])
 
     respond_to do |format|
@@ -72,6 +74,7 @@ class CommunitiesController < ApplicationController
           @community.description = @community.description + '<br />' + @community.add_to_description
         end
         @community.add_to_description = ''
+        @community.adder_ip = @ip
         @community.save
         flash[:notice] = 'Community data was successfully added.'
         format.html { redirect_to(@community) }

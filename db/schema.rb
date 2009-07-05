@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090612001250) do
+ActiveRecord::Schema.define(:version => 20090705152941) do
 
   create_table "colleagues", :force => true do |t|
     t.string   "given_name"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(:version => 20090612001250) do
     t.datetime "updated_at"
     t.string   "scope"
     t.text     "add_to_description"
+    t.string   "creator_ip"
+    t.string   "adder_ip"
   end
 
   add_index "communities", ["category"], :name => "index_communities_on_category"
@@ -103,9 +105,9 @@ ActiveRecord::Schema.define(:version => 20090612001250) do
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
   create_table "votes", :force => true do |t|
+    t.string   "ip_address"
     t.integer  "community_id"
     t.integer  "website_id"
-    t.string   "ip_address"
     t.float    "support"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -116,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20090612001250) do
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "creator_ip"
   end
 
 end

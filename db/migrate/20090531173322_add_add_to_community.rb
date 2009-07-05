@@ -4,6 +4,6 @@ class AddAddToCommunity < ActiveRecord::Migration
   end
 
   def self.down
-    remove_column :communities, :add_to_description, :text
+    remove_column :communities, :add_to_description
   end
 end

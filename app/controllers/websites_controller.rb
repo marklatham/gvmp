@@ -10,6 +10,10 @@ class WebsitesController < ApplicationController
     c.redirect_if_permission_less_than 5.0
   end
 
+  create.before do
+    @website.creator_ip = request.remote_ip
+  end
+
   create.after do
     @community.websites << @website
   end
