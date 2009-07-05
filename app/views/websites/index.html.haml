@@ -6,6 +6,8 @@
     %th Url
     %th Title
     %th Creator_ip
+    %th Created
+    %th Updated
 
   - for website in @websites
     %tr
@@ -13,6 +15,10 @@
       %td= h website.url
       %td= h website.title
       %td= h website.creator_ip
+      %td= h website.created_at
+      %td
+        - unless website.updated_at == website.created_at
+          = h website.updated_at
       %td= link_to 'Show', website
       %td= link_to 'Edit', edit_website_path(website)
       %td= link_to 'Destroy', website, :confirm => 'Are you sure?', :method => :delete

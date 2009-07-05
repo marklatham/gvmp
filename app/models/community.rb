@@ -11,6 +11,8 @@ class Community < ActiveRecord::Base
   has_many :websites, :through => :rankings
 
   default_scope :order => 'country, category, name'
+# How to substitute this order when called from communities/manage ? Done crudely below by defining filter_manage.
+#  default_scope :order => 'created_at DESC'
 
   validates_presence_of :name, :short_name
   validates_presence_of :category, :message => "(Type) can't be blank"
@@ -41,6 +43,17 @@ class Community < ActiveRecord::Base
   class << self
     def filter(params)
       scope = self
+      if params[:q]
+        # Unfortunately, sphinx's search doesn't want to play nice with will_paginate
+        return search(params[:q], :page => params[:page], :per_page => @@per_page)
+      end
+
+      scope.paginate :page => params[:page]
+    end
+        
+    def filter_manage(params)
+      scope = self
+      default_scope :order => 'created_at DESC'
       if params[:q]
         # Unfortunately, sphinx's search doesn't want to play nice with will_paginate
         return search(params[:q], :page => params[:page], :per_page => @@per_page)

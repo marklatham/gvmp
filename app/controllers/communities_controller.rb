@@ -11,9 +11,8 @@ class CommunitiesController < ApplicationController
     @communities = Community.filter(params)
   end
 
-  # This looks like is NOT needed anymore
   def manage
-    @communities = Community.filter(params)
+    @communities = Community.filter_manage(params)
   end
 
   def show 

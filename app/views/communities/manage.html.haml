@@ -2,7 +2,9 @@
 
 %h1.permission Listing communities
 
-- cols = ['ID', 'Name', 'Short name', 'Type', 'Country', 'Prov state', 'City', 'Official url', 'Wiki url', 'Description', 'Creator_ip', 'Adder_ip']
+= will_paginate(@communities)
+
+- cols = ['ID', 'Name', 'Creator_ip', 'Adder_ip', 'Created', 'Updated', 'Edit', 'Destroy', 'Short name', 'Type', 'Country', 'Prov state', 'City', 'Official url', 'Wiki url', 'Description']
 %table
   %tr
     - cols.each do |col|
@@ -13,6 +15,14 @@
     %tr
       %td= community.id
       %td= link_to community.name, community
+      %td= h community.creator_ip
+      %td= h community.adder_ip
+      %td= h community.created_at
+      %td
+        - unless community.updated_at == community.created_at
+          = h community.updated_at
+      %td= link_to 'Edit', edit_community_path(community)
+      %td= link_to 'Destroy', community_path(community), :method => :delete, :confirm => 'Are you sure?'
       %td= h community.short_name
       %td= community.category
       %td= h community.country
@@ -21,10 +31,6 @@
       %td= h community.official_url
       %td= h community.wiki_url
       %td= h community.description
-      %td= h community.creator_ip
-      %td= h community.adder_ip
-      %td= link_to 'Edit', edit_community_path(community)
-      %td= link_to 'Destroy', community_path(community), :method => :delete, :confirm => 'Are you sure?'
 
 %h2
   = link_to 'New community', new_community_path
