@@ -20,4 +20,5 @@ class WebsitesController < ApplicationController
 
   index.wants.yaml { render :yaml => collection }
   create.wants.html { redirect_to community_path(@community) }
+  destroy.wants.html { redirect_back_or('/') }
 end

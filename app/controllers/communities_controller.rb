@@ -55,7 +55,7 @@ class CommunitiesController < ApplicationController
     @community = Community.find(params[:id])
     @community.destroy
     notify "Community removed."
-    redirect_to manage_communities_path
+    redirect_back_or('/')
   end
 
   def add_to

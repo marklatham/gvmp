@@ -1,9 +1,13 @@
 - @page_title = 'Add website'
 
+%br
+
 %h2
   Add a website/blog to
   = h @community.short_name
   voter community ranking:
+
+%br
 
 - form_for @website, :url => { :action => :create, :community_id => @community} do |f|
   = f.error_messages
@@ -11,20 +15,24 @@
   %p
     = f.label :url
     %br
-    = f.text_field :url, :size => 70
-  
+    = f.text_field :url, :size => 70, :value => "http://"
+  %br
+
   %p
     = f.label :title
     %br
     = f.text_field :title, :size => 70
-  
+  %br
+
   %p
     = f.submit "Add"
+%br
 %br
 %br
 
 %p= link_to("Back to " + @community.short_name + " page", @community)
 
+%br
 %br
 %br
 %br
