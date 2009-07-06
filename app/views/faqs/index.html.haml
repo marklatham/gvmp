@@ -27,6 +27,8 @@
     %tr
       %td.answer{:colspan => 2}
         = faq.answer
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= faq.sequence
 
 %br
 

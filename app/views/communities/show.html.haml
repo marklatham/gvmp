@@ -36,7 +36,7 @@
       Description:
     = truncate(@community.description, :length => 200)
 
-  %p= link_to('Add to community data', add_to_community_path(@community))
+  %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
 
   - if current_user and (current_user.permission >= 4.0)
     %p.permission

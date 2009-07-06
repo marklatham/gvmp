@@ -96,9 +96,10 @@ class CommunitiesController < ApplicationController
 
     @ballot = find_ballot
     @ballot.add_vote(vote)
-    
-    website_rank_in_community = Ranking.find(:first, :conditions => ["community_id = ? and website_id = ?", @community, @website])
-    website_rank_in_community.rerank
+
+#    Better not to rerank a single website in real time. Instead, rerank all websites by cron jobs.
+#    website_rank_in_community = Ranking.find(:first, :conditions => ["community_id = ? and website_id = ?", @community, @website])
+#    website_rank_in_community.rerank
     
     redirect_to :action => :show, :id => @community
   end
