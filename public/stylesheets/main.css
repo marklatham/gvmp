@@ -151,7 +151,7 @@ a:hover { color: #d00; }
 #side {
   float: left;
   padding-top: 0.5em;
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
   padding-left: 1em;
   width: 12em;
   background: #444;
@@ -164,9 +164,18 @@ a:hover { color: #d00; }
 /* START:navmain */
 /* Styles for the left navigation column */
 
-#nav-header {
+#featured label {
   font: 130% bold;
   font-weight: bold;
+}
+
+#featured p {
+  line-height: 14px;
+  font-weight: bold;
+}
+
+#featured span {
+  line-height: 14px;
 }
 
 #nav-table {
@@ -179,7 +188,7 @@ a:hover { color: #d00; }
 
 #search {
   font-weight: bold;
-  margin: 0 0 30px 0;
+  margin: 0 0 20px 0;
 }
 
 /* END:navmain */
