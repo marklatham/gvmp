@@ -51,7 +51,7 @@
   %p
     Vote for as many as you like: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
     = '[' + link_to('FAQ on voting', '/faqs/#Voting') + ']'
-	
+
   %table#table1
     %tr.header
       %th.header-centred= "Rank"
@@ -61,7 +61,7 @@
       %th.header-left= "Website/Blog"
       %th.header-centred= "Date added"
 
-    - @rank_sequence = 0
+    - @rank_sequence = @rankings.per_page * (@rankings.current_page - 1)
 
     - @rankings.each do |ranking|
       -# In case website was deleted but orphaned ranking record still exists:
