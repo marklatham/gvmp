@@ -12,7 +12,7 @@ class Community < ActiveRecord::Base
 
   default_scope :order => 'country, category, name'
 # How to substitute this order when called from communities/manage ? Done crudely below by defining filter_manage.
-#  default_scope :order => 'created_at DESC'
+#  default_scope :order => 'created_at DESC'. This works on my Mac but not at RailsPlayground!
 
   validates_presence_of :name, :short_name
   validates_presence_of :category, :message => "(Type) can't be blank"
