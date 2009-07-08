@@ -112,7 +112,7 @@ module Riddle
     # accessed and changed via the attribute accessors.
     def initialize(server=nil, port=nil)
       @server = server || "localhost"
-      @port   = port   || 3312
+      @port   = port   || 4008
       
       reset
       
