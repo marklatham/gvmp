@@ -21,9 +21,9 @@ class Ranking < ActiveRecord::Base
     new_rank = 0          
                     
     latest_vote.each do |lv|
-	
+
 	    days_old = (Time.now.to_date - lv[1].to_date).to_i
-      
+    
       if days_old < days_full_value
         new_rank += 1
       elsif days_old < days_valid

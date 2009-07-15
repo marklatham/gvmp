@@ -91,16 +91,41 @@ class CommunitiesController < ApplicationController
     @ip = request.remote_ip
     @website = Website.find(params[:id])
     @community = Community.find(params[:community])
+    @support = params[:percent].to_f
+    if @support > 100
+      @support = 100
+    end
+    if @support < 0
+      @support = 0
+    end
     
-    vote = Vote.create!({:ip_address => @ip, :community_id => @community.id, :website_id => @website.id})
+    vote = Vote.create!({:ip_address => @ip, :community_id => @community.id, :website_id => @website.id, :support => @support})
 
     @ballot = find_ballot
     @ballot.add_vote(vote)
 
-#    Better not to rerank a single website in real time. Instead, rerank all websites by cron jobs.
-#    website_rank_in_community = Ranking.find(:first, :conditions => ["community_id = ? and website_id = ?", @community, @website])
-#    website_rank_in_community.rerank
+# Temporary fix because I couldn't figure out how not to count it as an approval vote when support = 0,
+# so destroy it. Delete this section when percent tally algorithm deployed.
+    if @support == 0
+      @ballot.destroy_click(@community.id, @website.id)
+    end
     
+    redirect_to :action => :show, :id => @community
+  end
+
+  def delete_vote
+    @ip = request.remote_ip
+    @website = Website.find(params[:id])
+    @community = Community.find(params[:community])
+
+# I haven't figured out how to make @ballot.destroy_click delete the vote saved in session, so create this "cancel" coded vote:
+    vote = Vote.create!({:ip_address => @ip, :community_id => @community.id, :website_id => @website.id, :support => "-16.8"})
+    
+    @ballot = find_ballot
+    @ballot.add_vote(vote)
+    @ballot.destroy_click(@community.id, @website.id)
+    @ballot.destroy_click(@community.id, @website.id)
+
     redirect_to :action => :show, :id => @community
   end
 

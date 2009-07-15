@@ -3,11 +3,12 @@
 %h1= h @community.name
 
 #community-box
+
   %p
     %label
       Type of community:
     = link_to @community.category, communities_path(:q => @community.category)  # TODO: This should be pulled from lookup table
-  
+
   %p
     %label
       Headquarters:
@@ -43,21 +44,22 @@
       = link_to('Edit community data', edit_community_path(@community))
 
 %h3
-  Which websites/blogs deserve more support from the 
+  How should the 
   = h @community.short_name 
-  voter community?
+  voter community divide funding among these websites/blogs?
 
 - if @community.websites.any?
   %p
-    Vote for as many as you like: &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-    = '[' + link_to('FAQ on voting', '/faqs/#Voting') + ']'
+    Type a % share for as many as you like. Your percents need not sum to 100. This vote is for if and when there is funding. &nbsp; &nbsp;
+    = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs/#Voting') + ']'
 
   %table#table1
     %tr.header
       %th.header-centred= "Rank"
       - if current_user and (current_user.permission >= 7.0)
         %th.header-centred.permission= "Votes"
-      %th.header-centred= "Your Vote"
+      %th.header-centred= "Share"
+      %th.header-centred{:colspan => 2}= "Your Votes"
       %th.header-left= "Website/Blog"
       %th.header-centred= "Date added"
 
@@ -71,16 +73,24 @@
           %td.cell-centred= @rank_sequence
           - if current_user and (current_user.permission >= 7.0)
             %td.cell-centred.permission= number_with_precision(ranking[:rank], :precision => 2)
+          %td.cell-centred tbd%
           -# TODO: use named_route/resource
-          -# if @ballot.clicks.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below:
+          -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Also more ugly code because I couldn't figure out how to delete a vote record saved in the session, so I added a negative vote as a cancel flag. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
           - @flag = 0
+          - @created = Time.parse("1999-01-01 16:57:45.608000 -04:00")
           - for click in @ballot.clicks
             - if click.community_id == @community.id && click.website_id == ranking[:website].id
               - @flag = 1
-          - if @flag == 1
-            %td.cell-centred ✔
+              - if click.created_at > @created
+                - @created = click.created_at
+                - @voted = click
+          - if @flag == 1 && @voted.support >= 0
+            %td.cell-centred{:style => "font-weight: bold"}= number_with_precision(@voted.support, :precision => 0) + '%'
+            %td.cell-centred= button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
           - else
-            %td.cell-centred= button_to 'Support', :action => :vote_for_website, :id => ranking[:website], :community => @community
+            - form_tag(:action => :vote_for_website, :id => ranking[:website], :community => @community) do
+              %td.cell-centred{:style => "white-space: nowrap"}= text_field_tag(:percent, '', :size => 1) + '%'
+              %td.cell-centred= submit_tag 'Submit'
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"
           %td.cell-centred= ranking[:created_at].to_s(:Ymd)
           - if current_user and (current_user.permission >= 4.0)
@@ -89,6 +99,8 @@
             %td.permission= link_to 'Destroy', ranking[:website], :confirm => 'Are you sure?', :method => :delete
 
   %p= will_paginate @rankings
+  
+  %p tbd = to be determined when we get enough votes to tally percent shares.
   
   %p If you don't want other users of this computer to see your votes, please exit browser when finished voting.
 
