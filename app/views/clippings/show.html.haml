@@ -1,0 +1,35 @@
+%p
+  %b Date sequence:
+  = @clipping.date_sequence
+
+%p
+  %b Date text:
+  = @clipping.date_text
+
+%p
+  %b Source:
+  = @clipping.source
+
+%p
+  %b Source url:
+  = @clipping.source_url
+
+%p
+  %b Author:
+  = @clipping.author
+
+%p
+  %b Title:
+  = @clipping.title
+
+%p
+  %b Title url:
+  = @clipping.title_url
+
+%p
+  %b Description:
+  = @clipping.description
+
+= link_to 'Edit', edit_clipping_path(@clipping)
+|
+= link_to 'Clippings list', clippings_path

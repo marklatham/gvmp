@@ -1,0 +1,51 @@
+- form_for(@clipping) do |f|
+  = f.error_messages
+ 
+  %p
+    = f.label :date_sequence
+    %br
+    = f.date_select :date_sequence, :start_year => 2006
+  
+  %p
+    = f.label :date_text
+    %br
+    = f.text_field :date_text
+  
+  %p
+    = f.label :source
+    %br
+    = f.text_field :source, :size => 100
+  
+  %p
+    = f.label :source_url
+    %br
+    = f.text_field :source_url
+  
+  %p
+    = f.label :author
+    %br
+    = f.text_field :author, :size => 100
+  
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title, :size => 100
+  
+  %p
+    = f.label :title_url
+    %br
+    = f.text_field :title_url, :size => 100
+  
+  %p
+    = f.label :description
+    %br
+    = f.text_area :description, :cols => 70
+  
+  %p
+    = f.submit "Submit"
+
+%br
+%br
+= link_to 'Back to clippings list', clippings_path
+%br
+%br

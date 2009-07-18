@@ -9,7 +9,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090705152941) do
+ActiveRecord::Schema.define(:version => 20090718220006) do
+
+  create_table "clippings", :force => true do |t|
+    t.date     "date_sequence"
+    t.string   "date_text"
+    t.string   "source"
+    t.string   "source_url"
+    t.string   "author"
+    t.string   "title"
+    t.string   "title_url"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "colleagues", :force => true do |t|
     t.string   "given_name"

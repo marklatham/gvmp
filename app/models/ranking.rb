@@ -2,7 +2,7 @@ class Ranking < ActiveRecord::Base
   belongs_to :website
   belongs_to :community
   
-  # "rerank" is called from the communities controller. It recalculates the "rank" field in one record of the Ranking table.
+  # "rerank" is called from the admin controller. It recalculates the "rank" field in one record of the Ranking table.
   # "rank" is actually a vote tally -- the sum of votes for that website in that community, subject to these conditions:
   # Only the latest vote from each ip address is counted.
   # Votes decay through time, counting 1.00 for "days_full_value" days, then linear decay down to 0.00 after "days_valid" days.

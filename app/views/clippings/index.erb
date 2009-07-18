@@ -1,0 +1,19 @@
+<% for clipping in @clippings %>
+<%= clipping.id %>:
+  id: <%= clipping.id %>
+  date_sequence: <%= clipping.date_sequence %>
+  date_text: <%= clipping.date_text %>
+  source: |
+    <%= clipping.source %>
+  source_url: |
+    <%= clipping.source_url %>
+  author: <%= clipping.author %>
+  title: |
+    <%= clipping.title %>
+  title_url: |
+    <%= clipping.title_url %>
+  description: |
+    <%= clipping.description %>
+  created_at: <%= clipping.created_at %>
+  updated_at: <%= clipping.updated_at %>
+<% end %>

@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date_sequence: 2009-07-18 15:00:06
+  date_text: MyString
+  source: MyString
+  source_url: MyString
+  author: MyString
+  title: MyString
+  title_url: MyString
+  description: MyText
+
+two:
+  date_sequence: 2009-07-18 15:00:06
+  date_text: MyString
+  source: MyString
+  source_url: MyString
+  author: MyString
+  title: MyString
+  title_url: MyString
+  description: MyText

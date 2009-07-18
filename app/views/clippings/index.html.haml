@@ -1,0 +1,28 @@
+- @page_title = 'Clippings'
+
+%h1 &nbsp;Clippings: media discussions of VoterMedia
+
+%table#table1
+  %tr.header 
+    %td.header-centred Date
+    %td.header-centred Source
+    %td.header-centred Author
+    %td.header-centred Title & Link
+    %td.header-centred Description
+
+  - for clipping in @clippings
+    %tr{:class => cycle('list-line-odd', 'list-line-even')}
+      %td.cell-centred= clipping.date_text
+      %td.cell-link.cell-centred= link_to clipping.source, clipping.source_url
+      %td.cell-centred= clipping.author
+      %td.cell-link.cell-centred= link_to clipping.title, clipping.title_url
+      %td.cell-centred= clipping.description
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= link_to 'Edit', edit_clipping_path(clipping)
+        %td.permission= link_to 'Destroy', clipping, :confirm => 'Are you sure?', :method => :delete
+
+%br
+- if current_user and (current_user.permission >= 7.0)
+  %span.permission= link_to 'Add new clipping', new_clipping_path
+  %br
+  %br

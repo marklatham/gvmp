@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :session
 
+  map.resources :clippings
   map.resources :colleagues
   map.resources :communities, :collection => { :search => :get, :manage => :get } do |community|
     community.resources :websites
