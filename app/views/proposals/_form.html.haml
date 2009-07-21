@@ -1,0 +1,66 @@
+- form_for(@proposal) do |f|
+  = f.error_messages
+ 
+  %p
+    = f.label :date_submitted
+    %br
+    = f.date_select :date_submitted, :start_year => 1998
+  
+  %p
+    = f.label :date_agm
+    %br
+    = f.date_select :date_agm, :start_year => 1998
+  
+  %p
+    = f.label :company
+    %br
+    = f.text_field :company, :size => 100
+  
+  %p
+    = f.label :company_url
+    %br
+    = f.text_field :company_url, :size => 100
+  
+  %p
+    = f.label :ticker
+    %br
+    = f.text_field :ticker, :size => 10
+  
+  %p
+    = f.label :proposal_type
+    %br
+    = f.text_field :proposal_type, :size => 100
+  
+  %p
+    = f.label :proposal_url
+    %br
+    = f.text_field :proposal_url, :size => 100
+  
+  %p
+    = f.label :correspondence
+    %br
+    = f.text_area :correspondence, :cols => 70, :rows => 10
+
+  %p
+    = f.label :proxy_url
+    %br
+    = f.text_field :proxy_url, :size => 100
+
+  %p
+    = f.label :in_proxy
+    %br
+    = f.check_box :in_proxy
+
+  %p
+    = f.label :yes_percent
+    %br
+    = f.text_field :yes_percent, :size => 100
+
+  %p
+    = f.submit "Submit"
+
+%br
+%br
+= link_to 'Back to proposals list', proposals_path
+%br
+%br

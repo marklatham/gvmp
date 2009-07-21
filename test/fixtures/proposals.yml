@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  date_submitted: 2009-07-20
+  date_agm: 2009-07-20
+  company: MyString
+  company_url: MyString
+  ticker: MyString
+  proposal_type: MyString
+  proposal_url: MyString
+  correspondence: MyText
+  result: MyString
+
+two:
+  date_submitted: 2009-07-20
+  date_agm: 2009-07-20
+  company: MyString
+  company_url: MyString
+  ticker: MyString
+  proposal_type: MyString
+  proposal_url: MyString
+  correspondence: MyText
+  result: MyString

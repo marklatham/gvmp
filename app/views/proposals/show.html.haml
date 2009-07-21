@@ -1,0 +1,47 @@
+%p
+  %b Date submitted:
+  = @proposal.date_submitted
+
+%p
+  %b Date agm:
+  = @proposal.date_agm
+
+%p
+  %b Company:
+  = @proposal.company
+
+%p
+  %b Company url:
+  = @proposal.company_url
+
+%p
+  %b Ticker:
+  = @proposal.ticker
+
+%p
+  %b Proposal_type:
+  = @proposal.proposal_type
+
+%p
+  %b Proposal url:
+  = @proposal.proposal_url
+
+%p
+  %b Correspondence:
+  = @proposal.correspondence
+
+%p
+  %b Proxy url:
+  = @proposal.proxy_url
+
+%p
+  %b Proposal in proxy?:
+  = @proposal.in_proxy
+
+%p
+  %b Percent yes votes:
+  = @proposal.yes_percent
+
+= link_to 'Edit', edit_proposal_path(@proposal)
+|
+= link_to 'proposals list', proposals_path

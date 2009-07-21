@@ -18,11 +18,11 @@ ActionController::Routing::Routes.draw do |map|
     community.resources :websites
   end
   map.resources :faqs
+  map.resources :proposals
   map.resources :pubs
   map.resources :rankings
   map.resources :votes
   map.resources :websites
-
   
   map.about_contact '/about_contact', :controller => 'public', :action => 'about_contact'
   map.publications '/publications', :controller => 'pubs', :action => 'index'

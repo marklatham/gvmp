@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090718220006) do
+ActiveRecord::Schema.define(:version => 20090721011325) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -68,6 +68,22 @@ ActiveRecord::Schema.define(:version => 20090718220006) do
     t.float    "importance"
     t.string   "question"
     t.text     "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "proposals", :force => true do |t|
+    t.date     "date_submitted"
+    t.date     "date_agm"
+    t.string   "company"
+    t.string   "company_url"
+    t.string   "ticker"
+    t.string   "proposal_type"
+    t.string   "proposal_url"
+    t.text     "correspondence"
+    t.string   "proxy_url"
+    t.boolean  "in_proxy"
+    t.float    "yes_percent"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

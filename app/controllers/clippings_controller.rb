@@ -12,7 +12,10 @@ class ClippingsController < ApplicationController
   index.before do
     @clippings = Clipping.find(:all, :order => "date_sequence DESC")
   end
-  
+
+  create.wants.html { redirect_to(clippings_path) }
+  update.wants.html { redirect_to(clippings_path) }
+
   index.wants.yaml { render :yaml => collection }
 
 end

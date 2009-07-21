@@ -1,0 +1,44 @@
+- @page_title = 'Shareowner Proposals'
+
+%h1 &nbsp;VoterMedia Shareowner Proposal Campaign
+
+%table#table1
+  %tr.header 
+    %td.header-centred Date Submitted
+    %td.header-centred Target Company
+    %td.header-centred Ticker
+    %td.header-centred Proposal
+    %td.header-centred Management Arguments; Proponent Responses; SEC Decision
+    %td.header-centred
+      AGM date; Proxy link; Result
+
+  - for proposal in @proposals
+    %tr{:class => cycle('list-line-odd', 'list-line-even')}
+      %td.cell-centred= proposal.date_submitted
+      %td.cell-link.cell-centred= link_to proposal.company, proposal.company_url
+      %td.cell-centred= proposal.ticker
+      %td.cell-link.cell-centred
+        - if proposal.proposal_url && (proposal.proposal_url.size > 0)
+          = link_to(proposal.proposal_type, 'proposals/' + proposal.proposal_url)
+        - else
+          = proposal.proposal_type
+      %td.cell-centred= proposal.correspondence
+      %td.cell-centred
+        - if proposal.proxy_url && (proposal.proxy_url.size > 0)
+          = link_to proposal.date_agm, proposal.proxy_url
+        - else
+          = proposal.date_agm
+        %br
+        - if proposal.in_proxy
+          = proposal.yes_percent.to_s + '%&nbsp;yes'
+        - else
+          Omitted
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= link_to 'Edit', edit_proposal_path(proposal)
+        %td.permission= link_to 'Destroy', proposal, :confirm => 'Are you sure?', :method => :delete
+
+%br
+- if current_user and (current_user.permission >= 7.0)
+  %span.permission= link_to 'Add new proposal', new_proposal_path
+  %br
+  %br
