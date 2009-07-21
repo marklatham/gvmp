@@ -15,7 +15,11 @@
   - for proposal in @proposals
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred= proposal.date_submitted
-      %td.cell-link.cell-centred= link_to proposal.company, proposal.company_url
+      %td.cell-link.cell-centred
+        - if proposal.company_url && (proposal.company_url.size > 0)
+          = link_to(proposal.company, proposal.company_url)
+        - else
+          = proposal.company
       %td.cell-centred= proposal.ticker
       %td.cell-link.cell-centred
         - if proposal.proposal_url && (proposal.proposal_url.size > 0)
@@ -37,6 +41,8 @@
         %td.permission= link_to 'Edit', edit_proposal_path(proposal)
         %td.permission= link_to 'Destroy', proposal, :confirm => 'Are you sure?', :method => :delete
 
+%br
+There were many more proposals in this campaign, back to 1999. We're gradually copying them into this table.
 %br
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Add new proposal', new_proposal_path

@@ -1,19 +1,23 @@
-<% for clipping in @clippings %>
-<%= clipping.id %>:
-  id: <%= clipping.id %>
-  date_sequence: <%= clipping.date_sequence %>
-  date_text: <%= clipping.date_text %>
-  source: |
-    <%= clipping.source %>
-  source_url: |
-    <%= clipping.source_url %>
-  author: <%= clipping.author %>
-  title: |
-    <%= clipping.title %>
-  title_url: |
-    <%= clipping.title_url %>
-  description: |
-    <%= clipping.description %>
-  created_at: <%= clipping.created_at %>
-  updated_at: <%= clipping.updated_at %>
+<% for proposal in @proposals %>
+<%= proposal.id %>:
+  id: <%= proposal.id %>
+  date_submitted: <%= proposal.date_submitted %>
+  date_agm: <%= proposal.date_agm %>
+  company: |
+    <%= proposal.company %>
+  company_url: |
+    <%= proposal.company_url %>
+  ticker: <%= proposal.ticker %>
+  proposal_type: |
+    <%= proposal.proposal_type %>
+  proposal_url: |
+    <%= proposal.proposal_url %>
+  correspondence: |
+    <%= proposal.correspondence %>
+  proxy_url: |
+    <%= proposal.proxy_url %>
+  in_proxy: <%= proposal.in_proxy %>
+  yes_percent: <%= proposal.yes_percent %>
+  created_at: <%= proposal.created_at %>
+  updated_at: <%= proposal.updated_at %>
 <% end %>
