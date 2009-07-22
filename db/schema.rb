@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090721011325) do
+ActiveRecord::Schema.define(:version => 20090722160707) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -52,11 +52,13 @@ ActiveRecord::Schema.define(:version => 20090721011325) do
     t.text     "add_to_description"
     t.string   "creator_ip"
     t.string   "adder_ip"
+    t.boolean  "delta",              :default => false
   end
 
   add_index "communities", ["category"], :name => "index_communities_on_category"
   add_index "communities", ["city"], :name => "index_communities_on_city"
   add_index "communities", ["country"], :name => "index_communities_on_country"
+  add_index "communities", ["delta"], :name => "index_communities_on_delta"
   add_index "communities", ["name"], :name => "index_communities_on_name"
   add_index "communities", ["prov_state"], :name => "index_communities_on_prov_state"
   add_index "communities", ["scope"], :name => "index_communities_on_scope"
@@ -134,9 +136,9 @@ ActiveRecord::Schema.define(:version => 20090721011325) do
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.string   "ip_address"
     t.integer  "community_id"
     t.integer  "website_id"
+    t.string   "ip_address"
     t.float    "support"
     t.datetime "created_at"
     t.datetime "updated_at"
