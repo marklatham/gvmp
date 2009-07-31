@@ -1,5 +1,7 @@
 %h1.permission Debug output
 
+%h3 Votes
+
 %table
   %tr
     %th Website
@@ -18,4 +20,22 @@
       %td= vote.support
       -# %td= vote.community_id
 
-%br
+%h3 Rankings
+
+%table
+  %tr
+    %th Website
+    %th Old Rank
+    %th Count0
+    %th Count1
+    %th Share
+    %th Sequence
+
+  - for ranking in @rankings
+    %tr
+      %td= ranking.website_id
+      %td= ranking.rank
+      %td= ranking.count0
+      %td= ranking.count1
+      %td= ranking.share
+      %td= ranking.sequence

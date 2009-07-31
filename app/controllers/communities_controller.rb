@@ -148,6 +148,8 @@ class CommunitiesController < ApplicationController
       vote.updated_at = temp.updated_at
       vote.support = temp.support
     end
+    
+    @rankings = Ranking.find(:all, :conditions => ["community_id = ?", @community.id], :order => "website_id")
 
     respond_to do |format|
       format.html # debug.html.erb
