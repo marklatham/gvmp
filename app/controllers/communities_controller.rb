@@ -128,6 +128,32 @@ class CommunitiesController < ApplicationController
 
     redirect_to :action => :show, :id => @community
   end
+  
+  def debug
+    @community = Community.find(params[:id])
+
+# This doesn't get all data fields, so no good I guess:
+#    @votes = Vote.maximum(:updated_at, 
+#                               :conditions => ["community_id = ?", @community.id],                     
+#                               :group => "ip_address, website_id")    
+
+# Found example at http://stackoverflow.com/questions/1129792/rails-active-record-find-in-conjunction-with-order-and-group but...
+# Unsure how to code with just one query, so used naive way with too many queries:
+
+# This almost works, but returns the first record of the group (by ID, regardless of how sorted) while we want the latest record:
+    @votes = Vote.find(:all, :conditions => ["community_id = ?", @community.id], :order => "website_id, ip_address, updated_at DESC", :group => "website_id, ip_address")    
+# So this finds last record in each group:
+    @votes.each do |vote|
+      temp = Vote.find(:last, :conditions => ["community_id = ? and website_id = ? and ip_address = ?", @community.id, vote.website_id, vote.ip_address], :order => "website_id, ip_address, updated_at")
+      vote.updated_at = temp.updated_at
+      vote.support = temp.support
+    end
+
+    respond_to do |format|
+      format.html # debug.html.erb
+    end
+  end
+
 
   private
 

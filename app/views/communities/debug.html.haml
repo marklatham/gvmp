@@ -1,0 +1,21 @@
+%h1.permission Debug output
+
+%table
+  %tr
+    %th Website
+    %th IP Address
+    %th Updated_at
+    %th Support
+
+  - for vote in @votes
+    %tr
+      -# %td= vote[0]
+      -# %td= vote[1]
+      -# %td= vote[2]
+      %td= vote.website_id
+      %td= vote.ip_address
+      %td= vote.updated_at
+      %td= vote.support
+      -# %td= vote.community_id
+
+%br
