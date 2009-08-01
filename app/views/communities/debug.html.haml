@@ -39,3 +39,5 @@
       %td= ranking.count1
       %td= ranking.share
       %td= ranking.sequence
+
+= @rankings.sum(&:share)

@@ -140,7 +140,7 @@ class CommunitiesController < ApplicationController
 # Found example at http://stackoverflow.com/questions/1129792/rails-active-record-find-in-conjunction-with-order-and-group but...
 # Unsure how to code with just one query, so used naive way with too many queries:
 
-# This almost works, but returns the first record of the group (by ID, regardless of how sorted) while we want the latest record:
+# This almost works, but returns the first record of each group (by ID, regardless of how sorted) while we want the latest record:
     @votes = Vote.find(:all, :conditions => ["community_id = ?", @community.id], :order => "website_id, ip_address, updated_at DESC", :group => "website_id, ip_address")    
 # So this finds last record in each group:
     @votes.each do |vote|
@@ -150,6 +150,12 @@ class CommunitiesController < ApplicationController
     end
     
     @rankings = Ranking.find(:all, :conditions => ["community_id = ?", @community.id], :order => "website_id")
+
+# Make sure shares are whole numbers adding to 100 (not coded yet):
+    sum = 0.0
+    @rankings.each do |ranking|
+#      ranking.share = 0.0
+    end
 
     respond_to do |format|
       format.html # debug.html.erb

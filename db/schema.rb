@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090731183224) do
+ActiveRecord::Schema.define(:version => 20090801035141) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(:version => 20090731183224) do
     t.float    "rank",         :default => 0.0
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.float    "share"
+    t.float    "share",        :default => 0.0
     t.integer  "sequence"
     t.float    "count0"
     t.float    "count1"
