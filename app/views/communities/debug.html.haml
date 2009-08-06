@@ -6,7 +6,7 @@
   %tr
     %th Website
     %th IP Address
-    %th Updated_at
+    %th Created_at
     %th Support
 
   - for vote in @votes
@@ -16,7 +16,7 @@
       -# %td= vote[2]
       %td= vote.website_id
       %td= vote.ip_address
-      %td= vote.updated_at
+      %td= vote.created_at
       %td= vote.support
       -# %td= vote.community_id
 
@@ -39,5 +39,24 @@
       %td= ranking.count1
       %td= ranking.share
       %td= ranking.sequence
+  %tr
+    %td ---
+    %td ---
+    %td ---
+    %td ---
+    %td ---
+  %tr
+    %td
+    %td
+    %td= @min_count0.count0
+    %td= @max_count1.count1
+    %td= @rankings.sum(&:share)
+  %tr
+    %td
+    %td
+    %td= @min_count0.website_id
+    %td= @max_count1.website_id
+%br
 
-= @rankings.sum(&:share)
+
+
