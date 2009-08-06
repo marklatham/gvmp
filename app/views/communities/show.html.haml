@@ -108,8 +108,6 @@
 
   %p You can add a website/blog to this community by emailing its title and url to editors[at]votermedia.org. Be sure to say which community it should be listed under!
 
-  -# %p= link_to 'Add a website/blog to this community', new_community_website_path(@community)
-  
 - else
   %p
     So far no one has added a website/blog to this community. 
@@ -131,5 +129,6 @@
   %br
   %br
   %br
-
+- if current_user and (current_user.permission >= 4.0)
+  %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
 %br
