@@ -35,9 +35,11 @@
   %p
     %label
       Description:
-    = truncate(@community.description, :length => 200)
+    = truncate(@community.description, :length => 500)
 
-  %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
+  %p You can add to or correct this community's data by emailing editors[at]votermedia.org.
+
+  -# %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
 
   - if current_user and (current_user.permission >= 4.0)
     %p.permission
@@ -104,13 +106,15 @@
   
   %p If you don't want other users of this computer to see your votes, please exit browser when finished voting.
 
-  %p= link_to 'Add a website/blog to this community', new_community_website_path(@community)
+  %p You can add a website/blog to this community by emailing its title and url to editors[at]votermedia.org. Be sure to say which community it should be listed under!
+
+  -# %p= link_to 'Add a website/blog to this community', new_community_website_path(@community)
   
 - else
   %p
     So far no one has added a website/blog to this community. 
-    You can 
-    %strong= link_to 'add one here', new_website_path(:community_id => @community)
+    You can add one by emailing its title and url to editors[at]votermedia.org. Be sure to say which community it should be listed under!
+    -# %strong= link_to 'add one here', new_website_path(:community_id => @community)
 
   %p
     If you don't know of one, try searching e.g. for 
