@@ -5,11 +5,21 @@ class AdminController < ApplicationController
   # Recalculate all rankings (button on admin page)
   def rerank_all
     @rankings = Ranking.find(:all)
-	
 	  @rankings.each do |ranking|
 	    ranking.rerank
 	  end
+	redirect_to :action => :admin
+  end
 
+  # Tally all percent votes (button on admin page)
+  def tally_all
+    @communities = Community.find(:all)
+	  @communities.each do |community|
+	    @rankings = Ranking.find(:all, :conditions => ["community_id = ?", community.id])
+	    if @rankings.any?
+	      community.tally
+	    end
+	  end
 	redirect_to :action => :admin
   end
 
