@@ -57,13 +57,13 @@
 
   %table#table1
     %tr.header
-      %th.header-centred= "Rank"
+      %th.header-centred Rank
       - if current_user and (current_user.permission >= 7.0)
-        %th.header-centred.permission= "Votes"
-      %th.header-centred= "Share"
-      %th.header-centred{:colspan => 2}= "Your Votes"
-      %th.header-left= "Website/Blog"
-      %th.header-centred= "Date added"
+        %th.header-centred.permission Votes
+      %th.header-centred Share
+      %th.header-centred{:colspan => 2} Your Votes
+      %th.header-left Website/Blog
+      %th.header-centred Date added
 
     - @rank_sequence = @rankings.per_page * (@rankings.current_page - 1)
 

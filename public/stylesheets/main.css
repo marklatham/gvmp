@@ -227,7 +227,8 @@ a:hover { color: #d00; }
 
 #table1 .header-left {
   background:   #a00;
-  padding-left: 4px;
+  text-align: left;
+  padding-left: 1em;
 }
 
 #table1 .cell-centred {

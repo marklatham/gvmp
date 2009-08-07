@@ -85,7 +85,6 @@ class CommunitiesController < ApplicationController
       end
     end
   end
-  
 
   # TODO: should be done on a votes controller
   def vote_for_website
@@ -105,12 +104,6 @@ class CommunitiesController < ApplicationController
     @ballot = find_ballot
     @ballot.add_vote(vote)
 
-# Temporary fix because I couldn't figure out how not to count it as an approval vote when support = 0,
-# so destroy it. Delete this section when percent tally algorithm deployed.
-    if @support == 0
-      @ballot.destroy_click(@community.id, @website.id)
-    end
-    
     redirect_to :action => :show, :id => @community
   end
 
