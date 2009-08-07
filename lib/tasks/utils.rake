@@ -6,4 +6,15 @@ namespace :utils do
 	    ranking.rerank
 	  end
   end
+  
+  desc "Tally all percent votes"
+  task(:tally_all => :environment) do
+    @communities = Community.find(:all)
+	  @communities.each do |community|
+	    @rankings = Ranking.find(:all, :conditions => ["community_id = ?", community.id])
+	    if @rankings.any?
+	      community.tally
+	    end
+	  end
+  end
 end

@@ -243,6 +243,10 @@ a:hover { color: #d00; }
   font-weight: bold;
 }
 
+#table1 .cell-like-link {
+  color: #006;
+  font-weight: bold;
+}
 #table1 .cell-link a:link {
   color: #006;
   text-decoration: none;

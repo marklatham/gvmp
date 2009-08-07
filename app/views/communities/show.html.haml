@@ -52,7 +52,7 @@
 
 - if @community.websites.any?
   %p
-    Enter a % share for as many as you like. Submit after each entry because it only saves one at a time! (We'll fix this.) Your percents need not sum to 100. This vote is for if and when there is funding. &nbsp; &nbsp;
+    Enter a % share for as many as you like. Submit after each entry because it only saves one at a time! (We'll fix this.) Your percents need not sum to 100. Shares updated nightly. This vote is for if and when there is funding. &nbsp; &nbsp;
     = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs/#Voting') + ']'
 
   %table#table1
@@ -75,7 +75,7 @@
           %td.cell-centred= @rank_sequence
           - if current_user and (current_user.permission >= 7.0)
             %td.cell-centred.permission= number_with_precision(ranking[:rank], :precision => 2)
-          %td.cell-centred tbd%
+          %td.cell-centred.cell-like-link= number_with_precision(ranking[:share], :precision => 0) + '%'
           -# TODO: use named_route/resource
           -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Also more ugly code because I couldn't figure out how to delete a vote record saved in the session, so I added a negative vote as a cancel flag. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
           - @flag = 0
@@ -101,8 +101,6 @@
             %td.permission= link_to 'Destroy', ranking[:website], :confirm => 'Are you sure?', :method => :delete
 
   %p= will_paginate @rankings
-  
-  %p tbd = to be determined when we get enough votes to tally percent shares.
   
   %p If you don't want other users of this computer to see your votes, please exit browser when finished voting.
 
