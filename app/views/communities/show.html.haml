@@ -37,7 +37,7 @@
       Description:
     = truncate(@community.description, :length => 500)
 
-  %p You can add to or correct this community's data by emailing editors[at]votermedia.org.
+  %p You can add to or correct this community's data and website/blog list by emailing editors[at]votermedia.org.
 
   -# %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
 
@@ -93,7 +93,7 @@
             - form_tag(:action => :vote_for_website, :id => ranking[:website], :community => @community) do
               %td.cell-centred{:style => "white-space: nowrap"}= text_field_tag(:percent, '', :size => 1) + '%'
               %td.cell-centred= submit_tag 'Submit'
-          %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"
+          %td.cell-link= link_to truncate(ranking[:website].title, :length => 70), ranking[:website].url, :target => "_blank"
           %td.cell-centred= ranking[:created_at].to_s(:Ymd)
           - if current_user and (current_user.permission >= 4.0)
             %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
@@ -103,8 +103,6 @@
   %p= will_paginate @rankings
   
   %p If you don't want other users of this computer to see your votes, please exit browser when finished voting.
-
-  %p You can add a website/blog to this community by emailing its title and url to editors[at]votermedia.org. Be sure to say which community it should be listed under!
 
 - else
   %p
