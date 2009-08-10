@@ -43,8 +43,6 @@ class Community < ActiveRecord::Base
   
   def tally
   # Should skip this if community has no websites/rankings or no votes, else probably get error.
-  # TO DO: any vote for a share that's not a whole number percent should be split,
-  # e.g. a vote for 26.4% should become 0.4 of a vote for 27% and 0.6 of a vote for 26%.
   # This algorithm doesn't handle tie votes "fairly": it gives all the tied share to the first website.
   # So should probably be enhanced some time to make it fairer. But this problem is not significant when there are many
   # votes and some are over 10 days old.
@@ -54,7 +52,6 @@ class Community < ActiveRecord::Base
     ranking_formula_denominator = 50
         
     # How to select the latest vote from each IP address for each website?:
-
     # This doesn't get all data fields, so no good I guess:
     #    @votes = Vote.maximum(:updated_at, 
     #                               :conditions => ["community_id = ?", self.id],                     
@@ -90,34 +87,9 @@ class Community < ActiveRecord::Base
     end
 
     # Calculate count0 (# votes for share or more) and count1 (# votes for share+1 or more) for each ranking:
-    # (Should probably be put into a method to reduce repetitive coding below.)
     @rankings.each do |ranking|
-      ranking.count0 = 0.0
-      ranking.count1 = 0.0
-      @votes.each do |vote|
-        if vote.website_id == ranking.website_id && vote.support
-          
-          if vote.support >= ranking.share + 1.0
-            days_old = (Time.now.to_date - vote.created_at.to_date).to_i
-            if days_old < days_full_value
-              ranking.count1 += 1.0
-              ranking.count0 += 1.0
-            elsif days_old < days_valid
-              ranking.count1 += (days_valid - days_old) / ranking_formula_denominator.to_f
-              ranking.count0 += (days_valid - days_old) / ranking_formula_denominator.to_f
-            end
-            
-          elsif vote.support >= ranking.share
-            days_old = (Time.now.to_date - vote.created_at.to_date).to_i
-            if days_old < days_full_value
-              ranking.count0 += 1.0
-            elsif days_old < days_valid
-              ranking.count0 += (days_valid - days_old) / ranking_formula_denominator.to_f
-            end
-          
-          end
-        end
-      end
+      ranking.count0 = countVotes(@votes, ranking, 0.0)
+      ranking.count1 = countVotes(@votes, ranking, 1.0)
       ranking.save
     end
     
@@ -135,19 +107,7 @@ class Community < ActiveRecord::Base
     while @rankings.sum(&:share) > 100.0
       @min_count0.share -= 1.0
       @min_count0.count1 = @min_count0.count0
-      @min_count0.count0 = 0.0
-      @votes.each do |vote|
-        if vote.website_id == @min_count0.website_id && vote.support
-          if vote.support >= @min_count0.share
-            days_old = (Time.now.to_date - vote.created_at.to_date).to_i
-            if days_old < days_full_value
-              @min_count0.count0 += 1.0
-            elsif days_old < days_valid
-              @min_count0.count0 += (days_valid - days_old) / ranking_formula_denominator.to_f
-            end
-          end
-        end
-      end
+      @min_count0.count0 = countVotes(@votes, @min_count0, 0.0)
       @min_count0.save
       
       @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id")
@@ -160,19 +120,7 @@ class Community < ActiveRecord::Base
     while @rankings.sum(&:share) < 100.0
       @max_count1.share += 1.0
       @max_count1.count0 = @max_count1.count1
-      @max_count1.count1 = 0.0
-      @votes.each do |vote|
-        if vote.website_id == @max_count1.website_id && vote.support
-          if vote.support >= @max_count1.share + 1.0
-            days_old = (Time.now.to_date - vote.created_at.to_date).to_i
-            if days_old < days_full_value
-              @max_count1.count1 += 1.0
-            elsif days_old < days_valid
-              @max_count1.count1 += (days_valid - days_old) / ranking_formula_denominator.to_f
-            end
-          end
-        end
-      end
+      @max_count1.count1 = countVotes(@votes, @max_count1, 1.0)
       @max_count1.save
       
       @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id")
@@ -184,42 +132,17 @@ class Community < ActiveRecord::Base
     # Main loop: Adjust shares until max_count1 <= min_count0 i.e. find a cutoff number of votes (actually a range of cutoffs)
     # where shares sum to 100.0 using that same cutoff to determine each website's share:
     
-    # Can change "while" to "if" and watch the iterations by refreshing /communities/debug/nn
     while @min_count0.count0 < @max_count1.count1
       # Move one percent share from @min_count0 to @max_count1
       
       @min_count0.share -= 1.0
       @min_count0.count1 = @min_count0.count0
-      @min_count0.count0 = 0.0
-      @votes.each do |vote|
-        if vote.website_id == @min_count0.website_id && vote.support
-          if vote.support >= @min_count0.share
-            days_old = (Time.now.to_date - vote.created_at.to_date).to_i
-            if days_old < days_full_value
-              @min_count0.count0 += 1.0
-            elsif days_old < days_valid
-              @min_count0.count0 += (days_valid - days_old) / ranking_formula_denominator.to_f
-            end
-          end
-        end
-      end
+      @min_count0.count0 = countVotes(@votes, @min_count0, 0.0)
       @min_count0.save
       
       @max_count1.share += 1.0
       @max_count1.count0 = @max_count1.count1
-      @max_count1.count1 = 0.0
-      @votes.each do |vote|
-        if vote.website_id == @max_count1.website_id && vote.support
-          if vote.support >= @max_count1.share + 1.0
-            days_old = (Time.now.to_date - vote.created_at.to_date).to_i
-            if days_old < days_full_value
-              @max_count1.count1 += 1.0
-            elsif days_old < days_valid
-              @max_count1.count1 += (days_valid - days_old) / ranking_formula_denominator.to_f
-            end
-          end
-        end
-      end
+      @max_count1.count1 = countVotes(@votes, @max_count1, 1.0)
       @max_count1.save
       
       @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id")
@@ -234,6 +157,49 @@ class Community < ActiveRecord::Base
     #      ranking.share = 0.0
     #      ranking.save
     #    end
+  end
+
+  # Subroutine to count the number of (time-decayed) votes for shares >= ranking.share + increment
+  def countVotes(votes, ranking, increment)
+    days_full_value = 10
+    days_valid = 60
+    ranking_formula_denominator = 50
+    count = 0.0
+    
+    votes.each do |vote|
+      if vote.website_id == ranking.website_id && vote.support
+        
+        if vote.support >= ranking.share + increment
+          # This case is same regardless of ballot_type:
+          support_fraction = 1.0
+        elsif vote.ballot_type = 1
+          # ballot_type 1 is simple percent vote for vote.support:
+          support_fraction = 0.0
+        elsif vote.ballot_type = 0
+          # Default ballot_type 0 means voted for "Increase Share" from vote.support = share when voted,
+          # interpreted as uniform distribution of vote from vote.support to 100.0:
+          if vote.support >= 100.0 or ranking.share + increment > 100.0
+            support_fraction = 0.0
+          else
+            support_fraction = (100.0 - ranking.share - increment)/(100.0 - vote.support)
+          end
+        else
+          # No provision for other ballot types at this point:
+          support_fraction = 0.0
+        end
+        
+        # Time decay of vote:
+        days_old = (Time.now.to_date - vote.created_at.to_date).to_i
+        if days_old < days_full_value
+          decayed_weight = 1.0
+        elsif days_old < days_valid
+          decayed_weight = (days_valid - days_old) / ranking_formula_denominator.to_f
+        end
+        
+        count += decayed_weight * support_fraction
+      end
+    end
+    return count
   end
 
   class << self

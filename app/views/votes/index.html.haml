@@ -11,6 +11,8 @@
     %th Created
     %th Updated
     %th Support
+    %th ID
+    %th Type
 
   - for vote in @votes
     %tr
@@ -26,6 +28,7 @@
           = h vote.updated_at
       %td= h vote.support
       %td= vote.id
+      %td{:style => "text-align: center"}= vote.ballot_type
 
 %br
 

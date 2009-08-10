@@ -91,15 +91,8 @@ class CommunitiesController < ApplicationController
     @ip = request.remote_ip
     @website = Website.find(params[:id])
     @community = Community.find(params[:community])
-    @support = params[:percent].to_f
-    if @support > 100
-      @support = 100
-    end
-    if @support < 0
-      @support = 0
-    end
     
-    vote = Vote.create!({:ip_address => @ip, :community_id => @community.id, :website_id => @website.id, :support => @support})
+    vote = Vote.create!({:ip_address => @ip, :community_id => @community.id, :website_id => @website.id, :support => params[:share]})
 
     @ballot = find_ballot
     @ballot.add_vote(vote)

@@ -23,6 +23,20 @@ class AdminController < ApplicationController
 	redirect_to :action => :admin
   end
 
+  # Set ballot_type for past votes (button on admin page)
+  def set_ballot_types
+    @votes = Vote.find(:all)
+	  @votes.each do |vote|
+	    if vote.support
+	      vote.ballot_type = 1
+	    else
+	      vote.ballot_type = -1
+	    end
+	    vote.save
+	  end
+	redirect_to :action => :admin
+  end
+
   # Trim newlines \n and whitespace off the end of three fields:
   def clean_data
     @websites = Website.find(:all)

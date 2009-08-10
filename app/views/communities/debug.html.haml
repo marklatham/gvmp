@@ -1,62 +1,60 @@
-%h1.permission Debug output
+- if current_user and (current_user.permission >= 7.0)
+  %h1.permission Debug output
 
-%h3 Votes
+  %h3 Votes
 
-%table
-  %tr
-    %th Website
-    %th IP Address
-    %th Created_at
-    %th Support
-
-  - for vote in @votes
+  %table
     %tr
-      -# %td= vote[0]
-      -# %td= vote[1]
-      -# %td= vote[2]
-      %td= vote.website_id
-      %td= vote.ip_address
-      %td= vote.created_at
-      %td= vote.support
-      -# %td= vote.community_id
+      %th Website
+      %th IP Address
+      %th Created_at
+      %th Support
 
-%h3 Rankings
+    - for vote in @votes
+      %tr
+        -# %td= vote[0]
+        -# %td= vote[1]
+        -# %td= vote[2]
+        %td= vote.website_id
+        %td= vote.ip_address
+        %td= vote.created_at
+        %td= vote.support
+        -# %td= vote.community_id
 
-%table
-  %tr
-    %th Website
-    %th Old Rank
-    %th Count0
-    %th Count1
-    %th Share
-    %th Sequence
+  %h3 Rankings
 
-  - for ranking in @rankings
+  %table
     %tr
-      %td= ranking.website_id
-      %td= ranking.rank
-      %td= ranking.count0
-      %td= ranking.count1
-      %td= ranking.share
-      %td= ranking.sequence
-  %tr
-    %td ---
-    %td ---
-    %td ---
-    %td ---
-    %td ---
-  %tr
-    %td
-    %td
-    %td= @min_count0.count0
-    %td= @max_count1.count1
-    %td= @rankings.sum(&:share)
-  %tr
-    %td
-    %td
-    %td= @min_count0.website_id
-    %td= @max_count1.website_id
-%br
+      %th Website
+      %th Old Rank
+      %th Count0
+      %th Count1
+      %th Share
+      %th Sequence
 
-
-
+    - for ranking in @rankings
+      %tr
+        %td= ranking.website_id
+        %td= ranking.rank
+        %td= ranking.count0
+        %td= ranking.count1
+        %td= ranking.share
+        %td= ranking.sequence
+    %tr
+      %td ---
+      %td ---
+      %td ---
+      %td ---
+      %td ---
+    %tr
+      %td
+      %td
+      %td= @min_count0.count0
+      %td= @max_count1.count1
+      %td= @rankings.sum(&:share)
+    %tr
+      %td
+      %td
+      %td= @min_count0.website_id
+      %td= @max_count1.website_id
+  %br
