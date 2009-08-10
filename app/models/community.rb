@@ -46,10 +46,6 @@ class Community < ActiveRecord::Base
   # This algorithm doesn't handle tie votes "fairly": it gives all the tied share to the first website.
   # So should probably be enhanced some time to make it fairer. But this problem is not significant when there are many
   # votes and some are over 10 days old.
-  
-    days_full_value = 10
-    days_valid = 60
-    ranking_formula_denominator = 50
         
     # How to select the latest vote from each IP address for each website?:
     # This doesn't get all data fields, so no good I guess:
@@ -62,11 +58,12 @@ class Community < ActiveRecord::Base
 
     # This almost works, but returns the first record of each group (by ID, regardless of how sorted) while we want the latest record:
     @votes = Vote.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
-    # So this finds last record in each group (but even this doesn't work!):
+    # So this finds last record in each group:
     @votes.each do |vote|
       temp = Vote.find(:last, :conditions => ["community_id = ? and website_id = ? and ip_address = ?", self.id, vote.website_id, vote.ip_address], :order => "created_at")
       vote.created_at = temp.created_at
       vote.support = temp.support
+      vote.ballot_type = temp.ballot_type
     end
     
     @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id")
@@ -164,18 +161,18 @@ class Community < ActiveRecord::Base
     days_full_value = 10
     days_valid = 60
     ranking_formula_denominator = 50
-    count = 0.0
     
+    count = 0.0
     votes.each do |vote|
       if vote.website_id == ranking.website_id && vote.support
         
         if vote.support >= ranking.share + increment
           # This case is same regardless of ballot_type:
           support_fraction = 1.0
-        elsif vote.ballot_type = 1
+        elsif vote.ballot_type == 1
           # ballot_type 1 is simple percent vote for vote.support:
           support_fraction = 0.0
-        elsif vote.ballot_type = 0
+        elsif vote.ballot_type == 0
           # Default ballot_type 0 means voted for "Increase Share" from vote.support = share when voted,
           # interpreted as uniform distribution of vote from vote.support to 100.0:
           if vote.support >= 100.0 or ranking.share + increment > 100.0

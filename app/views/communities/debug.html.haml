@@ -1,4 +1,4 @@
-- if current_user and (current_user.permission >= 7.0)
+- if current_user and (current_user.permission >= 8.0)
   %h1.permission Debug output
 
   %h3 Votes
@@ -9,17 +9,15 @@
       %th IP Address
       %th Created_at
       %th Support
+      %th Type
 
     - for vote in @votes
       %tr
-        -# %td= vote[0]
-        -# %td= vote[1]
-        -# %td= vote[2]
         %td= vote.website_id
         %td= vote.ip_address
         %td= vote.created_at
         %td= vote.support
-        -# %td= vote.community_id
+        %td= vote.ballot_type
 
   %h3 Rankings
 
