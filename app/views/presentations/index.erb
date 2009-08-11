@@ -1,0 +1,11 @@
+<% for presentation in @presentations %>
+<%= presentation.id %>:
+  id: <%= presentation.id %>
+  pdate: <%= presentation.pdate %>
+  place: |
+    <%= presentation.place %>
+  host: |
+    <%= presentation.host %>
+  created_at: <%= presentation.created_at %>
+  updated_at: <%= presentation.updated_at %>
+<% end %>

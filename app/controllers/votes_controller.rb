@@ -6,7 +6,7 @@ class VotesController < ApplicationController
   end
 
   index.before do
-    @votes = Vote.find(:all, :order => "community_id, website_id, ip_address, created_at DESC")
+    @votes = Vote.find(:all, :order => "created_at DESC")
   end
 
   create.flash  "Vote successfully created."

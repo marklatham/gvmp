@@ -18,6 +18,7 @@ ActionController::Routing::Routes.draw do |map|
     community.resources :websites
   end
   map.resources :faqs
+  map.resources :presentations
   map.resources :proposals
   map.resources :pubs
   map.resources :rankings

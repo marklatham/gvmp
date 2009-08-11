@@ -1,0 +1,15 @@
+%p
+  %b Date:
+  = @presentation.pdate
+
+%p
+  %b Institution / Event:
+  = @presentation.place
+
+%p
+  %b Host:
+  = @presentation.host
+
+= link_to 'Edit', edit_presentation_path(@presentation)
+|
+= link_to 'presentations list', presentations_path

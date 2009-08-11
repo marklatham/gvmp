@@ -1,0 +1,26 @@
+- form_for(@presentation) do |f|
+  = f.error_messages
+ 
+  %p
+    = f.label :pdate
+    %br
+    = f.date_select :pdate, :start_year => 1997
+  
+  %p
+    = f.label :place
+    %br
+    = f.text_field :place, :size => 100
+  
+  %p
+    = f.label :host
+    %br
+    = f.text_field :host, :size => 100
+
+  %p
+    = f.submit "Submit"
+
+%br
+%br
+= link_to 'Back to presentations list', presentations_path
+%br
+%br

@@ -34,8 +34,8 @@
       %tr
         %td= ranking.website_id
         %td= ranking.rank
-        %td= ranking.count0
-        %td= ranking.count1
+        %td= number_with_precision(ranking.count0, :precision => 4)
+        %td= number_with_precision(ranking.count1, :precision => 4)
         %td= ranking.share
         %td= ranking.sequence
     %tr
@@ -47,8 +47,8 @@
     %tr
       %td
       %td
-      %td= @min_count0.count0
-      %td= @max_count1.count1
+      %td= number_with_precision(@min_count0.count0, :precision => 4)
+      %td= number_with_precision(@max_count1.count1, :precision => 4)
       %td= @rankings.sum(&:share)
     %tr
       %td
