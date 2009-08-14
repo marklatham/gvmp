@@ -32,6 +32,7 @@ ActionController::Routing::Routes.draw do |map|
   map.how_you_can_help '/how_you_can_help', :controller => 'public', :action => 'how_you_can_help'
   map.admin '/admin', :controller => 'admin', :action => 'admin'
   map.mlresume '/mlresume', :controller => 'minimal', :action => 'mlresume'
+  map.comdump '/comdump.yaml', :controller => 'public', :action => 'comdump'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -19,7 +19,7 @@ class CommunitiesController < ApplicationController
   def manage
     @communities = Community.filter_manage(params)
   end
-
+  
   def show 
     @community = Community.find(params[:id])
     @rankings = @community.rankings.with_websites.paginate :page => params[:page], :per_page => 20
