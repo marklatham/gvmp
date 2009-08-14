@@ -1,0 +1,450 @@
+
+1:
+  id: 1
+  date_sequence: 2009-02-17
+  date_text: 2009-02-17
+  source: |
+    Freakonomics blog
+  source_url: |
+    http://freakonomics.blogs.nytimes.com/
+  author: Ian Ayres
+  title: |
+    A Voucher System for Investigative Reporting
+  title_url: |
+    http://freakonomics.blogs.nytimes.com/2009/02/17/a-voucher-system-for-investigative-reporting
+  description: |
+    Summary of <a href="http://www.guardian.co.uk/commentisfree/cifamerica/2009/feb/12/newspapers-investigative-journalism-endowments">A national endowment for journalism</a>. <a href="http://freakonomics.blogs.nytimes.com/2009/02/17/a-voucher-system-for-investigative-reporting/#comment-342849">Latham comment</a>.
+  created_at: 2009-07-19 01:21:10 UTC
+  updated_at: 2009-07-19 01:21:31 UTC
+
+2:
+  id: 2
+  date_sequence: 2009-02-10
+  date_text: 2009-02-10
+  source: |
+    VoterMedia Democracy Blog
+  source_url: |
+    http://votermedia.blogspot.com/
+  author: Mark Latham
+  title: |
+    UBC AMS voting results
+  title_url: |
+    http://votermedia.blogspot.com/2009/02/ubc-ams-vfm-voting-results.html
+  description: |
+    Evolution of VFM at UBC 2007 - 2008 - 2009.
+  created_at: 2009-07-19 01:24:50 UTC
+  updated_at: 2009-07-19 01:24:50 UTC
+
+3:
+  id: 3
+  date_sequence: 2009-01-31
+  date_text: 2009-01-31
+  source: |
+    The UBC Spectator
+  source_url: |
+    http://ubcspectator.blogspot.com/
+  author: Justin Yang
+  title: |
+    Voter-Funded Media: Past, Present and Future
+  title_url: |
+    http://ubcspectator.blogspot.com/2009/01/voter-funded-media-past-present-and.html
+  description: |
+    3 years of evolution for VFM at UBC.
+  created_at: 2009-07-19 01:26:32 UTC
+  updated_at: 2009-07-19 05:00:12 UTC
+
+4:
+  id: 4
+  date_sequence: 2008-12-23
+  date_text: 2008-12-23
+  source: |
+    The Tyee
+  source_url: |
+    http://thetyee.ca/
+  author: Rob Annandale
+  title: |
+    Idea #2: Voter-funded Media
+  title_url: |
+    http://thetyee.ca/Mediacheck/2008/12/23/Idea2/
+  description: |
+    VFM overview; critique from journalism instructors.
+  created_at: 2009-07-19 01:28:14 UTC
+  updated_at: 2009-07-19 05:00:06 UTC
+
+5:
+  id: 5
+  date_sequence: 2008-12-01
+  date_text: 2008-12
+  source: |
+    Corporate Secretary
+  source_url: |
+    http://www.thecrossbordergroup.com/pages/58/Inside+Corporate+Secretary.stm
+  author: Janine Armin
+  title: |
+    Choosing your own auditor
+  title_url: |
+    http://www.thecrossbordergroup.com/pages/1006/December+2008.stm?article_id=13144
+  description: |
+    Mark Latham quoted: let shareowners choose auditor.
+  created_at: 2009-07-19 01:30:47 UTC
+  updated_at: 2009-07-19 01:30:47 UTC
+
+6:
+  id: 6
+  date_sequence: 2008-10-27
+  date_text: 2008-10-27
+  source: |
+    FairVote UBC
+  source_url: |
+    http://fairvoteubc.wordpress.com/
+  author: Mark Crowley
+  title: |
+    Voting about news about voting to support voting
+  title_url: |
+    http://fairvoteubc.wordpress.com/2008/10/27/voting-about-news-about-voting-to-support-voting/
+  description: |
+    VFM, democratic engagement, proportional voting.
+  created_at: 2009-07-19 01:33:23 UTC
+  updated_at: 2009-07-19 01:39:59 UTC
+
+7:
+  id: 7
+  date_sequence: 2008-10-24
+  date_text: 2008-10-24
+  source: |
+    The Ubyssey
+  source_url: |
+    http://www.ubyssey.bc.ca/
+  author: Isabel Ferreras 
+  title: |
+    Voter Funded Media - The Media Democracy issue
+  title_url: |
+    http://www.ubyssey.ca/?p=5378
+  description: |
+    Decline of activity in VFM; need for promotion.
+  created_at: 2009-07-19 01:36:03 UTC
+  updated_at: 2009-07-19 01:36:03 UTC
+
+8:
+  id: 8
+  date_sequence: 2008-10-04
+  date_text: 2008-10-04
+  source: |
+    Heart of Eden
+  source_url: |
+    http://edenhart.blogspot.com/
+  author: Eden Hart
+  title: |
+    Welcome to the VFM -- Ur doing it Wrong!
+  title_url: |
+    http://edenhart.blogspot.com/2008/10/welcome-to-vfm-ur-doing-it-wrong.html
+  description: |
+    Urging blog contestants to increase their readership.
+  created_at: 2009-07-19 01:37:51 UTC
+  updated_at: 2009-07-19 01:37:51 UTC
+
+9:
+  id: 9
+  date_sequence: 2008-10-03
+  date_text: 2008-10-03
+  source: |
+    Beyond Robson
+  source_url: |
+    http://www.beyondrobson.com/
+  author: Sean Orr
+  title: |
+    Voter Media
+  title_url: |
+    http://www.beyondrobson.com/news/2008/10/voter_media/
+  description: |
+    Positive review of VoterMedia.org project.
+  created_at: 2009-07-19 01:39:29 UTC
+  updated_at: 2009-07-19 01:49:24 UTC
+
+10:
+  id: 10
+  date_sequence: 2008-09-05
+  date_text: 2008-09-05
+  source: |
+    RadioZoom.net
+  source_url: |
+    http://radiozoom.net/
+  author: <a href="http://www.miss604.com/">Miss 604</a>
+  title: |
+    Voter Media For The People
+  title_url: |
+    http://radiozoom.net/2008/09/05/rs147-voter-media-for-the-people/
+  description: |
+    Audio; 35 minutes; Mark Latham interview.
+  created_at: 2009-07-19 01:56:01 UTC
+  updated_at: 2009-07-19 01:56:01 UTC
+
+11:
+  id: 11
+  date_sequence: 2008-07-16
+  date_text: 2008-07-16
+  source: |
+    Radio Canada: Ailleurs c'est ici
+  source_url: |
+    http://www.radio-canada.ca/radio/emissions/emission.asp?numero=2437
+  author:  Julie Carpentier
+  title: |
+    Entrevue: Mark Latham
+  title_url: |
+    misc/20080716RadioCanadaMLInterview.mp3
+  description: |
+    Audio; 9 minutes; en français; VFM & Vancouver.
+  created_at: 2009-07-19 03:55:39 UTC
+  updated_at: 2009-07-19 04:00:38 UTC
+
+12:
+  id: 12
+  date_sequence: 2008-06-30
+  date_text: 2008
+  source: |
+    Langara Journalism Review
+  source_url: |
+    http://www.langara.bc.ca/creative-arts/journalism/publications.html
+  author: Benjamin Alldritt
+  title: |
+    Vote Me The Money!
+  title_url: |
+    misc/2008LangaraJournalismReview.pdf
+  description: |
+    Mark Latham interview; VFM overview.
+  created_at: 2009-07-19 04:11:57 UTC
+  updated_at: 2009-07-19 04:11:57 UTC
+
+13:
+  id: 13
+  date_sequence: 2008-05-12
+  date_text: 2008-05-12
+  source: |
+    Stephen Rees's blog
+  source_url: |
+    http://stephenrees.wordpress.com/
+  author: Stephen Rees
+  title: |
+    Vancouver Voters’ Guide Blogging Contest
+  title_url: |
+    http://stephenrees.wordpress.com/2008/05/12/vancouver-voters-guide-blogging-contest/
+  description: |
+    Vancouver transit issues; enough for prize?
+  created_at: 2009-07-19 04:13:32 UTC
+  updated_at: 2009-07-19 04:13:32 UTC
+
+14:
+  id: 14
+  date_sequence: 2008-03-06
+  date_text: 2008-03-06
+  source: |
+    UBC Insiders
+  source_url: |
+    http://ubcinsiders.blogspot.com/
+  author: Maayan Kreitzman
+  title: |
+    VFM launches at SFU
+  title_url: |
+    http://ubcinsiders.blogspot.com/2008/03/vfm-launches-at-sfu.html
+  description: |
+    Year-round VFM at SFU; UBC; future of VFM.
+  created_at: 2009-07-19 04:17:57 UTC
+  updated_at: 2009-07-19 04:17:57 UTC
+
+15:
+  id: 15
+  date_sequence: 2008-02-07
+  date_text: 2008-02-07
+  source: |
+    VoterMedia Democracy Blog
+  source_url: |
+    http://votermedia.blogspot.com/
+  author: Mark Latham
+  title: |
+    UBC VFM Results
+  title_url: |
+    http://votermedia.blogspot.com/2008/02/ubc-vfm-results.html
+  description: |
+    Positive assessment of VFM impact and evolution.
+  created_at: 2009-07-19 04:20:58 UTC
+  updated_at: 2009-07-19 04:20:58 UTC
+
+16:
+  id: 16
+  date_sequence: 2008-02-02
+  date_text: 2008-02-02
+  source: |
+    The Devil's Advocate
+  source_url: |
+    http://www.ubcdevil.com/
+  author: Eoin O'Dwyer
+  title: |
+    VFM Results and Selling Out
+  title_url: |
+    http://ubcdevilsadvocate.blogspot.com/2008/02/vfm-results-and-selling-out.html
+  description: |
+    Impact of low turnout in VFM voting period.
+  created_at: 2009-07-19 04:25:54 UTC
+  updated_at: 2009-07-19 04:25:54 UTC
+
+17:
+  id: 17
+  date_sequence: 2008-02-01
+  date_text: 2008-02-01
+  source: |
+    UBC Insiders
+  source_url: |
+    http://ubcinsiders.blogspot.com/
+  author: Maayan Kreitzman
+  title: |
+    Voter Funded Media Results!
+  title_url: |
+    http://ubcinsiders.blogspot.com/2008/02/voter-funded-media-results.html
+  description: |
+    Debate on media quality and which awards were deserved.
+  created_at: 2009-07-19 04:27:51 UTC
+  updated_at: 2009-07-19 04:27:51 UTC
+
+18:
+  id: 18
+  date_sequence: 2008-01-27
+  date_text: 2008-01-27
+  source: |
+    UBC Insiders
+  source_url: |
+    http://ubcinsiders.blogspot.com/
+  author: Maayan Kreitzman
+  title: |
+    How to vote in VFM - Interpolated Consensus,WTF?
+  title_url: |
+    http://ubcinsiders.blogspot.com/2008/01/how-to-vote-in-vfm-interpolated.html
+  description: |
+    Interpolated Consensus vote tallying system.
+  created_at: 2009-07-19 04:46:05 UTC
+  updated_at: 2009-07-19 04:46:05 UTC
+
+19:
+  id: 19
+  date_sequence: 2008-01-22
+  date_text: 2008-01-22
+  source: |
+    UBC Insiders
+  source_url: |
+    http://ubcinsiders.blogspot.com/
+  author: anonymous
+  title: |
+    Letter to the Editor, re: VFM
+  title_url: |
+    http://ubcinsiders.blogspot.com/2008/01/editorial-re-vfm.html
+  description: |
+    Flaws in VFM.
+  created_at: 2009-07-19 04:50:03 UTC
+  updated_at: 2009-07-19 04:50:03 UTC
+
+20:
+  id: 20
+  date_sequence: 2008-01-14
+  date_text: 2008-01-14
+  source: |
+    SFU Online Learning Community
+  source_url: |
+    http://coopcommunity.sfu.ca/
+  author: coopcom
+  title: |
+    Voter-Funded Media Contest Hits SFU
+  title_url: |
+    http://coopcommunity.sfu.ca/modules.php?op=modload&name=News&file=article&sid=407&mode=thread&order=0&thold=0
+  description: |
+    Intro to VFM for Simon Fraser University students.
+  created_at: 2009-07-19 04:52:17 UTC
+  updated_at: 2009-07-19 04:52:17 UTC
+
+21:
+  id: 21
+  date_sequence: 2008-01-12
+  date_text: 2008-01-12
+  source: |
+    UBC Insiders
+  source_url: |
+    http://ubcinsiders.blogspot.com/
+  author: Maayan Kreitzman
+  title: |
+    VFM 2008 has already failed
+  title_url: |
+    http://ubcinsiders.blogspot.com/2008/01/vfm-2008-has-already-failed.html
+  description: |
+    Late launch of UBC VFM contest.
+  created_at: 2009-07-19 04:55:23 UTC
+  updated_at: 2009-07-19 04:55:23 UTC
+
+22:
+  id: 22
+  date_sequence: 2007-12-07
+  date_text: 2007-12-07
+  source: |
+    Western Front
+  source_url: |
+    http://westernfrontonline.net/
+  author: Sarah Gordon
+  title: |
+    AS may host media contest
+  title_url: |
+    http://westernfrontonline.net/200712079489/news/as-may-host-media-contest/
+  description: |
+    Western Washington University VFM proposal.
+  created_at: 2009-07-19 04:57:13 UTC
+  updated_at: 2009-07-19 04:57:13 UTC
+
+23:
+  id: 23
+  date_sequence: 2007-10-23
+  date_text: 2007-10-23
+  source: |
+    UBC Insiders
+  source_url: |
+    http://ubcinsiders.blogspot.com/
+  author: Maayan Kreitzman
+  title: |
+    VFM intro, or, how complicated can counting be?
+  title_url: |
+    http://ubcinsiders.blogspot.com/2007/10/vfm-intro-or-how-complicated-can.html
+  description: |
+    UBC 2007-2008 voter-funded media contest intro.
+  created_at: 2009-07-19 04:59:21 UTC
+  updated_at: 2009-07-19 04:59:21 UTC
+
+24:
+  id: 24
+  date_sequence: 2007-06-06
+  date_text: 2007-06-06
+  source: |
+    UBC Insiders
+  source_url: |
+    http://ubcinsiders.blogspot.com/
+  author: Maayan Kreitzman
+  title: |
+    Chitchat with Mark Latham
+  title_url: |
+    http://ubcinsiders.blogspot.com/2007/06/chitchat-with-mark-latham-hes-going-to.html
+  description: |
+    Overview of VFM. Can it really change the media?
+  created_at: 2009-07-19 05:07:06 UTC
+  updated_at: 2009-07-19 05:07:06 UTC
+
+25:
+  id: 25
+  date_sequence: 2007-03-28
+  date_text: 2007-03-28
+  source: |
+    UBC Alma Mater Society
+  source_url: |
+    http://www.ams.ubc.ca/
+  author: VFM Committee
+  title: |
+    Report to AMS Council
+  title_url: |
+    misc/2007UBCVFMCommitteeReport.pdf
+  description: |
+    Recommends VFM again, starting Sept 2007.
+  created_at: 2009-07-19 05:12:47 UTC
+  updated_at: 2009-07-19 05:12:47 UTC

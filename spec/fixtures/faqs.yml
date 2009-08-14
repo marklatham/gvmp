@@ -8,10 +8,8 @@
   answer: |
     Uh... relax, OK? VoterMedia.org is a public interest project for improving the policies of the world's organizations (governments, corporations, unions, nonprofits etc.) by developing better voter information systems. We are implementing voter funded media as explained in the paper <a href="/publications/GlobalVoterMediaPlatform.pdf">Global Voter Media Platform</a> and our other <a href="/publications">publications</a>.
     This website is built by a group of volunteers, led by <a href="/about_contact">Mark Latham</a>. We plan to create a nonprofit organization to manage the project, with a board of directors elected by the website's users. We are already practising what we preach, by <a href="/communities/104">inviting websites/blogs to critique VoterMedia.org</a>.
-    There's a lot more info on <a href="http://votermedia.org">our old website</a>, which we are gradually copying here to build our next release.
-    
   created_at: 2009-05-02 02:11:00 UTC
-  updated_at: 2009-06-16 05:49:06 UTC
+  updated_at: 2009-07-06 19:44:18 UTC
 
 8:
   id: 8
@@ -74,26 +72,26 @@
   category: Voting
   sequence: 5.1
   importance: 7.0
-  question: Do I have to log in to vote? Do I have to be a member of that particular community to vote on its website/blog ranking?
+  question: Do I have to log in to vote? Do I have to be a member of that particular community to vote on its website/blog funding?
   answer: |
     No and no. You can vote in any community you care about, whether you log in or not. Later, we plan to also develop rankings based on votes from community members only, and let users see both rankings. Creating a member-votes-only ranking will require some coordination with the community's administration.
     
   created_at: 2009-05-04 19:43:24 UTC
-  updated_at: 2009-05-26 05:07:47 UTC
+  updated_at: 2009-07-15 17:49:44 UTC
 
 11:
   id: 11
   category: Voting
   sequence: 5.2
   importance: 8.0
-  question: How many websites/blogs should/can I vote for?
+  question: How many websites/blogs should/can I vote funding for?
   answer: |
-    You can vote for as many websites/blogs as you like. Voting for more websites/blogs does not decrease the weight of each of your votes.
+    You can vote for as many websites/blogs as you like.
     
-    Of course, it makes the most sense to vote for websites/blogs that you know something about. We suggest voting for those that you think should be ranked higher than they are now.
+    Of course, it makes the most sense to vote on websites/blogs that you know something about.
     
   created_at: 2009-05-02 02:25:15 UTC
-  updated_at: 2009-05-02 21:13:21 UTC
+  updated_at: 2009-08-10 17:08:28 UTC
 
 12:
   id: 12
@@ -102,10 +100,10 @@
   importance: 7.0
   question: How often should/can I vote?
   answer: |
-    You can vote as often as you like. We count your latest vote for each website/blog. We suggest voting about once a week.
+    You can vote as often as you like. We count your latest vote on each website/blog. We suggest voting about once a week.
     
   created_at: 2009-05-02 02:26:39 UTC
-  updated_at: 2009-05-02 21:11:28 UTC
+  updated_at: 2009-07-15 18:26:27 UTC
 
 17:
   id: 17
@@ -114,52 +112,62 @@
   importance: 5.0
   question: How often do you count the votes?
   answer: |
-    As of 2009-05-01, we were tallying every vote in real time, updating the ranking in response. (We may adjust this at any time though, and might not update this answer right away.)
+    As of 2009-08-07, we were tallying votes at least once a day, updating the ranking in response. We may adjust this from time to time.
     
   created_at: 2009-05-02 03:03:08 UTC
-  updated_at: 2009-05-02 21:13:38 UTC
-
-16:
-  id: 16
-  category: Voting
-  sequence: 5.4
-  importance: 7.0
-  question: How are votes tallied?
-  answer: |
-    We sometimes adjust our tallying method. Here's a description as of 2009-05-01, but it may have been adjusted since then:
-    
-    We count your latest vote for each website/blog, subject to "vote decay through time", which means that votes are weighted according to how old they are. Zero through 10 days old gets 100% weight. After 10 days, a vote's weight diminishes by 2% per day, so that its weight falls to zero when it's 60 days old.
-    
-    So if you vote about once a week (as we suggest), your latest vote will always have 100% weight.
-    
-  created_at: 2009-05-02 02:58:51 UTC
-  updated_at: 2009-05-03 20:56:42 UTC
+  updated_at: 2009-08-07 23:17:07 UTC
 
 18:
   id: 18
   category: Voting
   sequence: 5.5
   importance: 7.0
-  question: By what criteria should I judge the websites when I vote? What do you mean by "Which websites/blogs deserve more support from the ... voter community?"
+  question: By what criteria should I judge the websites when I vote?
   answer: |
-    You can vote based on any criteria you want. The impact of your vote is to push websites you support upward in the ranking. That means more people will probably read them. And if there are cash awards for higher-ranked blogs (which there were not as of 2009-05-01), then your supported websites might get more funding. So presumably you should vote for websites that you think benefit you more than those currently ranked above them. You might also want to consider whether some websites/blogs are already receiving voter community funds (support) through other channels.
+    You can vote based on any criteria you want. You might want to consider whether some websites/blogs are already receiving funds through other channels. 
     
-    VoterMedia.org is designed to direct funding to websites/blogs that benefit the voter community. Those that are seen as beneficial by the most voters would thus be ranked higher.
-    
+    VoterMedia.org is designed to direct funding to websites/blogs that benefit the voter community.
   created_at: 2009-05-02 03:06:45 UTC
-  updated_at: 2009-05-02 20:25:22 UTC
+  updated_at: 2009-08-07 18:31:45 UTC
+
+16:
+  id: 16
+  category: Voting
+  sequence: 5.55
+  importance: 7.0
+  question: How are votes tallied?
+  answer: |
+    We sometimes adjust our tallying method. Here's a description as of 2009-08-10:
+    
+    Percent shares are determined so that they sum to 100% and each website's share is supported by the same number of votes for that share or more.
+    
+    <br /><br />
+    
+    We count your latest vote for each website/blog, subject to "vote decay through time", which means that votes are weighted according to how old they are. Zero through 10 days old gets 100% weight. After 10 days, a vote's weight diminishes by 2% per day, so that its weight falls to zero when it's 60 days old. We call this "decayed_weight".
+    
+    So if you vote about once a week (as we suggest), your latest vote will always have 100% weight.
+    
+    <br /><br />
+    
+    If you vote to increase a share above the current share of (for example) 20%, we treat that vote as uniformly distributed from 20% to 100%. So later, if that website's share rises to 40%, then we estimate there is a one-quarter chance that you would no longer support increasing the share beyond 40%: (40-20)/(100-20) = 0.25
+    <br />
+    So the "support_fraction" of your vote is then 0.75 .
+    
+    <br /><br />
+    Weight of vote = decayed_weight * support_fraction
+  created_at: 2009-05-02 02:58:51 UTC
+  updated_at: 2009-08-10 17:19:41 UTC
 
 19:
   id: 19
   category: Voting
   sequence: 5.6
   importance: 6.0
-  question: What benefit do top-ranked websites get?
+  question: How do percent shares translate into cash awards?
   answer: |
-    As of 2009-05-01 there are no cash awards yet, though we hope this will change soon. But for now, higher ranked websites/blogs get bragging rights and exposure, presumably bringing more readers and more credibility.
-    
+    As of 2009-08-07 there are no cash awards yet, though we hope this will change soon. We will invite donations from foundations, individuals and governments, especially of the communities being served. The plan is for each community to have a balance of donations, from which e.g. one percent is paid out per day. That sum is divided among the competing websites/blogs serving that community, according to the consensus voted percent shares shown. Those shares are updated daily based on votes cast in the previous 60 days.
   created_at: 2009-05-02 03:15:44 UTC
-  updated_at: 2009-05-02 05:10:55 UTC
+  updated_at: 2009-08-07 23:15:44 UTC
 
 9:
   id: 9

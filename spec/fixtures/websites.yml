@@ -1,11 +1,642 @@
 
+167:
+  id: 167
+  url: http://www.npr.org/blogs/money/
+  title: |
+    Planet Money Blog : NPR
+  created_at: 2009-08-11 20:44:42 UTC
+  updated_at: 2009-08-11 20:44:42 UTC
+  creator_ip: 174.6.214.212
+
+166:
+  id: 166
+  url: http://secwatch.com/
+  title: |
+    SEC Filings and Insider Trading Simplified - SEC Watch
+  created_at: 2009-08-07 17:37:02 UTC
+  updated_at: 2009-08-07 17:37:02 UTC
+  creator_ip: 174.6.214.212
+
+165:
+  id: 165
+  url: http://www.learningmarkets.com/
+  title: |
+    Learning Markets | Stock, Options and Forex Trading Education
+  created_at: 2009-08-07 05:30:20 UTC
+  updated_at: 2009-08-07 05:30:20 UTC
+  creator_ip: 174.6.214.212
+
+163:
+  id: 163
+  url: http://corpgov.net/
+  title: |
+    Corporate Governance
+  created_at: 2009-07-26 01:21:51 UTC
+  updated_at: 2009-07-26 01:21:51 UTC
+  creator_ip: 174.6.206.63
+
+162:
+  id: 162
+  url: http://moxyvote.com/
+  title: |
+    MoxyVote.com - Shareholders, be heard
+  created_at: 2009-07-26 01:20:41 UTC
+  updated_at: 2009-07-26 01:20:41 UTC
+  creator_ip: 174.6.206.63
+
+161:
+  id: 161
+  url: http://faircanada.ca/
+  title: |
+    FAIR Canada
+  created_at: 2009-07-25 21:40:11 UTC
+  updated_at: 2009-07-25 21:40:36 UTC
+  creator_ip: 174.6.206.63
+
+160:
+  id: 160
+  url: http://www.consumerfed.org/
+  title: |
+    Consumer Federation of America
+  created_at: 2009-07-25 21:35:34 UTC
+  updated_at: 2009-07-25 21:35:34 UTC
+  creator_ip: 174.6.206.63
+
+159:
+  id: 159
+  url: http://transparentdemocracy.org/
+  title: |
+    TransparentDemocracy : Voter Information you can Trust
+  created_at: 2009-07-25 21:33:10 UTC
+  updated_at: 2009-07-25 21:33:10 UTC
+  creator_ip: 174.6.206.63
+
+158:
+  id: 158
+  url: http://proxydemocracy.org/
+  title: |
+    ProxyDemocracy
+  created_at: 2009-07-25 21:32:17 UTC
+  updated_at: 2009-07-25 21:32:17 UTC
+  creator_ip: 174.6.206.63
+
+157:
+  id: 157
+  url: http://www.footnoted.org/
+  title: |
+    footnoted.org - Michelle Leder's guide to what's hiding in SEC filings
+  created_at: 2009-07-25 21:31:29 UTC
+  updated_at: 2009-07-25 21:31:29 UTC
+  creator_ip: 174.6.206.63
+
+156:
+  id: 156
+  url: http://www.shareowners.org/
+  title: |
+    ShareOwners.org
+  created_at: 2009-07-25 21:30:20 UTC
+  updated_at: 2009-07-25 21:30:20 UTC
+  creator_ip: 174.6.206.63
+
+155:
+  id: 155
+  url: http://www.funddemocracy.com/
+  title: |
+    Fund Democracy
+  created_at: 2009-07-25 21:29:37 UTC
+  updated_at: 2009-07-25 21:29:37 UTC
+  creator_ip: 174.6.206.63
+
+154:
+  id: 154
+  url: http://www.vancouverite.com/
+  title: |
+    Vancouverite: High speed news - powered from Vancouver
+  created_at: 2009-07-25 19:46:00 UTC
+  updated_at: 2009-07-25 19:47:21 UTC
+  creator_ip: 174.6.206.63
+
+153:
+  id: 153
+  url: http://castanet.net
+  title: |
+    Castanet.net - Kelowna's Home Page
+  created_at: 2009-07-24 05:01:29 UTC
+  updated_at: 2009-07-24 05:01:29 UTC
+  creator_ip: 174.6.206.63
+
+152:
+  id: 152
+  url: http://kelowna.com
+  title: |
+    Kelowna local news, business, sports, weather, entertainment | kelowna.com
+  created_at: 2009-07-24 05:00:30 UTC
+  updated_at: 2009-07-24 05:00:30 UTC
+  creator_ip: 174.6.206.63
+
+151:
+  id: 151
+  url: http://www.canadianaboriginal.ca/
+  title: |
+    Canadian Aboriginal News
+  created_at: 2009-07-21 06:25:52 UTC
+  updated_at: 2009-07-21 06:25:52 UTC
+  creator_ip: 174.6.206.63
+
+150:
+  id: 150
+  url: http://www.bobgoulais.com/bgc/wordpress/
+  title: |
+    Anishinawbe Blog
+  created_at: 2009-07-21 06:20:58 UTC
+  updated_at: 2009-07-21 06:20:58 UTC
+  creator_ip: 174.6.206.63
+
+149:
+  id: 149
+  url: http://liberatedyet.com
+  title: |
+    Dustin Rivers - liberatedyet.com
+  created_at: 2009-07-21 01:57:21 UTC
+  updated_at: 2009-07-21 01:58:01 UTC
+  creator_ip: 174.6.206.63
+
+148:
+  id: 148
+  url: http://liberatedyet.com/
+  title: |
+    liberatedyet by Dustin Rivers 
+  created_at: 2009-07-21 01:20:03 UTC
+  updated_at: 2009-07-21 01:20:03 UTC
+  creator_ip: 96.49.64.179
+
+147:
+  id: 147
+  url: http://www.seemorgh.com/
+  title: |
+    seemorgh
+  created_at: 2009-07-20 01:55:43 UTC
+  updated_at: 2009-07-20 01:55:43 UTC
+  creator_ip: 96.49.64.179
+
+146:
+  id: 146
+  url: http://alef.ir/1388/
+  title: |
+    Alef
+  created_at: 2009-07-20 01:49:15 UTC
+  updated_at: 2009-07-20 01:49:15 UTC
+  creator_ip: 96.49.64.179
+
+145:
+  id: 145
+  url: http://studentunion.ca/
+  title: |
+    StudentUnion.ca - information on students' unions, association, societies, CFS, CASA, and a great deal more
+  created_at: 2009-07-15 19:10:28 UTC
+  updated_at: 2009-07-15 19:10:28 UTC
+  creator_ip: 174.6.206.63
+
+144:
+  id: 144
+  url: http://www.studentunion.ca/
+  title: |
+    StudentUnion.ca - information on students' unions, association, societies, CFS, CASA, and a great deal more
+  created_at: 2009-07-15 19:09:54 UTC
+  updated_at: 2009-07-15 19:09:54 UTC
+  creator_ip: 174.6.206.63
+
+143:
+  id: 143
+  url: http://www.telusimmobility.blogspot.com/
+  title: |
+    TELUS the present is hostile
+  created_at: 2009-07-10 02:23:26 UTC
+  updated_at: 2009-07-10 02:23:26 UTC
+  creator_ip: 96.49.64.179
+
+142:
+  id: 142
+  url: http://vancitybuzz.com
+  title: |
+    Vancity Buzz
+  created_at: 2009-07-09 22:45:26 UTC
+  updated_at: 2009-07-09 22:45:26 UTC
+  creator_ip: 75.157.137.63
+
+141:
+  id: 141
+  url: http://www.roozonline.com/
+  title: |
+    Rooz online
+  created_at: 2009-07-07 02:02:50 UTC
+  updated_at: 2009-07-07 02:02:50 UTC
+  creator_ip: 216.19.191.34
+
+140:
+  id: 140
+  url: http://iran.whyweprotest.net/
+  title: |
+    Why We Protest - IRAN
+  created_at: 2009-07-07 02:01:07 UTC
+  updated_at: 2009-07-07 02:01:07 UTC
+  creator_ip: 216.19.191.34
+
+138:
+  id: 138
+  url: http://english.khamenei.ir/
+  title: |
+    Supreme Leader
+  created_at: 2009-07-06 06:38:08 UTC
+  updated_at: 2009-07-06 06:38:08 UTC
+  creator_ip: 96.49.64.179
+
+137:
+  id: 137
+  url: http://www.iwna.ir/
+  title: |
+    Iran Women News
+  created_at: 2009-07-06 06:37:50 UTC
+  updated_at: 2009-07-06 06:37:50 UTC
+  creator_ip: 96.49.64.179
+
+136:
+  id: 136
+  url: https://www.ina-newsagency.com/Default.aspx
+  title: |
+    Iran News Agency
+  created_at: 2009-07-06 06:33:50 UTC
+  updated_at: 2009-07-07 02:28:55 UTC
+  creator_ip: 96.49.64.179
+
+135:
+  id: 135
+  url: http://www.mizannews.ir/
+  title: |
+    Mizan News
+  created_at: 2009-07-06 06:33:02 UTC
+  updated_at: 2009-07-06 06:33:02 UTC
+  creator_ip: 96.49.64.179
+
+134:
+  id: 134
+  url: http://www.tehroony.com/
+  title: |
+    Tehrani
+  created_at: 2009-07-06 06:32:31 UTC
+  updated_at: 2009-07-06 06:32:31 UTC
+  creator_ip: 96.49.64.179
+
+133:
+  id: 133
+  url: http://www.nimrooz.com/
+  title: |
+    Nimrooz
+  created_at: 2009-07-06 06:31:59 UTC
+  updated_at: 2009-07-06 06:31:59 UTC
+  creator_ip: 96.49.64.179
+
+132:
+  id: 132
+  url: http://www.irtv.com/
+  title: |
+    Iran TV
+  created_at: 2009-07-06 06:29:49 UTC
+  updated_at: 2009-07-06 06:29:49 UTC
+  creator_ip: 96.49.64.179
+
+131:
+  id: 131
+  url: http://www.iransports.net/
+  title: |
+    Iran Sports
+  created_at: 2009-07-06 06:29:07 UTC
+  updated_at: 2009-07-06 06:29:07 UTC
+  creator_ip: 96.49.64.179
+
+130:
+  id: 130
+  url: http://english.iribnews.ir/
+  title: |
+    IRIB
+  created_at: 2009-07-06 06:28:18 UTC
+  updated_at: 2009-07-06 06:28:18 UTC
+  creator_ip: 96.49.64.179
+
+129:
+  id: 129
+  url: http://www.irna.ir/
+  title: |
+    IRNA
+  created_at: 2009-07-06 06:27:51 UTC
+  updated_at: 2009-07-06 06:27:51 UTC
+  creator_ip: 96.49.64.179
+
+128:
+  id: 128
+  url: http://www.persianhub.org/
+  title: |
+    Persian Hub
+  created_at: 2009-07-06 06:15:33 UTC
+  updated_at: 2009-07-06 06:15:33 UTC
+  creator_ip: 96.49.64.179
+
+127:
+  id: 127
+  url: http://www.sharif.ir/en/
+  title: |
+    Sharif University
+  created_at: 2009-07-06 06:10:44 UTC
+  updated_at: 2009-07-06 06:10:44 UTC
+  creator_ip: 96.49.64.179
+
+126:
+  id: 126
+  url: http://www.tafrihi.com/info/roozname.htm
+  title: |
+    Iranian Newspapers
+  created_at: 2009-07-06 06:08:50 UTC
+  updated_at: 2009-07-06 06:08:50 UTC
+  creator_ip: 96.49.64.179
+
+125:
+  id: 125
+  url: http://titreavval.com/
+  title: |
+    Titre Avval
+  created_at: 2009-07-06 05:55:41 UTC
+  updated_at: 2009-07-06 05:55:41 UTC
+  creator_ip: 96.49.64.179
+
+124:
+  id: 124
+  url: http://www.radiozamaneh.org/
+  title: |
+    Radio Zamaneh
+  created_at: 2009-07-06 05:55:10 UTC
+  updated_at: 2009-07-06 05:55:10 UTC
+  creator_ip: 96.49.64.179
+
+123:
+  id: 123
+  url: http://www.voanews.com/persian/
+  title: |
+    VOA
+  created_at: 2009-07-06 05:54:34 UTC
+  updated_at: 2009-07-06 05:54:34 UTC
+  creator_ip: 96.49.64.179
+
+122:
+  id: 122
+  url: http://www.iranian.ws/
+  title: |
+    Iran News & Iranian Culture
+  created_at: 2009-07-06 05:53:43 UTC
+  updated_at: 2009-07-06 05:53:43 UTC
+  creator_ip: 96.49.64.179
+
+121:
+  id: 121
+  url: http://tahlilerooz.ir/index.php
+  title: |
+    Tahlile Rooz
+  created_at: 2009-07-06 05:44:21 UTC
+  updated_at: 2009-07-06 05:44:21 UTC
+  creator_ip: 96.49.64.179
+
+120:
+  id: 120
+  url: http://www.shahrdid.ir/
+  title: |
+    Map Of Tehran
+  created_at: 2009-07-06 05:22:58 UTC
+  updated_at: 2009-07-06 05:22:58 UTC
+  creator_ip: 174.6.206.63
+
+119:
+  id: 119
+  url: http://www.tabnak.com/
+  title: |
+    Tabnak
+  created_at: 2009-07-06 05:22:31 UTC
+  updated_at: 2009-07-06 05:22:31 UTC
+  creator_ip: 174.6.206.63
+
+118:
+  id: 118
+  url: http://www.bbc.co.uk/persian/iran/
+  title: |
+    BBC-Farsi-Iran
+  created_at: 2009-07-06 05:22:01 UTC
+  updated_at: 2009-07-06 05:22:01 UTC
+  creator_ip: 174.6.206.63
+
+117:
+  id: 117
+  url: http://www.etemademelli.ir/
+  title: |
+    Saham News
+  created_at: 2009-07-06 05:21:35 UTC
+  updated_at: 2009-07-06 05:21:35 UTC
+  creator_ip: 174.6.206.63
+
+116:
+  id: 116
+  url: http://www.ir-psri.com/
+  title: |
+    PSRI
+  created_at: 2009-07-06 05:21:14 UTC
+  updated_at: 2009-07-06 05:21:14 UTC
+  creator_ip: 174.6.206.63
+
+115:
+  id: 115
+  url: http://www.jomhoriyat.com/
+  title: |
+    Jomhoriyat
+  created_at: 2009-07-06 05:20:50 UTC
+  updated_at: 2009-07-06 05:20:50 UTC
+  creator_ip: 174.6.206.63
+
+114:
+  id: 114
+  url: http://www.lahzehnews.com/
+  title: |
+    Lahzeh News
+  created_at: 2009-07-06 05:20:26 UTC
+  updated_at: 2009-07-06 05:20:26 UTC
+  creator_ip: 174.6.206.63
+
+113:
+  id: 113
+  url: http://www.hammihannews.com/
+  title: |
+    HamMihan
+  created_at: 2009-07-06 05:20:03 UTC
+  updated_at: 2009-07-06 05:20:03 UTC
+  creator_ip: 174.6.206.63
+
+112:
+  id: 112
+  url: http://iran-emrooz.net/
+  title: |
+    Iran Emrooz
+  created_at: 2009-07-06 05:19:28 UTC
+  updated_at: 2009-07-06 05:19:28 UTC
+  creator_ip: 174.6.206.63
+
+111:
+  id: 111
+  url: http://isna.ir/ISNA/
+  title: |
+    ISNA
+  created_at: 2009-07-06 05:19:01 UTC
+  updated_at: 2009-07-06 05:19:01 UTC
+  creator_ip: 174.6.206.63
+
+110:
+  id: 110
+  url: http://www.mehrnews.com/fa/
+  title: |
+    Mehr News
+  created_at: 2009-07-06 05:18:42 UTC
+  updated_at: 2009-07-06 05:18:42 UTC
+  creator_ip: 174.6.206.63
+
+109:
+  id: 109
+  url: http://www.ayandenews.com/
+  title: |
+    Ayande News
+  created_at: 2009-07-06 05:18:20 UTC
+  updated_at: 2009-07-06 05:18:20 UTC
+  creator_ip: 174.6.206.63
+
+108:
+  id: 108
+  url: http://www.parstimes.com/news/
+  title: |
+    ParsTimes
+  created_at: 2009-07-06 05:17:51 UTC
+  updated_at: 2009-07-06 05:17:51 UTC
+  creator_ip: 174.6.206.63
+
+107:
+  id: 107
+  url: http://sarve.ir/
+  title: |
+    Sarve
+  created_at: 2009-07-06 05:17:26 UTC
+  updated_at: 2009-07-06 05:17:26 UTC
+  creator_ip: 174.6.206.63
+
+106:
+  id: 106
+  url: http://www.president.ir/en/
+  title: |
+    Presidency of Iran
+  created_at: 2009-07-06 05:17:07 UTC
+  updated_at: 2009-07-06 05:25:09 UTC
+  creator_ip: 174.6.206.63
+
+105:
+  id: 105
+  url: http://www.rsf-persan.org/
+  title: |
+    Gozareshgarane Bedoone marz
+  created_at: 2009-07-06 05:15:05 UTC
+  updated_at: 2009-07-06 05:16:29 UTC
+  creator_ip: 174.6.206.63
+
+104:
+  id: 104
+  url: http://www.taktaz.com/
+  title: |
+    Taktaz
+  created_at: 2009-07-06 05:14:30 UTC
+  updated_at: 2009-07-06 05:14:30 UTC
+  creator_ip: 174.6.206.63
+
+103:
+  id: 103
+  url: http://www.iranseda.ir/
+  title: |
+    Iran Seda
+  created_at: 2009-07-06 05:14:12 UTC
+  updated_at: 2009-07-06 05:14:12 UTC
+  creator_ip: 174.6.206.63
+
+102:
+  id: 102
+  url: http://irannegah.com/
+  title: |
+    Iran Negah
+  created_at: 2009-07-06 05:13:48 UTC
+  updated_at: 2009-07-06 05:13:48 UTC
+  creator_ip: 174.6.206.63
+
+101:
+  id: 101
+  url: http://www.gooya.com/
+  title: |
+    Gooya
+  created_at: 2009-07-06 05:13:13 UTC
+  updated_at: 2009-07-06 05:13:13 UTC
+  creator_ip: 174.6.206.63
+
+100:
+  id: 100
+  url: http://www.milliharakat.com/index.php
+  title: |
+    Harekate Melli
+  created_at: 2009-07-06 05:12:49 UTC
+  updated_at: 2009-07-06 05:12:49 UTC
+  creator_ip: 174.6.206.63
+
+99:
+  id: 99
+  url: http://www.aftabnews.ir/
+  title: |
+    Aftab
+  created_at: 2009-07-06 05:12:15 UTC
+  updated_at: 2009-07-06 05:12:15 UTC
+  creator_ip: 174.6.206.63
+
+98:
+  id: 98
+  url: http://www.shahabnews.com/
+  title: |
+    ShahabNews
+  created_at: 2009-07-06 05:11:52 UTC
+  updated_at: 2009-07-06 05:11:52 UTC
+  creator_ip: 174.6.206.63
+
+97:
+  id: 97
+  url: http://www.mattcoolen.com
+  title: |
+    MattCoolen.com: Vancouver Entertainment Guides
+  created_at: 2009-07-03 16:43:48 UTC
+  updated_at: 2009-07-03 16:43:48 UTC
+  creator_ip: 
+
+96:
+  id: 96
+  url: http://www.radiofarda.com/
+  title: |
+    RadioFarda
+  created_at: 2009-06-26 22:23:26 UTC
+  updated_at: 2009-06-26 22:23:26 UTC
+  creator_ip: 
+
 95:
   id: 95
   url: http://www.tuaw.com/
   title: |
     TUAW -- The Unofficial Apple Weblog
   created_at: 2009-06-17 17:11:08 UTC
-  updated_at: 2009-06-17 17:11:08 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 94:
   id: 94
@@ -13,7 +644,8 @@
   title: |
     Carnegie Centre - most recent headlines NowPublic | NowPublic Resources
   created_at: 2009-06-05 18:52:03 UTC
-  updated_at: 2009-06-05 18:52:03 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 93:
   id: 93
@@ -21,7 +653,8 @@
   title: |
     Downtown Eastside Enquirer
   created_at: 2009-06-05 18:50:05 UTC
-  updated_at: 2009-06-05 18:50:05 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 92:
   id: 92
@@ -29,7 +662,8 @@
   title: |
     Downtown Eastside Enquirer
   created_at: 2009-06-05 18:46:37 UTC
-  updated_at: 2009-06-05 18:46:37 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 91:
   id: 91
@@ -37,7 +671,8 @@
   title: |
     Oldtown News
   created_at: 2009-05-28 20:46:56 UTC
-  updated_at: 2009-05-28 20:46:56 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 89:
   id: 89
@@ -45,7 +680,8 @@
   title: |
     Beyond Robson | Vancouver blog
   created_at: 2009-05-28 18:43:32 UTC
-  updated_at: 2009-05-28 18:43:32 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 88:
   id: 88
@@ -53,15 +689,17 @@
   title: |
     The Vancouver Observer
   created_at: 2009-05-28 18:31:20 UTC
-  updated_at: 2009-05-28 18:31:20 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 87:
   id: 87
   url: http://balatarin.com/
   title: |
-    بالاترین:‌ لینکهای داغ
+    balatarin.com
   created_at: 2009-05-11 15:49:58 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 01:13:19 UTC
+  creator_ip: 
 
 85:
   id: 85
@@ -69,7 +707,8 @@
   title: |
     PensionWatch
   created_at: 2009-05-08 02:30:24 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 84:
   id: 84
@@ -77,7 +716,8 @@
   title: |
     Calpensions
   created_at: 2009-05-08 02:29:38 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 83:
   id: 83
@@ -85,7 +725,8 @@
   title: |
     SEIU Local 1000
   created_at: 2009-05-08 02:18:31 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 82:
   id: 82
@@ -93,7 +734,8 @@
   title: |
     California School Employees Association
   created_at: 2009-05-08 02:17:33 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 81:
   id: 81
@@ -101,7 +743,8 @@
   title: |
     California State Employees Association - Retirees
   created_at: 2009-05-08 02:16:19 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 80:
   id: 80
@@ -109,7 +752,8 @@
   title: |
     Retired Public Employees Association
   created_at: 2009-05-08 02:04:22 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 79:
   id: 79
@@ -117,7 +761,8 @@
   title: |
     Calpensions
   created_at: 2009-05-08 02:02:58 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 78:
   id: 78
@@ -125,7 +770,8 @@
   title: |
     Pension Watch
   created_at: 2009-05-08 02:02:06 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 77:
   id: 77
@@ -133,7 +779,8 @@
   title: |
     The State Worker
   created_at: 2009-05-08 02:01:01 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 76:
   id: 76
@@ -141,7 +788,8 @@
   title: |
     PERSWatch
   created_at: 2009-05-08 01:59:15 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 75:
   id: 75
@@ -149,7 +797,8 @@
   title: |
     FactCheck.org
   created_at: 2009-05-03 16:19:59 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 74:
   id: 74
@@ -157,7 +806,8 @@
   title: |
     VoterMedia Democracy Blog
   created_at: 2009-04-28 03:46:24 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 73:
   id: 73
@@ -165,7 +815,8 @@
   title: |
     BC Election 2009
   created_at: 2009-04-28 03:17:07 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 72:
   id: 72
@@ -173,7 +824,8 @@
   title: |
     Nashvillest
   created_at: 2009-04-27 23:19:22 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 71:
   id: 71
@@ -181,7 +833,8 @@
   title: |
     Knoxify - The insider’s take on what makes Knoxville great
   created_at: 2009-04-27 23:16:29 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 70:
   id: 70
@@ -189,7 +842,8 @@
   title: |
     Chattarati, Chattanooga news and opinion
   created_at: 2009-04-27 23:10:24 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 69:
   id: 69
@@ -197,7 +851,8 @@
   title: |
     TennesseeTicket.com
   created_at: 2009-04-27 22:59:12 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 68:
   id: 68
@@ -205,7 +860,8 @@
   title: |
     TennesseeTicket.com
   created_at: 2009-04-27 22:56:09 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 67:
   id: 67
@@ -213,7 +869,8 @@
   title: |
     Knoxville Tennessee Blog
   created_at: 2009-04-27 22:50:19 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 66:
   id: 66
@@ -221,7 +878,8 @@
   title: |
     The London Fog
   created_at: 2009-04-27 22:38:04 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 65:
   id: 65
@@ -229,7 +887,8 @@
   title: |
     MB Civic
   created_at: 2009-04-27 22:34:13 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 64:
   id: 64
@@ -237,7 +896,8 @@
   title: |
     Worth the Fee to Read It
   created_at: 2009-04-27 21:54:25 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 63:
   id: 63
@@ -245,7 +905,8 @@
   title: |
     Worth the Fee to Read It
   created_at: 2009-04-27 21:53:29 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 62:
   id: 62
@@ -253,7 +914,8 @@
   title: |
     Worth the Fee to Read It
   created_at: 2009-04-27 21:52:35 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 61:
   id: 61
@@ -261,7 +923,8 @@
   title: |
     Go Nanaimo Blog
   created_at: 2009-04-27 21:47:01 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 60:
   id: 60
@@ -269,7 +932,8 @@
   title: |
     South End Votes
   created_at: 2009-04-27 21:45:41 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 59:
   id: 59
@@ -277,15 +941,17 @@
   title: |
     Petroglyphs
   created_at: 2009-04-27 19:33:21 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 58:
   id: 58
-  url: http://teamakers.blogspot.com/
+  url: http://www.theteamakers.com/
   title: |
     The Tea Makers
   created_at: 2009-04-27 19:28:44 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-08-11 05:14:35 UTC
+  creator_ip: 
 
 57:
   id: 57
@@ -293,7 +959,8 @@
   title: |
     Planet CBC
   created_at: 2009-04-27 19:25:58 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 56:
   id: 56
@@ -301,7 +968,8 @@
   title: |
     publicbroadcasting.ca
   created_at: 2009-04-27 19:22:16 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 55:
   id: 55
@@ -309,7 +977,8 @@
   title: |
     The Foothill Cities Blog
   created_at: 2009-04-27 19:18:25 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 54:
   id: 54
@@ -317,7 +986,8 @@
   title: |
     The Foothill Cities Blog
   created_at: 2009-04-27 19:15:23 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 53:
   id: 53
@@ -325,7 +995,8 @@
   title: |
     The Foothill Cities Blog
   created_at: 2009-04-27 19:14:40 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 52:
   id: 52
@@ -333,7 +1004,8 @@
   title: |
     All Things Upland
   created_at: 2009-04-27 19:06:13 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 51:
   id: 51
@@ -341,7 +1013,8 @@
   title: |
     Claremont Insider
   created_at: 2009-04-27 18:59:30 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 50:
   id: 50
@@ -349,7 +1022,8 @@
   title: |
     Pique newsmagazine| Whistler, CANADA
   created_at: 2009-04-27 18:22:52 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 49:
   id: 49
@@ -357,7 +1031,8 @@
   title: |
     northvancouverpolitics.com
   created_at: 2009-04-27 16:57:05 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 48:
   id: 48
@@ -365,7 +1040,8 @@
   title: |
     northvancouverpolitics.com
   created_at: 2009-04-27 16:56:40 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 47:
   id: 47
@@ -373,7 +1049,8 @@
   title: |
     Langley Free Press
   created_at: 2009-04-27 16:34:21 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 46:
   id: 46
@@ -381,7 +1058,8 @@
   title: |
     Langley Free Press
   created_at: 2009-04-27 16:32:50 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 45:
   id: 45
@@ -389,7 +1067,8 @@
   title: |
     Langley Politics Dotcom
   created_at: 2009-04-27 16:27:44 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 44:
   id: 44
@@ -397,7 +1076,8 @@
   title: |
     Microsoft Subnet Blog
   created_at: 2009-04-26 05:20:07 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 43:
   id: 43
@@ -405,7 +1085,8 @@
   title: |
     About Us | Stand On Guard For CBC
   created_at: 2009-04-26 04:53:57 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 42:
   id: 42
@@ -413,7 +1094,8 @@
   title: |
     Report Card - Vancouver Sun blogs
   created_at: 2009-04-26 04:42:56 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 41:
   id: 41
@@ -421,7 +1103,8 @@
   title: |
     Report Card - Vancouver Sun blogs
   created_at: 2009-04-26 04:40:34 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 40:
   id: 40
@@ -429,7 +1112,8 @@
   title: |
     Macleans OnCampus
   created_at: 2009-04-26 04:39:51 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 39:
   id: 39
@@ -437,7 +1121,8 @@
   title: |
     Macleans OnCampus
   created_at: 2009-04-26 04:39:24 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 38:
   id: 38
@@ -445,7 +1130,8 @@
   title: |
     BC Vote
   created_at: 2009-04-26 04:35:00 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 37:
   id: 37
@@ -453,7 +1139,8 @@
   title: |
     UBC Years - Phoebe Yu » The loquacious musings of a caffeinated UBC student
   created_at: 2009-04-26 04:33:08 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 36:
   id: 36
@@ -461,7 +1148,8 @@
   title: |
     UBC Devil's Advocate
   created_at: 2009-04-26 04:31:12 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 35:
   id: 35
@@ -469,15 +1157,17 @@
   title: |
     Fair Vote UBC
   created_at: 2009-04-26 04:30:53 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 34:
   id: 34
   url: http://www.knollubc.ca/
   title: |
-    http://www.knollubc.ca/
+    The Knoll
   created_at: 2009-04-26 04:30:30 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-08-07 21:50:38 UTC
+  creator_ip: 
 
 33:
   id: 33
@@ -485,7 +1175,8 @@
   title: |
     UBC Insiders
   created_at: 2009-04-26 04:30:12 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 32:
   id: 32
@@ -493,7 +1184,8 @@
   title: |
     UBC Student Media
   created_at: 2009-04-26 04:29:55 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 31:
   id: 31
@@ -501,7 +1193,8 @@
   title: |
     The Radical Beer Tribune
   created_at: 2009-04-26 04:29:36 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 30:
   id: 30
@@ -509,7 +1202,8 @@
   title: |
     The UBC Spectator
   created_at: 2009-04-26 04:29:13 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 29:
   id: 29
@@ -517,7 +1211,8 @@
   title: |
     paulhillsdon.com
   created_at: 2009-04-26 04:25:39 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 28:
   id: 28
@@ -525,7 +1220,8 @@
   title: |
     Stephen Rees's blog
   created_at: 2009-04-26 04:24:57 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 27:
   id: 27
@@ -533,7 +1229,8 @@
   title: |
     Currents
   created_at: 2009-04-26 04:20:24 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 26:
   id: 26
@@ -541,7 +1238,8 @@
   title: |
     Tyee Home :: thetyee.ca
   created_at: 2009-04-26 04:20:00 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 25:
   id: 25
@@ -549,7 +1247,8 @@
   title: |
     paulhillsdon.com
   created_at: 2009-04-26 04:18:06 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 24:
   id: 24
@@ -557,7 +1256,8 @@
   title: |
     David Eby - Blog
   created_at: 2009-04-26 04:17:45 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 23:
   id: 23
@@ -565,7 +1265,8 @@
   title: |
     Tyee Home :: thetyee.ca
   created_at: 2009-04-26 04:16:31 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 20:
   id: 20
@@ -573,7 +1274,8 @@
   title: |
     Currents
   created_at: 2009-04-26 04:13:44 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 19:
   id: 19
@@ -581,7 +1283,8 @@
   title: |
     Currents
   created_at: 2009-04-26 04:13:11 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 18:
   id: 18
@@ -589,7 +1292,8 @@
   title: |
     David Talks/The Berner Monologues
   created_at: 2009-04-26 04:10:22 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 17:
   id: 17
@@ -597,7 +1301,8 @@
   title: |
     Hummingbird604.com
   created_at: 2009-04-26 04:09:48 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 16:
   id: 16
@@ -605,7 +1310,8 @@
   title: |
     Vancouver Blog Miss 604 by Rebecca Bollwitt
   created_at: 2009-04-26 04:06:24 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 15:
   id: 15
@@ -613,7 +1319,8 @@
   title: |
     Price Tags
   created_at: 2009-04-26 04:06:04 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 14:
   id: 14
@@ -621,7 +1328,8 @@
   title: |
     Beyond Robson | Vancouver blog
   created_at: 2009-04-26 04:05:45 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 13:
   id: 13
@@ -629,7 +1337,8 @@
   title: |
     paulhillsdon.com
   created_at: 2009-04-26 04:05:24 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 12:
   id: 12
@@ -637,7 +1346,8 @@
   title: |
     David Eby - Blog
   created_at: 2009-04-26 04:04:59 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 11:
   id: 11
@@ -645,7 +1355,8 @@
   title: |
     Tyee Home :: thetyee.ca
   created_at: 2009-04-26 04:04:22 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 10:
   id: 10
@@ -653,7 +1364,8 @@
   title: |
     Vancouver Observer: Frontpage
   created_at: 2009-04-26 04:01:50 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 9:
   id: 9
@@ -661,7 +1373,8 @@
   title: |
     Bill Tieleman
   created_at: 2009-04-26 03:34:09 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 8:
   id: 8
@@ -669,7 +1382,8 @@
   title: |
     Public Eye Online
   created_at: 2009-04-26 03:32:02 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 7:
   id: 7
@@ -677,15 +1391,17 @@
   title: |
     Stephen Rees's blog
   created_at: 2009-04-26 03:31:26 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 6:
   id: 6
   url: http://www.francesbula.com/
   title: |
-    Frances Bula &#8212; Vancouver city life and politics
+    Frances Bula - Vancouver city life and politics
   created_at: 2009-04-26 03:28:49 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-07-15 18:32:16 UTC
+  creator_ip: 
 
 5:
   id: 5
@@ -693,7 +1409,8 @@
   title: |
     Stephen Rees's blog
   created_at: 2009-04-26 03:28:13 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 4:
   id: 4
@@ -701,7 +1418,8 @@
   title: |
     Activism-The Crandrea Group
   created_at: 2009-04-25 20:39:59 UTC
-  updated_at: 2009-06-01 03:08:07 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 3:
   id: 3
@@ -709,7 +1427,8 @@
   title: |
     Activism - The Crandrea Group
   created_at: 2009-04-25 03:37:43 UTC
-  updated_at: 2009-06-01 03:06:57 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 2:
   id: 2
@@ -717,7 +1436,8 @@
   title: |
     Microsoft Subnet Blog
   created_at: 2009-04-25 02:42:54 UTC
-  updated_at: 2009-06-01 03:06:57 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 
 1:
   id: 1
@@ -725,5 +1445,6 @@
   title: |
     Activism - The Crandrea Group
   created_at: 2009-04-25 01:31:44 UTC
-  updated_at: 2009-06-01 03:06:57 UTC
+  updated_at: 2009-06-26 00:59:22 UTC
+  creator_ip: 
 

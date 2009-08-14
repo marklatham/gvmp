@@ -1,0 +1,620 @@
+
+1:
+  id: 1
+  pdate: 2008-07-16
+  place: |
+    <a href="misc/20080716RadioCanadaMLInterview.mp3">Interview</a> on <a href="http://www.radio-canada.ca/radio/emissions/emission.asp?numero=2437">Radio Canada program Ailleurs c'est ici</a>
+  host: |
+    Julie Carpentier
+  created_at: 2009-08-11 04:43:47 UTC
+  updated_at: 2009-08-11 04:43:47 UTC
+
+2:
+  id: 2
+  pdate: 2008-02-20
+  place: |
+    <a href="http://www.kwantlen.ca/itbs">Kwantlen University College Institute for Transborder Studies</a>
+  host: |
+    Noemi Gal-Or, Director, ITS 
+  created_at: 2009-08-11 04:46:28 UTC
+  updated_at: 2009-08-11 04:46:28 UTC
+
+3:
+  id: 3
+  pdate: 2008-01-30
+  place: |
+    Interview on <a href="http://www.cjsf.bc.ca/">CJSF Radio 90.1 FM</a> (SFU Ideas & Issues)
+  host: |
+    Elise Ikoma 
+  created_at: 2009-08-11 04:47:47 UTC
+  updated_at: 2009-08-11 04:47:47 UTC
+
+4:
+  id: 4
+  pdate: 2007-06-27
+  place: |
+    <a href="http://www.sfss.ca/">Simon Fraser Student Society</a> Forum
+  host: |
+    Amy Fox
+  created_at: 2009-08-11 04:50:29 UTC
+  updated_at: 2009-08-11 04:50:29 UTC
+
+5:
+  id: 5
+  pdate: 2007-06-06
+  place: |
+    <a href="http://www.sfss.ca/">Simon Fraser Student Society</a> Board
+  host: |
+    Amy Fox
+  created_at: 2009-08-11 04:50:56 UTC
+  updated_at: 2009-08-11 04:50:56 UTC
+
+6:
+  id: 6
+  pdate: 2007-02-01
+  place: |
+    <a href="http://www.mokuyokai.bc.ca/">Vancouver Mokuyokai Society</a>
+  host: |
+    Shelley Hayashi
+  created_at: 2009-08-11 04:52:15 UTC
+  updated_at: 2009-08-11 04:52:15 UTC
+
+8:
+  id: 8
+  pdate: 2006-11-24
+  place: |
+    University of British Columbia, Poli Sci 385A<br />(Public Opinion, Elections, and Representation) 
+  host: |
+    Professor Fred Cutler
+  created_at: 2009-08-11 04:53:49 UTC
+  updated_at: 2009-08-11 05:00:19 UTC
+
+7:
+  id: 7
+  pdate: 2006-11-24
+  place: |
+    University of British Columbia, School of Journalism, Class of 2008 
+  host: |
+    Professor Mary Lynn Young
+  created_at: 2009-08-11 04:53:12 UTC
+  updated_at: 2009-08-11 04:53:12 UTC
+
+9:
+  id: 9
+  pdate: 2006-08-02
+  place: |
+    <a href="http://www.amsubc.ca/">University of British Columbia, AMS</a> [Student] Council
+  host: |
+    VP External Ian Pattillo
+  created_at: 2009-08-11 04:55:08 UTC
+  updated_at: 2009-08-11 04:55:08 UTC
+
+10:
+  id: 10
+  pdate: 2006-06-01
+  place: |
+    Stanford University, PhD Seminar on Freedom and Control of Communication
+  host: |
+    Professor Ted Glasser
+  created_at: 2009-08-11 04:55:57 UTC
+  updated_at: 2009-08-11 04:55:57 UTC
+
+11:
+  id: 11
+  pdate: 2006-01-29
+  place: |
+    University of British Columbia, Sauder School of Business
+  host: |
+    Professor Kai Li
+  created_at: 2009-08-11 04:56:31 UTC
+  updated_at: 2009-08-11 04:56:31 UTC
+
+12:
+  id: 12
+  pdate: 2005-12-06
+  place: |
+    Shih Hsin University (Taiwan) - Journalism
+  host: |
+    Professor Steve HU Chiachih
+  created_at: 2009-08-11 04:57:24 UTC
+  updated_at: 2009-08-11 04:57:24 UTC
+
+13:
+  id: 13
+  pdate: 2005-12-06
+  place: |
+    National Taiwan University College of Management
+  host: |
+    Professor Chen Yehning
+  created_at: 2009-08-11 04:58:39 UTC
+  updated_at: 2009-08-11 04:58:39 UTC
+
+14:
+  id: 14
+  pdate: 2005-11-28
+  place: |
+    National Taiwan University College of Law
+  host: |
+    Professor Huang Ming-jye
+  created_at: 2009-08-11 04:59:24 UTC
+  updated_at: 2009-08-11 04:59:24 UTC
+
+15:
+  id: 15
+  pdate: 2005-10-06
+  place: |
+    University of British Columbia, Sauder School of Business
+  host: |
+    Professor Kai Li
+  created_at: 2009-08-11 05:04:59 UTC
+  updated_at: 2009-08-11 05:04:59 UTC
+
+16:
+  id: 16
+  pdate: 2005-10-05
+  place: |
+    University of British Columbia, Sauder School of Business
+  host: |
+    Professor Kai Li
+  created_at: 2009-08-11 05:05:23 UTC
+  updated_at: 2009-08-11 05:05:23 UTC
+
+17:
+  id: 17
+  pdate: 2005-06-13
+  place: |
+    TV Interview on Channel 47, Port Townsend, Washington
+  host: |
+    The Jim Rough Show
+  created_at: 2009-08-11 05:06:02 UTC
+  updated_at: 2009-08-11 05:06:02 UTC
+
+18:
+  id: 18
+  pdate: 2005-06-12
+  place: |
+    <a href="http://www.citizensassembly.bc.ca/">British Columbia Citizens' Assembly on Electoral Reform</a>
+  host: |
+    Public consultation [<a href="http://www.citizensassembly.bc.ca/resources/submissions/csharman-10_0406151124-834.pdf">text</a>]
+  created_at: 2009-08-11 16:42:19 UTC
+  updated_at: 2009-08-12 02:46:40 UTC
+
+19:
+  id: 19
+  pdate: 2004-05-04
+  place: |
+    <a href="http://www.veoh.com/videos/v6505095YzzMTrJd?c=StrategiesForSociety">TV Interview on Channel 47</a>, Port Townsend, Washington
+  host: |
+    The Jim Rough Show
+  created_at: 2009-08-11 17:57:47 UTC
+  updated_at: 2009-08-11 17:58:33 UTC
+
+20:
+  id: 20
+  pdate: 2003-10-02
+  place: |
+    Santa Clara University (California), School of Business
+  host: |
+    Professor Atulya Sarin
+  created_at: 2009-08-11 18:23:49 UTC
+  updated_at: 2009-08-11 18:23:49 UTC
+
+21:
+  id: 21
+  pdate: 2003-09-23
+  place: |
+    University of California at Berkeley, Haas School of Business
+  host: |
+    Adjunct Professor Kellie McElhaney
+  created_at: 2009-08-11 18:31:38 UTC
+  updated_at: 2009-08-11 18:31:38 UTC
+
+22:
+  id: 22
+  pdate: 2003-09-17
+  place: |
+    University of California at Berkeley, Boalt Hall Law School
+  host: |
+    Professor Richard Buxbaum
+  created_at: 2009-08-11 18:32:14 UTC
+  updated_at: 2009-08-11 18:32:14 UTC
+
+23:
+  id: 23
+  pdate: 2003-06-10
+  place: |
+    Barclays Global Investors, San Francisco head office
+  host: |
+    Richard Grinold
+  created_at: 2009-08-11 18:32:54 UTC
+  updated_at: 2009-08-11 18:32:54 UTC
+
+24:
+  id: 24
+  pdate: 2003-05-27
+  place: |
+    <a href="http://www.11iacc.org/">11th International Anti-Corruption Conference</a> (Seoul)
+  host: |
+    <a href="http://www.transparency.org/">Transparency International</a>
+  created_at: 2009-08-11 21:14:13 UTC
+  updated_at: 2009-08-11 21:15:35 UTC
+
+25:
+  id: 25
+  pdate: 2003-05-23
+  place: |
+    QUICK Governance Research Group (Tokyo)
+  host: |
+    Hisako Saida & Professor Yukihiro Asano
+  created_at: 2009-08-11 21:16:27 UTC
+  updated_at: 2009-08-11 21:16:27 UTC
+
+26:
+  id: 26
+  pdate: 2003-05-16
+  place: |
+    Japan Society of Investment Professionals
+  host: |
+    Seiki Hishikawa, CEO
+  created_at: 2009-08-11 21:17:14 UTC
+  updated_at: 2009-08-11 21:17:14 UTC
+
+27:
+  id: 27
+  pdate: 2003-04-23
+  place: |
+    Barclays Global Investors, Tokyo office
+  host: |
+    Fangsheng Liu & Ross Hikida
+  created_at: 2009-08-11 21:18:22 UTC
+  updated_at: 2009-08-11 21:18:22 UTC
+
+28:
+  id: 28
+  pdate: 2003-04-09
+  place: |
+    University of California at Berkeley, Haas School of Business
+  host: |
+    MBA Investment & Finance Clubs
+  created_at: 2009-08-11 21:20:47 UTC
+  updated_at: 2009-08-11 21:20:47 UTC
+
+29:
+  id: 29
+  pdate: 2003-04-09
+  place: |
+    Santa Clara University (California), School of Law
+  host: |
+    Professor Stephen Diamond
+  created_at: 2009-08-11 21:21:31 UTC
+  updated_at: 2009-08-11 21:21:31 UTC
+
+30:
+  id: 30
+  pdate: 2003-04-08
+  place: |
+    Santa Clara University (California), School of Business
+  host: |
+    Professor Atulya Sarin
+  created_at: 2009-08-11 21:22:10 UTC
+  updated_at: 2009-08-11 21:22:10 UTC
+
+31:
+  id: 31
+  pdate: 2003-03-12
+  place: |
+    <a href="http://www.uclaforecast.com/event/eventdisplay.asp?iEventID=13">UCLA Anderson Forecast Conference</a>
+  host: |
+    Professor Antonio Bernardo
+  created_at: 2009-08-11 21:23:20 UTC
+  updated_at: 2009-08-11 21:24:46 UTC
+
+32:
+  id: 32
+  pdate: 2003-03-06
+  place: |
+    Stanford Law School, Corporate Governance Colloquium
+  host: |
+    Dan Siciliano, Teaching Fellow
+  created_at: 2009-08-11 21:24:00 UTC
+  updated_at: 2009-08-11 21:24:00 UTC
+
+33:
+  id: 33
+  pdate: 2003-02-18
+  place: |
+    Stanford Business School, Finance Faculty
+  host: |
+    Professor Paul Pfleiderer
+  created_at: 2009-08-11 21:25:54 UTC
+  updated_at: 2009-08-11 21:25:54 UTC
+
+34:
+  id: 34
+  pdate: 2003-02-07
+  place: |
+    National University of Singapore Business School
+  host: |
+    Professor Mak Yuen Teen
+  created_at: 2009-08-11 21:28:41 UTC
+  updated_at: 2009-08-11 21:28:41 UTC
+
+35:
+  id: 35
+  pdate: 2003-02-06
+  place: |
+    Nanyang Technological University (Singapore)
+  host: |
+    Professor Lau Sie Ting
+  created_at: 2009-08-11 21:29:22 UTC
+  updated_at: 2009-08-11 21:29:22 UTC
+
+36:
+  id: 36
+  pdate: 2003-02-05
+  place: |
+    Singapore Management University
+  host: |
+    Professor Jeremy Goh
+  created_at: 2009-08-11 21:30:19 UTC
+  updated_at: 2009-08-11 21:30:19 UTC
+
+37:
+  id: 37
+  pdate: 2003-01-29
+  place: |
+    Singapore Polytechnic
+  host: |
+    Professor Christopher Cheong Boon Leong
+  created_at: 2009-08-11 21:30:57 UTC
+  updated_at: 2009-08-11 21:30:57 UTC
+
+38:
+  id: 38
+  pdate: 2002-12-09
+  place: |
+    Shanghai Jiaotong University, Aetna School of Management
+  host: |
+    Tang Zong-Ming
+  created_at: 2009-08-11 21:31:34 UTC
+  updated_at: 2009-08-11 21:31:34 UTC
+
+39:
+  id: 39
+  pdate: 2002-11-19
+  place: |
+    Shanghai University of Finance & Economics, School of Accountancy
+  host: |
+    Dean Chen Xinyuan
+  created_at: 2009-08-11 21:32:12 UTC
+  updated_at: 2009-08-11 21:32:12 UTC
+
+40:
+  id: 40
+  pdate: 2002-10-31
+  place: |
+    Beijing University, China Centre for Economic Research
+  host: |
+    Professor Lin Yifu
+  created_at: 2009-08-11 21:32:47 UTC
+  updated_at: 2009-08-11 21:32:47 UTC
+
+41:
+  id: 41
+  pdate: 2002-10-08
+  place: |
+    Beijing University Law School
+  host: |
+    Professor Wu Zhipan
+  created_at: 2009-08-11 21:33:25 UTC
+  updated_at: 2009-08-11 21:33:25 UTC
+
+42:
+  id: 42
+  pdate: 2002-09-17
+  place: |
+    Hong Kong University of Science & Technology, Department of Economics
+  host: |
+    Professor Chew Soo Hong
+  created_at: 2009-08-11 21:34:11 UTC
+  updated_at: 2009-08-11 21:34:11 UTC
+
+43:
+  id: 43
+  pdate: 2002-09-13
+  place: |
+    Hong Kong University of Science & Technology, Department of Finance
+  host: |
+    Professor Angela Ng
+  created_at: 2009-08-11 21:34:54 UTC
+  updated_at: 2009-08-11 21:34:54 UTC
+
+44:
+  id: 44
+  pdate: 2002-05-01
+  place: |
+    University of California at Berkeley, Haas School of Business
+  host: |
+    Professor Nils Hakansson
+  created_at: 2009-08-11 21:35:37 UTC
+  updated_at: 2009-08-11 21:35:37 UTC
+
+45:
+  id: 45
+  pdate: 2001-04-10
+  place: |
+    University of California at Berkeley, Haas School of Business
+  host: |
+    Professor Nils Hakansson
+  created_at: 2009-08-12 02:33:59 UTC
+  updated_at: 2009-08-12 02:33:59 UTC
+
+46:
+  id: 46
+  pdate: 2001-03-20
+  place: |
+    Commonwealth Club of California, Business & Economics Section
+  host: |
+    Dr. James Forcier
+  created_at: 2009-08-12 02:34:37 UTC
+  updated_at: 2009-08-12 02:34:37 UTC
+
+47:
+  id: 47
+  pdate: 2001-02-24
+  place: |
+    Santa Clara University (California), School of Business
+  host: |
+    Professor Atulya Sarin
+  created_at: 2009-08-12 02:35:13 UTC
+  updated_at: 2009-08-12 02:35:13 UTC
+
+48:
+  id: 48
+  pdate: 2000-04-11
+  place: |
+    University of California at Berkeley, Haas School of Business
+  host: |
+    Professor Nils Hakansson
+  created_at: 2009-08-12 02:35:49 UTC
+  updated_at: 2009-08-12 02:35:49 UTC
+
+49:
+  id: 49
+  pdate: 2000-02-24
+  place: |
+    International Corporate Governance Conference at Pfizer Corporate Center
+  host: |
+    Dr. Theodore Roosevelt Malloch
+  created_at: 2009-08-12 02:36:36 UTC
+  updated_at: 2009-08-12 02:36:36 UTC
+
+50:
+  id: 50
+  pdate: 1999-09-25
+  place: |
+    Northern Finance Association Annual Conference
+  host: |
+    Professor Gordon Sick
+  created_at: 2009-08-12 02:37:16 UTC
+  updated_at: 2009-08-12 02:37:16 UTC
+
+51:
+  id: 51
+  pdate: 1999-07-19
+  place: |
+    The Institute of Economic Affairs (London)
+  host: |
+    John Blundell, General Director
+  created_at: 2009-08-12 02:37:52 UTC
+  updated_at: 2009-08-12 02:37:52 UTC
+
+52:
+  id: 52
+  pdate: 1999-06-02
+  place: |
+    Nottingham Trent University (UK)
+  host: |
+    Professor Christine Mallin
+  created_at: 2009-08-12 02:38:23 UTC
+  updated_at: 2009-08-12 02:38:23 UTC
+
+53:
+  id: 53
+  pdate: 1999-04-13
+  place: |
+    University of California at Berkeley, Haas School of Business
+  host: |
+    Professor Nils Hakansson
+  created_at: 2009-08-12 02:38:55 UTC
+  updated_at: 2009-08-12 02:38:55 UTC
+
+54:
+  id: 54
+  pdate: 1999-04-02
+  place: |
+    Stanford Business School, Finance Faculty
+  host: |
+    Professor Paul Pfleiderer
+  created_at: 2009-08-12 02:39:26 UTC
+  updated_at: 2009-08-12 02:39:26 UTC
+
+55:
+  id: 55
+  pdate: 1999-02-27
+  place: |
+    Santa Clara University (California), School of Business
+  host: |
+    Professor Atulya Sarin
+  created_at: 2009-08-12 02:39:55 UTC
+  updated_at: 2009-08-12 02:39:55 UTC
+
+56:
+  id: 56
+  pdate: 1998-07-21
+  place: |
+    Asia-Pacific and Nippon Finance Associations Conference
+  host: |
+    Professors K. C. Chan & Keiichi Kubota
+  created_at: 2009-08-12 02:40:37 UTC
+  updated_at: 2009-08-12 02:40:37 UTC
+
+57:
+  id: 57
+  pdate: 1998-05-27
+  place: |
+    University Club, San Francisco
+  host: |
+    
+  created_at: 2009-08-12 02:41:03 UTC
+  updated_at: 2009-08-12 02:41:03 UTC
+
+58:
+  id: 58
+  pdate: 1998-04-17
+  place: |
+    Korea Securities Research Institute
+  host: |
+    Dr. Woo Yeong-Ho
+  created_at: 2009-08-12 02:41:37 UTC
+  updated_at: 2009-08-12 02:41:37 UTC
+
+59:
+  id: 59
+  pdate: 1998-04-16
+  place: |
+    Seoul National University, College of Business Administration
+  host: |
+    Professor Kim Young-Jin
+  created_at: 2009-08-12 02:42:15 UTC
+  updated_at: 2009-08-12 02:42:15 UTC
+
+60:
+  id: 60
+  pdate: 1998-04-08
+  place: |
+    University of California at Berkeley, Haas School of Business
+  host: |
+    Professor Nils Hakansson
+  created_at: 2009-08-12 02:42:44 UTC
+  updated_at: 2009-08-12 02:42:44 UTC
+
+61:
+  id: 61
+  pdate: 1997-09-04
+  place: |
+    University of California at Berkeley, Haas School of Business Finance Dept
+  host: |
+    Professor Mark Rubinstein
+  created_at: 2009-08-12 02:43:25 UTC
+  updated_at: 2009-08-12 02:43:25 UTC
+
+62:
+  id: 62
+  pdate: 1997-08-28
+  place: |
+    Bank of America, Risk Management Group
+  host: |
+    Ray Hawkins
+  created_at: 2009-08-12 02:44:01 UTC
+  updated_at: 2009-08-12 02:44:01 UTC
