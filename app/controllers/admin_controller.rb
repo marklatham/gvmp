@@ -27,8 +27,13 @@ class AdminController < ApplicationController
   def set_ballot_types
     @votes = Vote.find(:all)
 	  @votes.each do |vote|
-	    if vote.support
+	    # One-click voting started 2009-08-09, which in test data was id 247:
+	    if vote.id > 246
+	      vote.ballot_type = 0
+	    # Before that, we had percent voting:
+	    elsif vote.support
 	      vote.ballot_type = 1
+	    # Votes with no support were the earlier approval voting:
 	    else
 	      vote.ballot_type = -1
 	    end

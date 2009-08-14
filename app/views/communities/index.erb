@@ -16,4 +16,10 @@
     <% if community.description %><%= community.description.gsub(/\n/,"\n    ") %><% end %>
   created_at: <%= community.created_at %>
   updated_at: <%= community.updated_at %>
+  add_to_description: |
+    <% if community.add_to_description %><%= community.add_to_description.gsub(/\n/,"\n    ") %><% end %>
+  creator_ip: <%= community.creator_ip %>
+  adder_ip: <%= community.adder_ip %>
+  delta: |
+    <% if community.delta %><%= 1 %><% end %>
 <% end %>

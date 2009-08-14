@@ -1,0 +1,2230 @@
+
+270:
+  id: 270
+  ip_address: 127.0.0.1
+  community_id: 116
+  website_id: 80
+  support: 0.0
+  created_at: 2009-08-11 03:59:11 UTC
+  updated_at: 2009-08-11 03:59:11 UTC
+  ballot_type: 0
+
+269:
+  id: 269
+  ip_address: 127.0.0.1
+  community_id: 116
+  website_id: 76
+  support: 26.0
+  created_at: 2009-08-11 03:56:22 UTC
+  updated_at: 2009-08-11 03:56:22 UTC
+  ballot_type: 0
+
+268:
+  id: 268
+  ip_address: 127.0.0.1
+  community_id: 116
+  website_id: 81
+  support: 1.0
+  created_at: 2009-08-11 03:54:43 UTC
+  updated_at: 2009-08-11 03:54:43 UTC
+  ballot_type: 0
+
+267:
+  id: 267
+  ip_address: 127.0.0.1
+  community_id: 116
+  website_id: 79
+  support: 1.0
+  created_at: 2009-08-11 03:54:03 UTC
+  updated_at: 2009-08-11 03:54:03 UTC
+  ballot_type: 0
+
+266:
+  id: 266
+  ip_address: 127.0.0.1
+  community_id: 116
+  website_id: 78
+  support: 1.0
+  created_at: 2009-08-11 03:53:17 UTC
+  updated_at: 2009-08-11 03:53:17 UTC
+  ballot_type: 0
+
+263:
+  id: 263
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 19
+  support: 0.0
+  created_at: 2009-08-10 16:41:03 UTC
+  updated_at: 2009-08-10 16:41:03 UTC
+  ballot_type: 0
+
+262:
+  id: 262
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 18
+  support: 0.0
+  created_at: 2009-08-10 16:40:52 UTC
+  updated_at: 2009-08-10 16:40:52 UTC
+  ballot_type: 0
+
+261:
+  id: 261
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 5
+  support: 0.0
+  created_at: 2009-08-10 16:40:36 UTC
+  updated_at: 2009-08-10 16:40:36 UTC
+  ballot_type: 0
+
+260:
+  id: 260
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 34
+  support: 0.0
+  created_at: 2009-08-10 16:24:21 UTC
+  updated_at: 2009-08-10 16:24:21 UTC
+  ballot_type: 0
+
+259:
+  id: 259
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 30
+  support: 20.0
+  created_at: 2009-08-10 16:22:07 UTC
+  updated_at: 2009-08-10 16:22:07 UTC
+  ballot_type: 0
+
+258:
+  id: 258
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 31
+  support: 25.0
+  created_at: 2009-08-10 16:20:41 UTC
+  updated_at: 2009-08-10 16:20:41 UTC
+  ballot_type: 0
+
+253:
+  id: 253
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 62
+  support: 18.0
+  created_at: 2009-08-10 04:34:03 UTC
+  updated_at: 2009-08-10 05:25:24 UTC
+  ballot_type: 0
+
+252:
+  id: 252
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 56
+  support: 7.0
+  created_at: 2009-08-10 04:34:02 UTC
+  updated_at: 2009-08-10 04:47:07 UTC
+  ballot_type: 0
+
+251:
+  id: 251
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 43
+  support: 20.0
+  created_at: 2009-08-10 04:34:00 UTC
+  updated_at: 2009-08-10 04:34:00 UTC
+  ballot_type: 0
+
+250:
+  id: 250
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 57
+  support: 10.0
+  created_at: 2009-08-10 04:29:00 UTC
+  updated_at: 2009-08-10 04:31:57 UTC
+  ballot_type: 0
+
+247:
+  id: 247
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 59
+  support: 12.0
+  created_at: 2009-08-10 04:25:31 UTC
+  updated_at: 2009-08-10 05:30:01 UTC
+  ballot_type: 0
+
+230:
+  id: 230
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 9
+  support: 0.0
+  created_at: 2009-08-07 22:04:47 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+228:
+  id: 228
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 5
+  support: 15.0
+  created_at: 2009-08-07 21:59:10 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+227:
+  id: 227
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 6
+  support: 20.0
+  created_at: 2009-08-07 03:48:17 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+226:
+  id: 226
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 5
+  support: 15.0
+  created_at: 2009-08-07 03:43:11 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+225:
+  id: 225
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 11
+  support: 30.0
+  created_at: 2009-08-07 03:43:06 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+224:
+  id: 224
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 11
+  support: 30.0
+  created_at: 2009-08-07 03:35:20 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+223:
+  id: 223
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 11
+  support: 30.0
+  created_at: 2009-08-07 03:32:32 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+222:
+  id: 222
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 11
+  support: 33.0
+  created_at: 2009-08-05 05:16:51 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+221:
+  id: 221
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 36
+  support: 15.0
+  created_at: 2009-08-05 00:10:13 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+220:
+  id: 220
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 37
+  support: 10.0
+  created_at: 2009-08-05 00:10:05 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+123:
+  id: 123
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 30
+  support: 20.0
+  created_at: 2009-08-05 00:09:59 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+219:
+  id: 219
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 30
+  support: 20.0
+  created_at: 2009-08-05 00:09:59 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+218:
+  id: 218
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 31
+  support: 25.0
+  created_at: 2009-08-05 00:09:51 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+151:
+  id: 151
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 31
+  support: 25.0
+  created_at: 2009-08-05 00:09:51 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+217:
+  id: 217
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 33
+  support: 35.0
+  created_at: 2009-08-05 00:09:44 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+122:
+  id: 122
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 33
+  support: 35.0
+  created_at: 2009-08-05 00:09:44 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+216:
+  id: 216
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 12
+  support: 24.0
+  created_at: 2009-07-31 18:18:48 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+215:
+  id: 215
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 13
+  support: 26.0
+  created_at: 2009-07-31 18:18:43 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+214:
+  id: 214
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 14
+  support: 36.0
+  created_at: 2009-07-31 18:18:38 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+213:
+  id: 213
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 15
+  support: 32.0
+  created_at: 2009-07-31 18:18:33 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+212:
+  id: 212
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 16
+  support: 15.0
+  created_at: 2009-07-31 18:18:30 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+211:
+  id: 211
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 91
+  support: 12.0
+  created_at: 2009-07-31 18:18:20 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+210:
+  id: 210
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 5
+  support: 42.0
+  created_at: 2009-07-31 18:18:14 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+209:
+  id: 209
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 6
+  support: 44.0
+  created_at: 2009-07-31 18:18:09 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+208:
+  id: 208
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 10
+  support: 13.0
+  created_at: 2009-07-31 18:18:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+207:
+  id: 207
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 11
+  support: 57.0
+  created_at: 2009-07-31 18:18:00 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+206:
+  id: 206
+  ip_address: 127.0.0.2
+  community_id: 51
+  website_id: 12
+  support: 19.0
+  created_at: 2009-07-31 18:14:11 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+205:
+  id: 205
+  ip_address: 127.0.0.2
+  community_id: 51
+  website_id: 13
+  support: 21.0
+  created_at: 2009-07-31 18:14:06 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+204:
+  id: 204
+  ip_address: 127.0.0.2
+  community_id: 51
+  website_id: 14
+  support: 23.0
+  created_at: 2009-07-31 18:14:00 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+203:
+  id: 203
+  ip_address: 127.0.0.2
+  community_id: 51
+  website_id: 15
+  support: 28.0
+  created_at: 2009-07-31 18:13:52 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+202:
+  id: 202
+  ip_address: 127.0.0.2
+  community_id: 51
+  website_id: 11
+  support: 25.0
+  created_at: 2009-07-28 23:42:12 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+201:
+  id: 201
+  ip_address: 127.0.0.1
+  community_id: 189
+  website_id: 66
+  support: 30.0
+  created_at: 2009-07-24 03:36:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+200:
+  id: 200
+  ip_address: 127.0.0.2
+  community_id: 51
+  website_id: 6
+  support: 100.0
+  created_at: 2009-07-13 21:34:16 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+199:
+  id: 199
+  ip_address: 127.0.0.2
+  community_id: 51
+  website_id: 5
+  support: 13.0
+  created_at: 2009-07-13 21:32:55 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+189:
+  id: 189
+  ip_address: 127.0.0.1
+  community_id: 5
+  website_id: 63
+  support: 11.0
+  created_at: 2009-07-13 20:57:30 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+185:
+  id: 185
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 8
+  support: 31.0
+  created_at: 2009-07-13 05:15:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+184:
+  id: 184
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 45.0
+  created_at: 2009-07-13 05:13:47 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+182:
+  id: 182
+  ip_address: 127.0.0.2
+  community_id: 51
+  website_id: 10
+  support: 18.0
+  created_at: 2009-07-13 04:52:29 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+176:
+  id: 176
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 31
+  support: 55.0
+  created_at: 2009-07-13 02:37:01 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+175:
+  id: 175
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 33
+  support: 77.0
+  created_at: 2009-07-13 00:28:40 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+174:
+  id: 174
+  ip_address: 127.0.0.1
+  community_id: 191
+  website_id: 68
+  support: 
+  created_at: 2009-07-13 00:25:41 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+173:
+  id: 173
+  ip_address: 127.0.0.1
+  community_id: 109
+  website_id: 4
+  support: 47.0
+  created_at: 2009-07-13 00:24:18 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+172:
+  id: 172
+  ip_address: 127.0.0.1
+  community_id: 116
+  website_id: 82
+  support: 33.0
+  created_at: 2009-07-13 00:16:21 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: 1
+
+171:
+  id: 171
+  ip_address: 127.0.0.1
+  community_id: 109
+  website_id: 44
+  support: 
+  created_at: 2009-07-12 23:49:52 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+170:
+  id: 170
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 11
+  support: 
+  created_at: 2009-07-12 23:00:45 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+169:
+  id: 169
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 5
+  support: 
+  created_at: 2009-07-12 23:00:37 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+168:
+  id: 168
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 6
+  support: 
+  created_at: 2009-07-12 23:00:07 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+167:
+  id: 167
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 59
+  support: 
+  created_at: 2009-07-06 21:43:19 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+166:
+  id: 166
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 31
+  support: 
+  created_at: 2009-07-04 19:48:05 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+165:
+  id: 165
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 56
+  support: 
+  created_at: 2009-06-30 04:16:56 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+164:
+  id: 164
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 62
+  support: 
+  created_at: 2009-06-30 04:16:53 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+163:
+  id: 163
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-06-27 22:25:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+162:
+  id: 162
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-06-25 22:24:03 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+161:
+  id: 161
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 6
+  support: 
+  created_at: 2009-06-18 04:25:30 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+160:
+  id: 160
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 5
+  support: 
+  created_at: 2009-06-18 04:24:53 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+159:
+  id: 159
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-06-18 04:21:50 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+158:
+  id: 158
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-06-18 04:21:47 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+157:
+  id: 157
+  ip_address: 127.0.0.1
+  community_id: 205
+  website_id: 87
+  support: 
+  created_at: 2009-06-18 04:14:46 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+156:
+  id: 156
+  ip_address: 127.0.0.1
+  community_id: 208
+  website_id: 95
+  support: 
+  created_at: 2009-06-17 17:11:14 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+155:
+  id: 155
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 8
+  support: 
+  created_at: 2009-06-16 05:02:52 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+154:
+  id: 154
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 62
+  support: 
+  created_at: 2009-06-13 19:02:40 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+153:
+  id: 153
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-06-12 21:31:25 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+152:
+  id: 152
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 11
+  support: 
+  created_at: 2009-06-12 21:30:24 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+150:
+  id: 150
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 30
+  support: 
+  created_at: 2009-06-12 21:22:56 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+149:
+  id: 149
+  ip_address: 127.0.0.1
+  community_id: 82
+  website_id: 33
+  support: 
+  created_at: 2009-06-12 19:39:07 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+148:
+  id: 148
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-06-12 19:37:12 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+147:
+  id: 147
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-06-12 19:32:39 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+146:
+  id: 146
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-06-12 19:24:37 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+145:
+  id: 145
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 25
+  support: 
+  created_at: 2009-06-12 19:22:23 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+144:
+  id: 144
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 25
+  support: 
+  created_at: 2009-06-12 19:10:45 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+143:
+  id: 143
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 25
+  support: 
+  created_at: 2009-06-12 03:13:11 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+142:
+  id: 142
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-06-12 03:13:07 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+141:
+  id: 141
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-06-12 03:13:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+140:
+  id: 140
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-06-12 03:13:00 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+139:
+  id: 139
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 25
+  support: 
+  created_at: 2009-06-12 02:59:48 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+138:
+  id: 138
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-06-12 02:59:41 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+137:
+  id: 137
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-06-12 01:21:56 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+136:
+  id: 136
+  ip_address: 127.0.0.1
+  community_id: 35
+  website_id: 45
+  support: 
+  created_at: 2009-06-12 01:21:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+135:
+  id: 135
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-06-12 01:08:38 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+134:
+  id: 134
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 10
+  support: 
+  created_at: 2009-06-11 06:25:23 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+133:
+  id: 133
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 9
+  support: 
+  created_at: 2009-06-09 03:20:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+132:
+  id: 132
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 89
+  support: 
+  created_at: 2009-06-06 05:24:49 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+131:
+  id: 131
+  ip_address: 127.0.0.1
+  community_id: 207
+  website_id: 94
+  support: 
+  created_at: 2009-06-05 18:52:08 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+130:
+  id: 130
+  ip_address: 127.0.0.1
+  community_id: 207
+  website_id: 93
+  support: 
+  created_at: 2009-06-05 18:50:07 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+129:
+  id: 129
+  ip_address: 127.0.0.1
+  community_id: 63
+  website_id: 92
+  support: 
+  created_at: 2009-06-05 18:46:40 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+128:
+  id: 128
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 6
+  support: 
+  created_at: 2009-06-04 02:59:55 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+127:
+  id: 127
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 6
+  support: 
+  created_at: 2009-06-04 02:56:47 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+126:
+  id: 126
+  ip_address: 127.0.0.1
+  community_id: 14
+  website_id: 41
+  support: 
+  created_at: 2009-05-30 04:50:55 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+125:
+  id: 125
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 88
+  support: 
+  created_at: 2009-05-28 18:31:48 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+124:
+  id: 124
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 88
+  support: 
+  created_at: 2009-05-28 18:31:40 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+121:
+  id: 121
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-05-18 22:19:00 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+120:
+  id: 120
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-05-18 22:18:45 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+119:
+  id: 119
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 25
+  support: 
+  created_at: 2009-05-18 22:18:40 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+118:
+  id: 118
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 62
+  support: 
+  created_at: 2009-05-16 22:37:15 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+117:
+  id: 117
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 5
+  support: 
+  created_at: 2009-05-14 18:24:02 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+116:
+  id: 116
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 5
+  support: 
+  created_at: 2009-05-14 16:17:52 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+115:
+  id: 115
+  ip_address: 127.0.0.1
+  community_id: 185
+  website_id: 52
+  support: 
+  created_at: 2009-05-14 05:37:48 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+114:
+  id: 114
+  ip_address: 127.0.0.1
+  community_id: 3
+  website_id: 59
+  support: 
+  created_at: 2009-05-14 05:37:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+113:
+  id: 113
+  ip_address: 127.0.0.1
+  community_id: 191
+  website_id: 70
+  support: 
+  created_at: 2009-05-14 05:34:26 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+112:
+  id: 112
+  ip_address: 127.0.0.1
+  community_id: 205
+  website_id: 87
+  support: 
+  created_at: 2009-05-14 05:29:27 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+111:
+  id: 111
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 8
+  support: 
+  created_at: 2009-05-13 01:33:32 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+110:
+  id: 110
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 8
+  support: 
+  created_at: 2009-05-13 01:33:26 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+109:
+  id: 109
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-05-13 01:33:21 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+108:
+  id: 108
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-05-13 01:22:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+107:
+  id: 107
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-05-13 01:15:44 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+106:
+  id: 106
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-05-13 01:14:55 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+105:
+  id: 105
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 13
+  support: 
+  created_at: 2009-05-13 01:00:47 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+104:
+  id: 104
+  ip_address: 127.0.0.1
+  community_id: 51
+  website_id: 11
+  support: 
+  created_at: 2009-05-13 00:59:06 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+103:
+  id: 103
+  ip_address: 127.0.0.1
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-05-13 00:58:54 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+102:
+  id: 102
+  ip_address: 64.30.119.183
+  community_id: 116
+  website_id: 76
+  support: 
+  created_at: 2009-05-08 02:20:34 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+101:
+  id: 101
+  ip_address: 64.30.119.183
+  community_id: 116
+  website_id: 76
+  support: 
+  created_at: 2009-05-08 02:20:07 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+100:
+  id: 100
+  ip_address: 96.49.64.179
+  community_id: 3
+  website_id: 56
+  support: 
+  created_at: 2009-05-04 03:33:22 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+99:
+  id: 99
+  ip_address: 96.49.64.179
+  community_id: 3
+  website_id: 56
+  support: 
+  created_at: 2009-05-04 03:33:14 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+98:
+  id: 98
+  ip_address: 96.49.64.179
+  community_id: 3
+  website_id: 56
+  support: 
+  created_at: 2009-05-04 03:32:57 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+97:
+  id: 97
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 13
+  support: 
+  created_at: 2009-05-03 21:32:11 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+96:
+  id: 96
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 13
+  support: 
+  created_at: 2009-05-03 21:32:01 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+95:
+  id: 95
+  ip_address: 24.85.86.192
+  community_id: 111
+  website_id: 75
+  support: 
+  created_at: 2009-05-03 16:20:07 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+94:
+  id: 94
+  ip_address: 24.85.86.192
+  community_id: 81
+  website_id: 25
+  support: 
+  created_at: 2009-05-02 20:03:22 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+93:
+  id: 93
+  ip_address: 24.85.86.192
+  community_id: 191
+  website_id: 70
+  support: 
+  created_at: 2009-05-01 18:58:00 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+92:
+  id: 92
+  ip_address: 24.85.86.192
+  community_id: 5
+  website_id: 63
+  support: 
+  created_at: 2009-04-29 18:20:54 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+91:
+  id: 91
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 44
+  support: 
+  created_at: 2009-04-29 18:17:42 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+90:
+  id: 90
+  ip_address: 24.85.86.192
+  community_id: 81
+  website_id: 24
+  support: 
+  created_at: 2009-04-29 17:57:25 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+89:
+  id: 89
+  ip_address: 24.85.86.192
+  community_id: 5
+  website_id: 26
+  support: 
+  created_at: 2009-04-29 16:42:01 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+88:
+  id: 88
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 11
+  support: 
+  created_at: 2009-04-29 16:40:28 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+87:
+  id: 87
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 6
+  support: 
+  created_at: 2009-04-29 16:37:51 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+86:
+  id: 86
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 17
+  support: 
+  created_at: 2009-04-29 16:37:44 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+85:
+  id: 85
+  ip_address: 24.85.86.192
+  community_id: 81
+  website_id: 8
+  support: 
+  created_at: 2009-04-29 16:36:21 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+84:
+  id: 84
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 4
+  support: 
+  created_at: 2009-04-29 16:35:59 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+83:
+  id: 83
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 44
+  support: 
+  created_at: 2009-04-29 16:35:49 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+82:
+  id: 82
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 44
+  support: 
+  created_at: 2009-04-29 16:34:36 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+81:
+  id: 81
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 4
+  support: 
+  created_at: 2009-04-29 16:34:21 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+80:
+  id: 80
+  ip_address: 24.85.86.192
+  community_id: 82
+  website_id: 30
+  support: 
+  created_at: 2009-04-29 16:34:00 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+14:
+  id: 14
+  ip_address: 24.85.86.192
+  community_id: 82
+  website_id: 30
+  support: 
+  created_at: 2009-04-29 16:34:00 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+79:
+  id: 79
+  ip_address: 24.85.86.192
+  community_id: 82
+  website_id: 33
+  support: 
+  created_at: 2009-04-29 16:33:45 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+16:
+  id: 16
+  ip_address: 24.85.86.192
+  community_id: 82
+  website_id: 33
+  support: 
+  created_at: 2009-04-29 16:33:45 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+78:
+  id: 78
+  ip_address: 24.85.86.192
+  community_id: 3
+  website_id: 57
+  support: 
+  created_at: 2009-04-29 16:18:14 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+77:
+  id: 77
+  ip_address: 24.85.86.192
+  community_id: 3
+  website_id: 57
+  support: 
+  created_at: 2009-04-29 16:18:04 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+76:
+  id: 76
+  ip_address: 24.85.86.192
+  community_id: 3
+  website_id: 43
+  support: 
+  created_at: 2009-04-29 16:17:56 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+75:
+  id: 75
+  ip_address: 90.55.14.198
+  community_id: 81
+  website_id: 8
+  support: 
+  created_at: 2009-04-29 15:22:01 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+74:
+  id: 74
+  ip_address: 90.55.14.198
+  community_id: 81
+  website_id: 24
+  support: 
+  created_at: 2009-04-29 15:21:50 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+73:
+  id: 73
+  ip_address: 90.55.14.198
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-04-29 15:16:45 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+72:
+  id: 72
+  ip_address: 90.55.14.198
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-04-29 15:16:31 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+71:
+  id: 71
+  ip_address: 90.55.14.198
+  community_id: 51
+  website_id: 17
+  support: 
+  created_at: 2009-04-29 15:16:12 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+70:
+  id: 70
+  ip_address: 90.55.14.198
+  community_id: 51
+  website_id: 16
+  support: 
+  created_at: 2009-04-29 15:16:01 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+69:
+  id: 69
+  ip_address: 90.55.14.198
+  community_id: 51
+  website_id: 64
+  support: 
+  created_at: 2009-04-29 15:15:52 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+68:
+  id: 68
+  ip_address: 90.55.14.198
+  community_id: 51
+  website_id: 64
+  support: 
+  created_at: 2009-04-29 15:15:35 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+67:
+  id: 67
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 15:10:33 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+66:
+  id: 66
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 15:02:02 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+65:
+  id: 65
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 15:01:55 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+64:
+  id: 64
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:46:47 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+63:
+  id: 63
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:46:42 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+62:
+  id: 62
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:43:15 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+61:
+  id: 61
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:35:59 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+60:
+  id: 60
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:34:40 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+59:
+  id: 59
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:30:48 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+58:
+  id: 58
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:30:42 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+57:
+  id: 57
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:30:37 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+56:
+  id: 56
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:29:54 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+55:
+  id: 55
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:28:29 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+54:
+  id: 54
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:28:25 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+53:
+  id: 53
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:26:46 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+52:
+  id: 52
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:26:41 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+51:
+  id: 51
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:26:36 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+50:
+  id: 50
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:26:29 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+49:
+  id: 49
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:23:30 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+48:
+  id: 48
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:21:40 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+47:
+  id: 47
+  ip_address: 90.55.14.198
+  community_id: 1
+  website_id: 1
+  support: 
+  created_at: 2009-04-29 14:20:18 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+46:
+  id: 46
+  ip_address: 90.55.145.200
+  community_id: 5
+  website_id: 26
+  support: 
+  created_at: 2009-04-29 10:06:15 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+45:
+  id: 45
+  ip_address: 90.55.145.200
+  community_id: 5
+  website_id: 26
+  support: 
+  created_at: 2009-04-29 10:06:06 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+44:
+  id: 44
+  ip_address: 90.55.145.200
+  community_id: 5
+  website_id: 27
+  support: 
+  created_at: 2009-04-29 10:05:54 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+43:
+  id: 43
+  ip_address: 24.85.86.192
+  community_id: 193
+  website_id: 72
+  support: 
+  created_at: 2009-04-27 23:19:39 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+42:
+  id: 42
+  ip_address: 24.85.86.192
+  community_id: 190
+  website_id: 71
+  support: 
+  created_at: 2009-04-27 23:16:56 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+41:
+  id: 41
+  ip_address: 24.85.86.192
+  community_id: 192
+  website_id: 69
+  support: 
+  created_at: 2009-04-27 23:09:23 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+40:
+  id: 40
+  ip_address: 24.85.86.192
+  community_id: 192
+  website_id: 69
+  support: 
+  created_at: 2009-04-27 22:59:18 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+39:
+  id: 39
+  ip_address: 24.85.86.192
+  community_id: 191
+  website_id: 68
+  support: 
+  created_at: 2009-04-27 22:57:11 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+38:
+  id: 38
+  ip_address: 24.85.86.192
+  community_id: 190
+  website_id: 67
+  support: 
+  created_at: 2009-04-27 22:50:26 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+37:
+  id: 37
+  ip_address: 24.85.86.192
+  community_id: 189
+  website_id: 66
+  support: 
+  created_at: 2009-04-27 22:39:15 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+36:
+  id: 36
+  ip_address: 24.85.86.192
+  community_id: 111
+  website_id: 65
+  support: 
+  created_at: 2009-04-27 22:34:24 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+35:
+  id: 35
+  ip_address: 24.85.86.192
+  community_id: 81
+  website_id: 23
+  support: 
+  created_at: 2009-04-27 22:04:27 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+34:
+  id: 34
+  ip_address: 24.85.86.192
+  community_id: 3
+  website_id: 62
+  support: 
+  created_at: 2009-04-27 21:52:46 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+33:
+  id: 33
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 17
+  support: 
+  created_at: 2009-04-27 21:33:15 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+32:
+  id: 32
+  ip_address: 24.85.86.192
+  community_id: 3
+  website_id: 58
+  support: 
+  created_at: 2009-04-27 19:33:31 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+31:
+  id: 31
+  ip_address: 24.85.86.192
+  community_id: 187
+  website_id: 55
+  support: 
+  created_at: 2009-04-27 19:18:31 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+30:
+  id: 30
+  ip_address: 24.85.86.192
+  community_id: 171
+  website_id: 54
+  support: 
+  created_at: 2009-04-27 19:15:30 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+29:
+  id: 29
+  ip_address: 24.85.86.192
+  community_id: 186
+  website_id: 53
+  support: 
+  created_at: 2009-04-27 19:14:48 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+28:
+  id: 28
+  ip_address: 24.85.86.192
+  community_id: 184
+  website_id: 51
+  support: 
+  created_at: 2009-04-27 18:59:42 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+27:
+  id: 27
+  ip_address: 24.85.86.192
+  community_id: 54
+  website_id: 50
+  support: 
+  created_at: 2009-04-27 18:23:24 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+26:
+  id: 26
+  ip_address: 24.85.86.192
+  community_id: 34
+  website_id: 47
+  support: 
+  created_at: 2009-04-27 16:34:26 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+25:
+  id: 25
+  ip_address: 24.85.86.192
+  community_id: 35
+  website_id: 45
+  support: 
+  created_at: 2009-04-27 16:27:58 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+24:
+  id: 24
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 11
+  support: 
+  created_at: 2009-04-27 05:53:29 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+23:
+  id: 23
+  ip_address: 24.85.86.192
+  community_id: 82
+  website_id: 34
+  support: 
+  created_at: 2009-04-27 05:30:31 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+22:
+  id: 22
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 44
+  support: 
+  created_at: 2009-04-26 05:20:17 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+21:
+  id: 21
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 44
+  support: 
+  created_at: 2009-04-26 05:20:10 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+20:
+  id: 20
+  ip_address: 24.85.86.192
+  community_id: 3
+  website_id: 43
+  support: 
+  created_at: 2009-04-26 04:54:00 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+19:
+  id: 19
+  ip_address: 24.85.86.192
+  community_id: 181
+  website_id: 42
+  support: 
+  created_at: 2009-04-26 04:46:38 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+18:
+  id: 18
+  ip_address: 24.85.86.192
+  community_id: 14
+  website_id: 41
+  support: 
+  created_at: 2009-04-26 04:40:50 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+17:
+  id: 17
+  ip_address: 24.85.86.192
+  community_id: 82
+  website_id: 30
+  support: 
+  created_at: 2009-04-26 04:31:49 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+15:
+  id: 15
+  ip_address: 24.85.86.192
+  community_id: 82
+  website_id: 31
+  support: 
+  created_at: 2009-04-26 04:31:32 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+13:
+  id: 13
+  ip_address: 24.85.86.192
+  community_id: 5
+  website_id: 26
+  support: 
+  created_at: 2009-04-26 04:20:30 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+12:
+  id: 12
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 6
+  support: 
+  created_at: 2009-04-26 04:06:37 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+11:
+  id: 11
+  ip_address: 24.85.86.192
+  community_id: 51
+  website_id: 5
+  support: 
+  created_at: 2009-04-26 03:51:32 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+10:
+  id: 10
+  ip_address: 24.85.86.192
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-04-26 03:33:36 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+9:
+  id: 9
+  ip_address: 24.85.86.192
+  community_id: 81
+  website_id: 8
+  support: 
+  created_at: 2009-04-26 03:33:26 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+8:
+  id: 8
+  ip_address: 24.85.86.192
+  community_id: 81
+  website_id: 7
+  support: 
+  created_at: 2009-04-26 03:31:32 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+7:
+  id: 7
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 4
+  support: 
+  created_at: 2009-04-26 02:05:40 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+5:
+  id: 5
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 4
+  support: 
+  created_at: 2009-04-26 01:49:57 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1
+
+4:
+  id: 4
+  ip_address: 24.85.86.192
+  community_id: 109
+  website_id: 4
+  support: 
+  created_at: 2009-04-26 01:49:37 UTC
+  updated_at: 2009-08-13 19:28:09 UTC
+  ballot_type: -1

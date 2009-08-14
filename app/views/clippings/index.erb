@@ -13,7 +13,7 @@
   title_url: |
     <%= clipping.title_url %>
   description: |
-    <%= clipping.description %>
+    <% if clipping.description %><%= clipping.description.gsub(/\n/,"\n    ") %><% end %>
   created_at: <%= clipping.created_at %>
   updated_at: <%= clipping.updated_at %>
 <% end %>

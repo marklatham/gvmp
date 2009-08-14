@@ -10,9 +10,9 @@
 
 %p= button_to 'Tally all', :action => :tally_all
 
-%h4 Set ballot types:
-
-%p= button_to 'Set ballot types', :action => :set_ballot_types
+-# %h4 Set ballot types:
+-# Was only needed once when we created this field. Beware of unintended data changes.
+-# %p= button_to 'Set ballot types', :action => :set_ballot_types
 
 %h4 Data listings:
  
@@ -33,35 +33,43 @@
 %p= link_to 'Websites', websites_path
 
 %h4 Data downloads:
- 
+
+%p
+  = link_to 'clippings.yaml', '/clippings.yaml'
+  
 %p
   = link_to 'colleagues.yaml', '/colleagues.yaml'
-  \[index listing restricted to admin]
+  -# [index listing restricted to admin]
 
 %p
   = link_to 'communities.yaml', '/communities.yaml'
-  \[need to comment out def collection section in communities_controller when using this link]
-  \[may want to comment out index.wants.yaml in communities_controller when not using this link]
 
 %p
   = link_to 'faqs.yaml', '/faqs.yaml'
-  \[always enabled -- no confidential data]
+  -# [always enabled -- no confidential data]
+
+%p
+  = link_to 'presentations.yaml', '/presentations.yaml'
+
+%p
+  = link_to 'proposals.yaml', '/proposals.yaml'
+  -# Problems with yaml: need to indent some data lines?!
 
 %p
   = link_to 'pubs.yaml', '/pubs.yaml'
-  \[always enabled -- no confidential data]
+  -# [always enabled -- no confidential data]
 
 %p
   = link_to 'rankings.yaml', '/rankings.yaml'
-  \[index listing restricted to admin]
+  -# [index listing restricted to admin]
 
 %p
   = link_to 'votes.yaml', '/votes.yaml'
-  \[index listing restricted to admin]
+  -# [index listing restricted to admin]
 
 %p
   = link_to 'websites.yaml', '/websites.yaml'
-  \[index listing restricted to admin]
+  -# [index listing restricted to admin]
 
 %p
   = button_to 'Clean data', :action => :clean_data

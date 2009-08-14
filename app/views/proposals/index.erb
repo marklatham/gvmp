@@ -13,10 +13,11 @@
   proposal_url: |
     <%= proposal.proposal_url %>
   correspondence: |
-    <%= proposal.correspondence %>
+    <% if proposal.correspondence %><%= proposal.correspondence.gsub(/\n/,"\n    ") %><% end %>
   proxy_url: |
     <%= proposal.proxy_url %>
-  in_proxy: <%= proposal.in_proxy %>
+  in_proxy: |
+    <% if proposal.in_proxy %><%= 1 %><% end %>
   yes_percent: <%= proposal.yes_percent %>
   created_at: <%= proposal.created_at %>
   updated_at: <%= proposal.updated_at %>

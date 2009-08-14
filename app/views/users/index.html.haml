@@ -7,6 +7,9 @@
     %th Name
     %th Email
     %th Permission
+    %th Edit
+    %th Created
+    %th Updated
     %th remember_token
     %th remember_token_expires_at
 
@@ -17,8 +20,10 @@
       %td= h user.name
       %td= h user.email
       %td= h user.permission
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= h user.created_at
+      %td= h user.updated_at
       %td= h user.remember_token
       %td= h user.remember_token_expires_at
-      %td= link_to 'Edit', edit_user_path(user)
 
 %br
