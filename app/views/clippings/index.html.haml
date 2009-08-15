@@ -22,6 +22,12 @@
         %td.permission= link_to 'Destroy', clipping, :confirm => 'Are you sure?', :method => :delete
 
 %br
+For more commentary at UBC, try
+= link_to('this google search', 'http://www.google.ca/search?q=site%3Aubyssey.ca+VFM') + '.'
+(Hopefully they'll get their archives back on line soon!)
+%br
+%br
+
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Add new clipping', new_clipping_path
   %br

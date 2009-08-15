@@ -2,6 +2,10 @@
 
 %h1 &nbsp;VoterMedia Shareowner Proposal Campaign
 
+%p
+  The goals and rationale for these proposals are explained in the article
+  = link_to('Proxy Voting Brand Competition', '/publications/ProxyVotingBrandCompetition.pdf') + '.'
+
 %table#table1
   %tr.header 
     %td.header-centred Date Submitted
@@ -41,8 +45,16 @@
         %td.permission= link_to 'Edit', edit_proposal_path(proposal)
         %td.permission= link_to 'Destroy', proposal, :confirm => 'Are you sure?', :method => :delete
 
-%br
-There were many more proposals in this campaign, back to 1999. We're gradually copying them into this table.
+%p
+  Only a representative sample of management arguments, proponent responses and SEC decisions are linked above.
+  The full public record of this correspondence can be found (for a fee) at
+  = link_to('SECnet', 'http://secnet.cch.com/') + '.'
+
+%p
+  Proposals that made it into the proxy can also be found in the "DEF 14-a" filings at
+  = link_to('www.sec.gov','http://www.sec.gov') + ','
+  with Board arguments.
+
 %br
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Add new proposal', new_proposal_path

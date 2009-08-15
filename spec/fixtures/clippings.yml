@@ -448,3 +448,219 @@
     Recommends VFM again, starting Sept 2007.
   created_at: 2009-07-19 05:12:47 UTC
   updated_at: 2009-07-19 05:12:47 UTC
+
+26:
+  id: 26
+  date_sequence: 2007-02-13
+  date_text: 2007-02-13
+  source: |
+    The Ubyssey
+  source_url: |
+    http://www.ubyssey.ca/
+  author: Alfie Lee 
+  title: |
+    VFM gets students involved
+  title_url: |
+    http://ubyssey.ca/?p=1332
+  description: |
+    VFM educates students and candidates re AMS issues. 
+  created_at: 2009-08-15 04:14:51 UTC
+  updated_at: 2009-08-15 04:18:44 UTC
+
+27:
+  id: 27
+  date_sequence: 2007-02-06
+  date_text: 2007-02-06
+  source: |
+    The Ubyssey
+  source_url: |
+    http://www.ubyssey.ca/
+  author: Matthew Naylor
+  title: |
+    VFM a true contest
+  title_url: |
+    http://www.ubyssey.ca/?p=1330
+  description: |
+    Benefits of VFM scrutiny of electoral candidates.
+  created_at: 2009-08-15 04:23:03 UTC
+  updated_at: 2009-08-15 04:23:03 UTC
+
+28:
+  id: 28
+  date_sequence: 2007-02-02
+  date_text: 2007-02-02
+  source: |
+    The Ubyssey
+  source_url: |
+    http://www.ubyssey.ca/
+  author: Boris Korby & Eric Szeto
+  title: |
+    Shock abounds Voter Funded Media election
+  title_url: |
+    http://www.ubyssey.ca/?p=1742
+  description: |
+    Various reactions to surprising VFM vote results. 
+  created_at: 2009-08-15 04:25:10 UTC
+  updated_at: 2009-08-15 04:25:10 UTC
+
+29:
+  id: 29
+  date_sequence: 2007-02-01
+  date_text: 2007-02-01
+  source: |
+    VoterMedia Blog
+  source_url: |
+    http://votermedia.blogspot.com/
+  author: Mark Latham
+  title: |
+    UBC AMS Elections & VFM Results
+  title_url: |
+    http://votermedia.blogspot.com/2007/02/ubc-ams-elections-vfm-results.html
+  description: |
+    Why surprising VFM vote results; future of VFM.
+  created_at: 2009-08-15 04:26:45 UTC
+  updated_at: 2009-08-15 04:26:45 UTC
+
+30:
+  id: 30
+  date_sequence: 2007-01-28
+  date_text: 2007-01-28
+  source: |
+    Elections Insider
+  source_url: |
+    http://ubcinsiders.blogspot.com/
+  author: Tim Louman-Gardiner 
+  title: |
+    Media on Media
+  title_url: |
+    http://ubcinsiders.blogspot.com/2007/01/media-on-media.html
+  description: |
+    Overview/critique of VFM contestants & impact. 
+  created_at: 2009-08-15 17:50:24 UTC
+  updated_at: 2009-08-15 17:50:24 UTC
+
+31:
+  id: 31
+  date_sequence: 2007-01-27
+  date_text: 2007-01-27
+  source: |
+    StudentUnion.ca
+  source_url: |
+    http://www.studentunion.ca/
+  author: Titus Gregory
+  title: |
+    UBC elections: an experiment in Voter-Funded Media
+  title_url: |
+    http://www.studentunion.ca/2007/01/ubc-elections-experiment-in-voter.html
+  description: |
+    VFM overview. Comprehensiveness of <a href="http://ubcinsiders.blogspot.com/">Elections Insider</a>.
+  created_at: 2009-08-15 17:59:00 UTC
+  updated_at: 2009-08-15 17:59:00 UTC
+
+32:
+  id: 32
+  date_sequence: 2001-01-04
+  date_text: 2001-01-04
+  source: |
+    TheStreet.com
+  source_url: |
+    http://www.thestreet.com/
+  author: Mercer Bullard
+  title: |
+    Are Ballots Too Secret? Fund Advisers Should Tell How They Vote Proxies
+  title_url: |
+    http://www.thestreet.com/funds/mercerbullard/1240302.html
+  description: |
+    AFL-CIO push to require funds to disclose how they vote; Latham quoted.
+  created_at: 2009-08-15 19:25:22 UTC
+  updated_at: 2009-08-15 19:36:20 UTC
+
+33:
+  id: 33
+  date_sequence: 2000-10-31
+  date_text: 2000-10
+  source: |
+    Trillium Asset Management
+  source_url: |
+    http://www.trilliuminvest.com/
+  author: Shelley Alpern
+  title: |
+    Internet Shareholder Activism, Part II
+  title_url: |
+    http://trilliuminvest.com/news-articles-category/cover-story-news-articles/internet-shareholder-activism-part-ii-archive/
+  description: |
+    Clarified Latham's proposals on improving proxy voting.
+  created_at: 2009-08-15 19:27:38 UTC
+  updated_at: 2009-08-15 19:36:29 UTC
+
+34:
+  id: 34
+  date_sequence: 2000-10-02
+  date_text: 2000-10-02
+  source: |
+    Business Week
+  source_url: |
+    http://www.businessweek.com/
+  author: Mark Latham
+  title: |
+    Shareholders Have Power: It's Up to Them to Use It
+  title_url: |
+    http://www.businessweek.com/2000/00_40/c3701048.htm
+  description: |
+    Response to "Too much corporate power?" story
+  created_at: 2009-08-15 19:29:00 UTC
+  updated_at: 2009-08-15 19:36:44 UTC
+
+35:
+  id: 35
+  date_sequence: 2000-03-27
+  date_text: 2000-03-27
+  source: |
+    SocialFunds.com
+  source_url: |
+    http://www.socialfunds.com/
+  author: Newsroom
+  title: |
+    Shareholders Weigh in on Proxy Advisor Scheme
+  title_url: |
+    http://www.socialfunds.com/news/article.cgi?sfArticleId=201
+  description: |
+    Report on <a href="/proposals">1999-2000 Proxy Advisor proposal campaign</a>.
+  created_at: 2009-08-15 19:35:47 UTC
+  updated_at: 2009-08-15 19:35:47 UTC
+
+36:
+  id: 36
+  date_sequence: 1999-11-10
+  date_text: 1999-11-10
+  source: |
+    Hartford Courant
+  source_url: |
+    http://www.courant.com/
+  author: Diane Levick
+  title: |
+    Advice Sought for Shareholders on Proxy Proposals 
+  title_url: |
+    http://pqasb.pqarchiver.com/courant/access/46250660.html?dids=46250660:46250660&FMT=ABS&FMTS=ABS:FT&type=current&date=Nov+10%2C+1999&author=DIANE+LEVICK&pub=Hartford+Courant&edition=&startpage=E.1&desc=ADVICE+SOUGHT+FOR+SHAREHOLDERS+ON+PROXY+PROPOSALS
+  description: |
+    Report on <a href="/proposals">1999-2000 Proxy Advisor proposal campaign</a>.
+  created_at: 2009-08-15 19:41:22 UTC
+  updated_at: 2009-08-15 19:41:39 UTC
+
+37:
+  id: 37
+  date_sequence: 1999-11-09
+  date_text: 1999-11-09
+  source: |
+    MarketWatch.com
+  source_url: |
+    http://www.marketwatch.com/
+  author: 
+  title: |
+    Corporate governance goes online
+  title_url: |
+    http://www.marketwatch.com/story/corporate-governance-goes-online
+  description: |
+    Founding of <a href="http://thecorporatelibrary.com">The Corporate Library</a>. <a href="/proposals">1999-2000 Proxy Advisor proposal campaign</a>.
+  created_at: 2009-08-15 19:46:01 UTC
+  updated_at: 2009-08-15 19:46:01 UTC

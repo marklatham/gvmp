@@ -185,3 +185,527 @@
   yes_percent: 8.0
   created_at: 2009-07-21 22:22:07 UTC
   updated_at: 2009-07-21 22:22:07 UTC
+
+9:
+  id: 9
+  date_submitted: 2002-11-22
+  date_agm: 2003-05-14
+  company: |
+    Visteon
+  company_url: |
+    http://www.visteon.com/
+  ticker: VC
+  proposal_type: |
+    Voting Leverage
+  proposal_url: |
+    20021122-VC-VotingLeverage.html
+  correspondence: |
+    <a href="/proposals/20030307-VC-SEC.html">2003-03-07 SEC</a>
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 18:28:28 UTC
+  updated_at: 2009-08-14 18:32:01 UTC
+
+10:
+  id: 10
+  date_submitted: 2002-11-17
+  date_agm: 2003-04-28
+  company: |
+    USG Corporation
+  company_url: |
+    http://www.usg.com/
+  ticker: USG
+  proposal_type: |
+    Auditor Reputation
+  proposal_url: |
+    20021117-USG-AuditorRep.html
+  correspondence: |
+    <a href="/proposals/20030305-USG-SEC.html">2003-03-05 SEC</a>
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 18:37:07 UTC
+  updated_at: 2009-08-14 18:37:07 UTC
+
+11:
+  id: 11
+  date_submitted: 2002-11-15
+  date_agm: 2003-05-03
+  company: |
+    Cleveland-Cliffs
+  company_url: |
+    http://www.cleveland-cliffs.com/
+  ticker: CLF
+  proposal_type: |
+    Auditor Reputation
+  proposal_url: |
+    20021115-CLF-AuditorRep.html
+  correspondence: |
+    <a href="/proposals/20030304-CLF-SEC.html">2003-03-04 SEC</a>
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 19:06:13 UTC
+  updated_at: 2009-08-14 19:06:13 UTC
+
+12:
+  id: 12
+  date_submitted: 2002-05-15
+  date_agm: 2002-12-05
+  company: |
+    A. Schulman
+  company_url: |
+    http://www.aschulman.com/
+  ticker: SHLM
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    20020515-SHLM-ProxyAdvisor.html
+  correspondence: |
+    <a href="/proposals/20021205-SHLM-Board.html">Board arguments in proxy; proponent response</a>
+  proxy_url: |
+    
+  in_proxy: |
+    1
+  yes_percent: 2.9
+  created_at: 2009-08-14 19:09:27 UTC
+  updated_at: 2009-08-14 19:09:27 UTC
+
+13:
+  id: 13
+  date_submitted: 2002-05-15
+  date_agm: 2002-11-06
+  company: |
+    USEC
+  company_url: |
+    http://www.usec.com/
+  ticker: USU
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    20020515-USU-ProxyAdvisor.html
+  correspondence: |
+    Excluded from proxy because of wording of broker letter.
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:02:06 UTC
+  updated_at: 2009-08-14 22:02:06 UTC
+
+14:
+  id: 14
+  date_submitted: 2002-01-25
+  date_agm: 2002-09-10
+  company: |
+    Fleetwood Enterprises
+  company_url: |
+    http://www.fleetwood.com/
+  ticker: FLE
+  proposal_type: |
+    Auditor Independence
+  proposal_url: |
+    20020125-FLE-AuditorInd.html
+  correspondence: |
+    <a href="/proposals/20020322-FLE-Management.html">2002-03-22&nbsp;Management</a>; 
+    <a href="/proposals/20020412-FLE-Proponent.html">2002-04-12&nbsp;Proponent</a>; 
+    <a href="/proposals/20020424-FLE-SEC.html">2002-04-24&nbsp;SEC</a>
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:06:50 UTC
+  updated_at: 2009-08-14 22:06:50 UTC
+
+18:
+  id: 18
+  date_submitted: 2000-11-24
+  date_agm: 
+  company: |
+    SONICblue
+  company_url: |
+    
+  ticker: SBLU
+  proposal_type: |
+    Auditor Independence
+  proposal_url: |
+    20001124-SBLU-AuditorInd.html
+  correspondence: |
+    <a href="/proposals/20010125-SBLU-Management.html">2001-01-25&nbsp;Management</a>; 
+    <a href="/proposals/20010207-SBLU-Proponent.html">2001-02-07&nbsp;Proponent</a>; 
+    <a href="/proposals/20010323-SBLU-SEC.html">2001-03-23&nbsp;SEC</a>
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:26:35 UTC
+  updated_at: 2009-08-14 22:26:35 UTC
+
+15:
+  id: 15
+  date_submitted: 2000-11-16
+  date_agm: 2001-05-03
+  company: |
+    Equus II
+  company_url: |
+    http://www.equuscap.com/
+  ticker: EQS
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    
+  correspondence: |
+    <a href="/proposals/20010311-EQS-ProxyAdvisor.html">2001-03-11 Revised proposal</a>
+  proxy_url: |
+    
+  in_proxy: |
+    1
+  yes_percent: 17.8
+  created_at: 2009-08-14 22:12:42 UTC
+  updated_at: 2009-08-14 22:12:42 UTC
+
+16:
+  id: 16
+  date_submitted: 2000-11-06
+  date_agm: 2001-04-19
+  company: |
+    Gillette
+  company_url: |
+    http://www.gillette.com/
+  ticker: G
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    
+  correspondence: |
+    <a href="/proposals/20010215-G-ProxyAdvisor.html">2001-02-15&nbsp;Revised&nbsp;proposal</a>;
+    <a href="/proposals/20010419-G-Board.html">Board&nbsp;arguments&nbsp;in&nbsp;proxy; proponent&nbsp;response</a>
+  proxy_url: |
+    
+  in_proxy: |
+    1
+  yes_percent: 2.4
+  created_at: 2009-08-14 22:17:09 UTC
+  updated_at: 2009-08-14 22:17:09 UTC
+
+17:
+  id: 17
+  date_submitted: 2000-10-23
+  date_agm: 2001-04-05
+  company: |
+    KB Home
+  company_url: |
+    http://www.kbhome.com/
+  ticker: KBH
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    20001023-KBH-ProxyAdvisor.html
+  correspondence: |
+    <a href="/proposals/20010405-KBH-Board.html">Board arguments in proxy; proponent response</a>
+  proxy_url: |
+    
+  in_proxy: |
+    1
+  yes_percent: 4.0
+  created_at: 2009-08-14 22:20:06 UTC
+  updated_at: 2009-08-14 22:20:06 UTC
+
+19:
+  id: 19
+  date_submitted: 2000-03-31
+  date_agm: 
+  company: |
+    Oregon Trail Financial
+  company_url: |
+    
+  ticker: OTFC
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    20000331-OTFC-ProxyAdvisor.html
+  correspondence: |
+    
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:30:07 UTC
+  updated_at: 2009-08-14 22:30:07 UTC
+
+20:
+  id: 20
+  date_submitted: 2000-02-17
+  date_agm: 
+  company: |
+    Cirrus Logic
+  company_url: |
+    http://www.cirrus.com/
+  ticker: CRUS
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    20000217-CRUS-ProxyAdvisor.html
+  correspondence: |
+    
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:38:42 UTC
+  updated_at: 2009-08-14 22:38:42 UTC
+
+21:
+  id: 21
+  date_submitted: 1999-12-22
+  date_agm: 
+  company: |
+    General Motors
+  company_url: |
+    http://www.gm.com/
+  ticker: GM
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    19991222-GM-ProxyAdvisor.html
+  correspondence: |
+    
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:41:00 UTC
+  updated_at: 2009-08-14 22:41:00 UTC
+
+22:
+  id: 22
+  date_submitted: 1999-11-20
+  date_agm: 
+  company: |
+    Equus II
+  company_url: |
+    http://www.equuscap.com/
+  ticker: EQS
+  proposal_type: |
+    <a href="http://www.corpgov.net/news/resolutions/equus.html">Proxy Advisor</a>
+  proposal_url: |
+    
+  correspondence: |
+    
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:42:04 UTC
+  updated_at: 2009-08-14 22:43:15 UTC
+
+23:
+  id: 23
+  date_submitted: 1999-11-17
+  date_agm: 2000-04-18
+  company: |
+    Washington Mutual
+  company_url: |
+    http://www.wamu.com/
+  ticker: WM
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    19991117-WM-ProxyAdvisor.html
+  correspondence: |
+    <a href="/proposals/19991215-WM-Management.html">1999-12-15&nbsp;Management</a>; 
+    <a href="/proposals/20000110-WM-Proponent.html">2000-01-10&nbsp;Proponent</a>; 
+    <a href="/proposals/20000110-WM-ProxyAdvisor.html">2000-01-10&nbsp;Revised&nbsp;proposal</a>; 
+    <a href="/proposals/20000222-WM-SEC.html">2000-02-22&nbsp;SEC</a>
+  proxy_url: |
+    
+  in_proxy: |
+    1
+  yes_percent: 4.4
+  created_at: 2009-08-14 22:48:04 UTC
+  updated_at: 2009-08-14 22:49:21 UTC
+
+24:
+  id: 24
+  date_submitted: 1999-11-13
+  date_agm: 
+  company: |
+    Bristol-Myers Squibb
+  company_url: |
+    http://www.bms.com/
+  ticker: BMY
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    19991113-BMY-ProxyAdvisor.html
+  correspondence: |
+    
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:51:00 UTC
+  updated_at: 2009-08-14 22:51:00 UTC
+
+25:
+  id: 25
+  date_submitted: 1999-11-04
+  date_agm: 
+  company: |
+    Pfizer
+  company_url: |
+    http://www.pfizer.com/
+  ticker: PFE
+  proposal_type: |
+    <a href="http://www.corpgov.net/news/resolutions/pfizer.html">Proxy Advisor</a>
+  proposal_url: |
+    
+  correspondence: |
+    <a href="/proposals/19991221-PFE-Management.html">1999-12-21&nbsp;Management</a>; 
+    <a href="/proposals/20000110-PFE-Proponent.html">2000-01-10&nbsp;Proponent</a>; 
+    <a href="/proposals/20000110-PFE-ProxyAdvisor.html">2000-01-10&nbsp;revised&nbsp;proposal</a>; 
+    <a href="/proposals/20000222-PFE-SEC.html">2000-02-22&nbsp;SEC</a>
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 22:56:22 UTC
+  updated_at: 2009-08-14 22:56:22 UTC
+
+26:
+  id: 26
+  date_submitted: 1999-11-02
+  date_agm: 
+  company: |
+    Citigroup
+  company_url: |
+    http://www.citigroup.com/
+  ticker: C
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    19991102-C-ProxyAdvisor.html
+  correspondence: |
+    <a href="/proposals/19991222-C-Management.html">1999-12-22&nbsp;Management</a>; 
+    <a href="/proposals/20000110-C-Proponent.html">2000-01-10&nbsp;Proponent</a>; 
+    <a href="/proposals/20000110-C-ProxyAdvisor.html">2000-01-10&nbsp;Revised&nbsp;proposal</a>; 
+    <a href="/proposals/20000124-C-Management.html">2000-01-24&nbsp;Management</a>; 
+    <a href="/proposals/20000131-C-Proponent.html">2000-01-31&nbsp;Proponent</a>; 
+    <a href="/proposals/20000222-C-Management.html">2000-02-22&nbsp;Management</a>; 
+    <a href="/proposals/20000224-C-SEC.html">2000-02-24&nbsp;SEC</a>
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 23:01:05 UTC
+  updated_at: 2009-08-14 23:02:21 UTC
+
+27:
+  id: 27
+  date_submitted: 1999-11-02
+  date_agm: 
+  company: |
+    General Electric
+  company_url: |
+    http://www.ge.com/
+  ticker: GE
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    19991102-GE-ProxyAdvisor.html
+  correspondence: |
+    
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 23:04:49 UTC
+  updated_at: 2009-08-14 23:04:49 UTC
+
+28:
+  id: 28
+  date_submitted: 1999-11-02
+  date_agm: 
+  company: |
+    Gillette
+  company_url: |
+    http://www.gillette.com/
+  ticker: G
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    19991102-G-ProxyAdvisor.html
+  correspondence: |
+    
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 23:05:46 UTC
+  updated_at: 2009-08-14 23:05:46 UTC
+
+29:
+  id: 29
+  date_submitted: 1999-11-02
+  date_agm: 
+  company: |
+    Warner-Lambert
+  company_url: |
+    
+  ticker: WLA
+  proposal_type: |
+    Proxy Advisor
+  proposal_url: |
+    19991102-WLA-ProxyAdvisor.html
+  correspondence: |
+    
+  proxy_url: |
+    
+  in_proxy: |
+    
+  yes_percent: 
+  created_at: 2009-08-14 23:06:58 UTC
+  updated_at: 2009-08-14 23:06:58 UTC
+
+30:
+  id: 30
+  date_submitted: 1999-10-11
+  date_agm: 2000-03-27
+  company: |
+    Whole Foods Market
+  company_url: |
+    http://www.wholefoods.com/
+  ticker: WFMI
+  proposal_type: |
+    <a href="http://www.corpgov.net/news/resolutions/wfmi.html">Proxy Advisor</a>
+  proposal_url: |
+    
+  correspondence: |
+    Management did not try to omit.
+    <a href="/proposals/20000205-WFMI-ProxyAdvisor.html">2000-02-05&nbsp;Revised&nbsp;proposal</a>
+  proxy_url: |
+    
+  in_proxy: |
+    1
+  yes_percent: 8.9
+  created_at: 2009-08-14 23:10:26 UTC
+  updated_at: 2009-08-14 23:10:26 UTC
