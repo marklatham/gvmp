@@ -2,13 +2,13 @@
 
 %h2.permission Admin for VoterMedia.org website
 
-%h4 Recalculate all rankings:
-
-%p= button_to 'Rerank all', :action => :rerank_all
-
 %h4 Tally all percent votes:
 
 %p= button_to 'Tally all', :action => :tally_all
+
+%h4 Recalculate all rank fields (no longer used):
+
+%p= button_to 'Rerank all', :action => :rerank_all
 
 -# %h4 Set ballot types:
 -# Was only needed once when we created this field. Beware of unintended data changes.
