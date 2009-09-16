@@ -277,6 +277,8 @@ class CommunitiesController < ApplicationController
           decayed_weight = 1.0
         elsif days_old < days_valid
           decayed_weight = (days_valid - days_old) / ranking_formula_denominator.to_f
+        else
+          decayed_weight = 0.0
         end
         
         count += decayed_weight * support_fraction
