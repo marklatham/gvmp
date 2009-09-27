@@ -340,11 +340,11 @@ a:hover { color: #d00; }
 }
 
 #cv td {
-  line-height: 17px;
+  line-height: 15px;
 }
 
 #cv .pad {
-  padding-top: 4px;
+  padding-top: 7px;
 }
 
 #cv .col1 {

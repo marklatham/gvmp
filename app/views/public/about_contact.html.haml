@@ -42,6 +42,9 @@
     %td
     %td.upper-cell
     %td.upper-cell
+  %tr
+    %td
+    %td.lower-cell{:colspan => 2} [Titles and affiliations shown for identification only.]
 
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Create new colleague', new_colleague_path
