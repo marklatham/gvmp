@@ -10,9 +10,6 @@ class Community < ActiveRecord::Base
   end
   has_many :websites, :through => :rankings
 
-  default_scope :order => 'country, category, name'
-# How to substitute this order when called from communities/manage ? Done crudely below by defining filter_manage.
-#  default_scope :order => 'created_at DESC'. This works on my Mac but not at RailsPlayground!
 
   validates_presence_of :name, :short_name
   validates_presence_of :category, :message => "(Type) can't be blank"
@@ -23,6 +20,11 @@ class Community < ActiveRecord::Base
   validates_length_of :country, :maximum => 30
   validates_length_of :prov_state, :maximum => 30
   validates_length_of :city, :maximum => 30
+
+
+  named_scope :recently_created, :order => 'communities.created_at DESC'
+  named_scope :recently_updated, :order => 'communities.updated_at DESC'
+
 
   # Required by sphinx
   define_index do
@@ -200,27 +202,25 @@ class Community < ActiveRecord::Base
   end
 
   class << self
-    def filter(params)
-      scope = self
+    def filter(params={})
+
+      # TODO: Separate the sphinx search
       if params[:q]
         # Unfortunately, sphinx's search doesn't want to play nice with will_paginate
         return search(params[:q], :page => params[:page], :per_page => @@per_page)
       end
 
-      scope.paginate :page => params[:page]
+      scope = self
+      if sorted = params[:sorted]
+        sorted = sorted.downcase.to_sym
+        scope = scope.send(sorted) if self.scopes.keys.include?(sorted)
+      else
+        scope = scope.scoped(:order => 'lower(country), lower(category), lower(name)') 
+      end
+
+      scope
     end
         
-    def filter_manage(params)
-      scope = self
-      default_scope :order => 'created_at DESC'
-      if params[:q]
-        # Unfortunately, sphinx's search doesn't want to play nice with will_paginate
-        return search(params[:q], :page => params[:page], :per_page => @@per_page)
-      end
-
-      scope.paginate :page => params[:page]
-    end
-
 
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope eventually

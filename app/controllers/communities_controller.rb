@@ -9,7 +9,7 @@ class CommunitiesController < ApplicationController
   end
 
   def index
-    @communities = Community.filter(params)
+    @communities = Community.filter(params).paginate(:page => params[:page])
     respond_to do |format|
       format.html
       format.yaml { render :yaml => @communities }
@@ -17,7 +17,7 @@ class CommunitiesController < ApplicationController
   end
 
   def manage
-    @communities = Community.filter_manage(params)
+    @communities = Community.filter(params.merge(:sorted => 'recently_created')).paginate(:page => params[:page])
   end
   
   def show 
