@@ -223,12 +223,10 @@ class Community < ActiveRecord::Base
 
 
     # TODO: A community should be marked by admin as featured
-    # Should be a named_scope
-    # Coding below causes error if any featured community ids are not in database.
-
+    # Should be a named_scope eventually
     def featured
       ids = [51, 81, 5, 205, 82, 94, 3, 109, 151, 191, 116, 223]
-      communities = ids.inject( [] ) { |list, id| list << Community.find(id) }
+      find(:all, :conditions => ["id in (?)", ids])
     end
   end
 
