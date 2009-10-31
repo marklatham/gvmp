@@ -2,8 +2,9 @@
 
 %p
   %b VoterMedia.org
-  is a public interest project for improving the policies of the world's organizations 
-  (governments, corporations, unions, nonprofits etc.) by developing better voter information systems. 
+  is a nonprofit nonpartisan public interest project for improving voter information and
+  elected leader accountability in the world's organizations --
+  governments, corporations, unions, nonprofits etc. 
   We are implementing voter funded media as explained in the
   = link_to('FAQ', faqs_path) + ','
   the paper 
@@ -42,6 +43,9 @@
     %td
     %td.upper-cell
     %td.upper-cell
+  %tr
+    %td
+    %td.lower-cell{:colspan => 2} [Titles and affiliations shown for identification only.]
 
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Create new colleague', new_colleague_path

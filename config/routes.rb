@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
-  
-  map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
+ 
+#  Commented out because we were getting spammed. Reactivate when we get spam screens in place: 
+#  map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
   
   map.root                   :controller => 'communities'
   map.logout    '/logout',   :controller => 'sessions', :action => 'destroy'

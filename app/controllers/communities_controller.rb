@@ -66,29 +66,30 @@ class CommunitiesController < ApplicationController
     @community = Community.find(params[:id])
   end
   
-  def add_to_update
-    @ip = request.remote_ip
-    @community = Community.find(params[:id])
+#  Commented out because we were getting spammed. Reactivate when we get spam screens in place: 
+#  def add_to_update
+#    @ip = request.remote_ip
+#    @community = Community.find(params[:id])
 
-    respond_to do |format|
-      if @community.update_attributes(params[:community])
-        if @community.description.blank?
-          @community.description = @community.add_to_description
-        else
-          @community.description = @community.description + '<br />' + @community.add_to_description
-        end
-        @community.add_to_description = ''
-        @community.adder_ip = @ip
-        @community.save
-        flash[:notice] = 'Community data was successfully added.'
-        format.html { redirect_to(@community) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "add_to" }
-        format.xml  { render :xml => @community.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+#    respond_to do |format|
+#      if @community.update_attributes(params[:community])
+#        if @community.description.blank?
+#          @community.description = @community.add_to_description
+#        else
+#          @community.description = @community.description + '<br />' + @community.add_to_description
+#        end
+#        @community.add_to_description = ''
+#        @community.adder_ip = @ip
+#        @community.save
+#        flash[:notice] = 'Community data was successfully added.'
+#        format.html { redirect_to(@community) }
+#        format.xml  { head :ok }
+#      else
+#        format.html { render :action => "add_to" }
+#        format.xml  { render :xml => @community.errors, :status => :unprocessable_entity }
+#      end
+#    end
+#  end
 
   # TODO: should be done on a votes controller
   def vote_for_website
@@ -277,6 +278,8 @@ class CommunitiesController < ApplicationController
           decayed_weight = 1.0
         elsif days_old < days_valid
           decayed_weight = (days_valid - days_old) / ranking_formula_denominator.to_f
+        else
+          decayed_weight = 0.0
         end
         
         count += decayed_weight * support_fraction
