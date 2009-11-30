@@ -52,7 +52,7 @@
 
 - if @community.websites.any?
   %p
-    Vote to increase the funding share of as many as you like. Shares sum to 100%; updated nightly. This vote is for if and when there is funding. &nbsp; &nbsp;
+    Enter a % share for as many as you like. Your percents need not sum to 100. Shares updated nightly. This vote is for if and when there is funding. &nbsp; &nbsp;
     = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs/#Voting') + ']'
 
   %table#table1
@@ -89,10 +89,13 @@
                 - @created = click.created_at
                 - @voted = click
           - if @flag == 1 && @voted.support >= 0
-            %td.cell-centred{:style => "font-weight: bold"} Voted +
-            %td.cell-centred= button_to 'Cancel', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
+            %td.cell-centred{:style => "font-weight: bold"}= number_with_precision(@voted.support, :precision => 0) + '%'
+            %td.cell-centred= button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
           - else
-            %td.cell-centred{:colspan => 2}= button_to '+ Increase Share', :action => :vote_for_website, :id => ranking[:website], :community => @community, :share => ranking[:share]
+            - form_tag(:action => :vote_for_website, :id => ranking[:website], :community => @community) do
+              %td.cell-centred{:style => "white-space: nowrap", :colspan => 2}
+                = select_tag(:percent, options_for_select([['', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "this.form.submit();")
+                %noscript= submit_tag 'Submit'
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 70), ranking[:website].url, :target => "_blank"
           %td.cell-centred= ranking[:created_at].to_s(:Ymd)
           - if current_user and (current_user.permission >= 4.0)

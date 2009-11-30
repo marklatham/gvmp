@@ -158,34 +158,16 @@ class Community < ActiveRecord::Base
     #    end
   end
 
-  # Subroutine to count the number of (time-decayed) votes for shares >= ranking.share + increment
+  # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
   def countVotes(votes, ranking, increment)
     days_full_value = 10
     days_valid = 60
     ranking_formula_denominator = 50
+    cutoff = ranking.share + increment
     
     count = 0.0
     votes.each do |vote|
       if vote.website_id == ranking.website_id && vote.support
-        
-        if vote.support >= ranking.share + increment
-          # This case is same regardless of ballot_type:
-          support_fraction = 1.0
-        elsif vote.ballot_type == 1
-          # ballot_type 1 is simple percent vote for vote.support:
-          support_fraction = 0.0
-        elsif vote.ballot_type == 0
-          # Default ballot_type 0 means voted for "Increase Share" from vote.support = share when voted,
-          # interpreted as uniform distribution of vote from vote.support to 100.0:
-          if vote.support >= 100.0 or ranking.share + increment > 100.0
-            support_fraction = 0.0
-          else
-            support_fraction = (100.0 - ranking.share - increment)/(100.0 - vote.support)
-          end
-        else
-          # No provision for other ballot types at this point:
-          support_fraction = 0.0
-        end
         
         # Time decay of vote:
         days_old = (Time.now.to_date - vote.created_at.to_date).to_i
@@ -197,8 +179,59 @@ class Community < ActiveRecord::Base
           decayed_weight = 0.0
         end
         
-        count += decayed_weight * support_fraction
+        if decayed_weight > 0.0
+        
+          if vote.ballot_type == 2
+            # ballot_type 2 is Interpolated Consensus with 5% increments:
+            if vote.support < 0.1
+              # This is to catch the special case of vote.support = 0.0 -- no interpolation.
+              if cutoff < 0.1
+                support_fraction = 1.0
+                # In case it's useful to see how many voted for 0.0
+              else
+                support_fraction = 0.0
+              end
+            elsif vote.support - 2.5 > cutoff
+              support_fraction = 1.0
+            elsif vote.support + 2.5 < cutoff
+              support_fraction = 0.0
+            else
+              support_fraction = 0.2 * (vote.support + 2.5 - cutoff)
+            end
+            
+          elsif vote.ballot_type == 1
+            # ballot_type 1 is simple percent vote for vote.support:
+            if vote.support >= cutoff
+              support_fraction = 1.0
+            else
+              support_fraction = 0.0
+            end
+            
+          elsif vote.ballot_type == 0
+            # Ballot_type 0 means voted for "Increase Share" from vote.support = share when voted,
+            # interpreted as uniform distribution of vote from vote.support to 100.0:
+            if vote.support >= cutoff
+              support_fraction = 1.0
+            elsif vote.support >= 100.0 or cutoff > 100.0
+              support_fraction = 0.0
+            else
+              support_fraction = (100.0 - cutoff)/(100.0 - vote.support)
+            end
+            
+          else
+            # No provision for other ballot types at this point:
+            support_fraction = 0.0
+            
+          end
+          
+          count += decayed_weight * support_fraction
+          
+        end
       end
+    end
+    # Temporary fix until old votes above 40% decay away (can this about 2010-01-31):
+    if cutoff > 43.5
+      count = 0.0
     end
     return count
   end
