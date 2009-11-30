@@ -94,7 +94,10 @@
           - else
             - form_tag(:action => :vote_for_website, :id => ranking[:website], :community => @community) do
               %td.cell-centred{:style => "white-space: nowrap", :colspan => 2}
-                = select_tag(:percent, options_for_select([['', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "this.form.submit();")
+                - if @community.websites.count > 2
+                  = select_tag(:percent, options_for_select([['', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "this.form.submit();")
+                - else
+                  = select_tag(:percent, options_for_select([['', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "this.form.submit();")
                 %noscript= submit_tag 'Submit'
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 70), ranking[:website].url, :target => "_blank"
           %td.cell-centred= ranking[:created_at].to_s(:Ymd)
