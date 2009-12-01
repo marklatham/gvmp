@@ -229,8 +229,8 @@ class Community < ActiveRecord::Base
         end
       end
     end
-    # Temporary fix until old votes above 40% decay away (can this about 2010-01-31):
-    if cutoff > 43.5
+    # Temporary fix until old CIRA votes above 70% decay away (delete this about 2010-01-26):
+    if cutoff > 73.5
       count = 0.0
     end
     return count

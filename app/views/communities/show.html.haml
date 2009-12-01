@@ -52,7 +52,9 @@
 
 - if @community.websites.any?
   %p
-    Vote a % share for as many as you like. Your votes need not sum to 100%. Shares updated nightly. This vote is for if and when there is funding. &nbsp; &nbsp;
+    Vote % shares for as many as you like.
+    %noscript= 'Click Submit after each vote.'
+    Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. This ballot is for if and when there is funding. &nbsp; &nbsp;
     = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs/#Voting') + ']'
 
   %table#table1
@@ -108,7 +110,7 @@
 
   %p= will_paginate @rankings
   
-  %p If you don't want other users of this computer to see your votes, please exit browser when finished voting.
+  %p If you don't want other users of your computer to see your votes, please exit browser when finished voting.
 
 - else
   %p
