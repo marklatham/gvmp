@@ -1,3 +1,42 @@
-%h2 Which websites/blogs serving your voter communities deserve funding?
+- main_column do
+  %h2 Which websites/blogs serving your voter communities deserve funding?
+  .listing
+    %p 
+      Use search box on the left and/or browse below; follow links to community ballots, 
+      then vote on website/blog funding:
+    
+    = paginate(@communities)
+    
+    %table{:cellspacing => 0, :cellpadding => 0}
+      %tr.header
+        %td Community Name
+        %td Type
+        %td Scope
+        %td.right
+          Websites Count 
+      
+      - @communities.each do |community|
+        %tr{:class => 'data ' + cycle('list-line-odd', 'list-line-even')}
+          %td
+            %h4
+              = link_to community.name, community
+            .meta
+              = render_location(community)
+            = render_community_actions(community)
+            
+          %td= render_category(community)    
+          %td= render_scope(community)
+          %td.right
+            = render_websites_info(community)      
+    
+    = paginate(@communities)
+    
+    %h5
+      Is your voter community not in our system? Add it by email to editors[at]votermedia.org
+    
+    - if current_user and (current_user.permission >= 4.0)
+      = link_to 'Add community', new_community_path
 
-= render :partial => "communities/table"
+- sidebar_column do
+  = render 'layouts/search'
+  = render 'layouts/featured'

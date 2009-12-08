@@ -1,5 +1,6 @@
 class Community < ActiveRecord::Base
   # TODO: protect attributes from mass-assignment
+  # counter-cache for number of websites
   
   has_many :rankings do
     def with_websites

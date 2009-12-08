@@ -1,0 +1,158 @@
+
+h1 {
+	font-size: 2em
+}
+
+h2 {
+	font-size: 1.75em
+}
+
+h3 {
+	font-size: 1.5em
+}
+
+h4 {
+	font-size: 1.25em
+}
+
+h5 {
+	font-size: 1.05em
+}
+
+h6 {
+	font-size: 0.95em
+}
+
+h1, 
+h2, 
+h3, 
+h4 {
+  margin: 0 0 5px 0;
+}
+
+p {
+  font-size:   100%;
+  line-height: 1.25em;
+  margin:      0 0 7px 0;
+}
+
+a,
+a:visited {
+  color:           #0055FF;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/** layouts **/
+
+#content {
+  height:     auto;
+  width:      auto;
+  position:   relative;
+  overflow:   hidden;
+  margin:     0 40px;
+  background: #FFF;
+}
+
+#content .wrapper {
+  margin:   30px auto;
+  overflow: hidden;
+  position: relative;
+}
+
+
+.main_column {
+  position: relative;
+  padding:  0;
+  margin:   0 0 0 230px;
+  overflow: hidden;
+}
+
+.sidebar {
+  width:    200px;
+  float:    left;
+  margin:   0;
+  padding:  0;
+  overflow: hidden;
+  position: absolute;
+  top:      0;
+}
+
+
+.listing table {
+  width:      100%;
+  margin:     5px 0 0 0;
+  border-top: 1px solid #777777;
+}
+
+.listing tr.header {
+  background:     #F5F5F5 none repeat scroll 0 0;
+  text-transform: uppercase;
+  font-size:      .85em;
+}
+
+.listing tr.header td {
+  padding:  7px;
+}
+
+.listing tr.data td {
+  border-bottom:  1px solid #D1D1D1;
+  padding:        7px 7px;
+  vertical-align: top;
+  white-space:    nowrap;
+}
+
+.listing td.right {
+  text-align: right;
+  padding:    7px 15px 7px 5px; 
+}
+
+
+.listing .actions a {
+  font-size: 0.90em;
+}
+
+.actions .item {
+  margin: 0 7px 0 0;
+}
+
+
+
+/** pagination **/
+
+.pagination {
+	font-family:    "Lucida Sans Unicode", "Lucida Grande", garuda, sans-serif;
+  text-transform: lowercase;
+  text-align:     right;
+  margin:         20px 0;
+  font-size:      0.90em;
+}
+
+.pagination span.current {
+  font-weight: bold;
+  padding:         0px 5px;
+  background:      #0055FF;
+  color:           #fff;
+}
+
+.pagination a {
+	text-decoration: none;
+  padding:         0px 5px;
+  border:          1px solid #ccc;
+}
+
+.pagination a.prev_page,
+.pagination a.next_page {
+  border: none;
+}
+
+
+
+

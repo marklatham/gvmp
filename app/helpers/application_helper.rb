@@ -13,4 +13,9 @@ module ApplicationHelper
   def link_separator(s = '|')
     content_tag(:span, s, :class => 'separator')
   end
+
+
+  def paginate(collection)
+    will_paginate(collection)
+  end
 end

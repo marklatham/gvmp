@@ -1,40 +1,43 @@
 - @page_title = 'Listing communities'
 
-%h1.permission Listing communities
-
-= will_paginate(@communities)
-
-- cols = ['ID', 'Name', 'Creator_ip', 'Adder_ip', 'Created', 'Updated', 'Edit', 'Destroy', 'Short name', 'Type', 'Country', 'Prov state', 'City', 'Official url', 'Wiki url', 'Description']
-%table
-  %tr
-    - cols.each do |col|
-      %th= col
-    - 2.times do |i|  # for the actions
-      %th
-  - @communities.each do |community|
-    %tr
-      %td= community.id
-      %td= link_to community.name, community
-      %td= h community.creator_ip
-      %td= h community.adder_ip
-      %td= h community.created_at
-      %td
-        - unless community.updated_at == community.created_at
-          = h community.updated_at
-      %td= link_to 'Edit', edit_community_path(community)
-      %td= link_to 'Destroy', community_path(community), :method => :delete, :confirm => 'Are you sure?'
-      %td= h community.short_name
-      %td= community.category
-      %td= h community.country
-      %td= h community.prov_state
-      %td= h community.city
-      %td= h community.official_url
-      %td= h community.wiki_url
-      %td= h community.description
-
-%h2
-  = link_to 'New community', new_community_path
-
-%br
-
-= will_paginate(@communities)
+- single_column do
+  %h1.permission Listing communities
+  
+  .listing
+    - if @communities.any?
+      = paginate(@communities)
+      %table{:cellpadding => 0, :cellspacing => 0, :border => 0}
+        %tr.header
+          %td Name
+          %td Type
+          %td Location
+          %td Scope
+          %td Websites
+          %td Creator
+          %td IP
+  
+        - @communities.each do |community|
+          %tr
+            %td
+              = render_community(community)
+              .actions
+                = link_to 'Edit', edit_community_path(community)
+                = link_to 'Destroy', community_path(community), :method => :delete, :confirm => 'Are you sure?'
+     
+            %td= h community.creator_ip
+            %td= h community.adder_ip
+            %td= h community.created_at
+            %td= h community.updated_at
+            %td= h community.short_name
+            %td= community.category
+            %td= h community.country
+            %td= h community.prov_state
+            %td= h community.city
+            %td= h community.official_url
+            %td= h community.wiki_url
+            %td= h community.description
+  
+  %h2
+    = link_to 'New community', new_community_path
+  
+  = paginate(@communities)
