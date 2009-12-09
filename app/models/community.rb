@@ -261,7 +261,7 @@ class Community < ActiveRecord::Base
     # Should be a named_scope eventually
     def featured
       ids = [51, 81, 5, 205, 82, 94, 3, 109, 151, 191, 116, 223]
-      find(:all, :conditions => ["id in (?)", ids])
+      find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
   end
 
