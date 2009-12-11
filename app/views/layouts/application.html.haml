@@ -5,26 +5,26 @@
   %head
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
     %title= 'VoterMedia' + (@page_title.blank? ? '' : ": #{@page_title}")
-    =# stylesheet_link_tag 'main', :media => "all"
-    = render 'layouts/resources'
+    = stylesheet_link_tag 'main', :media => "all"
+    =# render 'layouts/resources'
 
   %body#welcome
     = render 'layouts/header'
     = render 'layouts/main_nav_top'    
 
-    #content
-      .wrapper
-        = yield
-
-    -##columns
-    -#  #side
-    -#    = render 'layouts/search'
-    -#    = render 'layouts/featured'
-
-    -#  #main
-    -#    - if flash[:notice]
-    -#      #notice= flash[:notice]
+    -##content
+    -#  .wrapper
     -#    = yield
+
+    #columns
+      #side
+        = render 'layouts/search'
+        = render 'layouts/featured'
+
+      #main
+        - if flash[:notice]
+          #notice= flash[:notice]
+        = yield
 
     = render 'layouts/main_nav_bottom' 
 

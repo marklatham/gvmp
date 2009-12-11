@@ -1,44 +1,55 @@
 - main_column do
   %h2 Which websites/blogs serving your voter communities deserve funding?
   .listing
-    %p 
-      Use search box on the left and/or browse below; follow links to community ballots, 
-      then vote on website/blog funding:
+    %p Use search box on the left and/or browse below; follow links to community ballots, then vote on website/blog funding:
     
-    = paginate(@communities)
+    %p= will_paginate @communities
+    %p
     
-    %table{:cellspacing => 0, :cellpadding => 0}
+    %table#table1{:cellspacing => 0}
+    
       %tr.header
-        %td Community Name
-        %td Type
-        %td Scope
-        %td.right
-          Websites 
-          %br
-          Count 
+        %td
+        %td.header-left Community Name
+        %td.header-centred Type
+        %td.header-centred{:colspan => 3} --------- Headquarters ---------
+        %td.header-centred Regional
+        %td.header-centred #web-
       
-      - @communities.each do |community|
-        %tr{:class => 'data ' + cycle('list-line-odd', 'list-line-even')}
-          %td
-            %h4
-              = link_to community.name, community
-            .meta
-              = render_location(community)
-            = render_community_actions(community)
-            
-          %td= render_category(community)    
-          %td= render_scope(community)
-          %td.right
-            = render_websites_info(community)      
+      %tr.header 
+        %td
+        %td.header-left &nbsp; &nbsp; &nbsp; & link to ballot
+        %td.header-centred 
+        %td.header-centred Country
+        %td.header-centred Prov/State
+        %td.header-centred City
+        %td.header-centred Scope
+        %td.header-centred sites
     
-    = paginate(@communities)
+      - for community in @communities
+        %tr{:class => cycle('list-line-odd', 'list-line-even')}
+          %td.add-button 
+            -# Uncomment to create Add buttons
+            -# <input type="submit" value="<< Add" />
+          %td.cell-link= link_to community.name, community
+          -# Uncomment when create Add buttons, add heading, delink community names
+          -# %td= link_to "View", community
+          %td.cell-centred= community.category
+          %td.cell-centred= h community.country
+          %td.cell-centred= h community.prov_state
+          %td.cell-centred= h truncate(community.city, :length => 15)
+          %td.cell-centred= h truncate(community.scope, :length => 20)
+          %td.cell-centred= h community.websites.count
+          - if current_user and (current_user.permission >= 4.0)
+            %td.permission= link_to 'Edit', edit_community_path(community)
+          - if current_user and (current_user.permission >= 7.0)
+            %td.permission= link_to 'Destroy', community, :confirm => 'Are you sure?', :method => :delete
     
-    %h5
-      Is your voter community not in our system? Add it by email to editors[at]votermedia.org
-    
-    - if current_user and (current_user.permission >= 4.0)
-      = link_to 'Add community', new_community_path
+      %tr
+        %td.footer-row{:colspan => 3}= will_paginate @communities
+        %td.footer-row{:colspan => 5, :align => "right", :style => "font-weight: bold"}
+          Is your voter community not in our system? Add it by email to editors[at]votermedia.org
+        - if current_user and (current_user.permission >= 4.0)
+          %td.permission= link_to 'Add community', new_community_path
+    %br
 
-- sidebar_column do
-  = render 'layouts/search'
-  = render 'layouts/featured'
