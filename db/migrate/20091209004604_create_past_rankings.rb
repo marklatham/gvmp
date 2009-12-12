@@ -12,7 +12,7 @@ class CreatePastRankings < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :past_rankings, [:community_id, :website_id], :unique => true
+    add_index :past_rankings, [:community_id, :website_id]
   end
 
   def self.down

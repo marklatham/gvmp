@@ -1,23 +1,18 @@
-%h1 Past rankings
+%h1 Past Funding Shares
+
+%h3 For website: 
+
+%h3 In community: 
 
 %table
   %tr
-    %th Archived at
+    %th Date
     %th Share
-    %th Rank
-    %th Count0
-    %th Count1
-    %th Sequence
-    %th Community id
-    %th Website id
-    %th Ranking Updated at
-    %th P R Updated at
-    %th P R id
 
   - for past_ranking in @past_rankings
     %tr
-      %td= h past_ranking.created_at
-      %td= h past_ranking.share
+      %td.cell-centred= past_ranking.created_at.to_s(:Ymd)
+      %td.cell-centred.cell-like-link= number_with_precision(past_ranking.share, :precision => 0) + '%'
       %td= h past_ranking.rank
       %td= h past_ranking.count0
       %td= h past_ranking.count1

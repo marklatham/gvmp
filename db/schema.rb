@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(:version => 20091209004604) do
     t.datetime "updated_at"
   end
 
-  add_index "past_rankings", ["community_id", "website_id"], :name => "index_past_rankings_on_community_id_and_website_id", :unique => true
+  add_index "past_rankings", ["community_id", "website_id"], :name => "index_past_rankings_on_community_id_and_website_id"
 
   create_table "presentations", :force => true do |t|
     t.date     "pdate"
