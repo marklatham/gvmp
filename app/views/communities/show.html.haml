@@ -103,6 +103,7 @@
                 %noscript= submit_tag 'Submit'
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 70), ranking[:website].url, :target => "_blank"
           %td.cell-centred= ranking[:created_at].to_s(:Ymd)
+          %td= link_to 'Past Shares', rankings_path(ranking)
           - if current_user and (current_user.permission >= 4.0)
             %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
           - if current_user and (current_user.permission >= 5.0)

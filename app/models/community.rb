@@ -5,7 +5,8 @@ class Community < ActiveRecord::Base
   has_many :rankings do
     def with_websites
       # sort first on rank, then on created_at; pass both values to caller
-      map{|ranking| { :rank => ranking.rank, :created_at => ranking.created_at, :website => ranking.website, :share => ranking.share, :count0 => ranking.count0, :count1 => ranking.count1 }}.sort_by {
+      map{|ranking| { :rank => ranking.rank, :created_at => ranking.created_at, :website => ranking.website, :share => ranking.share,
+                      :count0 => ranking.count0, :count1 => ranking.count1, :ranking_id => ranking.id }}.sort_by {
                       |website_and_ranking| [website_and_ranking[:share], website_and_ranking[:count1]] }.reverse
     end
   end

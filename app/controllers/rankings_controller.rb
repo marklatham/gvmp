@@ -14,6 +14,16 @@ class RankingsController < ApplicationController
     end
   end
 
+  def show
+    @past_rankings = PastRanking.find(:all, :conditions => ["ranking_id = ?", params[:id]], :order => "created_at DESC")
+ 
+    respond_to do |format|
+      format.html # show.html.haml
+      format.xml  { render :xml => @past_rankings }
+      format.yaml  { render :yaml => @past_rankings }
+    end
+  end
+
   # DELETE /rankings/1
   # DELETE /rankings/1.xml
   def destroy

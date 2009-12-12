@@ -17,4 +17,13 @@ namespace :utils do
 	    end
 	  end
   end
+  
+  desc "Archive all website/blog rankings"
+  task(:archive_rankings => :environment) do
+    @rankings = Ranking.find(:all)
+	  @rankings.each do |ranking|
+	    ranking.archive
+	  end
+  end
+  
 end

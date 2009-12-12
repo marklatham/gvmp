@@ -1,0 +1,31 @@
+%h1 Past rankings
+
+%table
+  %tr
+    %th Archived at
+    %th Share
+    %th Rank
+    %th Count0
+    %th Count1
+    %th Sequence
+    %th Community id
+    %th Website id
+    %th Ranking Updated at
+    %th P R Updated at
+    %th P R id
+
+  - for past_ranking in @past_rankings
+    %tr
+      %td= h past_ranking.created_at
+      %td= h past_ranking.share
+      %td= h past_ranking.rank
+      %td= h past_ranking.count0
+      %td= h past_ranking.count1
+      %td= h past_ranking.sequence
+      %td= h past_ranking.community_id
+      %td= h past_ranking.website_id
+      %td= h past_ranking.ranking_updated_at
+      %td= h past_ranking.updated_at
+      %td= h past_ranking.id
+
+%br
