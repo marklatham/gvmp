@@ -15,6 +15,9 @@ class RankingsController < ApplicationController
   end
 
   def show
+    @ranking = Ranking.find(params[:id])
+    @website = Website.find(@ranking.website_id)
+    @community = Community.find(@ranking.community_id)
     @past_rankings = PastRanking.find(:all, :conditions => ["ranking_id = ?", params[:id]], :order => "created_at DESC")
  
     respond_to do |format|

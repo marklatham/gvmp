@@ -1,26 +1,21 @@
 %h1 Past Funding Shares
 
-%h3 For website: 
+%h3
+  For website:
+  %span{:style => "color: #006"}= @website.title
 
-%h3 In community: 
+%h3
+  In community ballot:
+  = link_to @community.short_name, @community
 
-%table
-  %tr
-    %th Date
-    %th Share
+%table#table1
+  %tr.header
+    %td.header-centred Date
+    %td.header-centred Share
 
   - for past_ranking in @past_rankings
-    %tr
+    %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred= past_ranking.created_at.to_s(:Ymd)
       %td.cell-centred.cell-like-link= number_with_precision(past_ranking.share, :precision => 0) + '%'
-      %td= h past_ranking.rank
-      %td= h past_ranking.count0
-      %td= h past_ranking.count1
-      %td= h past_ranking.sequence
-      %td= h past_ranking.community_id
-      %td= h past_ranking.website_id
-      %td= h past_ranking.ranking_updated_at
-      %td= h past_ranking.updated_at
-      %td= h past_ranking.id
 
 %br
