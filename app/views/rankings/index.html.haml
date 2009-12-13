@@ -16,8 +16,8 @@
     %tr
       %td= h ranking.community_id
       %td= h ranking.website_id
-      %td= h ranking.rank
-      %td= h ranking.share
+      %td= number_with_precision(ranking.rank, :precision => 0)
+      %td= number_with_precision(ranking.share, :precision => 0)
       %td= h ranking.count0
       %td= h ranking.count1
       %td= h ranking.sequence

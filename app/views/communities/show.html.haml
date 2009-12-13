@@ -79,7 +79,7 @@
           - if current_user and (current_user.permission >= 7.0)
             %td.cell-centred.permission= number_with_precision(ranking[:count1], :precision => 3)
             %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 3)
-          %td.cell-centred.cell-like-link= number_with_precision(ranking[:share], :precision => 0) + '%'
+          %td.cell-centred.cell-link= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
           -# TODO: use named_route/resource
           -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Also more ugly code because I couldn't figure out how to delete a vote record saved in the session, so I added a negative vote as a cancel flag. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
           - @flag = 0

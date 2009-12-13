@@ -152,12 +152,15 @@ class Community < ActiveRecord::Base
       @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
     end
 
-    # If needed: Code to initialize all shares to 0.0:
-    #    @rankings = Ranking.find(:all)
-    #    @rankings.each do |ranking|
-    #      ranking.share = 0.0
-    #      ranking.save
-    #    end
+  # Share calculations are now completed, so store rank of each website in this community:
+  @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "share DESC, count1 DESC, count0 DESC, created_at DESC")
+  rank_sequence = 0
+  @rankings.each do |ranking|
+    rank_sequence += 1
+    ranking.rank = rank_sequence
+    ranking.save
+  end
+
   end
 
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment

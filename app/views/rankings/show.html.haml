@@ -1,11 +1,7 @@
-%h1 Past Funding Shares
+%h1= @website.title
 
 %h3
-  For website:
-  %span{:style => "color: #006"}= @website.title
-
-%h3
-  In community ballot:
+  Past funding shares in community ballot for
   = link_to @community.short_name, @community
 
 %table#table1
