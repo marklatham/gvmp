@@ -5,7 +5,7 @@ class RankingsController < ApplicationController
   end
 
   def index
-    @rankings = Ranking.find(:all, :order => "created_at DESC")
+    @rankings = Ranking.find(:all, :order => "community_id, rank")
  
     respond_to do |format|
       format.html # index.html.erb

@@ -8,7 +8,6 @@
     %th Share
     %th Count0
     %th Count1
-    %th Sequence
     %th Created at
     %th Updated at
 
@@ -16,11 +15,10 @@
     %tr
       %td= h ranking.community_id
       %td= h ranking.website_id
-      %td= number_with_precision(ranking.rank, :precision => 0)
+      %td= ranking.rank
       %td= number_with_precision(ranking.share, :precision => 0)
       %td= h ranking.count0
       %td= h ranking.count1
-      %td= h ranking.sequence
       %td= h ranking.created_at
       %td= h ranking.updated_at
       %td= link_to 'Show', ranking

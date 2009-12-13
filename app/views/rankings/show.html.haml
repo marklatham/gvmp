@@ -7,11 +7,13 @@
 %table#table1
   %tr.header
     %td.header-centred Date
+    %td.header-centred Rank
     %td.header-centred Share
 
   - for past_ranking in @past_rankings
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred= past_ranking.created_at.to_s(:Ymd)
+      %td.cell-centred= past_ranking.rank
       %td.cell-centred.cell-like-link= number_with_precision(past_ranking.share, :precision => 0) + '%'
 
 %br
