@@ -1,6 +1,6 @@
 class RankingsController < ApplicationController
 
-  before_filter do |c|
+  before_filter :except => :show do |c|
     c.redirect_if_permission_less_than 7.0
   end
 
