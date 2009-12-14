@@ -5,45 +5,43 @@
 #community-box
 
   %p
-    %label
-      Type of community:
+    %label Type of community:
     = link_to @community.category, communities_path(:q => @community.category)  # TODO: This should be pulled from lookup table
 
-  %p
-    %label
-      Headquarters:
+    %label &nbsp; &nbsp; Headquarters:
     = @community.location
 
-  %p
-    %label
-      Regional scope:
+    %label &nbsp; &nbsp; Regional scope:
     = if @community.scope
       = link_to @community.scope, communities_path(:q => @community.scope)
 
   %p
-    %label
-      Official website:
-    = if @community.official_url
-      = auto_link_urls(@community.official_url, :target => "_blank")
+    - if @community.official_url
+      %label= link_to 'Official community website', @community.official_url, :target => "_blank"
+      &nbsp; &nbsp;
+    - if @community.wiki_url
+      %label= link_to 'Wikipedia page', @community.wiki_url, :target => "_blank"
 
   %p
-    %label
-      Wiki:
-    = if @community.wiki_url
-      = auto_link_urls(@community.wiki_url, :target => "_blank")
-
-  %p
-    %label
-      Description:
+    %label Description:
     = truncate(@community.description, :length => 500)
 
-  %p You can add to or correct this community's data and website/blog list by emailing editors[at]votermedia.org.
+  %p
+    %label Entries:
+    You can add to or correct this community's data and website/blog list by emailing editors[at]votermedia.org.
 
   -# %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
 
   - if current_user and (current_user.permission >= 4.0)
     %p.permission
       = link_to('Edit community data', edit_community_path(@community))
+
+  %p
+    %label Funding status:
+    - if @community.status
+      = truncate(@community.status, :length => 1000)
+    - else
+      Not currently funded. This ballot is for if and when there is funding.
 
 %h3
   How should the 
@@ -54,7 +52,7 @@
   %p
     Vote % shares for as many as you like.
     %noscript= 'Click Submit after each vote.'
-    Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. This ballot is for if and when there is funding. &nbsp; &nbsp;
+    Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
     = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs/#Voting') + ']'
 
   %table#table1

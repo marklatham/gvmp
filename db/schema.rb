@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091214011720) do
+ActiveRecord::Schema.define(:version => 20091214061210) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20091214011720) do
     t.string   "creator_ip"
     t.string   "adder_ip"
     t.boolean  "delta",              :default => false
+    t.text     "status"
   end
 
   add_index "communities", ["category"], :name => "index_communities_on_category"
