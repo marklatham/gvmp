@@ -19,6 +19,7 @@ class RankingsController < ApplicationController
     @website = Website.find(@ranking.website_id)
     @community = Community.find(@ranking.community_id)
     @past_rankings = PastRanking.find(:all, :conditions => ["ranking_id = ?", params[:id]], :order => "created_at DESC")
+    @fundings = Funding.find(:all, :conditions => ["community_id = ?", @ranking.community_id], :order => "date DESC")
  
     respond_to do |format|
       format.html # show.html.haml

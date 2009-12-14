@@ -4,25 +4,22 @@ class Community < ActiveRecord::Base
   
   has_many :rankings do
     def with_websites
-      # sort first on share, then on count1; pass both values to caller
       map{|ranking| { :rank => ranking.rank, :created_at => ranking.created_at, :website => ranking.website, :share => ranking.share,
                       :count0 => ranking.count0, :count1 => ranking.count1, :ranking_id => ranking.id }}.sort_by {
-                      |website_and_ranking| [website_and_ranking[:share], website_and_ranking[:count1]] }.reverse
+                      |website_and_ranking| [website_and_ranking[:rank]] }
     end
   end
   has_many :websites, :through => :rankings
-
+  has_many :fundings
 
   validates_presence_of :name, :short_name
   validates_presence_of :category, :message => "(Type) can't be blank"
-  
   validates_length_of :name, :maximum => 50
   validates_length_of :short_name, :maximum => 20, :message => ": please shorten to 20 characters or less"
   validates_length_of :category, :maximum => 20
   validates_length_of :country, :maximum => 30
   validates_length_of :prov_state, :maximum => 30
   validates_length_of :city, :maximum => 30
-
 
   named_scope :recently_created, :order => 'communities.created_at DESC'
   named_scope :recently_updated, :order => 'communities.updated_at DESC'
