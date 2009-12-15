@@ -4,7 +4,7 @@ class AddDeltaIndex < ActiveRecord::Migration
       t.column :delta, :boolean, :default => false
       t.index :delta
     end
-    Community.update_all "delta = false"
+    Community.update_all :delta => false
   end
 
   def self.down
