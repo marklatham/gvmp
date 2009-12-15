@@ -118,13 +118,16 @@ a:hover { color: #d00; }
 }
 
 .permission {
-  color: #060;
+  color: #0C0;
 }
 .permission a {
-  color: #060;
+  color: #0C0;
 }
 .permission a:hover {
   color: #a00;
+}
+.funded {
+  color: #060;
 }
 
 #main-nav {
@@ -265,6 +268,11 @@ a:hover { color: #d00; }
 #table1 .footer-row {
   border-top: 2px solid #c00;
   padding-top: 6px;
+}
+
+#table1 .label {
+  padding-left: 0.5em;
+  font-weight: bold;
 }
 
 #faq .category {
