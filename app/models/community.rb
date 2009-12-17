@@ -150,7 +150,7 @@ class Community < ActiveRecord::Base
     end
 
   # Share calculations are now completed, so store rank of each website in this community:
-  @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "share DESC, count1 DESC, count0 DESC, created_at DESC")
+  @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "share DESC, count1 DESC, created_at DESC")
   rank_sequence = 0
   @rankings.each do |ranking|
     rank_sequence += 1
@@ -262,7 +262,7 @@ class Community < ActiveRecord::Base
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope eventually
     def featured
-      ids = [82, 51, 81, 5, 205, 94, 3, 109, 151, 191, 116, 223]
+      ids = [82, 51, 81, 5, 205, 94, 3, 109, 151, 116, 223]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
   end

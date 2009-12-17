@@ -3,7 +3,8 @@
 %h2.permission Admin for VoterMedia.org website
 
 %h4 Tally all percent votes:
-
+[BEWARE: May cause confusion if you use this button in production. Users expect
+%br &nbsp; current ranks & shares to match the latest stored values on Past Shares page.]
 %p= button_to 'Tally all', :action => :tally_all
 
 -# %h4 Set ballot types:

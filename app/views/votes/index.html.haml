@@ -1,16 +1,18 @@
+- @page_title = 'Votes'
+
 %h1.permission Listing votes
 
 %table
   %tr
     %th Ip address
-    %th Community
-    %th Website
+    %th Comm.
+    %th{:colspan => 2} Website
+    %th Support
     %th
     %th
     %th
     %th Created
     %th Updated
-    %th Support
     %th ID
     %th Type
 
@@ -19,6 +21,11 @@
       %td= h vote.ip_address
       %td= h vote.community_id
       %td= h vote.website_id
+      - website = Website.find(vote.website_id)
+      %td= truncate(website.title, :length => 20, :omission => '')
+      %td
+        - if vote.support
+          = number_with_precision(vote.support, :precision => 0) + '%'
       %td= link_to 'Show', vote
       %td= link_to 'Edit', edit_vote_path(vote)
       %td= link_to 'Destroy', vote, :confirm => 'Are you sure?', :method => :delete
@@ -26,7 +33,6 @@
       %td
         - unless vote.updated_at == vote.created_at
           = h vote.updated_at
-      %td= h vote.support
       %td= vote.id
       %td{:style => "text-align: center"}= vote.ballot_type
 
