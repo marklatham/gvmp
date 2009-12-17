@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091214061210) do
+ActiveRecord::Schema.define(:version => 20091217192229) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -103,6 +103,18 @@ ActiveRecord::Schema.define(:version => 20091214061210) do
 
   add_index "past_rankings", ["community_id", "website_id"], :name => "index_past_rankings_on_community_id_and_website_id"
 
+  create_table "posts", :force => true do |t|
+    t.integer  "website_id"
+    t.string   "headline"
+    t.string   "url"
+    t.text     "body"
+    t.datetime "posted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "posts", ["website_id"], :name => "index_posts_on_website_id"
+
   create_table "presentations", :force => true do |t|
     t.date     "pdate"
     t.string   "place"
@@ -191,6 +203,7 @@ ActiveRecord::Schema.define(:version => 20091214061210) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "creator_ip"
+    t.string   "feed_url"
   end
 
 end
