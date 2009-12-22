@@ -16,3 +16,4 @@ index
 index/**/*
 db/sphinx/**/*
 db/*.sqlite3
+*~
