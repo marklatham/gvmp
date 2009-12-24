@@ -22,7 +22,7 @@
       %td= h vote.community_id
       %td= h vote.website_id
       - website = Website.find(vote.website_id)
-      %td= truncate(website.title, :length => 20, :omission => '')
+      %td= truncate(website.title, :length => 20, :omission => '\\')
       %td
         - if vote.support
           = number_with_precision(vote.support, :precision => 0) + '%'

@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   resource_controller
 
   before_filter do |c|
-    c.redirect_if_permission_less_than 7.0
+    c.redirect_if_permission_less_than 8.5
   end
 
   index.before do

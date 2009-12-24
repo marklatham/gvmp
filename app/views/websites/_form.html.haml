@@ -2,14 +2,19 @@
   = f.error_messages
 
   %p
+    = f.label :title
+    %br
+    = f.text_field :title, :size => 70
+  
+  %p
     = f.label :url
     %br
     = f.text_field :url, :size => 70
   
   %p
-    = f.label :title
+    = f.label :feed_url
     %br
-    = f.text_field :title, :size => 70
+    = f.text_field :feed_url, :size => 70
   
   %p
     = f.submit "Submit"

@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
 
-  before_filter { |c| c.redirect_if_permission_less_than 7.0 }
+  before_filter { |c| c.redirect_if_permission_less_than 8.5 }
 
   # Tally all percent votes (button on admin page)
   def tally_all

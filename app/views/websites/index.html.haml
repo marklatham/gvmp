@@ -3,8 +3,9 @@
 %table
   %tr
     %th id
-    %th Url
     %th Title
+    %th Url
+    %th Feed_url
     %th Creator_ip
     %th Created
     %th Updated
@@ -12,8 +13,9 @@
   - for website in @websites
     %tr
       %td= website.id
-      %td= h website.url
       %td= h website.title
+      %td= h website.url
+      %td= h website.feed_url
       %td= h website.creator_ip
       %td= h website.created_at
       %td

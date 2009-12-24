@@ -26,15 +26,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :votes
   map.resources :websites
   
-  map.about_contact '/about_contact', :controller => 'public', :action => 'about_contact'
-  map.comdump '/comdump.yaml', :controller => 'public', :action => 'comdump'
-  map.terms '/terms', :controller => 'public', :action => 'terms'
-  map.privacy '/privacy', :controller => 'public', :action => 'privacy'
-  map.how_you_can_help '/how_you_can_help', :controller => 'public', :action => 'how_you_can_help'
-  map.ubc2010 '/ubc2010', :controller => 'public', :action => 'ubc2010'
-  map.admin '/admin', :controller => 'admin', :action => 'admin'
-  map.mlresume '/mlresume', :controller => 'minimal', :action => 'mlresume'
-  map.publications '/publications', :controller => 'pubs', :action => 'index'
+  map.about_contact    '/about_contact',    :controller => 'public',  :action => 'about_contact'
+  map.comdump          '/comdump.yaml',     :controller => 'public',  :action => 'comdump'
+  map.terms            '/terms',            :controller => 'public',  :action => 'terms'
+  map.privacy          '/privacy',          :controller => 'public',  :action => 'privacy'
+  map.how_you_can_help '/how_you_can_help', :controller => 'public',  :action => 'how_you_can_help'
+  map.ubc2010          '/ubc2010',          :controller => 'public',  :action => 'ubc2010'
+  map.admin            '/admin',            :controller => 'admin',   :action => 'admin'
+  map.mlresume         '/mlresume',         :controller => 'minimal', :action => 'mlresume'
+  map.publications     '/publications',     :controller => 'pubs',    :action => 'index'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

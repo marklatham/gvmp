@@ -128,7 +128,10 @@ class Community < ActiveRecord::Base
     end
 
     # Main loop: Adjust shares until max_count1 <= min_count0 i.e. find a cutoff number of votes (actually a range of cutoffs)
-    # where shares sum to 100.0 using that same cutoff to determine each website's share:
+    # where shares sum to 100.0 using that same cutoff to determine each website's share.
+    # This is like a stock market order matching system. Each count1 is a bid; each count0 is an offer.
+    # If the highest bid is higher than the lowest offer, then a trade of 1% happens.
+    # It's a competitive market for public goods:
     
     while @min_count0.count0 < @max_count1.count1
       # Move one percent share from @min_count0 to @max_count1
