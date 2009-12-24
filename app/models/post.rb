@@ -5,7 +5,7 @@ class Post < ActiveRecord::Base
   
   def self.add_entries(website, entries)
     entries.each do |entry|
-      entry.sanitize!
+      entry.sanitize! rescue nil
 
       create!(
         :website    => website,
