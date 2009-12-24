@@ -1,0 +1,29 @@
+- @page_title = 'Fund a community'
+
+%h2.permission
+  Fund community
+  = @community.short_name
+
+%br
+- form_tag(:action => :create_fundings, :community => @community) do
+  %label 
+    Start Date:
+  %br
+  = date_select :funding, :start_date
+  %br
+  %br
+  %label
+    Number of days:
+  %br
+  = text_field_tag :days
+  %br
+  %br
+  %label
+    Dollars per day:
+  %br
+  = text_field_tag :amount
+  %br
+  %br
+  = submit_tag 'Fund'
+
+%br

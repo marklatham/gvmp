@@ -8,6 +8,10 @@ class CommunitiesController < ApplicationController
     c.redirect_if_permission_less_than 7.0
   end
 
+  before_filter :only => :fund do |c|
+    c.redirect_if_permission_less_than 9.0
+  end
+
   def index
     @communities = Community.filter(params).paginate(:page => params[:page])
     respond_to do |format|
@@ -91,6 +95,32 @@ class CommunitiesController < ApplicationController
 #    end
 #  end
 
+  def fund
+    @community = Community.find(params[:id])
+  end
+  
+  def create_fundings
+    @community = Community.find(params[:community])
+    @date = build_date_from_params(:start_date, params[:funding])
+    @amount = params[:amount]
+    @end_date = @date + params[:days].to_i
+    
+    while @date < @end_date do
+      Funding.create!({:date => @date, :community_id => @community.id, :amount => @amount})
+      @date += 1
+    end
+    
+    redirect_to :action => :show, :id => @community
+  end
+  
+  # Reconstruct a date object from date_select helper form params
+  def build_date_from_params(field_name, params)
+    Date.new(params["#{field_name.to_s}(1i)"].to_i,
+        params["#{field_name.to_s}(2i)"].to_i,
+        params["#{field_name.to_s}(3i)"].to_i)
+  end
+  
+  
   # TODO: should be done on a votes controller
   def vote_for_website
     @ip = request.remote_ip
