@@ -124,6 +124,7 @@ class CommunitiesController < ApplicationController
   # TODO: should be done on a votes controller
   def vote_for_website
     @ip = request.remote_ip
+    @agent = request.user_agent
     @website = Website.find(params[:id])
     @community = Community.find(params[:community])
     @support = params[:percent].to_f
@@ -134,7 +135,7 @@ class CommunitiesController < ApplicationController
       @support = 0
     end
     
-    vote = Vote.create!({:ip_address => @ip, :community_id => @community.id, :website_id => @website.id, :support => @support, :ballot_type => "2"})
+    vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id, :website_id => @website.id, :support => @support, :ballot_type => "2"})
 
     @ballot = find_ballot
     @ballot.add_vote(vote)

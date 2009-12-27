@@ -15,6 +15,7 @@
     %th Updated
     %th ID
     %th Type
+    %th Agent
 
   - for vote in @votes
     %tr
@@ -35,6 +36,7 @@
           = h vote.updated_at
       %td= vote.id
       %td{:style => "text-align: center"}= vote.ballot_type
+      %td= h vote.agent
 
 %br
 
