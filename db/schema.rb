@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091227232910) do
+ActiveRecord::Schema.define(:version => 20091228031401) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -182,6 +182,18 @@ ActiveRecord::Schema.define(:version => 20091227232910) do
 
   add_index "sessions", ["session_id"], :name => "index_sessions_on_session_id"
   add_index "sessions", ["updated_at"], :name => "index_sessions_on_updated_at"
+
+  create_table "terminals", :force => true do |t|
+    t.string   "location"
+    t.string   "access"
+    t.string   "connect"
+    t.string   "machine"
+    t.string   "notes"
+    t.string   "ip_address"
+    t.string   "agent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

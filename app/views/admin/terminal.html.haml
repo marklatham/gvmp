@@ -1,0 +1,32 @@
+- form_tag(:action => :terminal_create) do
+  %br
+  %b location:
+  %br
+  = text_field_tag(:location, '', :size => 50)
+  %br
+  %br
+  %b access:
+  %br
+  = select_tag 'access', options_for_select(['', 'free', 'pay', 'member', 'private', 'other'])
+  %br
+  %br
+  %b connect:
+  %br
+  = select_tag 'connect', options_for_select(['', 'hardware', 'wifi', 'plug', 'other'])
+  %br
+  %br
+  %b machine:
+  %span ipaq etc
+  %br
+  = text_field_tag(:machine, '', :size => 50)
+  %br
+  %br
+  %b notes:
+  %span name of wifi network etc
+  %br
+  = text_field_tag(:notes, '', :size => 50)
+  %br
+  %br
+  = submit_tag 'Submit'
+%br
+%br
