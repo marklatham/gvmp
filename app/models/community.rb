@@ -11,6 +11,7 @@ class Community < ActiveRecord::Base
   end
   has_many :websites, :through => :rankings
   has_many :fundings
+  has_many :feedbacks
 
   validates_presence_of :name, :short_name
   validates_presence_of :category, :message => "(Type) can't be blank"

@@ -250,6 +250,7 @@ a:hover { color: #d00; }
 }
 
 #table1 .cell-like-link {
+  padding: 4px;
   color: #006;
   font-weight: bold;
 }
@@ -273,6 +274,21 @@ a:hover { color: #d00; }
 #table1 .label {
   padding-left: 0.5em;
   font-weight: bold;
+}
+#table1 .post {
+  color: #666;
+  padding-left: 0.5em;
+}
+#table1 .post a:link {
+  color: #006;
+  text-decoration: none;
+}
+#table1 .post a:visited {
+  text-decoration: none;
+}
+#table1 .post a:hover {
+  color: #a00;
+  text-decoration: underline;
 }
 
 #faq .category {

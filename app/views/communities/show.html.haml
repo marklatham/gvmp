@@ -16,11 +16,17 @@
       = link_to @community.scope, communities_path(:q => @community.scope)
 
   %p
-    - if @community.official_url
-      %label= link_to 'Official community website', @community.official_url, :target => "_blank"
-      &nbsp; &nbsp;
     - if @community.wiki_url
-      %label= link_to 'Wikipedia page', @community.wiki_url, :target => "_blank"
+      - if @community.category == "Corporation"
+        %label= link_to 'Yahoo finance page', @community.wiki_url, :target => "_blank"
+      - else
+        %label= link_to 'Wikipedia page', @community.wiki_url, :target => "_blank"
+      &nbsp; &nbsp;
+    - if @community.official_url
+      - if @community.category == "Corporation"
+        %label= link_to 'Official corporate website', @community.official_url, :target => "_blank"
+      - else
+        %label= link_to 'Official community website', @community.official_url, :target => "_blank"
 
   %p
     %label Description:
@@ -35,14 +41,17 @@
 
   %p
     %label Funding status:
-    - if @community.status
-      %span.funded= truncate(@community.status, :length => 1000)
-    - else
+    - if @community.status == nil || @community.status == ""
       Not currently funded. This ballot is for if and when there is funding.
+    - else
+      %span.funded= truncate(@community.status, :length => 1000)
 
   - if current_user and (current_user.permission >= 4.0)
     %p.permission
       = link_to('Edit community data', edit_community_path(@community))
+      - if current_user and (current_user.permission >= 9.0)
+        &nbsp; &nbsp;
+        = link_to('Fund', '/communities/fund/' + @community.id.to_s)
 
 %h3
   How should the 
@@ -65,14 +74,14 @@
       %th.header-centred Share
       %th.header-centred{:colspan => 2} Your Votes
       %th.header-left Website/Blog
-      %th.header-centred Date added
+      %th.header-left{:colspan => 2} Recent Post
 
     - @rankings.each do |ranking|
       -# In case website was deleted but orphaned ranking record still exists:
       - if ranking[:website]
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
           %td.cell-centred= ranking[:rank]
-          - if current_user and (current_user.permission >= 7.0)
+          - if current_user and (current_user.permission >= 8.5)
             %td.cell-centred.permission= number_with_precision(ranking[:count1], :precision => 3)
             %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 3)
           %td.cell-centred.cell-link= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
@@ -97,9 +106,18 @@
                 - else
                   = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "this.form.submit();")
                 %noscript= submit_tag 'Submit'
-          %td.cell-link= link_to truncate(ranking[:website].title, :length => 50), ranking[:website].url, :target => "_blank"
-          %td.cell-centred= ranking[:created_at].to_s(:Ymd)
-          %td= link_to 'Past Shares', '/rankings/' + ranking[:ranking_id].to_s
+          %td.cell-link= link_to truncate(ranking[:website].title, :length => 50, :omission => "..."), ranking[:website].url, :target => "_blank"
+          %td
+            %i [We will soon start showing recent blog posts here.]
+          -# - if post = Post.find(:first, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC")
+          -#   %td.post= post.posted_at.to_s(:Ymd) + "&nbsp;"
+          -#   - if post.body
+          -#     %td.post= link_to truncate(post.headline + ": " + strip_tags(post.body), :length => 70, :omission => "..."), post.url, :target => "_blank"
+          -#   - else
+          -#     %td.post= link_to truncate(post.headline, :length => 70, :omission => "..."), post.url, :target => "_blank"
+          -# - else
+          -#   %td
+          -#   %td
           - if current_user and (current_user.permission >= 4.0)
             %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
           - if current_user and (current_user.permission >= 5.0)
@@ -107,7 +125,7 @@
 
   %p= will_paginate @rankings
   
-  %p If you don't want other users of your computer to see your votes, please exit browser when finished voting.
+  %p Click on share to see past shares. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
 
 - else
   %p
@@ -128,8 +146,14 @@
   %br
   %br
   %br
-  %br
-  %br
+  
+%p
+  %b Comments? Websites/blogs we should add to the ballot? Advice for improving VoterMedia.org? Type those here:
+
+- form_tag(:action => :submit_feedback, :community => @community) do
+  = text_field_tag(:comment, '', :size => 100)
+  = submit_tag 'Submit'
+  
 - if current_user and (current_user.permission >= 4.0)
   %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
 %br
