@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
         :url        => entry.url,
         :posted_at  => entry.published,
         :guid       => entry.id
-      ) unless exists? :guid => entry.id
+      ) unless exists? :guid => entry.id  rescue next
 
     end
   end

@@ -107,17 +107,17 @@
                   = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "this.form.submit();")
                 %noscript= submit_tag 'Submit'
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 50, :omission => "..."), ranking[:website].url, :target => "_blank"
-          %td
-            %i [We will soon start showing recent blog posts here.]
-          -# - if post = Post.find(:first, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC")
-          -#   %td.post= post.posted_at.to_s(:Ymd) + "&nbsp;"
-          -#   - if post.body
-          -#     %td.post= link_to truncate(post.headline + ": " + strip_tags(post.body), :length => 70, :omission => "..."), post.url, :target => "_blank"
-          -#   - else
-          -#     %td.post= link_to truncate(post.headline, :length => 70, :omission => "..."), post.url, :target => "_blank"
-          -# - else
-          -#   %td
-          -#   %td
+          -# %td
+          -#   %i [We will soon start showing recent blog posts here.]
+          - if post = Post.find(:first, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC")
+            %td.post= post.posted_at.to_s(:Ymd) + "&nbsp;"
+            - if post.body
+              %td.post= link_to truncate(post.headline + ": " + strip_tags(post.body), :length => 70, :omission => "..."), post.url, :target => "_blank"
+            - else
+              %td.post= link_to truncate(post.headline, :length => 70, :omission => "..."), post.url, :target => "_blank"
+          - else
+            %td
+            %td
           - if current_user and (current_user.permission >= 4.0)
             %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
           - if current_user and (current_user.permission >= 5.0)
@@ -147,12 +147,13 @@
   %br
   %br
   
+%hr{:style => "color: #F00"}
 %p
   %b Comments? Websites/blogs we should add to the ballot? Advice for improving VoterMedia.org? Type those here:
 
 - form_tag(:action => :submit_feedback, :community => @community) do
   = text_field_tag(:comment, '', :size => 100)
-  = submit_tag 'Submit'
+  = submit_tag 'Submit comment'
   
 - if current_user and (current_user.permission >= 4.0)
   %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
