@@ -24,8 +24,12 @@
   - for past_ranking in @past_rankings
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred= past_ranking.created_at.to_s(:Ymd)
-      %td.cell-centred= past_ranking.rank
-      %td.cell-centred.cell-like-link= number_with_precision(past_ranking.share, :precision => 0) + '%'
+      - if past_ranking.status == "limbo"
+        %td.cell-centred= '--'
+        %td.cell-centred.cell-like-link= '--'
+      - else
+        %td.cell-centred= past_ranking.rank
+        %td.cell-centred.cell-like-link= number_with_precision(past_ranking.share, :precision => 0) + '%'
       %td.cell-centred= '$' + number_with_precision(past_ranking.funds, :precision => 0)
       - if past_ranking.award == 0.0
         %td.cell-centred.cell-like-link= '--'

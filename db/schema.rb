@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091228031401) do
+ActiveRecord::Schema.define(:version => 20100102220122) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20091228031401) do
     t.datetime "updated_at"
     t.decimal  "funds",              :precision => 10, :scale => 2, :default => 0.0
     t.decimal  "award",              :precision => 10, :scale => 2, :default => 0.0
+    t.string   "status"
   end
 
   add_index "past_rankings", ["community_id", "website_id"], :name => "index_past_rankings_on_community_id_and_website_id"
@@ -163,12 +164,13 @@ ActiveRecord::Schema.define(:version => 20091228031401) do
   create_table "rankings", :force => true do |t|
     t.integer  "community_id"
     t.integer  "website_id"
-    t.integer  "rank",         :default => 0
+    t.integer  "rank",         :default => 999
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "share",        :default => 0.0
     t.float    "count0",       :default => 0.0
     t.float    "count1",       :default => 0.0
+    t.string   "status"
   end
 
   add_index "rankings", ["community_id", "website_id"], :name => "index_rankings_on_community_id_and_website_id", :unique => true

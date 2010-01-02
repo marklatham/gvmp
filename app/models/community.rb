@@ -4,7 +4,8 @@ class Community < ActiveRecord::Base
   
   has_many :rankings do
     def with_websites
-      map{|ranking| { :rank => ranking.rank, :created_at => ranking.created_at, :website => ranking.website, :share => ranking.share,
+      map{|ranking| { :rank => ranking.rank, :created_at => ranking.created_at,
+                      :website => ranking.website, :share => ranking.share, :status => ranking.status,
                       :count0 => ranking.count0, :count1 => ranking.count1, :ranking_id => ranking.id }}.sort_by {
                       |website_and_ranking| [website_and_ranking[:rank]] }
     end
@@ -55,20 +56,31 @@ class Community < ActiveRecord::Base
     #                               :conditions => ["community_id = ?", self.id],                     
     #                               :group => "ip_address, website_id")    
 
-    # Found example at http://stackoverflow.com/questions/1129792/rails-active-record-find-in-conjunction-with-order-and-group but...
-    # Unsure how to code with just one query, so used naive way with too many queries:
+    # Found example at http://stackoverflow.com/questions/1129792/rails-active-record-find-in-conjunction-with-order-and-group
+    # but unsure how to code with just one query, so used naive way with too many queries:
 
-    # This almost works, but returns the first record of each group (by ID, regardless of how sorted) while we want the latest record:
-    @votes = Vote.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
+    # This almost works, but returns the first record of each group (by ID, regardless of how sorted)
+    # while we want the latest record:
+    @votes = Vote.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id, ip_address, created_at DESC",
+                                                                           :group => "website_id, ip_address")    
     # So this finds last record in each group:
     @votes.each do |vote|
-      temp = Vote.find(:last, :conditions => ["community_id = ? and website_id = ? and ip_address = ?", self.id, vote.website_id, vote.ip_address], :order => "created_at")
+      temp = Vote.find(:last, :conditions => ["community_id = ? and website_id = ? and ip_address = ?",
+                                                         self.id, vote.website_id, vote.ip_address], :order => "created_at")
       vote.created_at = temp.created_at
       vote.support = temp.support
       vote.ballot_type = temp.ballot_type
     end
     
-    @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id")
+    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
+                             :order => "website_id")
+    
+    # ranking.status = limbo means website hasn't entered contest but
+    # we want to show it at bottom of ballot, at least temporarily.
+    
+    # We should move this test from tally_all into tally: if @rankings.any? Because what if all in limbo?
+    
+    # debug: puts @rankings.size
 
     # Make sure shares are nonegative whole numbers, not all zero:
     @rankings.each do |ranking|
@@ -109,7 +121,8 @@ class Community < ActiveRecord::Base
       @min_count0.count0 = countVotes(@votes, @min_count0, 0.0)
       @min_count0.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id")
+      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
+                               :order => "website_id")
       @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
       @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
       @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
@@ -122,7 +135,8 @@ class Community < ActiveRecord::Base
       @max_count1.count1 = countVotes(@votes, @max_count1, 1.0)
       @max_count1.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id")
+      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
+                               :order => "website_id")
       @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
       @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
       @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
@@ -147,20 +161,39 @@ class Community < ActiveRecord::Base
       @max_count1.count1 = countVotes(@votes, @max_count1, 1.0)
       @max_count1.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id")
+      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
+                               :order => "website_id")
       @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
       @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
       @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
     end
 
-  # Share calculations are now completed, so store rank of each website in this community:
-  @rankings = Ranking.find(:all, :conditions => ["community_id = ?", self.id], :order => "share DESC, count1 DESC, created_at DESC")
-  rank_sequence = 0
-  @rankings.each do |ranking|
-    rank_sequence += 1
-    ranking.rank = rank_sequence
-    ranking.save
-  end
+    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "limbo"], :order => "website_id")
+    @rankings.each do |ranking|
+      ranking.share = 0.0
+      ranking.count0 = countVotes(@votes, ranking, 0.0)
+      ranking.count1 = countVotes(@votes, ranking, 1.0)
+      ranking.save
+    end
+
+    # Share calculations are now completed, so store rank of each website in this community:
+    
+    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
+                             :order => "share DESC, count1 DESC, created_at DESC")
+    rank_sequence = 0
+    @rankings.each do |ranking|
+      rank_sequence += 1
+      ranking.rank = rank_sequence
+      ranking.save
+    end
+    
+    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "limbo"],
+                             :order => "count1 DESC, created_at DESC")
+    @rankings.each do |ranking|
+      rank_sequence += 1
+      ranking.rank = rank_sequence
+      ranking.save
+    end
 
   end
 

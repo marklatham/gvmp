@@ -67,10 +67,10 @@
 
   %table#table1
     %tr.header
-      %th.header-centred Rank
       - if current_user and (current_user.permission >= 7.0)
-        %th.header-centred.permission Count1
-        %th.header-centred.permission Count0
+        %th.header-centred.permission Ct1
+        %th.header-centred.permission Ct0
+      %th.header-centred Rank
       %th.header-centred Share
       %th.header-centred{:colspan => 2} Your Votes
       %th.header-left Website/Blog
@@ -80,11 +80,15 @@
       -# In case website was deleted but orphaned ranking record still exists:
       - if ranking[:website]
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
-          %td.cell-centred= ranking[:rank]
           - if current_user and (current_user.permission >= 8.5)
-            %td.cell-centred.permission= number_with_precision(ranking[:count1], :precision => 3)
-            %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 3)
-          %td.cell-centred.cell-link= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
+            %td.cell-centred.permission= number_with_precision(ranking[:count1], :precision => 2)
+            %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 2)
+          - if ranking[:status] == "limbo" && ranking[:share] <= 0.0
+            -# because if ranking[:share] > 0.0 then it was just sent to limbo today and tally not done yet.
+            %td.cell-centred.limbo{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
+          - else
+            %td.cell-centred= ranking[:rank]
+            %td.cell-centred.cell-link= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
           -# TODO: use named_route/resource
           -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Also more ugly code because I couldn't figure out how to delete a vote record saved in the session, so I added a negative vote as a cancel flag. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
           - @flag = 0
@@ -107,8 +111,6 @@
                   = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "this.form.submit();")
                 %noscript= submit_tag 'Submit'
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 50, :omission => "..."), ranking[:website].url, :target => "_blank"
-          -# %td
-          -#   %i [We will soon start showing recent blog posts here.]
           - if post = Post.find(:first, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC")
             %td.post= post.posted_at.to_s(:Ymd) + "&nbsp;"
             - if post.body
@@ -118,14 +120,13 @@
           - else
             %td
             %td
-          - if current_user and (current_user.permission >= 4.0)
+          - if current_user and (current_user.permission >= 8.5)
             %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
-          - if current_user and (current_user.permission >= 5.0)
-            %td.permission= link_to 'Destroy', ranking[:website], :confirm => 'Are you sure?', :method => :delete
 
   %p= will_paginate @rankings
   
   %p Click on share to see past shares. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
+  %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
 
 - else
   %p

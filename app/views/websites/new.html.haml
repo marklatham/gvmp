@@ -5,12 +5,18 @@
 %h2
   Add a website/blog to
   = h @community.short_name
-  voter community ranking:
+  voter community ballot:
 
 %br
 
 - form_for @website, :url => { :action => :create, :community_id => @community} do |f|
   = f.error_messages
+
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title, :size => 70
+  %br
 
   %p
     = f.label :url
@@ -19,9 +25,9 @@
   %br
 
   %p
-    = f.label :title
+    = f.label :feed_url
     %br
-    = f.text_field :title, :size => 70
+    = f.text_field :feed_url, :size => 70
   %br
 
   %p

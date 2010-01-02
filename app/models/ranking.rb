@@ -8,7 +8,7 @@ class Ranking < ActiveRecord::Base
     
     pr = PastRanking.create!({:ranking_id => self.id, :community_id => self.community_id, :website_id => self.website_id,
                               :rank => self.rank, :ranking_updated_at => self.updated_at, :share => self.share,
-                              :count0 => self.count0, :count1 => self.count1})
+                              :status => self.status, :count0 => self.count0, :count1 => self.count1})
     
     @fundings = Funding.find(:all, :conditions => ["date = ? AND allocated < ?", Date.today, 100])
     if @fundings

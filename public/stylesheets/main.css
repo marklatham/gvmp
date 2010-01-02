@@ -275,6 +275,20 @@ a:hover { color: #d00; }
   padding-left: 0.5em;
   font-weight: bold;
 }
+
+#table1 .limbo a:link {
+  color: #000;
+  text-decoration: none;
+}
+#table1 .limbo a:visited {
+  color: #000;
+  text-decoration: none;
+}
+#table1 .limbo a:hover {
+  color: #a00;
+  text-decoration: underline;
+}
+
 #table1 .post {
   color: #666;
   padding-left: 0.5em;
@@ -284,6 +298,7 @@ a:hover { color: #d00; }
   text-decoration: none;
 }
 #table1 .post a:visited {
+  color: #666;
   text-decoration: none;
 }
 #table1 .post a:hover {
