@@ -289,6 +289,10 @@ a:hover { color: #d00; }
   text-decoration: underline;
 }
 
+#table1 .postdate {
+  color: #666;
+  text-align: center;
+}
 #table1 .post {
   color: #666;
   padding-left: 0.5em;

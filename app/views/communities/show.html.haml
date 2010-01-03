@@ -112,7 +112,10 @@
                 %noscript= submit_tag 'Submit'
           %td.cell-link= link_to truncate(ranking[:website].title, :length => 50, :omission => "..."), ranking[:website].url, :target => "_blank"
           - if post = Post.find(:first, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC")
-            %td.post= post.posted_at.to_s(:Ymd) + "&nbsp;"
+            - if post.posted_at < 6.months.ago
+              %td.postdate= post.posted_at.to_s(:Y_mon) + "&nbsp;"
+            - else
+              %td.postdate= post.posted_at.to_s(:mon_day) + "&nbsp;"
             - if post.body
               %td.post= link_to truncate(post.headline + ": " + strip_tags(post.body), :length => 70, :omission => "..."), post.url, :target => "_blank"
             - else
@@ -126,7 +129,8 @@
   %p= will_paginate @rankings
   
   %p Click on share to see past shares. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
-  %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
+  - if @rankings.last[:status] == "limbo"
+    %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
 
 - else
   %p

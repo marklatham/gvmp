@@ -9,12 +9,10 @@
     %th{:colspan => 2} Website
     %th Support
     %th
-    %th
-    %th
     %th Created
-    %th Updated
+    -# %th Updated
     %th ID
-    %th Type
+    -# %th Type
     %th Agent
 
   - for vote in @votes
@@ -22,21 +20,20 @@
       %td= h vote.ip_address
       %td= h vote.community_id
       %td= h vote.website_id
-      - website = Website.find(vote.website_id)
-      %td= truncate(website.title, :length => 20, :omission => '\\')
+      %td
+        - if website = Website.find_by_id(vote.website_id)
+          = truncate(website.title, :length => 20, :omission => '\\')
       %td
         - if vote.support
           = number_with_precision(vote.support, :precision => 0) + '%'
       %td= link_to 'Show', vote
-      %td= link_to 'Edit', edit_vote_path(vote)
-      %td= link_to 'Destroy', vote, :confirm => 'Are you sure?', :method => :delete
-      %td= h vote.created_at
-      %td
-        - unless vote.updated_at == vote.created_at
-          = h vote.updated_at
+      %td{:style => "text-align: center"}= vote.created_at.to_s(:db)
+      -# %td
+      -#   - unless vote.updated_at == vote.created_at
+      -#     = h vote.updated_at
       %td= vote.id
-      %td{:style => "text-align: center"}= vote.ballot_type
-      %td= h vote.agent
+      -# %td{:style => "text-align: center"}= vote.ballot_type
+      %td{:style => "padding-left: 1em"}= h vote.agent
 
 %br
 
