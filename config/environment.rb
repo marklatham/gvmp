@@ -5,14 +5,10 @@ require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
 
-  config.gem 'mislav-will_paginate', :version => '~> 2.3.8', :lib => 'will_paginate', 
-    :source => 'http://gems.github.com'
-
-  config.gem 'haml', :version => '= 2.0.9'
-
-  # for the feed update feature
+  config.gem 'haml'
   config.gem 'columbus'
   config.gem 'feedzirra'
+  config.gem 'nokogiri'
 
   # Make Time.zone default to the specified zone, and make Active Record store time values
   # in the database in UTC, and return them converted to the specified local zone.
