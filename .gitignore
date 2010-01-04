@@ -7,6 +7,7 @@ log/*.log
 tmp/**/*
 tmp
 vendor/plugins/**/.git
+vendor/gems/**/*.log
 public/system
 *.o
 *.so
@@ -16,4 +17,5 @@ index
 index/**/*
 db/sphinx/**/*
 db/*.sqlite3
+.specification
 *~
