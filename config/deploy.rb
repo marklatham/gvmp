@@ -26,6 +26,7 @@ role :db,  server_name, :primary => true
 
 task :after_update_code, :roles => :app do
   db.symlink
+  deploy.rebuild_gems
   sphinx.symlink 
   sphinx.configure
 end
@@ -35,6 +36,10 @@ namespace :deploy do
   desc "restart passenger"
   task :restart do
     passenger.restart
+  end
+
+  task :rebuild_gems do
+    run "rake -f #{release_path}/Rakefile gems:build RAILS_ENV=production"
   end
 
 end
