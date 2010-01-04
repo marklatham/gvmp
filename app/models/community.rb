@@ -72,8 +72,7 @@ class Community < ActiveRecord::Base
       vote.ballot_type = temp.ballot_type
     end
     
-    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
-                             :order => "website_id")
+    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"], :order => "website_id")
     
     # ranking.status = limbo means website hasn't entered contest but
     # we want to show it at bottom of ballot, at least temporarily.
@@ -121,8 +120,7 @@ class Community < ActiveRecord::Base
       @min_count0.count0 = countVotes(@votes, @min_count0, 0.0)
       @min_count0.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
-                               :order => "website_id")
+      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"], :order => "website_id")
       @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
       @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
       @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
@@ -135,8 +133,7 @@ class Community < ActiveRecord::Base
       @max_count1.count1 = countVotes(@votes, @max_count1, 1.0)
       @max_count1.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
-                               :order => "website_id")
+      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"], :order => "website_id")
       @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
       @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
       @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
@@ -161,8 +158,7 @@ class Community < ActiveRecord::Base
       @max_count1.count1 = countVotes(@votes, @max_count1, 1.0)
       @max_count1.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
-                               :order => "website_id")
+      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"], :order => "website_id")
       @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
       @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
       @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
@@ -178,7 +174,7 @@ class Community < ActiveRecord::Base
 
     # Share calculations are now completed, so store rank of each website in this community:
     
-    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", self.id, "limbo"],
+    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"],
                              :order => "share DESC, count1 DESC, created_at DESC")
     rank_sequence = 0
     @rankings.each do |ranking|

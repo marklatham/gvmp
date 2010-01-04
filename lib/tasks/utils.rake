@@ -13,7 +13,7 @@ namespace :utils do
   
   desc "Archive all website/blog rankings"
   task(:archive_rankings => :environment) do
-    @rankings = Ranking.find(:all)
+    @rankings = Ranking.find(:all, :conditions => ["status != ?", "out"], :order => "id")
     @rankings.each do |ranking|
       ranking.archive
     end
@@ -27,6 +27,17 @@ namespace :utils do
     
     @rankings.each do |ranking|
       puts ranking.website_id
+    end
+  end
+  
+  desc "Bulk edit data"
+  task(:edit_data => :environment) do
+    
+    @rankings = Ranking.find(:all, :conditions => ["status != ? OR status IS NULL", "limbo"])
+    
+    @rankings.each do |ranking|
+      ranking.status = "in"
+      ranking.save
     end
   end
   

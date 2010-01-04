@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100102220122) do
+ActiveRecord::Schema.define(:version => 20100103230052) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -170,7 +170,7 @@ ActiveRecord::Schema.define(:version => 20100102220122) do
     t.float    "share",        :default => 0.0
     t.float    "count0",       :default => 0.0
     t.float    "count1",       :default => 0.0
-    t.string   "status"
+    t.string   "status",       :default => "in"
   end
 
   add_index "rankings", ["community_id", "website_id"], :name => "index_rankings_on_community_id_and_website_id", :unique => true
