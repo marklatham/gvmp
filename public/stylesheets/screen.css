@@ -1,4 +1,8 @@
+/* Use the layout formatting from main.css for now 
+ * unless for new tags
+ */
 
+/*
 h1 {
 	font-size: 2em
 }
@@ -49,9 +53,10 @@ a:hover {
 strong {
   font-weight: bold;
 }
+*/
 
 /** layouts **/
-
+/*
 #content {
   height:     auto;
   width:      auto;
@@ -122,7 +127,7 @@ strong {
 .actions .item {
   margin: 0 7px 0 0;
 }
-
+*/
 
 
 /** pagination **/
@@ -130,7 +135,7 @@ strong {
 .pagination {
 	font-family:    "Lucida Sans Unicode", "Lucida Grande", garuda, sans-serif;
   text-transform: lowercase;
-  text-align:     right;
+  text-align:     left;
   margin:         20px 0;
   font-size:      0.90em;
 }
@@ -154,5 +159,41 @@ strong {
 }
 
 
+/* flash notices */
+
+div.info, 
+div.success, 
+div.warning, 
+div.error {
+  border:              1px solid;
+  margin:              0px 0px 10px 0px;
+  padding:             10px 10px 13px 40px;
+  background-repeat:   no-repeat;
+  background-position: 5px center;
+}
+
+div.info {
+  color:            #00529B;
+  background-color: #BDE5F8;
+  background-image: url('../images/icons/info.png');
+}
+
+div.success {
+  color:            #4F8A10;
+  background-color: #DFF2BF;
+  background-image:url('../images/icons/success.png');
+}
+
+div.warning {
+  color:            #9F6000;
+  background-color: #FEEFB3;
+  background-image: url('../images/icons/warning.png');
+}
+
+div.error {
+  color:            #D8000C;
+  background-color: #FFBABA;
+  background-image: url('../images/icons/error.png');
+}
 
 
