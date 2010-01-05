@@ -20,3 +20,8 @@ db/*.sqlite3
 .specification
 .manifest
 *~
+vendor/gems/curb-0.6.2.1/ext/curb_config.h
+vendor/gems/curb-0.6.2.1/ext/mkmf.log
+vendor/gems/nokogiri-1.4.1/ext/nokogiri/conftest.dSYM/
+vendor/gems/nokogiri-1.4.1/ext/nokogiri/mkmf.log
+
