@@ -42,22 +42,27 @@
     %td.cell-left January 18
 
   %tr.list-line-even
+    %td.label Entry form:
+    %td.cell-left See "How to enter..." below.
+    %td.cell-left= link_to '2010 VFM Registration Form', '/ubc/2010VFMRegistrationForm.pdf'
+
+  %tr
     %td.label Award dates:
     %td.cell-left $50 each day, from January 4 through February 12
     %td.cell-left All decided on January 29
 
-  %tr
+  %tr.list-line-even
     %td.label Ballot choices:
     %td.cell-left 0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40%
     %td.cell-left $0, $500, $1000, $1500, $2000
 
-  %tr.list-line-even
+  %tr
     %td.label Award calculation:
     %td.cell-left= link_to 'Daily interpolated consensus with time decay', '/faqs/#Voting'
     %td.cell-left
       = link_to 'One-time interpolated consensus', '/ubc/InterpolatedConsensus.html'
 
-  %tr
+  %tr.list-line-even
     %td.label Who can enter:
     %td.cell-left{:style => "max-width: 30em"}
       Any person, group, or organization.
@@ -65,39 +70,42 @@
     %td.cell-left{:style => "max-width: 22em"}
       Any person, group, or organization, whether affiliated with UBC or not.
 
-  %tr.list-line-even
+  %tr
     %td.label Who can vote:
     %td.cell-left Anyone with web access who cares about UBC media.
     %td.cell-left UBC AMS members.
 
-  %tr
+  %tr.list-line-even
     %td.label Sponsor:
     %td.cell-left= link_to 'Mark Latham', about_contact_path
     %td.cell-left= link_to 'UBC Alma Mater Society', 'http://www2.ams.ubc.ca'
 
-  %tr.list-line-even
+  %tr
     %td.label Administrator:
     %td.cell-left Mark Latham: mark[at]votermedia.org
     %td.cell-left Will Davis: willd[at]interchange.ubc.ca
 
-  %tr
+  %tr.list-line-even
     %td.label More info:
     %td.cell-left
       = link_to 'FAQ', faqs_path
       &
       = link_to 'Terms', terms_path
-    %td.cell-left= link_to 'AMS website VFM page', 'http://www2.ams.ubc.ca/index.php/student_government/subpage/category/voter_funded_media/'
+      &
+      = link_to 'VoterMedia Democracy Blog', 'http://votermedia.blogspot.com'
+    %td.cell-left
+      = link_to 'Media Handbook 2010', '/ubc/MediaHandbook2010.pdf'
+      &
+      = link_to 'AMS website VFM page', 'http://www2.ams.ubc.ca/index.php/student_government/subpage/category/voter_funded_media/'
 
-  %tr.list-line-even
+  %tr
     %td.label Voting platform:
-    %td.cell-left= link_to 'This website\'s UBC AMS ballot', '/communities/82-ubc-ams'
+    %td.cell-left{:style => "font-weight: bold"}= link_to 'This website\'s UBC AMS ballot - vote now!', '/communities/82-ubc-ams'
     %td.cell-left= link_to 'AMS website voting portal', 'http://www2.ams.ubc.ca/index.php/student_government/subpage/category/vote_online/'
 
-%br
-%h4
-  = link_to 'Vote now in Continuous-Time UBC VFM', '/communities/82-ubc-ams'
 %hr
 
+%a{:name => "enter"}
 %h3 How to enter the 2010 UBC Continuous-Time VFM Competition:
 
 %p Even if your website/blog is already on the ballot, you have to formally enter and agree to the contest terms in order to stay on the ballot. There is no entry fee, and you can enter at any time. Just send an email to Mark Latham (mark[at]votermedia.org) with your --
