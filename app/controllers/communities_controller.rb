@@ -52,7 +52,7 @@ class CommunitiesController < ApplicationController
   def update
     @community = Community.find(params[:id])
     if @community.update_attributes(params[:community])
-      notify 'Community was successfully updated.'
+      notify('Community was successfully updated.', :success)
       redirect_to @community 
     else
       render_invalid_update(@community)
@@ -62,7 +62,7 @@ class CommunitiesController < ApplicationController
   def destroy
     @community = Community.find(params[:id])
     @community.destroy
-    notify "Community removed."
+    notify('Community removed.', :info)
     redirect_back_or('/')
   end
 

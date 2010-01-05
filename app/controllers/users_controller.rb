@@ -27,9 +27,9 @@ class UsersController < ApplicationController
       # reset session
       self.current_user = @user # !! now logged in
       redirect_back_or_default('/')
-      flash[:notice] = "Login created -- welcome to the VoterMedia.org community!"
+      notify("Login created -- welcome to the VoterMedia.org community!", :info)
     else
-      flash[:error]  = "We couldn't set up that login, sorry.  Please try again, or contact an admin (see About/Contact page)."
+      notify("We couldn't set up that login, sorry.  Please try again, or contact an admin (see About/Contact page).", :error)
       render :action => 'new'
     end
   end
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        flash[:notice] = 'User was successfully updated.'
+        notify('User was successfully updated.', :sucess)
         format.html { redirect_to(users_url) }
       else
         format.html { render :action => "edit" }

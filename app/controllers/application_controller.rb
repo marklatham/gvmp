@@ -77,8 +77,8 @@ class ApplicationController < ActionController::Base
   end
 
 
-  def notify(s)
-    flash[:notice] = s
+  def notify(s, type = :info)
+    flash[type] = s
   end
   
 end

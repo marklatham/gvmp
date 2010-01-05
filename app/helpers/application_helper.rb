@@ -18,4 +18,21 @@ module ApplicationHelper
   def paginate(collection)
     will_paginate(collection)
   end
+
+
+  def flash_notice
+    html = if flash[:success]
+      content_tag(:div, flash[:success], :class => :success)
+    elsif flash[:error]
+      content_tag(:div, flash[:error], :class => :error)
+    elsif flash[:info]
+      content_tag(:div, flash[:info], :class => :info)
+    elsif flash[:warning]
+      content_tag(:div, flash[:warning], :class => :warning)
+    end
+
+    flash.discard
+    html
+  end
+
 end
