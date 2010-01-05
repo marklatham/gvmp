@@ -17,7 +17,6 @@ index
 index/**/*
 db/sphinx/**/*
 db/*.sqlite3
-.specification
 .manifest
 *~
 vendor/gems/curb-0.6.2.1/ext/curb_config.h
