@@ -18,4 +18,5 @@ index/**/*
 db/sphinx/**/*
 db/*.sqlite3
 .specification
+.manifest
 *~
