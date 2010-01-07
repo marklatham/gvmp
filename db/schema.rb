@@ -213,9 +213,9 @@ ActiveRecord::Schema.define(:version => 20100103230052) do
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
 
   create_table "votes", :force => true do |t|
-    t.string   "ip_address"
     t.integer  "community_id"
     t.integer  "website_id"
+    t.string   "ip_address"
     t.float    "support"
     t.datetime "created_at"
     t.datetime "updated_at"
