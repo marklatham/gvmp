@@ -12,7 +12,7 @@
     = @community.location
 
     %label &nbsp; &nbsp; Regional scope:
-    = if @community.scope
+    - if @community.scope
       = link_to @community.scope, communities_path(:q => @community.scope)
 
   %p
