@@ -28,7 +28,7 @@ role :db,  server_name, :primary => true
 
 task :after_update_code, :roles => :app do
   db.symlink
-  #deploy.rebuild_gems
+  deploy.rebuild_gems
   sphinx.symlink 
   sphinx.configure
 end
