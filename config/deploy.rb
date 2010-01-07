@@ -1,3 +1,5 @@
+set :ssh_options, { :forward_agent => true }
+
 # Your cPanel/SSH login name
 set :user , "votermed"
 
@@ -13,7 +15,7 @@ set :application, "gvmp"
 
 # the url for your repository
 set :repository,  "git://git.assembla.com/gvmp.git"
-
+set :branch, 'master'
 
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :use_sudo, false
@@ -26,7 +28,7 @@ role :db,  server_name, :primary => true
 
 task :after_update_code, :roles => :app do
   db.symlink
-  deploy.rebuild_gems
+  #deploy.rebuild_gems
   sphinx.symlink 
   sphinx.configure
 end
