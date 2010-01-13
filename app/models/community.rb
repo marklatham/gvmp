@@ -61,8 +61,8 @@ class Community < ActiveRecord::Base
 
     # This almost works, but returns the first record of each group (by ID, regardless of how sorted)
     # while we want the latest record:
-    @votes = Vote.find(:all, :conditions => ["community_id = ?", self.id], :order => "website_id, ip_address, created_at DESC",
-                                                                           :group => "website_id, ip_address")    
+    @votes = Vote.find(:all, :conditions => ["community_id = ? and (place = ? or place IS NULL)", self.id, ""],
+                       :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
     # So this finds last record in each group:
     @votes.each do |vote|
       temp = Vote.find(:last, :conditions => ["community_id = ? and website_id = ? and ip_address = ?",
