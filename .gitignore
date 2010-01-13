@@ -19,4 +19,4 @@ db/sphinx/**/*
 db/*.sqlite3
 .manifest
 *~
-vendor/gems/
+# vendor/gems/
