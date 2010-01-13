@@ -295,7 +295,6 @@ a:hover { color: #d00; }
 }
 #table1 .post {
   color: #666;
-  padding-left: 0.5em;
 }
 #table1 .post a:link {
   color: #006;
@@ -309,6 +308,18 @@ a:hover { color: #d00; }
   color: #a00;
   text-decoration: underline;
 }
+
+.ballot_row {
+  border-bottom: 2px solid #b00;
+}
+.multipost {
+  table-layout:fixed;
+}
+.cut {
+  text-overflow:ellipsis;
+  overflow:hidden;
+  white-space:nowrap;
+} 
 
 #faq .category {
   font-weight: bold;
