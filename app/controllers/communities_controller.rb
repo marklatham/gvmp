@@ -135,8 +135,14 @@ class CommunitiesController < ApplicationController
       @support = 0
     end
     
+    if @place = Place.find(:first, :conditions => ["? LIKE ip_string", @ip])
+      @name = @place.name
+    else
+      @name = nil
+    end
+    
     vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
-                         :website_id => @website.id, :support => @support, :ballot_type => "2"})
+                         :website_id => @website.id, :support => @support, :ballot_type => "2", :place => @name})
 
     @ballot = find_ballot
     @ballot.add_vote(vote)
