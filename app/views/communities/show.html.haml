@@ -79,9 +79,12 @@
                   - else
                     %td.postdate{:style => "width: 6em"}= post.posted_at.to_s(:mon_day)
                   - if post.body
-                    %td.post.cut= link_to truncate(post.headline + ": " + strip_tags(post.body), :length => 200), post.url, :target => "_blank"
+                    %td.post.cut
+                      %a{:href => post.url, :target => "_blank"}
+                        %span{:style => "font-weight: bold"}= truncate(post.headline + ":", :length => 150)
+                        = truncate(strip_tags(post.body), :length => 180)
                   - else
-                    %td.post.cut= link_to truncate(post.headline, :length => 200), post.url, :target => "_blank"
+                    %td.post.cut{:style => "font-weight: bold"}= link_to truncate(post.headline, :length => 200), post.url, :target => "_blank"
             
           - if current_user and (current_user.permission >= 8.5)
             %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
