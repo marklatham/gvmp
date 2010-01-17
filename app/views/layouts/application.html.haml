@@ -8,20 +8,26 @@
     = stylesheet_link_tag 'main', 'screen', :media => "screen"
 
   %body#welcome
-    = render 'layouts/header'
-    = render 'layouts/main_nav_top'    
+    -# Wrapping the body inside a table cell helps prevent small displays like cell phones from compressing everything into too-narrow columns:
+    %table{:style => "border-collapse: collapse;"}
+      %tr
+        %td
+        
+          = render 'layouts/header'
+          = render 'layouts/main_nav_top'    
 
-    #columns
-      #side
-        = render 'layouts/search'
-        = render 'layouts/featured'
+          #columns
+            #side
+              = render 'layouts/search'
+              = render 'layouts/featured'
 
-      #main
-        = flash_notice
-        = yield
+            #main
+              = flash_notice
+              = yield
 
-    = render 'layouts/main_nav_bottom' 
+          = render 'layouts/main_nav_bottom' 
 
-  = render 'layouts/uservoice'
-  = render 'layouts/analytics'
+        = render 'layouts/uservoice'
+        = render 'layouts/analytics'
+        
   = javascript_include_tag :defaults

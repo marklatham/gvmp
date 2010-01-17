@@ -23,7 +23,8 @@
       %th.header-centred Share
       %th.header-centred{:colspan => 2} Your&nbsp;Votes
       %th.header-left{:style => "width: 18em"} Website/Blog
-      %th.header-left{:style => "min-width: 20em"} Recent Posts
+      -# To ensure that at least part of the post gets displayed on smaller screens: min-width works for laptops but doesn't work on my cell phone (HP iPAQ). The non-breaking spaces work on my iPAQ. Need to check on iPhone:
+      %th.header-left{:style => "min-width: 20em"} &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
     - @rankings.each do |ranking|
       -# In case website was deleted but orphaned ranking record still exists:
@@ -174,7 +175,7 @@
   %b Comments? Websites/blogs we should add to the ballot? Advice for improving VoterMedia.org? Type those here:
 
 - form_tag(:action => :submit_feedback, :community => @community) do
-  = text_field_tag(:comment, '', :size => 100)
+  = text_field_tag(:comment, '', :size => 80)
   = submit_tag 'Submit comment'
 
 %br
