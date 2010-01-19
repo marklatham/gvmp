@@ -3,7 +3,8 @@ date_time_formats = {
   :Y_mon     => "%Y %b",
   :text_date => "%B %e, %Y",
   :Ymd       => "%Y-%m-%d",
-  :YmdHM     => "%Y-%m-%d %H:%M"
+  :YmdHM     => "%Y-%m-%d %H:%M",
+  :YmdHMS    => "%Y-%m-%d&nbsp;%H:%M:%S"
 }
 
 ActiveSupport::CoreExtensions::Date::Conversions::DATE_FORMATS.merge!(date_time_formats)
