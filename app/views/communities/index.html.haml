@@ -1,11 +1,12 @@
 - main_column do
   %h2 Which websites/blogs serving your voter communities deserve funding?
+  %p 
+    Use search box on the left and/or browse below; follow links to community ballots, 
+    then vote on website/blog funding:
+  
+  %p= paginate @communities
+    
   .listing
-    %p Use search box on the left and/or browse below; follow links to community ballots, then vote on website/blog funding:
-    
-    %p= paginate @communities
-    %p
-    
     %table#table1{:cellspacing => 0}
     
       %tr.header
@@ -26,30 +27,23 @@
         %td.header-centred Scope
         %td.header-centred sites
     
-      - for community in @communities
+      - @communities.each do |community| 
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
           %td.add-button 
-            -# Uncomment to create Add buttons
-            -# <input type="submit" value="<< Add" />
-          %td.cell-link= link_to community.name, community
-          -# Uncomment when create Add buttons, add heading, delink community names
-          -# %td= link_to "View", community
-          %td.cell-centred= community.category
-          %td.cell-centred= h community.country
-          %td.cell-centred= h community.prov_state
-          %td.cell-centred= h truncate(community.city, :length => 15)
-          %td.cell-centred= h truncate(community.scope, :length => 20)
-          %td.cell-centred= h community.websites.count
-          - if current_user and (current_user.permission >= 4.0)
-            %td.permission= link_to 'Edit', edit_community_path(community)
-          - if current_user and (current_user.permission >= 7.0)
-            %td.permission= link_to 'Destroy', community, :confirm => 'Are you sure?', :method => :delete
-    
+          %td.cell-link=    render_community(community)
+          %td.cell-centred= render_category(community)
+          %td.cell-centred= render_location(community, :country)
+          %td.cell-centred= render_location(community, :prov_state)
+          %td.cell-centred= render_location(community, :city)
+          %td.cell-centred= render_scope(community)
+          %td.cell-centred= render_websites_count(community) 
+
+          = render_community_actions(community)
+
       %tr
-        %td.footer-row{:colspan => 3}= will_paginate @communities
+        %td.footer-row{:colspan => 3}= paginate(@communities)
         %td.footer-row{:colspan => 5, :align => "right", :style => "font-weight: bold"}
           Is your voter community not in our system? Add it by email to editors[at]votermedia.org
         - if current_user and (current_user.permission >= 4.0)
           %td.permission= link_to 'Add community', new_community_path
-    %br
 

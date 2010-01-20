@@ -130,6 +130,11 @@ strong {
 */
 
 
+.listing {
+  margin:  30px 0;
+}
+
+
 /** pagination **/
 
 .pagination {
