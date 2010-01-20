@@ -1,22 +1,20 @@
 - @page_title = 'Publications'
 
-%table#table1{:cellspacing => 0}
+%table#pubs_header{:cellspacing => 0, :style => "width: 100%"}
   %tr
-    %td{:colspan => 2}
-      %h1 &nbsp;Publications
-    %td{:colspan => 2, :align => "right", :style => "font-weight: bold"}
-      = 'See also: &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp' + link_to('VoterMedia Finance Blog', 'http://votermedia.wordpress.com/')
-      %br
-      = link_to 'VoterMedia Democracy Blog', 'http://votermedia.blogspot.com/'
-      %br
-      = link_to 'Clippings: media discussions of VoterMedia', clippings_path
-      %br
-      = link_to 'Presentations: Mark Latham on VoterMedia', presentations_path
-      %br
-      = link_to 'Shareowner proposal campaign 1999-2006', proposals_path
-      %br
-      %br
+    %td{:style => "padding: 1em"}
+      %h1 Publications
+    %td{:style => "font-weight: bold; padding-top: 1em; vertical-align: top; text-align: right"}
+      = 'See also:'
+    %td{:style => "padding-top: 0px; width: 10%; white-space: nowrap"}
+      %ul
+        %li= link_to('VoterMedia Finance Blog', 'http://votermedia.wordpress.com/')
+        %li= link_to 'VoterMedia Democracy Blog', 'http://votermedia.blogspot.com/'
+        %li= link_to 'Clippings: Media discussions of VoterMedia', clippings_path
+        %li= link_to 'Presentations: Mark Latham on VoterMedia', presentations_path
+        %li= link_to 'Shareowner proposal campaign 1999-2006', proposals_path
 
+%table#table1{:cellspacing => 0}
   %tr.header 
     %td.header-centred Date
     %td.header-left Title & link
