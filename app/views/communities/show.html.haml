@@ -1,183 +1,23 @@
 - @page_title = @community.short_name
 
-%h1= h @community.name
-
-%h3
-  How should the 
-  = h @community.short_name 
-  voter community divide funding among these websites/blogs?
-
-- if @community.websites.any?
-  %p
-    Vote % shares for as many as you like.
-    %noscript= 'Click Submit after each vote.'
-    Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
-    = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs/#Voting') + ']'
-
-  %table#table1{:cellspacing => 0}
-    %tr.header
-      - if current_user and (current_user.permission >= 7.0)
-        %th.header-centred.permission Ct1
-        %th.header-centred.permission Ct0
-      %th.header-centred Rank
-      %th.header-centred Share
-      %th.header-centred{:colspan => 2} Your&nbsp;Votes
-      %th.header-left{:style => "width: 18em"} Website/Blog
-      -# To ensure that at least part of the post gets displayed on smaller screens: min-width works for laptops but doesn't work on my cell phone (HP iPAQ). The non-breaking spaces work on my iPAQ. Need to check on iPhone:
-      %th.header-left{:style => "min-width: 20em"} &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-    - @rankings.each do |ranking|
-      -# In case website was deleted but orphaned ranking record still exists:
-      - if ranking[:website]
-        %tr
-          - if current_user and (current_user.permission >= 8.5)
-            %td.cell-centred.permission= number_with_precision(ranking[:count1], :precision => 2)
-            %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 2)
-          - if ranking[:status] == "limbo" && ranking[:share] <= 0.0
-            -# because if ranking[:share] > 0.0 then it was just sent to limbo today and tally not done yet.
-            %td.cell-centred.limbo.ballot_row{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
-          - else
-            %td.cell-centred.ballot_row= ranking[:rank]
-            %td.cell-centred.cell-link.ballot_row= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
-          -# TODO: use named_route/resource
-          -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Also more ugly code because I couldn't figure out how to delete a vote record saved in the session, so I added a negative vote as a cancel flag. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
-          - @flag = 0
-          - @created = Time.parse("1999-01-01 16:57:45.608000 -04:00")
-          - for click in @ballot.clicks
-            - if click.community_id == @community.id && click.website_id == ranking[:website].id
-              - @flag = 1
-              - if click.created_at > @created
-                - @created = click.created_at
-                - @voted = click
-          - if @flag == 1 && @voted.support >= 0
-            %td.cell-centred.ballot_row{:style => "font-weight: bold"}= number_with_precision(@voted.support, :precision => 0) + '%'
-            %td.cell-centred.ballot_row= button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
-          - else
-            - form_tag(:action => :vote_for_website, :id => ranking[:website], :community => @community) do
-              %td.cell-centred.ballot_row{:style => "white-space: nowrap", :colspan => 2}
-                - if @community.websites.count > 2
-                  = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "this.form.submit();")
-                - else
-                  = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "this.form.submit();")
-                %noscript= submit_tag 'Submit'
-          - case
-            - when ranking[:share] <= 0.0
-              - rows = 1
-            - when ranking[:share] > 0.0 && ranking[:share] < 20.0
-              - rows = 2
-            - when ranking[:share] >= 20.0
-              - rows = 3
-          %td.cell-link.ballot_row
-            = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
-          %td.ballot_row
-            %table.multipost{:style => "width: 100%"}
-              - post = Post.find(:all, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC", :limit => rows)
-              - post.each do |post|
-                %tr
-                  - if post.posted_at < 6.months.ago
-                    %td.postdate{:style => "width: 6em"}= post.posted_at.to_s(:Y_mon)
-                  - else
-                    %td.postdate{:style => "width: 6em"}= post.posted_at.to_s(:mon_day)
-                  %td.post.cut
-                    %a{:href => post.url, :target => "_blank"}
-                      - if post.headline
-                        %span{:style => "font-weight: bold"}= truncate(post.headline + ":", :length => 300)
-                      - if post.body
-                        = truncate(strip_tags(post.body), :length => 300)
-            
-          - if current_user and (current_user.permission >= 8.5)
-            %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
-    %tr
-      - if current_user and (current_user.permission >= 8.5)
-        %td
-        %td
-      %td{:colspan => 6, :style => "border-bottom: 8px solid #a00; padding: 0px"}
-
-  %p= will_paginate @rankings
+- main_column do
+  %h1= h @community.name
   
-  %p Click on share to see past shares. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
-  - if @rankings.last[:status] == "limbo"
-    %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
-
-- else
-  %p
-    So far no one has added a website/blog to this community. 
-    You can add one by emailing its title and url to editors[at]votermedia.org. Be sure to say which community it should be listed under!
-    -# %strong= link_to 'add one here', new_website_path(:community_id => @community)
-
-  %p
-    If you don't know of one, try searching e.g. for 
-    = link_to "#{@community.short_name} election blog", "http://www.google.ca/search?q=#{@community.short_name.strip}+election+blog", :target => "_blank"
-
-  %p
-    If you still don't find one, how about creating one?! It's easy with free tools at sites like
-    = link_to 'Wordpress', 'http://wordpress.com/', :target => '_blank'
-    or
-    = link_to 'Blogger', 'http://blogger.com/', :target => '_blank'
-    \.
-  %br
-  %br
-  %br
-
-- if current_user and (current_user.permission >= 4.0)
-  %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
-
-#community-box
-
-  %p
-    %label Type of community:
-    = link_to @community.category, communities_path(:q => @community.category)  # TODO: This should be pulled from lookup table
-
-    %label &nbsp; &nbsp; Headquarters:
-    = @community.location
-
-    %label &nbsp; &nbsp; Regional scope:
-    - if @community.scope
-      = link_to @community.scope, communities_path(:q => @community.scope)
-
-  %p
-    - if @community.wiki_url
-      - if @community.category == "Corporation"
-        %label= link_to 'Yahoo finance page', @community.wiki_url, :target => "_blank"
+  %h3
+    How should the 
+    = h @community.short_name 
+    voter community divide funding among these websites/blogs?
+  
+    .listing
+      - if @community.websites.any?
+        = render :partial => 'rankings'
       - else
-        %label= link_to 'Wikipedia page', @community.wiki_url, :target => "_blank"
-      &nbsp; &nbsp;
-    - if @community.official_url
-      - if @community.category == "Corporation"
-        %label= link_to 'Official corporate website', @community.official_url, :target => "_blank"
-      - else
-        %label= link_to 'Official community website', @community.official_url, :target => "_blank"
-
-  %p
-    %label Description:
-    = truncate(@community.description, :length => 500)
-
-  %p
-    - if @community.status == nil
-      %label Entries:
-      You can add to or correct this community's data and website/blog list by emailing editors[at]votermedia.org.
-
-  -# %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
-
-  %p
-    %label Funding status:
-    - if @community.status == nil || @community.status == ""
-      Not currently funded. This ballot is for if and when there is funding.
-    - else
-      %span.funded= truncate(@community.status, :length => 1000)
-
+        = render :partial => 'no_rankings'
+  
   - if current_user and (current_user.permission >= 4.0)
-    %p.permission
-      = link_to('Edit community data', edit_community_path(@community))
-      - if current_user and (current_user.permission >= 9.0)
-        &nbsp; &nbsp;
-        = link_to('Fund', '/communities/fund/' + @community.id.to_s)
-
-%p
-  %b Comments? Websites/blogs we should add to the ballot? Advice for improving VoterMedia.org? Type those here:
-
-- form_tag(:action => :submit_feedback, :community => @community) do
-  = text_field_tag(:comment, '', :size => 80)
-  = submit_tag 'Submit comment'
-
-%br
+    %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
+  
+  #community-box
+    = render :partial => 'info'
+  
+  = render :partial => 'feedback_form'

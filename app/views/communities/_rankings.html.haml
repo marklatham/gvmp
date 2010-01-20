@@ -1,0 +1,92 @@
+%p
+  Vote % shares for as many as you like.
+  %noscript= 'Click Submit after each vote.'
+  Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
+  = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs/#Voting') + ']'
+
+%table#table1{:cellspacing => 0}
+  %tr.header
+    - if current_user and (current_user.permission >= 7.0)
+      %th.header-centred.permission Ct1
+      %th.header-centred.permission Ct0
+    %th.header-centred Rank
+    %th.header-centred Share
+    %th.header-centred{:colspan => 2} Your&nbsp;Votes
+    %th.header-left{:style => "width: 18em"} Website/Blog
+    -# To ensure that at least part of the post gets displayed on smaller screens: min-width works for laptops but doesn't work on my cell phone (HP iPAQ). The non-breaking spaces work on my iPAQ. Need to check on iPhone:
+    %th.header-left{:style => "min-width: 20em"} &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+  - @rankings.each do |ranking|
+    -# In case website was deleted but orphaned ranking record still exists:
+    - if ranking[:website]
+      %tr
+        - if current_user and (current_user.permission >= 8.5)
+          %td.cell-centred.permission= number_with_precision(ranking[:count1], :precision => 2)
+          %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 2)
+        - if ranking[:status] == "limbo" && ranking[:share] <= 0.0
+          -# because if ranking[:share] > 0.0 then it was just sent to limbo today and tally not done yet.
+          %td.cell-centred.limbo.ballot_row{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
+        - else
+          %td.cell-centred.ballot_row= ranking[:rank]
+          %td.cell-centred.cell-link.ballot_row= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
+        -# TODO: use named_route/resource
+        -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Also more ugly code because I couldn't figure out how to delete a vote record saved in the session, so I added a negative vote as a cancel flag. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
+        - @flag = 0
+        - @created = Time.parse("1999-01-01 16:57:45.608000 -04:00")
+        - for click in @ballot.clicks
+          - if click.community_id == @community.id && click.website_id == ranking[:website].id
+            - @flag = 1
+            - if click.created_at > @created
+              - @created = click.created_at
+              - @voted = click
+        - if @flag == 1 && @voted.support >= 0
+          %td.cell-centred.ballot_row{:style => "font-weight: bold"}= number_with_precision(@voted.support, :precision => 0) + '%'
+          %td.cell-centred.ballot_row= button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
+        - else
+          - form_tag(:action => :vote_for_website, :id => ranking[:website], :community => @community) do
+            %td.cell-centred.ballot_row{:style => "white-space: nowrap", :colspan => 2}
+              - if @community.websites.count > 2
+                = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "this.form.submit();")
+              - else
+                = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "this.form.submit();")
+              %noscript= submit_tag 'Submit'
+        - case
+          - when ranking[:share] <= 0.0
+            - rows = 1
+          - when ranking[:share] > 0.0 && ranking[:share] < 20.0
+            - rows = 2
+          - when ranking[:share] >= 20.0
+            - rows = 3
+        %td.cell-link.ballot_row
+          = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
+        %td.ballot_row
+          %table.multipost{:style => "width: 100%"}
+            - post = Post.find(:all, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC", :limit => rows)
+            - post.each do |post|
+              %tr
+                - if post.posted_at < 6.months.ago
+                  %td.postdate{:style => "width: 6em"}= post.posted_at.to_s(:Y_mon)
+                - else
+                  %td.postdate{:style => "width: 6em"}= post.posted_at.to_s(:mon_day)
+                %td.post.cut
+                  %a{:href => post.url, :target => "_blank"}
+                    - if post.headline
+                      %span{:style => "font-weight: bold"}= truncate(post.headline + ":", :length => 300)
+                    - if post.body
+                      = truncate(strip_tags(post.body), :length => 300)
+          
+        - if current_user and (current_user.permission >= 8.5)
+          %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
+  %tr
+    - if current_user and (current_user.permission >= 8.5)
+      %td
+      %td
+    %td{:colspan => 6, :style => "border-bottom: 8px solid #a00; padding: 0px"}
+
+%p= will_paginate @rankings
+
+%p Click on share to see past shares. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
+- if @rankings.last[:status] == "limbo"
+  %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
+
+
