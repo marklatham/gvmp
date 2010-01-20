@@ -18,12 +18,12 @@
   - for vote in @votes
     %tr
       %td= h vote.ip_address
-      %td= h vote.community_id
-      %td= h vote.website_id
+      %td{:style => "text-align: center"}= h vote.community_id
+      %td{:style => "text-align: center"}= h vote.website_id
       %td
         - if website = Website.find_by_id(vote.website_id)
           = truncate(website.title, :length => 20, :omission => '\\')
-      %td
+      %td{:style => "text-align: right; padding-right: 1em"}
         - if vote.support
           = number_with_precision(vote.support, :precision => 0) + '%'
       -# %td= link_to 'Show', vote
@@ -33,7 +33,7 @@
       -#     = h vote.updated_at
       %td{:style => "padding-left: 1em"}= vote.id
       -# %td{:style => "text-align: center"}= vote.ballot_type
-      %td{:style => "padding-left: 1em"}= truncate(vote.agent, :length => 85, :omission => '')
+      %td{:style => "padding-left: 1em"}= truncate(vote.agent, :length => 82, :omission => '')
 
 %br
 
