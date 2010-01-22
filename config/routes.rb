@@ -34,6 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   map.ubc2010          '/ubc2010',          :controller => 'public',  :action => 'ubc2010'
   map.admin            '/admin',            :controller => 'admin',   :action => 'admin'
   map.terminal         '/t',                :controller => 'admin',   :action => 'terminal'
+  map.shared_ips       '/shared_ips',       :controller => 'admin',   :action => 'shared_ips'
   map.mlresume         '/mlresume',         :controller => 'minimal', :action => 'mlresume'
   map.publications     '/publications',     :controller => 'pubs',    :action => 'index'
   

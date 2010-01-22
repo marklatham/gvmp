@@ -60,6 +60,10 @@ class AdminController < ApplicationController
     redirect_to :action => :admin
   end
   
+  def shared_ips
+    @votes_by_ip = Vote.find(:all, :order => "ip_address", :group => "ip_address")
+  end
+  
   def terminal_create
     @location = params[:location]
     @access = params[:access]

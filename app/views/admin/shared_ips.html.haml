@@ -1,0 +1,15 @@
+- @page_title = 'Shared ips'
+
+%h2.permission Shared ip addresses?
+
+%table
+  %tr
+    %th ip address
+    %th # agents
+
+  - @votes_by_ip.each do |vote|
+    - agents = Vote.count(:agent, :distinct => true, :conditions => ["ip_address = ?", vote.ip_address])
+    - if agents > 2
+      %tr
+        %td= vote.ip_address
+        %td{:style => "text-align: center"}= agents
