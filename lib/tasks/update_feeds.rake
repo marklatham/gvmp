@@ -16,7 +16,9 @@ namespace :feed do
     # can filter this with "if_modified_since" ==> see Feedzirra docs
     options = {}
     
-    feed_urls =  Website.find( :all ).map( &:feed_url ).uniq.compact
+    feed_urls =  Website.find( :all,
+     :conditions => ["id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ?",
+                     "225", "30", "232", "31", "221", "223", "222", "224", "226", "35"] ).map( &:feed_url ).uniq.compact
     puts 'We have %d feed urls under consideration'.%( feed_urls.size)
     parse_hash = Feedzirra::Feed.fetch_and_parse( feed_urls, options )
     puts '   and %d feed urls parsed'.%( parse_hash.size)
