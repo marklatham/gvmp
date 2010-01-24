@@ -5,11 +5,14 @@
 %table
   %tr
     %th ip address
-    %th # agents
+    %th #agents
+    %th #faves
 
   - @votes_by_ip.each do |vote|
     - agents = Vote.count(:agent, :distinct => true, :conditions => ["ip_address = ?", vote.ip_address])
-    - if agents > 2
+    - faves = Vote.count(:website_id, :distinct => true, :conditions => ["ip_address = ? AND support = ?", vote.ip_address, '40'])
+    - if agents > 3 || faves > 3
       %tr
         %td= vote.ip_address
         %td{:style => "text-align: center"}= agents
+        %td{:style => "text-align: center"}= faves
