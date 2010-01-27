@@ -31,7 +31,7 @@
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
           %td.add-button 
           %td.cell-link=    render_community(community)
-          %td.cell-centred= render_category(community)
+          %td.cell-centred{:style => "white-space: nowrap"}= render_category(community)
           %td.cell-centred= render_location(community, :country)
           %td.cell-centred= render_location(community, :prov_state)
           %td.cell-centred= render_location(community, :city)

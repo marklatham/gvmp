@@ -3,6 +3,7 @@
     %label 
       Find communities:
     %br
-    = text_field_tag :q, params[:q], :maxlength => 100, :size => 18
+    = text_field_tag :q, params[:q], :maxlength => 100, :size => 16
+    -# On some browsers, :size => 18 makes the search box stick out of the left column.
     %br
     = submit_tag 'Search'
