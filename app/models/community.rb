@@ -264,10 +264,6 @@ class Community < ActiveRecord::Base
         end
       end
     end
-    # Temporary fix until old CIRA votes above 70% decay away (delete this about 2010-01-26):
-    if cutoff > 73.5
-      count = 0.0
-    end
     return count
   end
 
