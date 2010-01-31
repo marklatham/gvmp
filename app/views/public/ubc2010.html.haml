@@ -58,7 +58,7 @@
 
   %tr
     %td.label Award calculation:
-    %td.cell-left= link_to 'Daily interpolated consensus with time decay', '/faqs/#Voting'
+    %td.cell-left= link_to 'Daily interpolated consensus with time decay', '/faqs#Voting'
     %td.cell-left
       = link_to 'One-time interpolated consensus', '/ubc/InterpolatedConsensus.html'
 
@@ -103,6 +103,12 @@
     %td.cell-left{:style => "font-weight: bold"}= link_to 'This website\'s UBC AMS ballot - vote now!', '/communities/82-ubc-ams'
     %td.cell-left= link_to 'AMS website voting portal', 'http://www2.ams.ubc.ca/index.php/student_government/subpage/category/vote_online/'
 
+  %tr.list-line-even
+    %td.label Results:
+    %td.cell-left
+      = link_to 'On the ballot', '/communities/82-ubc-ams'
+      (Click on a share% to see its history)
+    %td.cell-left{:style => "font-weight: bold"}= link_to 'VFM awards spreadsheet', '/ubc/InterpolatedConsensusUBC20100129.xls'
 %hr
 
 %a{:name => "enter"}
