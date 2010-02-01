@@ -4,17 +4,19 @@
   Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
   = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs#Voting') + ']'
 
-%table#table1{:cellspacing => 0}
+%table#table1{:cellspacing => 0, :style => "table-layout: fixed; width: 100%;"}
   %tr.header
-    - if current_user and (current_user.permission >= 7.0)
-      %th.header-centred.permission Ct1
-      %th.header-centred.permission Ct0
-    %th.header-centred Rank
-    %th.header-centred Share
-    %th.header-centred{:colspan => 2} Your&nbsp;Votes
+    - if current_user and (current_user.permission >= 8.5)
+      %th.header-centred.permission{:style => "width: 3em"} Ct1
+      %th.header-centred.permission{:style => "width: 3em"} Ct0
+    %th.header-centred{:style => "width: 3em"} #
+    %th.header-centred{:style => "width: 4em"} Share
+    %th.header-centred{:style => "width: 8em"} Your&nbsp;Votes
     %th.header-left{:style => "width: 18em"} Website/Blog
-    -# To ensure that at least part of the post gets displayed on smaller screens: min-width works for laptops but doesn't work on my cell phone (HP iPAQ). The non-breaking spaces work on my iPAQ. Need to check on iPhone:
-    %th.header-left{:style => "min-width: 20em"} &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    -# The non-breaking spaces help the table width on my iPAQ. Need to check on iPhone.
+    %th.header-left &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    - if current_user and (current_user.permission >= 8.5)
+      %td{:style => "width: 3em"}
 
   - @rankings.each do |ranking|
     -# In case website was deleted but orphaned ranking record still exists:
@@ -40,11 +42,12 @@
               - @created = click.created_at
               - @voted = click
         - if @flag == 1 && @voted.support >= 0
-          %td.cell-centred.ballot_row{:style => "font-weight: bold"}= number_with_precision(@voted.support, :precision => 0) + '%'
-          %td.cell-centred.ballot_row= button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
+          %td.cell-centred.ballot_row{:style => "font-weight: bold"}
+            = number_with_precision(@voted.support, :precision => 0) + '%'
+            = button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
         - else
           - form_tag(:action => :vote_for_website, :id => ranking[:website], :community => @community) do
-            %td.cell-centred.ballot_row{:style => "white-space: nowrap", :colspan => 2}
+            %td.cell-centred.ballot_row{:style => "white-space: nowrap"}
               - if @community.websites.count > 2
                 = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "this.form.submit();")
               - else
@@ -64,10 +67,11 @@
             - post = Post.find(:all, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC", :limit => rows)
             - post.each do |post|
               %tr
-                - if post.posted_at < 6.months.ago
-                  %td.postdate{:style => "width: 6em"}= post.posted_at.to_s(:Y_mon)
-                - else
-                  %td.postdate{:style => "width: 6em"}= post.posted_at.to_s(:mon_day)
+                %td.postdate{:style => "width: 6em"}
+                  - if post.posted_at < 6.months.ago
+                    = post.posted_at.to_s(:Y_mon)
+                  - else
+                    = post.posted_at.to_s(:mon_day)
                 %td.post.cut
                   %a{:href => post.url, :target => "_blank"}
                     - if post.headline
@@ -81,7 +85,7 @@
     - if current_user and (current_user.permission >= 8.5)
       %td
       %td
-    %td{:colspan => 6, :style => "border-bottom: 8px solid #a00; padding: 0px"}
+    %td{:colspan => 5, :style => "border-bottom: 8px solid #a00; padding: 0px"}
 
 %p= will_paginate @rankings
 
