@@ -7,14 +7,23 @@
   = link_to @community.short_name, @community
   
 - total = 0.00
+- last14 = 0.00
+- count = 0
 - @past_rankings.each do |pr|
   - total += pr.award
+  - count += 1
+  - if count <= 14
+    - last14 = total
 
 %table#table1
   %tr
     %td
-    %td{:style => "font-weight: bold; text-align: right", :colspan => 3} Total:
-    %td.cell-centred.cell-like-link= '$' + number_with_precision(total, :precision => 2).to_s
+    %td{:style => "font-weight: bold; text-align: right", :colspan => 3} All-time total:
+    %td.cell-right.cell-like-link= '$' + number_with_precision(total, :precision => 2).to_s + '&nbsp;'
+  %tr
+    %td
+    %td{:style => "font-weight: bold; text-align: right", :colspan => 3} Last 14 days:
+    %td.cell-right.cell-like-link= '$' + number_with_precision(last14, :precision => 2).to_s + '&nbsp;'
 
   %tr.header
     %td.header-centred Date
@@ -36,6 +45,6 @@
       - if past_ranking.award == 0.0
         %td.cell-centred.cell-like-link= '--'
       - else
-        %td.cell-centred.cell-like-link= '$' + number_with_precision(past_ranking.award, :precision => 2)
+        %td.cell-right.cell-like-link= '$' + number_with_precision(past_ranking.award, :precision => 2) + '&nbsp;'
 
 %br

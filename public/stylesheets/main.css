@@ -244,6 +244,10 @@ a:hover { color: #d00; }
   padding-left: 0.5em;
 }
 
+#table1 .cell-right {
+  text-align: right;
+}
+
 #table1 .cell-link {
   padding: 4px;
   font-weight: bold;

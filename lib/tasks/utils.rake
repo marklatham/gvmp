@@ -41,4 +41,15 @@ namespace :utils do
     end
   end
   
+  desc "Tag old votes to be ignored in community 82 UBC AMS"
+  task(:oldvotes => :environment) do
+    
+    @votes = Vote.find(:all, :conditions => ["community_id = ? and (place = ? or place IS NULL)", "82", ""])
+    
+    @votes.each do |vote|
+      vote.place = "old"
+      vote.save
+    end
+  end
+  
 end
