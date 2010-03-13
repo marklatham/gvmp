@@ -5,6 +5,7 @@
 %table
   %tr
     %th Ip address
+    %th Place
     %th Comm.
     %th{:colspan => 2} Website
     %th Support
@@ -18,6 +19,9 @@
   - for vote in @votes
     %tr
       %td= h vote.ip_address
+      %td
+        - if vote.place
+          = vote.place
       %td{:style => "text-align: center"}= h vote.community_id
       %td{:style => "text-align: center"}= h vote.website_id
       %td
@@ -33,7 +37,7 @@
       -#     = h vote.updated_at
       %td{:style => "padding-left: 1em"}= vote.id
       -# %td{:style => "text-align: center"}= vote.ballot_type
-      %td{:style => "padding-left: 1em"}= truncate(vote.agent, :length => 82, :omission => '')
+      %td{:style => "padding-left: 1em"}= truncate(vote.agent, :length => 75, :omission => '')
 
 %br
 
