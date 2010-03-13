@@ -2,6 +2,11 @@
 
 %h1 &nbsp;Clippings: media discussions of VoterMedia
 
+- if current_user and (current_user.permission >= 7.0)
+  %span.permission= link_to 'Add new clipping', new_clipping_path
+  %br
+  %br
+
 %table#table1
   %tr.header 
     %td.header-centred Date
@@ -27,8 +32,3 @@ For more commentary at UBC, try
 (Hopefully they'll get their archives back on line soon!)
 %br
 %br
-
-- if current_user and (current_user.permission >= 7.0)
-  %span.permission= link_to 'Add new clipping', new_clipping_path
-  %br
-  %br
