@@ -13,9 +13,11 @@
 
   %tr.list-line-even
     %td.label Voting period:
-    %td.cell-left Vote now -- started in 2009, continuing indefinitely
+    %td.cell-left
+      %span{:style => "font-weight: bold"}= link_to 'Vote now', '/communities/82-ubc-ams'
+      = "-- started in 2009, continuing indefinitely"
     %td.cell-left January 25 – 29, 2010
-
+    
   %tr
     %td.label Voting frequency:
     %td.cell-left Vote early & often! e.g. once a week
@@ -28,7 +30,10 @@
 
   %tr
     %td.label Award pool:
-    %td.cell-left $2,000 (Jan 4 - Feb 12, 2010; more later?)
+    %td.cell-left
+      Jan-Feb 2010: $2,000;
+      %span{:style => "font-weight: bold"} March 2010: $1,500;
+      more?
     %td.cell-left $8,000
 
   %tr.list-line-even
@@ -78,8 +83,11 @@
   %tr.list-line-even
     %td.label Sponsor:
     %td.cell-left
-      Jan 4 - Feb 12, 2010:
-      = link_to 'Mark Latham', about_contact_path
+      Jan-Feb 2010:
+      = link_to('Mark Latham', about_contact_path) + ';'
+      %span{:style => "font-weight: bold"}
+        March 2010:
+        = link_to 'AUS', 'http://www.aus.ubc.ca/'
     %td.cell-left= link_to 'UBC Alma Mater Society', 'http://www2.ams.ubc.ca'
 
   %tr
@@ -111,7 +119,7 @@
       = link_to 'On the ballot', '/communities/82-ubc-ams'
       (Click on a share% to see its history) &
       = link_to 'blog', 'http://votermedia.blogspot.com/2010/02/ubc-continuous-vfm-award-winners.html'
-    %td.cell-left{:style => "font-weight: bold"}= link_to 'VFM awards spreadsheet', '/ubc/InterpolatedConsensusUBC20100129.xls'
+    %td.cell-left= link_to 'VFM awards spreadsheet', '/ubc/InterpolatedConsensusUBC20100129.xls'
 
 %hr
 

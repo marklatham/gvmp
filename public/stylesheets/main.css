@@ -431,15 +431,3 @@ a:hover { color: #d00; }
   text-align: right;
   padding-right: 14px;
 }
-
-#cv .heading {
-  font-weight: bold;
-}
-
-#cv .subheading {
-  font-weight: bold;
-}
-
-#cv .emphasis {
-  font-style: italic;
-}
