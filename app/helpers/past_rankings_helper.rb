@@ -1,0 +1,2 @@
+module PastRankingsHelper
+end

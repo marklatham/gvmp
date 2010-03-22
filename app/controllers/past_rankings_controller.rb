@@ -1,0 +1,2 @@
+class PastRankingsController < ApplicationController
+end

@@ -267,6 +267,42 @@ class Community < ActiveRecord::Base
     return count
   end
 
+  # Update periodic (non-daily) past_rankings rank & share for this community:
+  def calcpr
+    
+    @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
+                            self.id, "month", Date.today.beginning_of_month, Date.today.end_of_month],
+                            :order => "award DESC, count1 DESC")
+    
+    rank_sequence = 0
+    max_funds = 0.0
+    @monthly_rankings.each do |mr|
+      rank_sequence += 1
+      mr.rank = rank_sequence
+      mr.save
+      if mr.funds > max_funds
+        max_funds = mr.funds
+      end
+    end
+  
+    total_awards = 0.0
+    @monthly_rankings.each do |mr|
+      mr.funds = max_funds
+      if mr.funds > 0 # Better calculation for share if mr.funds > 0 :
+        mr.share = 100.0 * mr.award / mr.funds
+      end
+      mr.save
+      total_awards += mr.award
+    end
+  
+    if (total_awards - max_funds).abs > 0.09
+      puts "Community number " + self.id.to_s + " monthly awards total $" + total_awards.to_s +
+                                                " but fundings total $" + max_funds.to_s
+    end
+    
+  end
+  
+  
   class << self
     def filter(params={})
 
