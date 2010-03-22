@@ -300,6 +300,36 @@ class Community < ActiveRecord::Base
                                                 " but fundings total $" + max_funds.to_s
     end
     
+    @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
+                            self.id, "year", Date.today.beginning_of_year, Date.today.end_of_year],
+                            :order => "award DESC, count1 DESC")
+    
+    rank_sequence = 0
+    max_funds = 0.0
+    @yearly_rankings.each do |yr|
+      rank_sequence += 1
+      yr.rank = rank_sequence
+      yr.save
+      if yr.funds > max_funds
+        max_funds = yr.funds
+      end
+    end
+  
+    total_awards = 0.0
+    @yearly_rankings.each do |yr|
+      yr.funds = max_funds
+      if yr.funds > 0 # Better calculation for share if yr.funds > 0 :
+        yr.share = 100.0 * yr.award / yr.funds
+      end
+      yr.save
+      total_awards += yr.award
+    end
+  
+    if (total_awards - max_funds).abs > 0.09
+      puts "Community number " + self.id.to_s + " yearly awards total $" + total_awards.to_s +
+                                                " but fundings total $" + max_funds.to_s
+    end
+    
   end
   
   

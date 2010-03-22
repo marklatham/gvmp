@@ -22,11 +22,13 @@ namespace :utils do
   desc "Create &/or update periodic (non-daily) past_rankings"
   task(:update_periodic_rankings => :environment) do
     
+    # Fold each daily ranking into its monthly and yearly rankings:
     @pr = PastRanking.find(:all, :conditions => ["period = ? and start = ?", "day", Date.today], :order => "id")
     @pr.each do |pr|
       pr.updatepr
     end
-
+    
+    # Community-wide calculations of monthly and yearly ranks and shares:
     @communities = Community.find(:all)
     @communities.each do |community|
       community.calcpr

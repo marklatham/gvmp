@@ -22,6 +22,8 @@ class RankingsController < ApplicationController
                                        :order => "start DESC")
     @monthly_rankings = PastRanking.find(:all, :conditions => ["ranking_id = ? and period = ?", params[:id], "month"],
                                        :order => "start DESC")
+    @yearly_rankings = PastRanking.find(:all, :conditions => ["ranking_id = ? and period = ?", params[:id], "year"],
+                                       :order => "start DESC")
     @fundings = Funding.find(:all, :conditions => ["community_id = ?", @ranking.community_id], :order => "date DESC")
  
     respond_to do |format|
