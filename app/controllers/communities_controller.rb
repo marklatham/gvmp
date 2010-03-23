@@ -266,6 +266,20 @@ class CommunitiesController < ApplicationController
     return count
   end
 
+  def horserace
+    
+    @community = Community.find(params[:id])
+    @master_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and share > 0",
+                                                    params[:id], "year", Date.today.beginning_of_year], :order => "share DESC")
+    @earliest_month = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
+                                                                     params[:id],        "month"], :order => "start")
+    @latest_month = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
+                                                                     params[:id],        "month"], :order => "start DESC")
+    @earliest_day = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
+                                                                     params[:id],        "day"], :order => "start")
+    @latest_day = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
+                                                                     params[:id],        "day"], :order => "start DESC")
+  end
 
   private
 

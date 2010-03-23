@@ -38,6 +38,8 @@ ActionController::Routing::Routes.draw do |map|
   map.mlresume         '/mlresume',         :controller => 'minimal', :action => 'mlresume'
   map.publications     '/publications',     :controller => 'pubs',    :action => 'index'
   
+  map.horserace        '/horserace/:id',    :controller => 'communities', :action => 'horserace'
+  
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
