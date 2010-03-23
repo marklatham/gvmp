@@ -90,8 +90,9 @@
 %p= will_paginate @rankings
 
 %p
-  History of funding shares: see
-  = link_to "horserace", :controller => "communities", :action => "horserace"
+  %strong
+    History of funding shares: see
+    = link_to "horserace", :controller => "communities", :action => "horserace"
   or click on a share% above. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
 
 - if @rankings.last[:status] == "limbo"
