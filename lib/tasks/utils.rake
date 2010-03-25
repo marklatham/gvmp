@@ -22,56 +22,28 @@ namespace :utils do
   desc "Create &/or update periodic (non-daily) past_rankings"
   task(:update_periodic_rankings => :environment) do
     
+    @date_to_process = Date.today
+    puts "Processing date: " + @date_to_process.to_s
+    
     # Fold each daily ranking into its monthly and yearly rankings:
-    @pr = PastRanking.find(:all, :conditions => ["period = ? and start = ?", "day", Date.today], :order => "id")
+    @pr = PastRanking.find(:all, :conditions => ["period = ? and start = ?", "day", @date_to_process], :order => "id")
     @pr.each do |pr|
       pr.updatepr
     end
     
-    # Community-wide calculations of monthly and yearly ranks and shares:
-    @communities = Community.find(:all)
-    @communities.each do |community|
-      community.calcpr
+    # Update period past_rankings for which there are no corresponding daily past_rankings:
+    @pr = PastRanking.find(:all, :conditions => ["period != ? and latest < ? and end >= ?",
+                                                       "day", @date_to_process, @date_to_process], :order => "id")
+    puts "Number of dropouts: " + @pr.size.to_s
+    @pr.each do |pr|
+      pr.update_dropout(@date_to_process)
     end
     
-  end
-  
-  desc "Create &/or update community-wide fields in periodic (non-daily) past_rankings"
-  task(:update_comm => :environment) do
-    
+    # Community-wide calculations of monthly and yearly ranks in past_rankings:
     @communities = Community.find(:all)
+    puts "Number of communities: " + @communities.size.to_s
     @communities.each do |community|
-      
-      @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
-                            community.id, "month", Date.today.beginning_of_month, Date.today.end_of_month],
-                            :order => "award DESC, count1 DESC")
-    
-      rank_sequence = 0
-      max_funds = 0.0
-      @monthly_rankings.each do |mr|
-        rank_sequence += 1
-        mr.rank = rank_sequence
-        mr.save
-        if mr.funds > max_funds
-          max_funds = mr.funds
-        end
-      end
-    
-      total_awards = 0.0
-      @monthly_rankings.each do |mr|
-        mr.funds = max_funds
-        if mr.funds > 0 # Better calculation for share if mr.funds > 0 :
-          mr.share = 100.0 * mr.award / mr.funds
-        end
-        mr.save
-        total_awards += mr.award
-      end
-    
-      if (total_awards - max_funds).abs > 0.09
-        puts "Community number " + community.id.to_s + " monthly awards total $" + total_awards.to_s +
-                                                  " but fundings total $" + max_funds.to_s
-      end
-    
+      community.calcpr(@date_to_process)
     end
     
   end
@@ -79,12 +51,12 @@ namespace :utils do
   desc "Test some code -- not used in system so OK to change"
   task(:test_code => :environment) do
     
-    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and (status != ? OR status IS NULL)", "82", "limbo"],
-                             :order => "website_id")
-    
-    @rankings.each do |ranking|
-      puts ranking.website_id
+    # Community-wide calculations of monthly and yearly ranks and shares:
+    @communities = Community.find(:all)
+    @communities.each do |community|
+      community.calcpr
     end
+    
   end
   
   desc "Bulk edit data"
@@ -115,9 +87,7 @@ namespace :utils do
     @pr = PastRanking.find(:all)
     
     @pr.each do |pr|
-      pr.period = "day"
-      pr.start = pr.created_at.to_date
-      pr.end = pr.created_at.to_date
+      pr.latest = pr.start
       pr.save
     end
   end
