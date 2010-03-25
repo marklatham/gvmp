@@ -1,7 +1,7 @@
 date_time_formats = {
   :mon_day   => "%b %e",
   :Y_mon     => "%Y %b",
-  :month_Y   => "%B %Y",
+  :month_Y   => "%B&nbsp;%Y",
   :text_date => "%B %e, %Y",
   :Ymd       => "%Y-%m-%d",
   :YmdHM     => "%Y-%m-%d %H:%M",
