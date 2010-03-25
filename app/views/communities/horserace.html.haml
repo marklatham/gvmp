@@ -1,12 +1,13 @@
 - @page_title = "Horserace: " + @community.short_name
 
 %h2
-  = link_to @community.name, @community
+  = @community.name + ':'
   Media Horserace
+  = '[' + link_to('vote&nbsp;here', @community) + ']'
 
 %h3
-  History of funding shares for websites/blogs with positive shares for
-  = @master_rankings[0].start.year.to_s + ':'  
+  Past funding shares for websites/blogs with positive shares for
+  = @master_rankings[0].start.year.to_s + ':'
   
 %table#table1{:cellspacing => 0, :style => "width: 20%;"}
 

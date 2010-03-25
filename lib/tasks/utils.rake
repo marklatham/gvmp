@@ -23,7 +23,7 @@ namespace :utils do
   task(:update_periodic_rankings => :environment) do
     
     @date_to_process = Date.today
-    puts "Processing date: " + @date_to_process.to_s
+    puts "Now processing data for this date: " + @date_to_process.to_s
     
     # Fold each daily ranking into its monthly and yearly rankings:
     @pr = PastRanking.find(:all, :conditions => ["period = ? and start = ?", "day", @date_to_process], :order => "id")
@@ -39,11 +39,11 @@ namespace :utils do
       pr.update_dropout(@date_to_process)
     end
     
-    # Community-wide calculations of monthly and yearly ranks in past_rankings:
+    # Sort and save monthly and yearly ranks in each community:
     @communities = Community.find(:all)
     puts "Number of communities: " + @communities.size.to_s
     @communities.each do |community|
-      community.calcpr(@date_to_process)
+      community.rankpr(@date_to_process)
     end
     
   end

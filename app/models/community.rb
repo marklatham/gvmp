@@ -267,8 +267,8 @@ class Community < ActiveRecord::Base
     return count
   end
 
-  # Update periodic (non-daily) past_rankings rank & share for this community:
-  def calcpr(date_to_process)
+  # Update periodic (non-daily) past_rankings ranks for this community; also check totals:
+  def rankpr(date_to_process)
     
     @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
                             self.id, "month", date_to_process.beginning_of_month, date_to_process.end_of_month],
