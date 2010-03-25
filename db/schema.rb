@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100320213750) do
+ActiveRecord::Schema.define(:version => 20100325020618) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -112,6 +112,7 @@ ActiveRecord::Schema.define(:version => 20100320213750) do
     t.string   "period"
     t.date     "start"
     t.date     "end"
+    t.date     "latest"
   end
 
   add_index "past_rankings", ["community_id", "website_id"], :name => "index_past_rankings_on_community_id_and_website_id"
