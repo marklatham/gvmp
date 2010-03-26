@@ -3,10 +3,11 @@
 %h2
   = @community.name + ':'
   Media Horserace
-  = '[' + link_to('vote&nbsp;here', @community) + ']'
 
 %h3
-  Past funding shares for websites/blogs with positive shares for
+  Past funding shares from
+  = link_to('this ballot', @community)
+  for websites/blogs with positive shares for
   = @master_rankings[0].start.year.to_s + ':'
   
 %table#table1{:cellspacing => 0, :style => "width: 20%;"}
