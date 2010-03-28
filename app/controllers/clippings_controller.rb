@@ -1,7 +1,7 @@
 class ClippingsController < ApplicationController
   resource_controller
 
-  before_filter :except => :index do |c|
+  before_filter :only => [:new, :create, :edit, :update, :destroy] do |c|
     c.redirect_if_permission_less_than 7.0
   end
 

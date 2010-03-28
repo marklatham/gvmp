@@ -37,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
   map.shared_ips       '/shared_ips',       :controller => 'admin',   :action => 'shared_ips'
   map.mlresume         '/mlresume',         :controller => 'minimal', :action => 'mlresume'
   map.publications     '/publications',     :controller => 'pubs',    :action => 'index'
+  map.gpw              '/gpw',    :controller => 'clippings', :action => 'gpw'
   
   map.horserace        '/horserace/:id',    :controller => 'communities', :action => 'horserace'
   
@@ -76,6 +77,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
 
   map.connect ':controller.:format'
+  map.connect ':controller/:action' # Why doesn't this work for /clippings/gpw ? So created map.gpw instead.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end
