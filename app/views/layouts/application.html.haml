@@ -14,16 +14,11 @@
         %td
         
           = render 'layouts/header'
-          = render 'layouts/main_nav_top'    
+          = render 'layouts/nav'    
 
-          #columns
-            #side
-              = render 'layouts/search'
-              = render 'layouts/featured'
-
-            #main
-              = flash_notice
-              = yield
+          #main
+            = flash_notice
+            = yield
 
           = render 'layouts/main_nav_bottom' 
 

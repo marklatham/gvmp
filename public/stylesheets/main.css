@@ -8,6 +8,11 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+/* Needed for any content that follows the nav bar: */
+h1, h2, h3, p {
+  clear:  left;
+}
+
 li {
   margin-bottom: 0.7em;
 }
@@ -130,6 +135,10 @@ a:hover { color: #d00; }
   color: #060;
 }
 
+/* Styles for navigation */
+
+/* main-nav is older version without dropdowns; still used for bottom nav  */
+
 #main-nav {
   background-color: #a00;
   color: #fff;
@@ -154,6 +163,65 @@ a:hover { color: #d00; }
   text-decoration: underline;
 }
 
+/* Start of new nav styles 2010-04: */
+
+#wrap{
+  background: #a00;
+}
+
+#nav {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: table;
+  margin: 0 auto;
+/*  line-height: 1; */
+}
+
+#nav ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+/*  line-height: 1; */
+}
+
+#nav a {
+  display: block;
+  width: 10em;
+}
+
+#nav li {
+  background: #a00;
+  color: #fff;
+  float: left;
+  width: 10em;
+}
+
+#nav ul li{ margin: 0; }
+
+#nav li ul {
+  position: absolute;
+  background: #fff;
+  width: 10em;
+  left: -999em;
+}
+#nav a:link {
+  color: #fff;
+  text-decoration: none;
+}
+#nav a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+#nav a:hover {
+  text-decoration: underline;
+}
+#nav li:hover ul {
+  left: auto;
+}
+
+/* End of new nav styles 2010-04. */
+
 #side {
   float: left;
   padding-top: 0.5em;
@@ -167,8 +235,7 @@ a:hover { color: #d00; }
 #side a { color: #fff; }
 #side a:hover { color: #fff; background-color:#a00; }
 
-/* START:navmain */
-/* Styles for the left navigation column */
+/* START: Styles for the left navigation column -- obsolete as of 2010-04 */
 
 #featured label {
   font: 130% bold;
@@ -197,13 +264,11 @@ a:hover { color: #d00; }
   margin: 0 0 20px 0;
 }
 
-/* END:navmain */
+/* END: Styles for the left navigation column */
 
 #main {
-  margin-left: 13em;
   padding-top: 1ex;
   padding-left: 1em;
-  background: #fff;
 }
 
 #table1 .list-line-odd {

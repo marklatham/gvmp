@@ -1,0 +1,13 @@
+%div#wrap
+  %div#nav
+    %ul
+      %li.item_
+        = link_to 'COMMUNITIES', root_path
+        %ul
+          %li.item_= link_to 'Search / All', root_path
+          %li.item_ Featured:
+          - Community.featured.each do |community|
+            %li.item_= link_to community.short_name, community_path(community)
+      %li.item_= link_to 'FAQ', faqs_path
+      %li.item_= link_to 'ABOUT/CONTACT', about_contact_path
+      %li.item_= link_to 'PUBLICATIONS', publications_path
