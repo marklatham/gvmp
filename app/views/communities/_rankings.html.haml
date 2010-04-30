@@ -46,12 +46,12 @@
             = number_with_precision(@voted.support, :precision => 0) + '%'
             = button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
         - else
-          - form_tag(:action => :vote_for_website, :id => ranking[:website], :community => @community) do
+          - form_tag({:action => :vote_for_website, :id => ranking[:website], :community => @community}, :method=>:post, :id=>"ajax_form_percent") do
             %td.cell-centred.ballot_row{:style => "white-space: nowrap"}
               - if @community.websites.count > 2
-                = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "this.form.submit();")
+                = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "jQuery('#ajax_form_percent').submit();")
               - else
-                = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "this.form.submit();")
+                = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "jQuery('#ajax_form_percent').submit();")
               %noscript= submit_tag 'Submit'
         - case
           - when ranking[:share] <= 0.0

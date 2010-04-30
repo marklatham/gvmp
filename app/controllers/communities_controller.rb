@@ -147,7 +147,10 @@ class CommunitiesController < ApplicationController
     @ballot = find_ballot
     @ballot.add_vote(vote)
 
-    redirect_to :action => :show, :id => @community
+    respond_to do |format|
+      format.html { redirect_to :action => :show, :id => @community}
+      format.js
+    end
   end
 
   def delete_vote

@@ -83,6 +83,7 @@ jQuery.fn.submitWithAjax = function() {
 //This will "ajaxify" the links
 function ajaxLinks(){
     jQuery("[id^=ajax_form]").submitWithAjax();
+    
     jQuery('a.get').getWithAjax();
     jQuery('a.post').postWithAjax();
     jQuery('a.put').putWithAjax();
