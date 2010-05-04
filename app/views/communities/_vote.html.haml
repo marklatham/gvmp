@@ -1,0 +1,12 @@
+-# EREZ: jQuery picks up elements based on their html id. Hence every element that we manipulate on the page MUST have a unique id. Here we create that using the website's id, like this "ajax_form_percent_#{ranking[:website].id}". It's a good practice to have the model generate those unique id's... So this should be done in the future as we start using jQuery more.
+- form_tag({:action => :vote_for_website, :id => website.id, :community => community.id}, :method=>:post, :id=>"ajax_form_percent_#{website.id}") do
+  - if flag == 1 && support >= 0
+    .last_vote{:id => "last_vote_#{website.id}"}
+      last vote:
+      = number_with_precision(support, :precision => 0) + '%'
+  - if @community.websites.count > 2
+    = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "jQuery(\"#ajax_form_percent_#{website.id}\").submit();")
+  - else
+    = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :id=>"ajax_form_percent", :onchange => "jQuery(\"#ajax_form_percent_#{website.id}\").submit();")
+  %noscript= submit_tag 'Submit'
+

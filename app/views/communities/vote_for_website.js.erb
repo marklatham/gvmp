@@ -1,1 +1,6 @@
-alert("Voted for Website");
+jQuery("<%="#vote_element_#{@website.id}"%>").before("<%= escape_javascript(render(:partial => 'vote', :locals => { :community => @community, :website => @website, :support => @support, :flag => 1 } )) %>").remove();
+
+jQuery(document).ready(function() {
+  ajaxLinks();
+});
+

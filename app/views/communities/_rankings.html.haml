@@ -41,18 +41,10 @@
             - if click.created_at > @created
               - @created = click.created_at
               - @voted = click
-        - if @flag == 1 && @voted.support >= 0
-          %td.cell-centred.ballot_row{:style => "font-weight: bold"}
-            = number_with_precision(@voted.support, :precision => 0) + '%'
-            = button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
-        - else
-          - form_tag({:action => :vote_for_website, :id => ranking[:website], :community => @community}, :method=>:post, :id=>"ajax_form_percent") do
-            %td.cell-centred.ballot_row{:style => "white-space: nowrap"}
-              - if @community.websites.count > 2
-                = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "jQuery('#ajax_form_percent').submit();")
-              - else
-                = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50'], ['60%', '60'], ['70%', '70']]), :onchange => "jQuery('#ajax_form_percent').submit();")
-              %noscript= submit_tag 'Submit'
+        -# TODO: Currently, the the old vote does not get deleted.
+        -# button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
+        %td.cell-centred.ballot_row{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
+          .inner_vote_cell{:id => "vote_element_#{ranking[:website].id}"}= render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => @voted.support, :flag => @flag }
         - case
           - when ranking[:share] <= 0.0
             - rows = 1
