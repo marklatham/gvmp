@@ -1,4 +1,5 @@
 -# EREZ: jQuery picks up elements based on their html id. Hence every element that we manipulate on the page MUST have a unique id. Here we create that using the website's id, like this "ajax_form_percent_#{ranking[:website].id}". It's a good practice to have the model generate those unique id's... So this should be done in the future as we start using jQuery more.
+
 - form_tag({:action => :vote_for_website, :id => website.id, :community => community.id}, :method=>:post, :id=>"ajax_form_percent_#{website.id}") do
   - if flag == 1 && support >= 0
     .last_vote{:id => "last_vote_#{website.id}"}

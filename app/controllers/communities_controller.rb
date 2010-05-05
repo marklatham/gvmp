@@ -141,6 +141,9 @@ class CommunitiesController < ApplicationController
       @name = nil
     end
     
+    #First we delete the old votes
+    delete_vote (@community, @website, @ip)
+    
     vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
                          :website_id => @website.id, :support => @support, :ballot_type => "2", :place => @name})
 
@@ -151,23 +154,6 @@ class CommunitiesController < ApplicationController
       format.html { redirect_to :action => :show, :id => @community}
       format.js
     end
-  end
-
-  def delete_vote
-    @ip = request.remote_ip
-    @website = Website.find(params[:id])
-    @community = Community.find(params[:community])
-
-# I haven't figured out how to make @ballot.destroy_click delete the vote saved in session, so create this "cancel" coded vote:
-    vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
-                                             :website_id => @website.id, :support => "-16.8"})
-    
-    @ballot = find_ballot
-    @ballot.add_vote(vote)
-    @ballot.destroy_click(@community.id, @website.id)
-    @ballot.destroy_click(@community.id, @website.id)
-
-    redirect_to :action => :show, :id => @community
   end
   
   def submit_feedback
@@ -289,5 +275,11 @@ class CommunitiesController < ApplicationController
     def find_ballot 
       session[:ballot] ||= Ballot.new 
     end
+    
+    def delete_vote (community, website, ip)
+
+    @ballot = find_ballot
+    @ballot.destroy_click(community.id, website.id)
+  end
 
 end

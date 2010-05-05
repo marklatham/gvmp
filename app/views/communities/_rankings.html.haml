@@ -32,7 +32,7 @@
           %td.cell-centred.ballot_row= ranking[:rank]
           %td.cell-centred.cell-link.ballot_row= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
         -# TODO: use named_route/resource
-        -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Also more ugly code because I couldn't figure out how to delete a vote record saved in the session, so I added a negative vote as a cancel flag. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
+        -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
         - @flag = 0
         - @created = Time.parse("1999-01-01 16:57:45.608000 -04:00")
         - for click in @ballot.clicks
@@ -40,11 +40,9 @@
             - @flag = 1
             - if click.created_at > @created
               - @created = click.created_at
-              - @voted = click
-        -# TODO: Currently, the the old vote does not get deleted.
-        -# button_to 'Change', :action => :delete_vote, :id => @voted.website_id, :community => @voted.community_id
+              - support = click.support
         %td.cell-centred.ballot_row{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
-          .inner_vote_cell{:id => "vote_element_#{ranking[:website].id}"}= render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => @voted.support, :flag => @flag }
+          .inner_vote_cell{:id => "vote_element_#{ranking[:website].id}"}= render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => support, :flag => @flag }
         - case
           - when ranking[:share] <= 0.0
             - rows = 1
