@@ -42,7 +42,7 @@
               - @created = click.created_at
               - support = click.support
         %td.cell-centred.ballot_row{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
-          .inner_vote_cell{:id => "vote_element_#{ranking[:website].id}"}= render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => support, :flag => @flag }
+          = render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => support, :flag => @flag }
         - case
           - when ranking[:share] <= 0.0
             - rows = 1
