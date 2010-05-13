@@ -48,6 +48,16 @@ namespace :utils do
     
   end
   
+  desc "Delete session records that are more than 30 days old"
+  task(:delete_old_sessions => :environment) do
+    
+    sessions = Session.find(:all, :conditions => ["updated_at < ?", 1.month.ago])
+    sessions.each do |session|
+      session.delete
+    end
+    
+  end
+  
   desc "Test some code -- not used in system so OK to change"
   task(:test_code => :environment) do
     

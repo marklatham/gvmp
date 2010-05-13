@@ -18,6 +18,17 @@ class Post < ActiveRecord::Base
       ) unless exists? :guid => entry.id  rescue next
 
     end
+    
+#   Delete all but latest 5 posts for this website:
+
+    to_delete = Post.find(:all, :conditions => ["website_id = ?", website.id], :order => "posted_at DESC")
+
+    count = 0
+    to_delete.each do |post|
+      count += 1
+      post.delete if count > 5
+    end
+
   end
 
 end
