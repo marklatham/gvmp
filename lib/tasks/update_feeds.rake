@@ -38,7 +38,7 @@ namespace :feed do
 #       puts '   %5d feed entries from site %s'.%([feed.entries.size, website.title])
       Post.add_entries( website, feed.entries )
     end
-    puts  '   %5d Post records in total; %d new'.%([ Post.count, Post.count - before])
+    puts  '   %5d Post records in total; increased by %d'.%([ Post.count, Post.count - before])
     puts  'Task feed:load done [%0.7s seconds]'.%([Time.now - now])
     puts  '-----'
   end

@@ -4,6 +4,12 @@ class Post < ActiveRecord::Base
   private
   
   def self.add_entries(website, entries)
+    
+    # Only save posts newer than what we already have. If we have none, save those newer than 2009-01-01.
+    latest = Post.find(:first, :conditions => ["website_id = ?", website.id], :order => "posted_at DESC")
+    cutoff = Time.parse("2009-01-01 16:57:45.608000 -04:00")
+    cutoff = latest.posted_at if latest
+    
     entries.each do |entry|
       entry.sanitize! rescue nil
 
@@ -15,7 +21,8 @@ class Post < ActiveRecord::Base
         :url        => entry.url,
         :posted_at  => entry.published,
         :guid       => entry.id
-      ) unless exists? :guid => entry.id  rescue next
+      ) if entry.published > cutoff  rescue next
+#      ) unless exists? :guid => entry.id  rescue next
 
     end
     
