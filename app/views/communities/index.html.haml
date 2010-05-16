@@ -1,8 +1,10 @@
 - main_column do
   %h2 Which websites/blogs serving your voter communities deserve funding?
   %p 
-    Use search box on the left and/or browse below; follow links to community ballots, 
+    Use search box and/or browse below; follow links to community ballots, 
     then vote on website/blog funding:
+  
+  = render 'layouts/search'
   
   %p= paginate @communities
     
