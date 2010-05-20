@@ -3,7 +3,7 @@
 
 - form_tag(:action => :submit_feedback, :community => @community) do
   -# Beware: the width of this comment box has been set at 95 to ensure a minimum width for the page display that works in Safari as well as Firefox.
-  = text_field_tag(:comment, '', :size => 95)
+  = text_field_tag(:comment, '', :size => 85)
   = submit_tag 'Submit comment'
 
 %br

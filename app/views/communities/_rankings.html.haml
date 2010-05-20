@@ -1,10 +1,4 @@
-%p
-  Vote % shares for as many as you like.
-  %noscript= 'Click Submit after each vote.'
-  Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
-  = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs#Voting') + ']'
-
-%table#table1{:cellspacing => 0, :style => "table-layout: fixed; width: 100%;"}
+%table#table1{:cellspacing => 0, :style => "table-layout: fixed; width: 80%; min-width: 46em; margin-left: 10%; margin-right: 10%;"}
   %tr.header
     - if current_user and (current_user.permission >= 8.5)
       %th.header-centred.permission{:style => "width: 3em"} Ct1
@@ -27,9 +21,9 @@
           %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 2)
         - if ranking[:status] == "limbo" && ranking[:share] <= 0.0
           -# because if ranking[:share] > 0.0 then it was just sent to limbo today and tally not done yet.
-          %td.cell-centred.limbo.ballot_row{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
+          %td.cell-centred.limbo.ballot_row.leftborder{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
         - else
-          %td.cell-centred.ballot_row= ranking[:rank]
+          %td.cell-centred.ballot_row.leftborder= ranking[:rank]
           %td.cell-centred.cell-link.ballot_row= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
         -# TODO: use named_route/resource
         -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
@@ -52,7 +46,7 @@
             - rows = 3
         %td.cell-link.ballot_row
           = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
-        %td.ballot_row
+        %td.ballot_row.rightborder
           %table.multipost{:style => "width: 100%"}
             - post = Post.find(:all, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC", :limit => rows)
             - post.each do |post|
@@ -77,15 +71,21 @@
       %td
     %td{:colspan => 5, :style => "border-bottom: 8px solid #a00; padding: 0px"}
 
-%p= will_paginate @rankings
+%div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
 
-%p
-  %strong
-    Past funding shares: see
-    = link_to "horserace", :controller => "communities", :action => "horserace"
-  or click on a share% above. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
+  %p= will_paginate @rankings
 
-- if @rankings.last[:status] == "limbo"
-  %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
+  %p
+    Vote % shares for as many as you like.
+    %noscript= 'Click Submit after each vote.'
+    Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
+    = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs#Voting') + ']'
 
-
+  %p
+    %strong
+      Past funding shares: see
+      = link_to "horserace", :controller => "communities", :action => "horserace"
+    or click on a share% above. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
+  
+  - if @rankings.last[:status] == "limbo"
+    %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.

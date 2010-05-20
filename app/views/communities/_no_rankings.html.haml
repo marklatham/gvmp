@@ -1,16 +1,16 @@
-%p
-  So far no one has added a website/blog to this community. 
-  You can add one by emailing its title and url to editors[at]votermedia.org. 
-  Be sure to say which community it should be listed under!
+%div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
+  %p
+    So far no one has added a website/blog to this community. 
+    You can add one by emailing its title and url to editors[at]votermedia.org. 
+    Be sure to say which community it should be listed under!
 
-%p
-  If you don't know of one, try searching e.g. for 
-  = link_to "#{@community.short_name} election blog", "http://www.google.ca/search?q=#{@community.short_name.strip}+election+blog", :target => "_blank"
+  %p
+    If you don't know of one, try searching e.g. for 
+    = link_to "#{@community.short_name} election blog", "http://www.google.ca/search?q=#{@community.short_name.strip}+election+blog", :target => "_blank"
 
-%p
-  If you still don't find one, how about creating one?! It's easy with free tools at sites like
-  = link_to 'Wordpress', 'http://wordpress.com/', :target => '_blank'
-  or
-  = link_to 'Blogger', 'http://blogger.com/', :target => '_blank'
-  \.
-
+  %p
+    If you still don't find one, how about creating one?! It's easy with free tools at sites like
+    = link_to 'Wordpress', 'http://wordpress.com/', :target => '_blank'
+    or
+    = link_to 'Blogger', 'http://blogger.com/', :target => '_blank'
+    \.

@@ -1,9 +1,9 @@
 - @page_title = @community.short_name
 
 - main_column do
-  %h1= h @community.name
+  %h1{:style => "text-align: center"}= h @community.name
   
-  %h3
+  %h3{:style => "text-align: center"}
     How should the 
     = h @community.short_name 
     voter community divide funding among these websites/blogs?
@@ -14,10 +14,12 @@
     - else
       = render :partial => 'no_rankings'
   
-  - if current_user and (current_user.permission >= 4.0)
-    %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
+  %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
+
+    - if current_user and (current_user.permission >= 4.0)
+      %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
   
-  #community-box
-    = render :partial => 'info'
+    #community-box
+      = render :partial => 'info'
   
-  = render :partial => 'feedback_form'
+    = render :partial => 'feedback_form'

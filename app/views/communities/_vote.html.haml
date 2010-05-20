@@ -3,7 +3,7 @@
   - form_tag({:action => :vote_for_website, :id => website.id, :community => community.id}, :method=>:post, :id=>"ajax_form_percent_#{website.id}") do
     - if flag == 1 && support >= 0
       .last_vote{:id => "last_vote_#{website.id}"}
-        last vote:
+        You voted
         = number_with_precision(support, :precision => 0) + '%'
     - if @community.websites.count > 2
       = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30'], ['35%', '35'], ['40%', '40']]), :onchange => "jQuery(\"#ajax_form_percent_#{website.id}\").submit();")
