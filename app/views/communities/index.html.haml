@@ -12,16 +12,16 @@
     %table#table1{:cellspacing => 0}
     
       %tr.header
-        %td
-        %td.header-left Community Name
+        %td.header-left Community
         %td.header-centred Type
-        %td.header-centred{:colspan => 3} ------- Headquarters ------------------
+        %td.header-centred Headquarters
+        %td.header-centred Headquarters
+        %td.header-centred Headquarters
         %td.header-centred Regional
         %td.header-centred #web-
       
-      %tr.header 
-        %td
-        %td.header-left &nbsp; &nbsp; &nbsp; & link to ballot
+      %tr.header
+        %td.header-left
         %td.header-centred 
         %td.header-centred Country
         %td.header-centred Prov/State
@@ -31,19 +31,18 @@
     
       - @communities.each do |community| 
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
-          %td.add-button 
-          %td.cell-link=    render_community(community)
+          %td.cell-link.leftborder=    render_community(community)
           %td.cell-centred{:style => "white-space: nowrap"}= render_category(community)
           %td.cell-centred= render_location(community, :country)
           %td.cell-centred= render_location(community, :prov_state)
           %td.cell-centred= render_location(community, :city)
           %td.cell-centred= render_scope(community)
-          %td.cell-centred= render_websites_count(community) 
+          %td.cell-centred.rightborder= render_websites_count(community) 
 
           = render_community_actions(community)
 
       %tr
-        %td.footer-row{:colspan => 3}= paginate(@communities)
+        %td.footer-row{:colspan => 2}= paginate(@communities)
         %td.footer-row{:colspan => 5, :align => "right", :style => "font-weight: bold"}
           Is your voter community not in our system? Add it by email to editors[at]votermedia.org
         - if current_user and (current_user.permission >= 4.0)
