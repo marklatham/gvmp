@@ -344,7 +344,7 @@ class Community < ActiveRecord::Base
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope eventually
     def featured
-      ids = [82, 51, 81, 5, 205, 94, 3, 151, 116, 109, 223, 291]
+      ids = [82, 51, 52, 81, 5, 205, 3, 151, 116, 109, 223]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
   end

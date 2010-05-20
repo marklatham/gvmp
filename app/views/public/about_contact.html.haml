@@ -18,8 +18,9 @@
   with a board of directors elected by the website's users.
   We are already practising what we preach, by
   = link_to('inviting websites/blogs to critique VoterMedia.org', '/communities/104') + '.'
-%br
 
+%a{ :name => 'team' }
+%h3 The VoterMedia Team:
 %table#colleagues{:cellspacing => 0, :cellpadding => 2}
   - for colleague in @colleagues
     %tr
