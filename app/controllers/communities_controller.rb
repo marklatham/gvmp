@@ -142,7 +142,7 @@ class CommunitiesController < ApplicationController
     end
     
     #First we delete the old votes
-    delete_vote (@community, @website, @ip)
+    delete_vote(@community, @website, @ip)
     
     vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
                          :website_id => @website.id, :support => @support, :ballot_type => "2", :place => @name})

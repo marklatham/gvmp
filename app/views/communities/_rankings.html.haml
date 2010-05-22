@@ -85,7 +85,9 @@
     %strong
       Past funding shares: see
       = link_to "horserace", :controller => "communities", :action => "horserace"
-    or click on a share% above. If you don't want other users of your computer to see your votes, please exit browser when finished voting.
+    or click on a share% above.
+  
+  %p If you don't want other users of your computer to see your votes, please exit browser when finished voting.
   
   - if @rankings.last[:status] == "limbo"
     %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
