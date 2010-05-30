@@ -4,11 +4,7 @@
   %p
     = f.label :category
     %br
-    = f.select (:category, [['Organization (Sequence 1.x)', 'Organization'], |
-       ['Mechanics (Sequence 3.x)', 'Mechanics'], |
-       ['Voting (Sequence 5.x)', 'Voting'], |
-       ['Reasoning (Sequence 7.x)', 'Reasoning'], |
-       ['Other (Sequence 9.x)', 'Other']]) |
+    = f.select (:category, ['1. Organization', '2. Listings', '3. Voting', '4. Why VM Works', '9. Other'])
   
   %p
     = f.label :sequence

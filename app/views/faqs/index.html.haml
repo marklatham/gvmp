@@ -1,31 +1,96 @@
 - @page_title = 'FAQ'
 
-%h1 Frequently Asked Questions
+%h1{:style => "text-align: center"} Frequently Asked Questions
 
-%table#faq
+- if current_user and (current_user.permission >= 7.0)
+  %span.permission= link_to 'Create new FAQ', new_faq_path
+
+%table#faq{:cellspacing => 0, :style => "width: 80%; min-width: 46em; margin-left: 10%; margin-right: 10%;"}
+
   %tr
-    %td.question
-      %i Question
-    %td.category
-      %i Category
+    %td
+      %hr
+      %a{ :name => "Our Organization" }
+      %h3 FAQ: Our Organization
   
-  %tr
-    %td.answer{:colspan => 2}
-      %i Answer
-
-  - for faq in @faqs
+  - faqs = Faq.find(:all, :order => "sequence", :conditions => ["category = ?", "1. Organization"])
+  - for faq in faqs
 
     %tr
       %td.question
-        %a{ :name => faq.category }
         = h faq.question
-      %td.category= h faq.category
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= link_to 'Edit', edit_faq_path(faq)
         %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
 
     %tr
-      %td.answer{:colspan => 2}
+      %td.answer
+        = faq.answer
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= faq.sequence
+
+  %tr
+    %td
+      %hr
+      %a{ :name => "Ballot Listings" }
+      %h3 FAQ: Ballot Listings
+  
+  - faqs = Faq.find(:all, :order => "sequence", :conditions => ["category = ?", "2. Listings"])
+  - for faq in faqs
+
+    %tr
+      %td.question
+        = h faq.question
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= link_to 'Edit', edit_faq_path(faq)
+        %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
+
+    %tr
+      %td.answer
+        = faq.answer
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= faq.sequence
+
+  %tr
+    %td
+      %hr
+      %a{ :name => "Voting" }
+      %h3 FAQ: Voting
+  
+  - faqs = Faq.find(:all, :order => "sequence", :conditions => ["category = ?", "3. Voting"])
+  - for faq in faqs
+
+    %tr
+      %td.question
+        = h faq.question
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= link_to 'Edit', edit_faq_path(faq)
+        %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
+
+    %tr
+      %td.answer
+        = faq.answer
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= faq.sequence
+
+  %tr
+    %td
+      %hr
+      %a{ :name => "Why VoterMedia Works" }
+      %h3 FAQ: Why VoterMedia Works
+  
+  - faqs = Faq.find(:all, :order => "sequence", :conditions => ["category = ?", "4. Why VM Works"])
+  - for faq in faqs
+
+    %tr
+      %td.question
+        = h faq.question
+      - if current_user and (current_user.permission >= 7.0)
+        %td.permission= link_to 'Edit', edit_faq_path(faq)
+        %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
+
+    %tr
+      %td.answer
         = faq.answer
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= faq.sequence
