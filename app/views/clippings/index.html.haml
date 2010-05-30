@@ -1,6 +1,6 @@
 - @page_title = 'Clippings'
 
-%h1 &nbsp;Clippings: media discussions of VoterMedia
+%h1 &nbsp;Clippings: Media coverage of VoterMedia
 
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Add new clipping', new_clipping_path
@@ -26,8 +26,4 @@
         %td.permission= link_to 'Edit', edit_clipping_path(clipping)
         %td.permission= link_to 'Destroy', clipping, :confirm => 'Are you sure?', :method => :delete
 
-%br
-For more commentary at UBC, try
-= link_to('this google search', 'http://www.google.ca/search?q=site%3Aubyssey.ca+VFM') + '.'
-%br
 %br
