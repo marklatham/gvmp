@@ -19,7 +19,7 @@
     - for master in @master_rankings
       %td.header-centred-grey{:colspan => 3}
         - if website = Website.find(:first, :conditions => ["id = ?", master.website_id])
-          = truncate(website.title, :length => 55, :omission => "...")
+          = link_to truncate(website.title, :length => 55, :omission => "..."), website.url
 
   %tr.header
     %td.header-centred Year
@@ -116,5 +116,5 @@
     - for master in @master_rankings
       %td.header-centred-grey{:colspan => 3}
         - if website = Website.find(:first, :conditions => ["id = ?", master.website_id])
-          = website.title
+          = link_to truncate(website.title, :length => 55, :omission => "..."), website.url
 %br

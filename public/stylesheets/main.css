@@ -311,6 +311,18 @@ a:hover { color: #d00; }
   padding-right: 0.5em;
 }
 
+#table1 .header-centred-grey a:link {
+  color: #fff;
+  text-decoration: none;
+}
+#table1 .header-centred-grey a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+#table1 .header-centred-grey a:hover {
+  text-decoration: underline;
+}
+
 #table1 .header-left {
   background:   #a00;
   text-align: left;
