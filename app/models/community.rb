@@ -314,7 +314,16 @@ class Community < ActiveRecord::Base
     
     if (total_shares - 100.0).abs > 0.09 # Should be 0.0 but concerned about roundoff.
       puts "Community number " + period_rankings[0].community_id.to_s + " " + period_rankings[0].period +
-           "ly shares total " + total_shares.to_s + " but should = 100.0"
+           "ly shares total " + total_shares.to_s + " but should = 100.0 -- rescaling all to fix this."
+      
+      # This fix is OK for when a comunity first has blogs added to it; also if a day is missed.
+      if total_shares > 0.0
+        period_rankings.each do |pr|
+          pr.share *= 100.0/total_shares
+          pr.save
+        end
+      end
+      
     end
     
   end
@@ -344,7 +353,7 @@ class Community < ActiveRecord::Base
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope eventually
     def featured
-      ids = [82, 51, 52, 81, 5, 205, 3, 151, 116, 109, 223]
+      ids = [82, 96, 51, 52, 81, 5, 205, 3, 151, 116, 109, 223]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
   end
