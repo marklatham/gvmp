@@ -316,7 +316,7 @@ class Community < ActiveRecord::Base
       puts "Community number " + period_rankings[0].community_id.to_s + " " + period_rankings[0].period +
            "ly shares total " + total_shares.to_s + " but should = 100.0 -- rescaling all to fix this."
       
-      # This fix is OK for when a comunity first has blogs added to it; also if a day is missed.
+      # This fix is OK for when a community first has blogs added to it; also if a day is missed.
       if total_shares > 0.0
         period_rankings.each do |pr|
           pr.share *= 100.0/total_shares

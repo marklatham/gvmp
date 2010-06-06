@@ -47,7 +47,7 @@
       %td.header-centred Share
       %td.header-centred Award
   
-  - date_tracker = @latest_month.start.beginning_of_month
+  - date_tracker = @latest_month.start
   - while date_tracker >= @earliest_month.start do
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred.leftborder= date_tracker.to_s(:month_Y)

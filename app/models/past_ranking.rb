@@ -18,21 +18,30 @@ class PastRanking < ActiveRecord::Base
     
     # Make sure the right number of monthlies exist:
     
-    monthlies = PastRanking.count(:conditions => ["period = ? and ranking_id = ? and start = ?",
-                          "month", self.ranking_id, self.start.beginning_of_month])
+    monthlies = PastRanking.count(:conditions => ["period = ? and ranking_id = ? and end = ?",
+                          "month", self.ranking_id, self.start.end_of_month])
     
     if monthlies == 0
-      if self.latest.day == 1 # Normal case -- creating new monthly on the first day of month; no missing days:
+      if self.start.day == 1 # Normal case -- creating new monthly on the first day of month; no missing days:
+        first_sharing_this_month = self.start
         pr_share = self.share
         pr_funds = self.funds
-      else # Need to look up funding for missing days, so simply get all days' fundings:
+      else
         puts "New website?: daily pr.id " + self.id.to_s + " had no monthly"
+        # Start date for this period average shares = first date of any positive shares in this community this period:
+        first_sharing_this_month = PastRanking.minimum(:start, :conditions =>
+                         ["community_id = ? and period = ? and share > ? and start >= ? and start <= ?",
+                          self.community_id, "day", 0.0, self.start.beginning_of_month, self.start.end_of_month])
+        # Need to look up funding for any missing days, so simply get all days' fundings:
         pr_funds = Funding.sum(:amount, :conditions => ["community_id = ? and date >= ? and date <= ?",
-                                                 self.community_id, self.start.beginning_of_month, self.latest])
+                                                 self.community_id, first_sharing_this_month, self.start])
         if pr_funds > 0 # When there is funding, period share is fund-weighted average; any missing days assume award = 0:
           pr_share = 100 * self.award / pr_funds
-        else      # When there's no funding, period share is equal daily weighted average; any missing days assume share = 0:
-          pr_share = self.share / (self.latest - self.start.beginning_of_month + 1)
+        elsif self.start - first_sharing_this_month + 1 > 0
+          # When there's no funding, period share is equal-daily-weighted average; any missing days assume share = 0:
+          pr_share = self.share / (self.start - first_sharing_this_month + 1)
+        else
+          puts "Error: self.start - first_sharing_this_month + 1 <= 0 fordaily pr.id " + self.id.to_s
         end
       end
       
@@ -41,7 +50,7 @@ class PastRanking < ActiveRecord::Base
                            :ranking_updated_at => self.ranking_updated_at, :share => pr_share,
                            :count0 => self.count0, :count1 => self.count1,
                            :funds => pr_funds, :award => self.award, :status => self.status,
-      :period => "month", :start => self.start.beginning_of_month, :latest => self.latest, :end => self.latest.end_of_month})
+      :period => "month", :start => first_sharing_this_month, :latest => self.start, :end => self.start.end_of_month})
     end
     
     if monthlies > 1
@@ -50,22 +59,31 @@ class PastRanking < ActiveRecord::Base
     
     # Make sure the right number of yearlies exist:
     
-    yearlies = PastRanking.count(:conditions => ["period = ? and ranking_id = ? and start = ?",
-                          "year", self.ranking_id, self.start.beginning_of_year])
+    yearlies = PastRanking.count(:conditions => ["period = ? and ranking_id = ? and end = ?",
+                          "year", self.ranking_id, self.start.end_of_year])
     
     if yearlies == 0
-      if self.latest.day == 1 && self.latest.month == 1
+      if self.start.day == 1 && self.start.month == 1
         # Normal case -- creating new yearly on the first day of year; no missing days:
+        first_sharing_this_year = self.start
         pr_share = self.share
         pr_funds = self.funds
-      else # Need to look up funding for missing days, so simply get all days' fundings:
+      else
         puts "New website?: daily pr.id " + self.id.to_s + " had no yearly"
+        # Start date for this period average shares = first date of any positive shares in this community this period:
+        first_sharing_this_year = PastRanking.minimum(:start, :conditions =>
+                         ["community_id = ? and period = ? and share > ? and start >= ? and start <= ?",
+                          self.community_id, "day", 0.0, self.start.beginning_of_year, self.start.end_of_year])
+        # Need to look up funding for any missing days, so simply get all days' fundings:
         pr_funds = Funding.sum(:amount, :conditions => ["community_id = ? and date >= ? and date <= ?",
-                                                 self.community_id, self.start.beginning_of_year, self.latest])
+                                                 self.community_id, first_sharing_this_year, self.start])
         if pr_funds > 0 # When there is funding, period share is fund-weighted average; any missing days assume award = 0:
           pr_share = 100 * self.award / pr_funds
-        else      # When there's no funding, period share is equal daily weighted average; any missing days assume share = 0:
-          pr_share = self.share / (self.latest - self.start.beginning_of_year + 1)
+        elsif self.start - first_sharing_this_year + 1 > 0
+          # When there's no funding, period share is equal-daily-weighted average; any missing days assume share = 0:
+          pr_share = self.share / (self.start - first_sharing_this_year + 1)
+        else
+          puts "Error: self.start - first_sharing_this_year + 1 <= 0 fordaily pr.id " + self.id.to_s
         end
       end
       
@@ -74,7 +92,7 @@ class PastRanking < ActiveRecord::Base
                            :ranking_updated_at => self.ranking_updated_at, :share => pr_share,
                            :count0 => self.count0, :count1 => self.count1,
                            :funds => pr_funds, :award => self.award, :status => self.status,
-      :period => "year", :start => self.start.beginning_of_year, :latest => self.latest, :end => self.latest.end_of_year})
+      :period => "year", :start => first_sharing_this_year, :latest => self.start, :end => self.start.end_of_year})
     end
     
     if yearlies > 1
@@ -96,16 +114,16 @@ class PastRanking < ActiveRecord::Base
       else  # Missing days: Need to look up funding for them, so simply get all days' fundings:
         puts "Not next day: pr.id " + pr.id.to_s + " has latest = " + pr.latest.to_s + " but daily.start = " + self.start.to_s
         pr.funds = Funding.sum(:amount, :conditions =>
-                                     ["community_id = ? and date >= ? and date <= ?", pr.community_id, pr.start, self.latest])
+                                     ["community_id = ? and date >= ? and date <= ?", pr.community_id, pr.start, self.start])
       end
       
       if pr.funds > 0 # When there is funding, period share is fund-weighted average; any missing days assume award = 0:
         pr.share = 100 * pr.award / pr.funds
       else      # When there's no funding, period share is equal daily weighted average; any missing days assume share = 0:
-        pr.share = ((pr.latest - pr.start + 1)*pr.share + self.share) / (self.latest - pr.start + 1)
+        pr.share = ((pr.latest - pr.start + 1)*pr.share + self.share) / (self.start - pr.start + 1)
       end
       
-      pr.latest = self.latest
+      pr.latest = self.start
       pr.save
       # pr.rank will be updated by a separate routine -- need to find & sort all website shares in this community.
     end
