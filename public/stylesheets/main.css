@@ -172,48 +172,19 @@ a:hover { color: #d00; }
 #nav {
   padding: 0;
   margin: 0;
-  list-style: none;
   display: table;
   margin: 0 auto;
-/*  line-height: 1; */
 }
 
 #nav ul {
   padding: 0;
   margin: 0;
   list-style: none;
-/*  line-height: 1; */
 }
 
 #nav a {
   display: block;
 }
-
-#nav li {
-  background: #a00;
-  color: #fff;
-  float: left;
-  font-size:   11px;
-  font-weight: bold;
-}
-
-#nav ul li {
-  margin: 0;
-  padding-right: 4em;
-}
-
-#nav li ul {
-  position: absolute;
-  background: #fff;
-  width: 10em;
-  left: -999em;
-}
-#nav ul li ul li{
-  padding-left: 0.5em;
-  padding-right: 0em;
-  width: 14em;
-}
-
 #nav a:link {
   color: #fff;
   text-decoration: none;
@@ -225,8 +196,33 @@ a:hover { color: #d00; }
 #nav a:hover {
   text-decoration: underline;
 }
+
+#nav li {
+  background: #a00;
+  color: #fff;
+  float: left;
+  font-size:   11px;
+  font-weight: bold;
+}
 #nav li:hover ul {
   left: auto;
+}
+
+#nav ul li {
+  margin: 0;
+  padding-right: 4em;
+}
+
+#nav li ul {
+  position: absolute;
+  background: #fff;
+  width: 1em;
+  left: -999em;
+}
+#nav ul li ul li{
+  padding-left: 0.5em;
+  padding-right: 0em;
+  width: 14em;
 }
 
 /* End of new nav styles 2010-04. */
@@ -405,6 +401,7 @@ a:hover { color: #d00; }
   color: #a00;
   text-decoration: underline;
 }
+
 
 .leftborder {
   border-left: 2px solid #b00;
