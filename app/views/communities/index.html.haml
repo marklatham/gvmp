@@ -8,8 +8,7 @@
     = render 'layouts/search'
   
   .listing
-    %table#table1{:cellspacing => 0, :style => "width: 80%; min-width: 46em; margin-left: 10%; margin-right: 10%;"}
-    
+    %table#table1{:cellspacing => 0, :style => "margin: auto;"}
       %tr
         %td{:colspan => 2}= paginate(@communities)
       

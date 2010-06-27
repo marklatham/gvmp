@@ -1,12 +1,12 @@
 - @page_title = 'Publications'
 
-%table#pubs_header{:cellspacing => 0, :style => "width: 100%"}
-  %tr
-    %td{:style => "padding: 1em"}
+%table#table1{:cellspacing => 0, :style => "margin: auto;"}
+  %tr#pubs_header
+    %td{:colspan => 2, :style => "padding: 1em"}
       %h1 Publications: Articles & papers
-    %td{:style => "font-weight: bold; padding-top: 1em; vertical-align: top; text-align: right"}
+    %td{:style => "font-weight: bold; padding-top: 1em; vertical-align: top; text-align: center"}
       = 'See also:'
-    %td{:style => "padding-top: 0px; width: 10%; white-space: nowrap"}
+    %td{:style => "padding-top: 0px"}
       %ul
         %li= link_to 'Clippings: Media discussions of VoterMedia', clippings_path
         %li= link_to 'Presentations: Mark Latham on VoterMedia', presentations_path
@@ -14,7 +14,6 @@
         %li= link_to 'VoterMedia Democracy Blog', 'http://votermedia.blogspot.com/'
         %li= link_to('VoterMedia Finance Blog', 'http://votermedia.wordpress.com/')
 
-%table#table1{:cellspacing => 0}
   %tr.header 
     %td.header-centred Date
     %td.header-left Title & link
@@ -23,14 +22,16 @@
 
   - for pub in @pubs
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
-      %td.cell-centred= pub.date_text
+      %td.cell-centred.leftborder= pub.date_text
       %td.cell-link= pub.title
       %td.cell-centred= pub.country
-      %td.cell-left= pub.journal
+      %td.cell-left.rightborder= pub.journal
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= link_to 'Edit', edit_pub_path(pub)
         %td.permission= link_to 'Destroy', pub, :confirm => 'Are you sure?', :method => :delete
-
+  %tr
+    %td.footer-row{:colspan => 4}
+        
 %br
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Add new publication', new_pub_path

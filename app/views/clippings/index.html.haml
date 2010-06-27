@@ -1,6 +1,6 @@
 - @page_title = 'Clippings'
 
-%h1 &nbsp;Clippings: Media coverage of VoterMedia
+%h1{:style => "text-align: center"} Clippings: Media coverage of VoterMedia
 
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Add new clipping', new_clipping_path

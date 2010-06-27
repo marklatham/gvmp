@@ -1,17 +1,17 @@
 - @page_title = "Horserace: " + @community.short_name
 
-%h2
+%h2{:style => "text-align: center"}
   = @community.name + ':'
   Media Horserace
 
-%h3
+%h3{:style => "text-align: center"}
   Past funding shares from
   = link_to('this ballot', @community)
   for websites/blogs with positive
   = @master_rankings[0].start.year.to_s
   shares
   
-%table#table1{:cellspacing => 0, :style => "width: 20%;"}
+%table#table1{:cellspacing => 0, :style => "width: 20%; margin: auto;"}
 
   %tr.header
     %td.header-centred-grey{:style => "line-height: 36px"} Period
