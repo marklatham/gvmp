@@ -66,6 +66,12 @@
 
   %p
     %b
+      = f.label :time_zone
+    %br
+    = f.time_zone_select :time_zone
+
+  %p
+    %b
       = f.label :official_url, 'Official website URL'
     %br
     = f.text_field :official_url
