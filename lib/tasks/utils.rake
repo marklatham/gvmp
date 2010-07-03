@@ -57,8 +57,23 @@ namespace :utils do
     end
     
   end
+
+#########################################################################################
+# Routines below here are one-off tasks not used in our online system, so OK to change:
+#########################################################################################
+
+  desc "Fill in new field in communities table"
+  task(:fill => :environment) do
+    
+    communities = Community.find(:all)
+    communities.each do |community|
+      community.n_websites = community.websites.count
+      community.save
+    end
+    
+  end
   
-  desc "Test some code -- not used in system so OK to change"
+  desc "Test some code"
   task(:test_code => :environment) do
     
     # Community-wide calculations of monthly and yearly ranks and shares:

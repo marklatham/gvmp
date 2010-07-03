@@ -343,7 +343,7 @@ class Community < ActiveRecord::Base
         sorted = sorted.downcase.to_sym
         scope = scope.send(sorted) if self.scopes.keys.include?(sorted)
       else
-        scope = scope.scoped(:order => 'lower(country), lower(category), lower(name)') 
+        scope = scope.scoped(:order => 'n_websites DESC, lower(country), lower(category), lower(name)') 
       end
 
       scope

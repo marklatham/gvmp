@@ -21,8 +21,7 @@ module CommunitiesHelper
   end
 
   def render_websites_count(community)
-    # TODO: Cache the websites count
-    number_with_delimiter(community.websites.count)
+    number_with_delimiter(community.n_websites)
   end
 
 

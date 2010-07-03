@@ -16,6 +16,13 @@ class WebsitesController < ApplicationController
 
   create.after do
     @community.websites << @website
+    @community.n_websites = @community.websites.count
+    @community.save
+  end
+
+  destroy.after do
+    @community.n_websites = @community.websites.count
+    @community.save
   end
 
   index.wants.yaml { render :yaml => collection }
