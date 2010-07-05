@@ -272,12 +272,11 @@ class CommunitiesController < ApplicationController
 
   private
 
-    def find_ballot 
-      session[:ballot] ||= Ballot.new 
-    end
-    
-    def delete_vote (community, website, ip)
-
+  def find_ballot 
+    session[:ballot] ||= Ballot.new 
+  end
+  
+  def delete_vote (community, website, ip)
     @ballot = find_ballot
     @ballot.destroy_click(community.id, website.id)
   end

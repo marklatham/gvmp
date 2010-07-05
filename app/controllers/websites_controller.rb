@@ -18,6 +18,12 @@ class WebsitesController < ApplicationController
     @community.websites << @website
     @community.n_websites = @community.websites.count
     @community.save
+    
+    ranking = Ranking.find(:last, :conditions => ["community_id = ? and website_id = ?",
+                                                        @community.id, @website.id], :order => "created_at")
+    ranking.rank = @community.websites.count
+    ranking.save
+    
   end
 
   destroy.after do
