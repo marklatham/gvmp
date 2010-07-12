@@ -1,6 +1,6 @@
 class AddNWebsitesToCommunities < ActiveRecord::Migration
   def self.up
-    add_column :communities, :n_websites, :integer, :default => 0, :null => 0
+    add_column :communities, :n_websites, :integer, :default => 0
   end
 
   def self.down

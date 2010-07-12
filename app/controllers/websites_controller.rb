@@ -16,12 +16,12 @@ class WebsitesController < ApplicationController
 
   create.after do
     @community.websites << @website
-    @community.n_websites = @community.websites.count
+    @community.n_websites = Ranking.count(:conditions => ["community_id = ? and dropped_at > ?", @community.id, Time.now])
     @community.save
     
     ranking = Ranking.find(:last, :conditions => ["community_id = ? and website_id = ?",
                                                         @community.id, @website.id], :order => "created_at")
-    ranking.rank = @community.websites.count
+    ranking.rank = @community.n_websites
     ranking.save
     
   end

@@ -14,7 +14,9 @@
 
   - @rankings.each do |ranking|
     -# In case website was deleted but orphaned ranking record still exists:
-    - if ranking[:website]
+    -# And to exclude rankings that have been dropped:
+    -# Should these two conditions be handled in communities_controller?
+    - if ranking[:website] && ranking[:status] != "out"
       %tr
         - if current_user and (current_user.permission >= 8.5)
           %td.cell-centred.permission= number_with_precision(ranking[:count1], :precision => 2)

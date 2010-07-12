@@ -44,7 +44,20 @@ class Community < ActiveRecord::Base
     "#{city} #{prov_state} #{country}"
   end
   
-  def tally
+  def tally_oldcodeparts
+    @votes = Vote.find(:all, :conditions => ["community_id = ? and (place = ? or place IS NULL)", self.id, ""],
+                       :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
+    # So this finds last record in each group:
+    @votes.each do |vote|
+      temp = Vote.find(:last, :conditions => ["community_id = ? and website_id = ? and ip_address = ?",
+                                                         self.id, vote.website_id, vote.ip_address], :order => "created_at")
+      vote.created_at = temp.created_at
+      vote.support = temp.support
+      vote.ballot_type = temp.ballot_type
+    end
+  end
+  
+  def tally(tally_cutoff, rankings)
   # Should skip this if community has no websites/rankings or no votes, else probably get error.
   # This algorithm doesn't handle tie votes "fairly": it gives all the tied share to the first website.
   # So should probably be enhanced some time to make it fairer. But this problem is not significant when there are many
@@ -61,45 +74,56 @@ class Community < ActiveRecord::Base
 
     # This almost works, but returns the first record of each group (by ID, regardless of how sorted)
     # while we want the latest record:
-    @votes = Vote.find(:all, :conditions => ["community_id = ? and (place = ? or place IS NULL)", self.id, ""],
+    @votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
+                                                             self.id,           tally_cutoff,  ""],
                        :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
     # So this finds last record in each group:
     @votes.each do |vote|
-      temp = Vote.find(:last, :conditions => ["community_id = ? and website_id = ? and ip_address = ?",
-                                                         self.id, vote.website_id, vote.ip_address], :order => "created_at")
+      temp = Vote.find(:last, :conditions => ["community_id = ? and created_at < ? and website_id = ? and ip_address = ?",
+                                         self.id, tally_cutoff, vote.website_id, vote.ip_address], :order => "created_at")
       vote.created_at = temp.created_at
       vote.support = temp.support
       vote.ballot_type = temp.ballot_type
     end
     
-    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"], :order => "website_id")
+    unless self.tallied_at == rankings[0].tallied_at
+      puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
+    end
     
     # ranking.status = limbo means website hasn't entered contest but
     # we want to show it at bottom of ballot, at least temporarily.
     
-    # We should move this test from tally_all into tally: if @rankings.any? Because what if all in limbo?
+    if rankings.any?
+      puts Time.now.to_s + " Found " + rankings.size.to_s + " rankings."
+    else
+      puts Time.now.to_s + " Warning: Found no rankings!"
+    end
     
-    # debug: puts @rankings.size
-
-    # Make sure shares are nonegative whole numbers, not all zero:
-    @rankings.each do |ranking|
+    if @votes.any?
+      puts "Found " + @votes.size.to_s + " votes."
+    else
+      puts "Found no votes."
+    end
+    
+    # Make sure shares are nonnegative whole numbers, not all zero:
+    rankings.each do |ranking|
       ranking.share = ranking.share.round
       if ranking.share < 0.0
         ranking.share = 0.0
       end
       ranking.save
     end
-    if @rankings.sum(&:share) <= 0.0
-      @rankings.each do |ranking|
+    if rankings.sum(&:share) <= 0.0
+      rankings.each do |ranking|
         ranking.share = 1.0
         ranking.save
       end
     end
 
     # Calculate count0 (# votes for share or more) and count1 (# votes for share+1 or more) for each ranking:
-    @rankings.each do |ranking|
-      ranking.count0 = countVotes(@votes, ranking, 0.0)
-      ranking.count1 = countVotes(@votes, ranking, 1.0)
+    rankings.each do |ranking|
+      ranking.count0 = countVotes(tally_cutoff, @votes, ranking, 0.0)
+      ranking.count1 = countVotes(tally_cutoff, @votes, ranking, 1.0)
       ranking.save
     end
     
@@ -107,36 +131,38 @@ class Community < ActiveRecord::Base
     # @max_count1 is the ranking record for the website that most deserves to have its share increased.
     # @min_count0 is the ranking record for the website that most deserves to have its share decreased.
     
-    @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
+    @max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
     # Can only reduce a share if it's positive, so:
-    @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
-    @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+    rankings_pos = rankings.find_all {|r| r.share > 0.0 }
+    @min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
     # but if all shares = 0.0, @min_count0 is nil which gives error; hence prevented above.
     
     # If shares sum to more than 100 (which shouldn't happen, but just in case), decrease 1 at a time:
-    while @rankings.sum(&:share) > 100.0
+    while rankings.sum(&:share) > 100.0
       @min_count0.share -= 1.0
       @min_count0.count1 = @min_count0.count0
-      @min_count0.count0 = countVotes(@votes, @min_count0, 0.0)
+      @min_count0.count0 = countVotes(tally_cutoff, @votes, @min_count0, 0.0)
       @min_count0.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"], :order => "website_id")
-      @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
-      @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
-      @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+      rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
+                                                             self.id,   tally_cutoff,    tally_cutoff], :order => "website_id")
+      @max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
+      rankings_pos = rankings.find_all {|r| r.share > 0.0 }
+      @min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
     end
     
     # If shares sum to less than 100 (e.g. when first website[s] added), increase 1 at a time:
-    while @rankings.sum(&:share) < 100.0
+    while rankings.sum(&:share) < 100.0
       @max_count1.share += 1.0
       @max_count1.count0 = @max_count1.count1
-      @max_count1.count1 = countVotes(@votes, @max_count1, 1.0)
+      @max_count1.count1 = countVotes(tally_cutoff, @votes, @max_count1, 1.0)
       @max_count1.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"], :order => "website_id")
-      @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
-      @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
-      @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+      rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
+                                                             self.id,   tally_cutoff,    tally_cutoff], :order => "website_id")
+      @max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
+      rankings_pos = rankings.find_all {|r| r.share > 0.0 }
+      @min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
     end
 
     # Main loop: Adjust shares until max_count1 <= min_count0 i.e. find a cutoff number of votes (actually a range of cutoffs)
@@ -150,71 +176,58 @@ class Community < ActiveRecord::Base
       
       @min_count0.share -= 1.0
       @min_count0.count1 = @min_count0.count0
-      @min_count0.count0 = countVotes(@votes, @min_count0, 0.0)
+      @min_count0.count0 = countVotes(tally_cutoff, @votes, @min_count0, 0.0)
       @min_count0.save
       
       @max_count1.share += 1.0
       @max_count1.count0 = @max_count1.count1
-      @max_count1.count1 = countVotes(@votes, @max_count1, 1.0)
+      @max_count1.count1 = countVotes(tally_cutoff, @votes, @max_count1, 1.0)
       @max_count1.save
       
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"], :order => "website_id")
-      @rankings_pos = @rankings.find_all {|r| r.share > 0.0 }
-      @min_count0 = @rankings_pos.min {|a,b| a.count0 <=> b.count0 }
-      @max_count1 = @rankings.max {|a,b| a.count1 <=> b.count1 }
+      rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
+                                                             self.id,   tally_cutoff,    tally_cutoff], :order => "website_id")
+      rankings_pos = rankings.find_all {|r| r.share > 0.0 }
+      @min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+      @max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
     end
-
-    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "limbo"], :order => "website_id")
-    @rankings.each do |ranking|
-      ranking.share = 0.0
-      ranking.count0 = countVotes(@votes, ranking, 0.0)
-      ranking.count1 = countVotes(@votes, ranking, 1.0)
-      ranking.save
-    end
-
+    
     # Share calculations are now completed, so store rank of each website in this community:
     
-    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "in"],
+      rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
+                                                             self.id,   tally_cutoff,    tally_cutoff],
                              :order => "share DESC, count1 DESC, created_at DESC")
     rank_sequence = 0
-    @rankings.each do |ranking|
+    rankings.each do |ranking|
       rank_sequence += 1
       ranking.rank = rank_sequence
+      ranking.tallied_at = tally_cutoff
       ranking.save
     end
     
-    @rankings = Ranking.find(:all, :conditions => ["community_id = ? and status = ?", self.id, "limbo"],
-                             :order => "count1 DESC, created_at DESC")
-    @rankings.each do |ranking|
-      rank_sequence += 1
-      ranking.rank = rank_sequence
-      ranking.save
-    end
-
   end
 
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
-  def countVotes(votes, ranking, increment)
+  def countVotes(tally_cutoff, votes, ranking, increment)
     days_full_value = 10
     days_valid = 60
     ranking_formula_denominator = 50
     cutoff = ranking.share + increment
     
-    count = 0.0
+    count = 0.00000001 * (100.0 - ranking.share)  # To break ties caused by having no votes. This will equalize shares.
     votes.each do |vote|
       if vote.website_id == ranking.website_id && vote.support
         
         # Time decay of vote:
-        days_old = (Time.now.to_date - vote.created_at.to_date).to_i
+        days_old = (tally_cutoff.to_date - vote.created_at.to_date).to_i
         if days_old < days_full_value
           decayed_weight = 1.0
         elsif days_old < days_valid
           decayed_weight = (days_valid - days_old) / ranking_formula_denominator.to_f
         else
-          decayed_weight = 0.0
+          decayed_weight = 0.01 / days_old  # To break ties caused by having very few votes.
         end
         
-        if decayed_weight > 0.0
+      #  if decayed_weight > 0.0  # This conditional not needed now that condition always true because of tie-breaker line above.
         
           if vote.ballot_type == 2
             # ballot_type 2 is Interpolated Consensus with 5% increments:
@@ -234,7 +247,7 @@ class Community < ActiveRecord::Base
               support_fraction = 0.2 * (vote.support + 2.5 - cutoff)
             end
             
-          elsif vote.ballot_type == 1
+          elsif vote.ballot_type == 101 # Changed from == 1 to in effect comment this out.
             # ballot_type 1 is simple percent vote for vote.support:
             if vote.support >= cutoff
               support_fraction = 1.0
@@ -242,7 +255,7 @@ class Community < ActiveRecord::Base
               support_fraction = 0.0
             end
             
-          elsif vote.ballot_type == 0
+          elsif vote.ballot_type == 100 # Changed from == 0 to in effect comment this out.
             # Ballot_type 0 means voted for "Increase Share" from vote.support = share when voted,
             # interpreted as uniform distribution of vote from vote.support to 100.0:
             if vote.support >= cutoff
@@ -261,27 +274,100 @@ class Community < ActiveRecord::Base
           
           count += decayed_weight * support_fraction
           
-        end
+      #  end
       end
     end
     return count
   end
-
+  
+  # Calculate periodic (non-daily) past_rankings for this community and date:
+  def calc_periodic_rankings(tally_cutoff_date)
+    
+    PastRanking.delete_all(["community_id = ? and period != ? and start <= ? and end >= ?",
+                                    self.id,       "day", tally_cutoff_date, tally_cutoff_date])
+    
+    for period in ["month", "year"]
+      
+      if period == "month"
+        beginning_of_period = tally_cutoff_date.beginning_of_month
+        end_of_period = tally_cutoff_date.end_of_month
+      else
+        beginning_of_period = tally_cutoff_date.beginning_of_year
+        end_of_period = tally_cutoff_date.end_of_year
+      end
+      
+      first_ranked_date = PastRanking.minimum(:start,
+                                     :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
+                                                                 self.id, "day", beginning_of_period, end_of_period])
+      last_ranked_date = PastRanking.maximum(:start,
+                                     :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
+                                                                 self.id, "day", beginning_of_period, end_of_period])
+      
+      funds = Funding.sum(:amount, :conditions => ["community_id = ? and date >= ? and date <= ?",
+                                                      self.id, first_ranked_date, last_ranked_date])
+      
+      n_days = PastRanking.count(:start, :distinct => true, :conditions =>
+                                                ["community_id = ? and period = ? and start >= ? and start <= ?",
+                                                  self.id, "day", first_ranked_date, last_ranked_date])
+      if n_days != 1 + (last_ranked_date - first_ranked_date)
+        puts "Warning: n_days = " + n_days.to_s + " but we seem to have " +
+         (1 + (last_ranked_date - first_ranked_date) - n_days).to_s + " missing days in this " + period + "."
+      end
+      
+      # Find the ranking_ids that have any past_rankings on the days we are considering:
+      if funds > 0
+        past_rankings = PastRanking.find(:all, :conditions =>
+                                                ["community_id = ? and period = ? and start >= ? and start <= ? and funds > 0",
+                                                  self.id, "day", first_ranked_date, last_ranked_date],
+                                                  :order => "ranking_id, start", :group => "ranking_id")
+      else
+        past_rankings = PastRanking.find(:all, :conditions =>
+                                                ["community_id = ? and period = ? and start >= ? and start <= ?",
+                                                  self.id, "day", first_ranked_date, last_ranked_date],
+                                                  :order => "ranking_id, start", :group => "ranking_id")
+      end
+      
+      past_rankings.each do |past_ranking|
+        
+        if funds > 0
+          award = PastRanking.sum(:award, :conditions => 
+                               ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
+                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])
+          share = award * 100 / funds
+        else
+          award = 0
+          share = PastRanking.sum(:share, :conditions => 
+                               ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
+                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
+        end
+      
+        PastRanking.create!({:ranking_id => past_ranking.ranking_id, :community_id => self.id,
+                             :website_id => past_ranking.website_id, :rank => 0, # rank will be set later
+                             :tallied_at => self.tallied_at, :share => share, :funds => funds, :award => award,
+          :period => period, :start => first_ranked_date, :latest => last_ranked_date, :end => end_of_period})
+      end
+    end
+    
+    # Sort and save monthly and yearly ranks:
+    rankpr(tally_cutoff_date)
+    
+  end
+  
   # Update periodic (non-daily) past_rankings ranks for this community; also check totals:
   def rankpr(date_to_process)
     
-    @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
+    monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
                             self.id, "month", date_to_process.beginning_of_month, date_to_process.end_of_month],
                             :order => "share DESC, count1 DESC")
-    if @monthly_rankings.size > 0
-      checkpr(@monthly_rankings)
+    if monthly_rankings.any?
+      checkpr(monthly_rankings)
     end
     
-    @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
+    yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
                             self.id, "year", date_to_process.beginning_of_year, date_to_process.end_of_year],
                             :order => "share DESC, count1 DESC")
-    if @yearly_rankings.size > 0
-      checkpr(@yearly_rankings)
+    if yearly_rankings.any?
+      checkpr(yearly_rankings)
     end
     
   end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100703202537) do
+ActiveRecord::Schema.define(:version => 20100708161522) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -37,25 +37,25 @@ ActiveRecord::Schema.define(:version => 20100703202537) do
   end
 
   create_table "communities", :force => true do |t|
-    t.string   "name"
-    t.string   "short_name"
-    t.string   "category"
-    t.string   "country"
-    t.string   "prov_state"
-    t.string   "city"
-    t.string   "official_url"
-    t.string   "wiki_url"
-    t.text     "description"
+    t.string   "name",               :default => "",                           :null => false
+    t.string   "short_name",         :default => "",                           :null => false
+    t.string   "category",           :default => "",                           :null => false
+    t.string   "country",            :default => "",                           :null => false
+    t.string   "prov_state",         :default => "",                           :null => false
+    t.string   "city",               :default => "",                           :null => false
+    t.string   "official_url",       :default => "",                           :null => false
+    t.string   "wiki_url",           :default => "",                           :null => false
+    t.text     "description",                                                  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "scope"
-    t.text     "add_to_description"
-    t.string   "creator_ip"
-    t.string   "adder_ip"
+    t.string   "scope",              :default => "",                           :null => false
+    t.text     "add_to_description",                                           :null => false
+    t.string   "creator_ip",         :default => "",                           :null => false
+    t.string   "adder_ip",           :default => "",                           :null => false
     t.boolean  "delta",              :default => false
-    t.text     "status"
-    t.string   "time_zone",          :default => "Pacific Time (US & Canada)"
-    t.datetime "tallied_at"
+    t.text     "status",                                                       :null => false
+    t.string   "time_zone",          :default => "Pacific Time (US & Canada)", :null => false
+    t.datetime "tallied_at",         :default => '2000-01-01 00:00:00'
     t.integer  "n_websites",         :default => 0
   end
 
@@ -103,16 +103,16 @@ ActiveRecord::Schema.define(:version => 20100703202537) do
     t.integer  "community_id"
     t.integer  "website_id"
     t.integer  "rank"
-    t.datetime "ranking_updated_at"
+    t.datetime "tallied_at"
     t.float    "share"
     t.float    "count0"
     t.float    "count1"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "funds",              :precision => 10, :scale => 2, :default => 0.0
-    t.decimal  "award",              :precision => 10, :scale => 2, :default => 0.0
-    t.string   "status"
-    t.string   "period"
+    t.decimal  "funds",        :precision => 10, :scale => 2, :default => 0.0
+    t.decimal  "award",        :precision => 10, :scale => 2, :default => 0.0
+    t.string   "status",                                      :default => "",  :null => false
+    t.string   "period",                                      :default => "",  :null => false
     t.date     "start"
     t.date     "end"
     t.date     "latest"
@@ -130,14 +130,14 @@ ActiveRecord::Schema.define(:version => 20100703202537) do
 
   create_table "posts", :force => true do |t|
     t.integer  "website_id"
-    t.string   "headline"
-    t.string   "url"
-    t.text     "body"
+    t.string   "headline",   :default => "", :null => false
+    t.string   "url",        :default => "", :null => false
+    t.text     "body",                       :null => false
     t.datetime "posted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "guid"
-    t.text     "summary"
+    t.string   "guid",       :default => "", :null => false
+    t.text     "summary",                    :null => false
   end
 
   add_index "posts", ["website_id"], :name => "index_posts_on_website_id"
@@ -185,7 +185,9 @@ ActiveRecord::Schema.define(:version => 20100703202537) do
     t.float    "share",        :default => 0.0
     t.float    "count0",       :default => 0.0
     t.float    "count1",       :default => 0.0
-    t.string   "status",       :default => "in"
+    t.string   "status",       :default => "in",                  :null => false
+    t.datetime "tallied_at"
+    t.datetime "dropped_at",   :default => '3000-01-01 00:00:00'
   end
 
   add_index "rankings", ["community_id", "website_id"], :name => "index_rankings_on_community_id_and_website_id", :unique => true
@@ -213,9 +215,9 @@ ActiveRecord::Schema.define(:version => 20100703202537) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                     :limit => 40
-    t.string   "name",                      :limit => 100,                               :default => ""
-    t.string   "email",                     :limit => 100
+    t.string   "login",                     :limit => 40,                                :default => "",  :null => false
+    t.string   "name",                      :limit => 100,                               :default => "",  :null => false
+    t.string   "email",                     :limit => 100,                               :default => "",  :null => false
     t.string   "crypted_password",          :limit => 40
     t.string   "salt",                      :limit => 40
     t.datetime "created_at"
@@ -230,22 +232,22 @@ ActiveRecord::Schema.define(:version => 20100703202537) do
   create_table "votes", :force => true do |t|
     t.integer  "community_id"
     t.integer  "website_id"
-    t.string   "ip_address"
+    t.string   "ip_address",   :default => "", :null => false
     t.float    "support"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ballot_type",  :default => 0
-    t.string   "agent"
-    t.string   "place"
+    t.string   "agent",        :default => "", :null => false
+    t.string   "place",        :default => "", :null => false
   end
 
   create_table "websites", :force => true do |t|
-    t.string   "url"
-    t.string   "title"
+    t.string   "url",        :default => "", :null => false
+    t.string   "title",      :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "creator_ip"
-    t.string   "feed_url"
+    t.string   "creator_ip", :default => "", :null => false
+    t.string   "feed_url",   :default => "", :null => false
   end
 
 end

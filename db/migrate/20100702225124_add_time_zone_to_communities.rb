@@ -1,6 +1,6 @@
 class AddTimeZoneToCommunities < ActiveRecord::Migration
   def self.up
-    add_column :communities, :time_zone, :string, :default => "Pacific Time (US & Canada)", :null => "Pacific Time (US & Canada)"
+    add_column :communities, :time_zone, :string, :default => "Pacific Time (US & Canada)"
   end
 
   def self.down
