@@ -29,7 +29,8 @@ class Community < ActiveRecord::Base
 
   # Required by sphinx
   define_index do
-    indexes name, short_name, category, country, prov_state, city, scope
+    indexes name, short_name, category, country, prov_state, city, scope, :sortable => true
+    has n_websites, :sortable => true
     set_property :delta => true
   end
 
@@ -421,7 +422,8 @@ class Community < ActiveRecord::Base
       # TODO: Separate the sphinx search
       if params[:q]
         # Unfortunately, sphinx's search doesn't want to play nice with will_paginate
-        return search(params[:q], :page => params[:page], :per_page => @@per_page)
+        return search(params[:q], :page => params[:page], :per_page => @@per_page, 
+                      :order => 'n_websites DESC, country ASC, category ASC, name ASC')
       end
 
       scope = self
