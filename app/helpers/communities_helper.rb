@@ -17,7 +17,7 @@ module CommunitiesHelper
   end
 
   def render_scope(community, length = 20)
-    h truncate(community.scope, length)
+    h truncate(community.scope, :length => length)
   end
 
   def render_websites_count(community)
