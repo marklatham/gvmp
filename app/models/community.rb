@@ -421,7 +421,6 @@ class Community < ActiveRecord::Base
 
       # TODO: Separate the sphinx search
       if params[:q]
-        # Unfortunately, sphinx's search doesn't want to play nice with will_paginate
         return search(params[:q], :page => params[:page], :per_page => @@per_page, 
                       :order => 'n_websites DESC, country ASC, category ASC, name ASC')
       end
@@ -434,7 +433,7 @@ class Community < ActiveRecord::Base
         scope = scope.scoped(:order => 'n_websites DESC, lower(country), lower(category), lower(name)') 
       end
 
-      scope
+      scope.paginate(:page => params[:page])
     end
         
 
