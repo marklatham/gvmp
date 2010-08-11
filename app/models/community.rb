@@ -42,20 +42,7 @@ class Community < ActiveRecord::Base
   end
 
   def location
-    "#{city} #{prov_state} #{country}"
-  end
-  
-  def tally_oldcodeparts
-    @votes = Vote.find(:all, :conditions => ["community_id = ? and (place = ? or place IS NULL)", self.id, ""],
-                       :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
-    # So this finds last record in each group:
-    @votes.each do |vote|
-      temp = Vote.find(:last, :conditions => ["community_id = ? and website_id = ? and ip_address = ?",
-                                                         self.id, vote.website_id, vote.ip_address], :order => "created_at")
-      vote.created_at = temp.created_at
-      vote.support = temp.support
-      vote.ballot_type = temp.ballot_type
-    end
+    "#{city} &nbsp; #{prov_state} &nbsp; #{country}"
   end
   
   def tally(tally_cutoff, rankings)
@@ -440,7 +427,7 @@ class Community < ActiveRecord::Base
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope eventually
     def featured
-      ids = [82, 96, 94, 51, 52, 81, 5, 205, 3, 151, 116, 109, 223]
+      ids = [82, 10, 96, 94, 51, 52, 81, 5, 205, 3, 151, 116, 109, 223]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
   end

@@ -62,9 +62,6 @@ namespace :utils do
           end
         end
         
-        community.tallied_at = tally_cutoff # This field is updated even if there were no rankings.
-        community.save
-        
         # Get rankings for this community as of datetime tally_cutoff:
         rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
                                                      community.id,      tally_cutoff,      tally_cutoff], :order => "website_id")
@@ -90,6 +87,9 @@ namespace :utils do
           puts "But there are no rankings to tally. Nonetheless, we deleted any leftover past_rankings for this date & "
           puts "community, set any funding allocations to 0%, and moved the tallied_at date forward."
         end
+        
+        community.tallied_at = tally_cutoff # This field is updated even if there were no rankings.
+        community.save
         
       end
       Time.zone = "Pacific Time (US & Canada)"

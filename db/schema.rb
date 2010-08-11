@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100708161522) do
+ActiveRecord::Schema.define(:version => 20100811212132) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -232,13 +232,13 @@ ActiveRecord::Schema.define(:version => 20100708161522) do
   create_table "votes", :force => true do |t|
     t.integer  "community_id"
     t.integer  "website_id"
-    t.string   "ip_address",   :default => "", :null => false
+    t.string   "ip_address",   :default => ""
     t.float    "support"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "ballot_type",  :default => 0
-    t.string   "agent",        :default => "", :null => false
-    t.string   "place",        :default => "", :null => false
+    t.string   "agent",        :default => ""
+    t.string   "place",        :default => ""
   end
 
   create_table "websites", :force => true do |t|
