@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100811212132) do
+ActiveRecord::Schema.define(:version => 20100811222824) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -130,14 +130,14 @@ ActiveRecord::Schema.define(:version => 20100811212132) do
 
   create_table "posts", :force => true do |t|
     t.integer  "website_id"
-    t.string   "headline",   :default => "", :null => false
-    t.string   "url",        :default => "", :null => false
-    t.text     "body",                       :null => false
+    t.string   "headline",   :default => ""
+    t.string   "url",        :default => ""
+    t.text     "body"
     t.datetime "posted_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "guid",       :default => "", :null => false
-    t.text     "summary",                    :null => false
+    t.string   "guid",       :default => ""
+    t.text     "summary"
   end
 
   add_index "posts", ["website_id"], :name => "index_posts_on_website_id"

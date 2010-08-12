@@ -6,6 +6,10 @@
       %span.release 
         beta
 
+    %td{:style => "text-align: center"}
+      %em
+        = link_to 'Check out the new VoterMedia video!', root_path
+
     %td#login-nav
       - if current_user
         %span.perm0= h current_user.login

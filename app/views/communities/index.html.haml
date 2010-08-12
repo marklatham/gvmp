@@ -1,11 +1,23 @@
 - main_column do
+  
+  %h2{:align => "center"}
+    University of British Columbia students tell how VoterMedia helps
+    =link_to('their student union', '/communities/82-ubc-ams') + ':'
+  %p{:align => "center"}
+    %object{:width => "425", :height => "344"}
+      %param{:name => "movie", :value => "http://www.youtube.com/v/8m45VbRDybA&hl=en&fs=1"}
+      %param{:name => "allowFullScreen", :value => "true"}
+      %param{:name => "allowscriptaccess", :value => "always"}
+      %embed{:src => "http://www.youtube.com/v/8m45VbRDybA&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowscriptaccess => "always", :allowfullscreen => "true", :width => "425", :height => "344"}
+  
+  %hr
+  
   %div{:style => "text-align: center"}
     %h2 Which websites/blogs serving your voter communities deserve funding?
+    = render 'layouts/search'
     %p 
       Use search box and/or browse below; follow links to community ballots, 
       then vote on website/blog funding:
-    
-    = render 'layouts/search'
   
   .listing
     %table#table1{:cellspacing => 0, :style => "margin: auto;"}
