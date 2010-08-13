@@ -40,9 +40,11 @@ ActionController::Routing::Routes.draw do |map|
   map.shared_ips       '/shared_ips',       :controller => 'admin',   :action => 'shared_ips'
   map.mlresume         '/mlresume',         :controller => 'minimal', :action => 'mlresume'
   map.publications     '/publications',     :controller => 'pubs',    :action => 'index'
-  map.gpw              '/gpw',    :controller => 'clippings', :action => 'gpw'
+  map.gpw              '/gpw',              :controller => 'clippings', :action => 'gpw'
   
   map.horserace        '/horserace/:id',    :controller => 'communities', :action => 'horserace'
+  
+  map.idstring         '/:idstring',        :controller => 'communities', :action => 'show'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

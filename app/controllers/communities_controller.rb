@@ -25,7 +25,9 @@ class CommunitiesController < ApplicationController
   end
   
   def show 
-    @community = Community.find(params[:id])
+    unless @community = Community.find_by_idstring(params[:idstring])
+      @community = Community.find(params[:id])
+    end
     @rankings = @community.rankings.with_websites.paginate :page => params[:page], :per_page => 20
     @ballot = find_ballot
   end

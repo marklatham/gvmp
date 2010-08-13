@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100812225822) do
+ActiveRecord::Schema.define(:version => 20100813222155) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20100812225822) do
     t.string   "time_zone",          :default => "Pacific Time (US & Canada)", :null => false
     t.datetime "tallied_at",         :default => '2000-01-01 00:00:00'
     t.integer  "n_websites",         :default => 0
+    t.string   "idstring",           :default => ""
   end
 
   add_index "communities", ["category"], :name => "index_communities_on_category"
