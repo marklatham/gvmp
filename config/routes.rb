@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :videos
+
  
 #  Commented out because we were getting spammed. Reactivate when we get spam screens in place: 
 #  map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
@@ -23,6 +25,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :proposals
   map.resources :pubs
   map.resources :rankings
+  map.resources :videos
   map.resources :votes
   map.resources :websites
   

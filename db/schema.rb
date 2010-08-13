@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100811222824) do
+ActiveRecord::Schema.define(:version => 20100812225822) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -228,6 +228,17 @@ ActiveRecord::Schema.define(:version => 20100811222824) do
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+
+  create_table "videos", :force => true do |t|
+    t.string   "title",       :default => ""
+    t.text     "description"
+    t.string   "tags",        :default => ""
+    t.string   "category",    :default => ""
+    t.string   "url",         :default => ""
+    t.text     "transcript"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "votes", :force => true do |t|
     t.integer  "community_id"
