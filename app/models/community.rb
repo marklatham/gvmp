@@ -22,6 +22,7 @@ class Community < ActiveRecord::Base
   validates_length_of :country, :maximum => 30
   validates_length_of :prov_state, :maximum => 30
   validates_length_of :city, :maximum => 30
+  validates_uniqueness_of :idstring, :case_sensitive => false, :message => "Sorry, that idstring is already in use."
 
   named_scope :recently_created, :order => 'communities.created_at DESC'
   named_scope :recently_updated, :order => 'communities.updated_at DESC'

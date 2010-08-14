@@ -29,22 +29,23 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :votes
   map.resources :websites
   
-  map.about_contact    '/about_contact',    :controller => 'public',  :action => 'about_contact'
-  map.comdump          '/comdump.yaml',     :controller => 'public',  :action => 'comdump'
-  map.terms            '/terms',            :controller => 'public',  :action => 'terms'
-  map.privacy          '/privacy',          :controller => 'public',  :action => 'privacy'
-  map.how_you_can_help '/how_you_can_help', :controller => 'public',  :action => 'how_you_can_help'
-  map.ubc2010          '/ubc2010',          :controller => 'public',  :action => 'ubc2010'
-  map.admin            '/admin',            :controller => 'admin',   :action => 'admin'
-  map.terminal         '/t',                :controller => 'admin',   :action => 'terminal'
-  map.shared_ips       '/shared_ips',       :controller => 'admin',   :action => 'shared_ips'
-  map.mlresume         '/mlresume',         :controller => 'minimal', :action => 'mlresume'
-  map.publications     '/publications',     :controller => 'pubs',    :action => 'index'
-  map.gpw              '/gpw',              :controller => 'clippings', :action => 'gpw'
+  map.about_contact    '/about_contact',       :controller => 'public',      :action => 'about_contact'
+  map.comdump          '/comdump.yaml',        :controller => 'public',      :action => 'comdump'
+  map.terms            '/terms',               :controller => 'public',      :action => 'terms'
+  map.privacy          '/privacy',             :controller => 'public',      :action => 'privacy'
+  map.how_you_can_help '/how_you_can_help',    :controller => 'public',      :action => 'how_you_can_help'
+  map.ubc2010          '/ubc2010',             :controller => 'public',      :action => 'ubc2010'
+  map.admin            '/admin',               :controller => 'admin',       :action => 'admin'
+  map.terminal         '/t',                   :controller => 'admin',       :action => 'terminal'
+  map.shared_ips       '/shared_ips',          :controller => 'admin',       :action => 'shared_ips'
+  map.mlresume         '/mlresume',            :controller => 'minimal',     :action => 'mlresume'
+  map.publications     '/publications',        :controller => 'pubs',        :action => 'index'
+  map.gpw              '/gpw',                 :controller => 'clippings',   :action => 'gpw'
   
-  map.horserace        '/horserace/:id',    :controller => 'communities', :action => 'horserace'
+  map.horserace        '/:idstring/horserace', :controller => 'communities', :action => 'horserace'
+  map.horserace_old    '/horserace/:id',       :controller => 'communities', :action => 'horserace'
   
-  map.idstring         '/:idstring',        :controller => 'communities', :action => 'show'
+  map.idstring         '/:idstring',           :controller => 'communities', :action => 'show'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

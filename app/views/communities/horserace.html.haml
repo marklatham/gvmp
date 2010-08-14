@@ -1,4 +1,4 @@
-- @page_title = "Horserace: " + @community.short_name
+- @page_title = @community.short_name +  ": Horserace"
 
 %h2{:style => "text-align: center"}
   = @community.name + ':'
@@ -6,7 +6,8 @@
 
 %h3{:style => "text-align: center"}
   Past funding shares from
-  = link_to('this ballot', @community)
+  = link_to "this ballot", "/" + @community.idstring
+  -# = link_to "this ballot", :controller => "communities", :action => "show"
   for websites/blogs with positive
   = @master_rankings[0].start.year.to_s
   shares
@@ -51,7 +52,7 @@
   - while date_tracker >= @earliest_month.start do
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred.leftborder= date_tracker.to_s(:month_Y)
-      - @row_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?", params[:id], "month", date_tracker, date_tracker.end_of_month], :order => "share DESC")
+      - @row_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?", @community.id, "month", date_tracker, date_tracker.end_of_month], :order => "share DESC")
       %td.cell-centred.funded.rightborder
         %strong= '$' + number_with_precision(@row_rankings[0].funds, :precision => 0)
       - for master in @master_rankings
@@ -79,7 +80,7 @@
   
   - date_tracker = @latest_day.start
   - while date_tracker >= @earliest_day.start do
-    - @row_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start = ?", params[:id], "day", date_tracker], :order => "share DESC")
+    - @row_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start = ?", @community.id, "day", date_tracker], :order => "share DESC")
     - if @row_rankings[0]
       %tr{:class => cycle('list-line-odd', 'list-line-even')}
         %td.cell-centred.leftborder= date_tracker.to_s(:Ymd)

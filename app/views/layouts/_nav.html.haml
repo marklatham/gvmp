@@ -8,7 +8,8 @@
           %li{:style => "padding-right: 0.5em"} FEATURED:
           - Community.featured.each do |community|
             %li{:style => "padding-left: 1em"}
-              = link_to(community.short_name, community_path(community))
+              = link_to(community.short_name, "/" + community.idstring)
+              -# = link_to(community.short_name, community_path(community))
       %li
         = link_to 'FAQ', faqs_path
         %ul

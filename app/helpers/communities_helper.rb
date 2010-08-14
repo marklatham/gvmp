@@ -1,6 +1,7 @@
 module CommunitiesHelper
   def render_community(community)
-    link_to(community.name, community)
+    link_to(community.name, "/" + community.idstring)
+    # link_to(community.name, community)
   end
 
   def render_category(community)

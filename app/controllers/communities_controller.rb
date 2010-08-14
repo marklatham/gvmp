@@ -259,17 +259,20 @@ class CommunitiesController < ApplicationController
 
   def horserace
     
-    @community = Community.find(params[:id])
+    unless @community = Community.find_by_idstring(params[:idstring])
+      @community = Community.find(params[:id])
+    end
+    
     @master_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and share > 0",
-                                                    params[:id], "year", Date.today.beginning_of_year], :order => "share DESC")
+                                                    @community.id, "year", Date.today.beginning_of_year], :order => "share DESC")
     @earliest_month = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
-                                                                     params[:id],        "month"], :order => "start")
+                                                                     @community.id,        "month"], :order => "start")
     @latest_month = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
-                                                                     params[:id],        "month"], :order => "start DESC")
+                                                                     @community.id,        "month"], :order => "start DESC")
     @earliest_day = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
-                                                                     params[:id],        "day"], :order => "start")
+                                                                     @community.id,        "day"], :order => "start")
     @latest_day = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
-                                                                     params[:id],        "day"], :order => "start DESC")
+                                                                     @community.id,        "day"], :order => "start DESC")
   end
 
   private
