@@ -3,15 +3,10 @@
     %strong
       No blogs listed yet for
       = @community.short_name + '.'
-      Add one by emailing editors[at]votermedia.org !
-
-  %p
-    If you don't know one, try searching e.g. for 
-    = link_to "#{@community.short_name} election blog", "http://www.google.ca/search?q=#{@community.short_name.strip}+election+blog", :target => "_blank"
+      Do you know of any? Add one by emailing editors[at]votermedia.org !
 
   %p
     Or how about creating one?! It's easy with free tools at sites like
     = link_to 'Blogger', 'http://blogger.com/', :target => '_blank'
     or
-    = link_to 'Wordpress', 'http://wordpress.com/', :target => '_blank'
-    \.
+    = link_to('Wordpress', 'http://wordpress.com/', :target => '_blank') + '.'

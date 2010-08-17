@@ -19,6 +19,12 @@
     - if current_user and (current_user.permission >= 4.0)
       %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
   
+    - if @community.category == 'Homeowner'
+      %p
+        %strong How does this benefit a homeowner community?:
+        See
+        %strong= link_to 'VoterMedia for Homeowners Associations', '/publications/VoterMediaForHomeownersAssociations.pdf'
+  
     #community-box
       = render :partial => 'info'
   
