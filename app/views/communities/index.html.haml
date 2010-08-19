@@ -1,35 +1,50 @@
 - main_column do
   
-  %h2{:align => "center"}
-    University of British Columbia students tell how VoterMedia helps
-    =link_to('their student union', '/ubc') + ':'
-  %p{:align => "center"}
-    %object{:width => "425", :height => "344"}
-      %param{:name => "movie", :value => "http://www.youtube.com/v/8m45VbRDybA&hl=en&fs=1"}
-      %param{:name => "allowFullScreen", :value => "true"}
-      %param{:name => "allowscriptaccess", :value => "always"}
-      %embed{:src => "http://www.youtube.com/v/8m45VbRDybA&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowscriptaccess => "always", :allowfullscreen => "true", :width => "425", :height => "344"}
-  %p{:align => "center"}
-    Transcript of this video is available
-    = link_to('here', '/videos/1') + '.'
+  %table{:width => "850", :style => "margin: auto;"}
+    %tr
+      %td
+        %p
+          %object{:width => "425", :height => "344"}
+            %param{:name => "movie", :value => "http://www.youtube.com/v/8m45VbRDybA&hl=en&fs=1"}
+            %param{:name => "allowFullScreen", :value => "true"}
+            %param{:name => "allowscriptaccess", :value => "always"}
+            %embed{:src => "http://www.youtube.com/v/8m45VbRDybA&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowscriptaccess => "always", :allowfullscreen => "true", :width => "425", :height => "344"}
+        %p{:align => "center"}
+          Video transcript available
+          = link_to('here', '/videos/1') + '.'
+      %td
+        %ul
+          %li
+            %strong{:style => 'color: #800'} VoterMedia
+            helps communities connect with their elected leaders, by letting voters allocate community funds to competing blogs -- e.g. see
+            %strong= link_to('UBC ballot', '/ubc') + '.'
+            This can benefit student unions, municipalities, homeowners associations, other democracies and corporate shareowners.
+          %li
+            %strong{:style => 'color: #800'} It's cheap:
+            We suggest starting with $10/day, none of which goes to votermedia.org. (We're an all-volunteer nonprofit project.) Your community government can pay bloggers directly, based on automated output from your community's
+            = link_to('accounting page like this', '/ubc/horserace') + '.'
+          %li
+            %strong{:style => 'color: #800'} It's easy:
+            Email admin[at]votermedia.org your community and blog information. We'll create your ballot page (usually within a day), then voting begins! If/when your community starts funding its bloggers, we can put the funding schedule into our system to calculate awards.
+  
   %hr
   
   %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
     %p
-      %strong Votermedia.org
+      %strong VoterMedia
       is in an early stage of growth. Our flagship implementation is at
-      = link_to('UBC', '/ubc') + ','
-      where the student union has been funding blogs using our system. They are happy with it, so we are now exploring possibilities for other communities to fund their voter-selected blogs. At this point, most communities are not yet doing that, so their ballot pages are for if and when there is funding.
+      %strong= link_to('UBC', '/ubc') + ','
+      where the student union has been funding blogs using our system. They are happy with it, so we encourage other communities to fund their voter-selected blogs. At this point, most communities are not yet doing that, so their ballot pages on this website are for if and when there is funding.
     %p
-      The communities and blogs listed below illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it. Your votes will be tallied, and will affect the shares and rankings. Please email your suggestions to editors[at]votermedia.org, such as other blogs and communities we should add.
+      The communities and blogs listed below illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it. Your votes will be tallied, and will affect the shares and rankings. Please email your suggestions to admin[at]votermedia.org, such as other blogs and communities we should add.
   %hr
   
   %div{:style => "text-align: center"}
-    %h2 Which websites/blogs serving your voter communities deserve funding?
+    %h2 Which blogs serving your voter communities deserve funding?
     = render 'layouts/search'
     %p 
       Use search box and/or browse below; follow links to community ballots, 
-      then vote on website/blog funding:
+      then vote on blog funding:
   
   .listing
     %table#table1{:cellspacing => 0, :style => "margin: auto;"}
@@ -43,7 +58,7 @@
         %td.header-centred Headquarters
         %td.header-centred Headquarters
         %td.header-centred Regional
-        %td.header-centred #web-
+        %td.header-centred #
       
       %tr.header
         %td.header-left
@@ -52,7 +67,7 @@
         %td.header-centred Prov/State
         %td.header-centred City
         %td.header-centred Scope
-        %td.header-centred sites
+        %td.header-centred Blogs
     
       - @communities.each do |community| 
         %tr{:class => cycle('list-line-odd', 'list-line-even')}
