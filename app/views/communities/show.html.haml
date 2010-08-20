@@ -6,7 +6,7 @@
   %h3{:style => "text-align: center"}
     How should the 
     = h @community.short_name 
-    voter community divide funding among these websites/blogs?
+    voter community divide funding among these blogs/websites?
   
   .listing
     - if @community.websites.any?
@@ -17,7 +17,7 @@
   %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
 
     - if current_user and (current_user.permission >= 4.0)
-      %p.permission= link_to 'Add a website/blog to this community', new_community_website_path(@community)
+      %p.permission= link_to 'Add a blog/website to this community', new_community_website_path(@community)
   
     - if @community.category == 'Homeowner'
       %p

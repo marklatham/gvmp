@@ -6,7 +6,7 @@
     %th.header-centred{:style => "width: 3em"} #
     %th.header-centred{:style => "width: 4em"} Share
     %th.header-centred{:style => "width: 8em"} Your&nbsp;Votes
-    %th.header-left{:style => "width: 18em"} Website/Blog
+    %th.header-left{:style => "width: 18em"} Blog/Website
     -# The non-breaking spaces help the table width on my iPAQ. Need to check on iPhone.
     %th.header-left &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     - if current_user and (current_user.permission >= 8.5)
@@ -92,4 +92,4 @@
   %p If you don't want other users of your computer to see your votes, please exit browser when finished voting.
   
   - if @rankings.last[:status] == "limbo"
-    %p You can vote for websites/blogs shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
+    %p You can vote for blogs/websites shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
