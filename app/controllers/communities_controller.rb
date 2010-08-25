@@ -39,6 +39,7 @@ class CommunitiesController < ApplicationController
   def create
     @community = Community.new(params[:community])
     @community.creator_ip = request.remote_ip
+    @community.tallied_at = Time.now
     if @community.save
       notify "Community successfully created."
       redirect_to "/" + @community.idstring

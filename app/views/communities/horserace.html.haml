@@ -7,115 +7,14 @@
 %h3{:style => "text-align: center"}
   Past funding shares from
   = link_to "this ballot", "/" + @community.idstring
-  -# = link_to "this ballot", :controller => "communities", :action => "show"
-  for websites/blogs with positive
-  = @master_rankings[0].start.year.to_s
-  shares
-  
-%table#table1{:cellspacing => 0, :style => "width: 20%; margin: auto;"}
+  - if @master_rankings[0]
+    for websites/blogs with positive
+    = @master_rankings[0].start.year.to_s
+    shares
 
-  %tr.header
-    %td.header-centred-grey{:style => "line-height: 36px"} Period
-    %td.header-centred-grey Total
-    - for master in @master_rankings
-      %td.header-centred-grey{:colspan => 3}
-        - if website = Website.find(:first, :conditions => ["id = ?", master.website_id])
-          = link_to truncate(website.title, :length => 55, :omission => "..."), website.url
+- if @master_rankings[0]
+  = render :partial => 'horserace_table'
+- else
+  %p{:style => "text-align: center"} [There are no past funding shares from this ballot yet.]
 
-  %tr.header
-    %td.header-centred Year
-    %td.header-centred Funding
-    - for master in @master_rankings
-      %td.header-centred #
-      %td.header-centred Share
-      %td.header-centred Award
-  
-  %tr
-    %td.cell-centred.leftborder
-      %strong= @master_rankings[0].start.year
-    %td.cell-centred.funded.rightborder
-      %strong= '$' + number_with_precision(@master_rankings[0].funds, :precision => 0)
-    - for master in @master_rankings
-      %td.cell-centred= master.rank
-      %td.cell-centred.cell-like-link= number_with_precision(master.share, :precision => 1) + '%'
-      %td.cell-right.horserace-award.rightborder= '$' + number_with_precision(master.award, :precision => 2)
-
-  %tr.header
-    %td.header-centred Month
-    %td.header-centred Funding
-    - for master in @master_rankings
-      %td.header-centred #
-      %td.header-centred Share
-      %td.header-centred Award
-  
-  - date_tracker = @latest_month.start
-  - while date_tracker >= @earliest_month.start do
-    %tr{:class => cycle('list-line-odd', 'list-line-even')}
-      %td.cell-centred.leftborder= date_tracker.to_s(:month_Y)
-      - @row_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?", @community.id, "month", date_tracker, date_tracker.end_of_month], :order => "share DESC")
-      %td.cell-centred.funded.rightborder
-        %strong= '$' + number_with_precision(@row_rankings[0].funds, :precision => 0)
-      - for master in @master_rankings
-        - flag = 0
-        - for ranking in @row_rankings
-          - if flag == 0 && ranking.ranking_id == master.ranking_id
-            - flag = 1
-            %td.cell-centred= ranking.rank
-            %td.cell-centred.cell-like-link= number_with_precision(ranking.share, :precision => 1) + '%'
-            %td.cell-right.horserace-award.rightborder= '$' + number_with_precision(ranking.award, :precision => 2)
-        - if flag == 0
-          %td
-          %td
-          %td.rightborder
-    - date_tracker = 1.month.ago(date_tracker)
-  
-  
-  %tr.header
-    %td.header-centred Day
-    %td.header-centred Funding
-    - for master in @master_rankings
-      %td.header-centred #
-      %td.header-centred Share
-      %td.header-centred Award
-  
-  - date_tracker = @latest_day.start
-  - while date_tracker >= @earliest_day.start do
-    - @row_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start = ?", @community.id, "day", date_tracker], :order => "share DESC")
-    - if @row_rankings[0]
-      %tr{:class => cycle('list-line-odd', 'list-line-even')}
-        %td.cell-centred.leftborder= date_tracker.to_s(:Ymd)
-        %td.cell-centred.funded.rightborder
-          %strong= '$' + number_with_precision(@row_rankings[0].funds, :precision => 0)
-        - for master in @master_rankings
-          - flag = 0
-          - for ranking in @row_rankings
-            - if flag == 0 && ranking.ranking_id == master.ranking_id
-              - flag = 1
-              %td.cell-centred= ranking.rank
-              %td.cell-centred.cell-like-link= number_with_precision(ranking.share, :precision => 0) + '%'
-              - if ranking.award == 0.0
-                %td.cell-centred.rightborder= '--'
-              - else
-                %td.cell-right.horserace-award.rightborder= '$' + number_with_precision(ranking.award, :precision => 2)
-          - if flag == 0
-            %td
-            %td
-            %td.rightborder
-    - date_tracker -= 1
-  
-  %tr.header
-    %td.header-centred Day
-    %td.header-centred Funding
-    - for master in @master_rankings
-      %td.header-centred #
-      %td.header-centred Share
-      %td.header-centred Award
-  
-  %tr.header
-    %td.header-centred-grey{:style => "line-height: 36px"} Period
-    %td.header-centred-grey Total
-    - for master in @master_rankings
-      %td.header-centred-grey{:colspan => 3}
-        - if website = Website.find(:first, :conditions => ["id = ?", master.website_id])
-          = link_to truncate(website.title, :length => 55, :omission => "..."), website.url
 %br
