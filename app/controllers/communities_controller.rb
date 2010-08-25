@@ -41,7 +41,7 @@ class CommunitiesController < ApplicationController
     @community.creator_ip = request.remote_ip
     if @community.save
       notify "Community successfully created."
-      redirect_to @community
+      redirect_to "/" + @community.idstring
     else
       render_invalid_create(@community)
     end
@@ -55,7 +55,7 @@ class CommunitiesController < ApplicationController
     @community = Community.find(params[:id])
     if @community.update_attributes(params[:community])
       notify('Community was successfully updated.', :success)
-      redirect_to @community 
+      redirect_to "/" + @community.idstring
     else
       render_invalid_update(@community)
     end
@@ -167,7 +167,7 @@ class CommunitiesController < ApplicationController
     Feedback.create!({:community_id => @community.id, :comment => @comment, :ip_address => @ip, :agent => @agent})
 
     notify "Thanks for your comment!"
-    redirect_to :action => :show, :id => @community
+    redirect_to "/" + @community.idstring
   end
   
   def debug
