@@ -2,6 +2,11 @@
 
 %h1 Register as a new user of VoterMedia.org
 
+%p
+  [You don't need to register or log in to vote -- see
+  = link_to('FAQ: Voting', '/faqs#Voting') + '.'
+  So we haven't built much functionality for this yet.]
+
 - @user.password = @user.password_confirmation = nil
 
 = error_messages_for :user

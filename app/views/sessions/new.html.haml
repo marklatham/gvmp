@@ -2,7 +2,11 @@
 %br
 
 %h1 Log in:
-%br
+
+%p
+  [You don't need to register or log in to vote -- see
+  = link_to('FAQ: Voting', '/faqs#Voting') + '.'
+  So we haven't built much functionality for this yet.]
 
 - form_tag session_path do
 
@@ -24,12 +28,6 @@
   %p
     = submit_tag 'Log in'
 
-%br
-%br
-%br
-%br
-%br
-%br
 %br
 %br
 %br
