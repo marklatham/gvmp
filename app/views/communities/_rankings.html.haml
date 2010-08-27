@@ -62,8 +62,12 @@
                   %a{:href => post.url, :target => "_blank"}
                     - if post.headline
                       %span{:style => "font-weight: bold"}= truncate(post.headline + ":", :length => 300)
+                    - text = ""
+                    - if post.summary
+                      - text = strip_tags(post.summary) + ' | '
                     - if post.body
-                      = truncate(strip_tags(post.body), :length => 300)
+                      - text = text + strip_tags(post.body)
+                    = truncate(text, :length => 300)
           
         - if current_user and (current_user.permission >= 8.5)
           %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
