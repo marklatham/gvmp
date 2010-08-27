@@ -20,6 +20,14 @@ class CommunitiesController < ApplicationController
     end
   end
 
+  def home_page
+    @communities = Community.filter(params)
+    respond_to do |format|
+      format.html
+      format.yaml { render :yaml => @communities }
+    end
+  end
+
   def manage
     @communities = Community.filter(params.merge(:sorted => 'recently_created'))
   end

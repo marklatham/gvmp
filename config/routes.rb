@@ -5,11 +5,11 @@ ActionController::Routing::Routes.draw do |map|
 #  Commented out because we were getting spammed. Reactivate when we get spam screens in place: 
 #  map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
   
-  map.root                   :controller => 'communities'
-  map.logout    '/logout',   :controller => 'sessions', :action => 'destroy'
-  map.login     '/login',    :controller => 'sessions', :action => 'new'
-  map.register  '/register', :controller => 'users',    :action => 'new'
-  map.signup    '/signup',   :controller => 'users',    :action => 'create'
+  map.root                   :controller => 'communities', :action => 'home_page'
+  map.logout    '/logout',   :controller => 'sessions',    :action => 'destroy'
+  map.login     '/login',    :controller => 'sessions',    :action => 'new'
+  map.register  '/register', :controller => 'users',       :action => 'new'
+  map.signup    '/signup',   :controller => 'users',       :action => 'create'
 
   map.resources :users
 
