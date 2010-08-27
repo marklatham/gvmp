@@ -9,10 +9,21 @@ class Post < ActiveRecord::Base
     latest = Post.find(:first, :conditions => ["website_id = ?", website.id], :order => "posted_at DESC")
     cutoff = Time.parse("2009-01-01 16:57:45.608000 -04:00")
     cutoff = latest.posted_at if latest
+    timestamp = Time.now
     
     entries.each do |entry|
       entry.sanitize! rescue nil
-
+      unless entry.published # If there's no published datetime, create them in reverse order:
+        create!(
+          :website    => website,
+          :headline   => entry.title,
+          :body       => entry.content,
+          :summary    => entry.summary,
+          :url        => entry.url,
+          :posted_at  => timestamp,
+          :guid       => entry.id)
+        timestamp = 1.second.ago(timestamp)
+      end
       create!(
         :website    => website,
         :headline   => entry.title,

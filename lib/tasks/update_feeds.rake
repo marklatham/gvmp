@@ -89,7 +89,10 @@ namespace :feed do
     options = {}
     
   # fake outdent so don't have to indent code below:
-   sites = Website.find(:all)
+   sites = Website.find(:all,
+     :conditions => ["id = ? OR id = ? OR id = ?",
+                     "225", "30", "232"]
+                     )
     
    sites.each do |site|
     puts 'website.id = %d'.%(site.id)
@@ -115,7 +118,7 @@ namespace :feed do
         puts feed.to_yaml
         next
       end
-#       puts '   %5d feed entries from site %s'.%([feed.entries.size, website.title])
+      puts '   %5d feed entries from site %s'.%([feed.entries.size, website.title])
       Post.add_entries( website, feed.entries )
     end
     puts  '   %5d Post records in total; %d new'.%([ Post.count, Post.count - before])
