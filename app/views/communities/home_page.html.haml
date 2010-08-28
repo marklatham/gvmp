@@ -32,14 +32,19 @@
   
   %hr
   
+  %div{:style => "text-align: center"}
+    %h2 Which blogs serving your voter communities deserve funding?
+    = render 'layouts/search'
+    %p 
+      Use search box and/or browse below; follow links to community ballots, 
+      then vote on blog funding:
+  
   %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
     %p
       %strong VoterMedia
       is in an early stage of growth. Our flagship implementation is at
       %strong= link_to('UBC', '/ubc') + ','
       where the student union has been funding blogs using our system. They are happy with it, so we encourage other communities to fund voter-selected blogs too. At this point, most communities are not yet doing that, so their ballot pages on this website are for if/when there is funding.
-    %p
-      The communities and blogs listed below illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it. Your votes will be tallied, and will affect the shares and rankings. Please email your suggestions to admin[at]votermedia.org, like other blogs and communities we should add.
-  %hr
+    %p The communities and blogs listed below illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it. Your votes will be tallied, and will affect the shares and rankings. Please email your suggestions to admin[at]votermedia.org, like other blogs and communities we should add.
   
   = render 'search_table'
