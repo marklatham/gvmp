@@ -14,6 +14,7 @@ class Post < ActiveRecord::Base
     
     entries.each do |entry|
       entry.sanitize! rescue nil
+      entry.url = entry.id unless entry.url # In rare cases when entry.url is NULL, use entry.id
       unless entry.published # If there's no published datetime, create them in reverse order:
         has_dates = false
         unless Post.find(:first, :conditions => ["website_id = ? and guid = ?", website.id, entry.id])
