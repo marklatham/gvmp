@@ -6,11 +6,7 @@ log
 log/*.log
 tmp/**/*
 tmp
-vendor/plugins/**/.git
-vendor/gems/**/*.log
 public/system
-*.o
-*.so
 Makefile
 *.bundle
 index
@@ -19,4 +15,11 @@ db/sphinx/**/*
 db/*.sqlite3
 .manifest
 *~
-# vendor/gems/
+
+vendor/plugins/**/.git
+Gemfile.lock
+*.log
+*.o
+*.so
+*config.h
+
