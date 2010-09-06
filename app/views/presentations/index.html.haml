@@ -4,6 +4,9 @@
 
 %h3{:style => "text-align: center"} Talks by Mark Latham on VoterMedia in corporations and democracies
 
+- if current_user and (current_user.permission >= 7.0)
+  %p.permission= link_to 'Add new presentation', new_presentation_path
+
 %table#table1{:style => "margin: auto;"}
   %tr.header 
     %td.header-centred Date
@@ -20,7 +23,3 @@
         %td.permission= link_to 'Destroy', presentation, :confirm => 'Are you sure?', :method => :delete
 
 %br
-- if current_user and (current_user.permission >= 7.0)
-  %span.permission= link_to 'Add new presentation', new_presentation_path
-  %br
-  %br
