@@ -1,0 +1,37 @@
+- @page_title = 'Links'
+
+%h1{:style => "text-align: center"} Links to websites of related interest:
+
+%div{:style => "text-align: center"} Most descriptions below are simply quoted from the websites; VoterMedia.org does not vouch for their accuracy.
+
+- if current_user and (current_user.permission >= 7.0)
+  %span.permission= link_to 'Create new Link', new_link_path
+
+%table#links{:cellspacing => 0, :cellpadding => 1, :style => "width: 80%; min-width: 46em; margin-left: 10%; margin-right: 10%;"}
+  
+  = render :partial => 'categories'
+  - @links_categories.each do |category|
+    
+    %tr
+      %td
+        &nbsp;
+        %a{ :name => category }
+    
+    %tr
+      %th.header
+        = category
+  
+    - @links.each do |link|
+      - if link.category == category
+        %tr
+          %td.link.leftborder.rightborder
+            = link_to link.title, link.url
+          - if current_user and (current_user.permission >= 7.0)
+            %td.permission= link_to 'Edit', edit_link_path(link)
+            %td.permission= link_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete
+
+        %tr
+          %td.description.lowerborder.leftborder.rightborder
+            = link.description
+
+%p{:style => "text-align: center"} [Please send corrections and suggested links to admin[at]votermedia.org.]

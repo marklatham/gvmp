@@ -1,0 +1,33 @@
+- form_for(@link) do |f|
+  = f.error_messages
+ 
+  %p
+    = f.label :title
+    %br
+    = f.text_field :title
+  
+  %p
+    = f.label :url
+    %br
+    = f.text_field :url
+  
+  %p
+    = f.label :category
+    %br
+    = render :partial => 'categories'
+    = f.select (:category, @links_categories)
+  
+  %p
+    = f.label :description
+    %br
+    = f.text_area :description, :cols => 40
+  
+  %p
+    = f.submit "Submit"
+
+%br
+
+= link_to 'Back to Links', links_path
+
+%br
+%br

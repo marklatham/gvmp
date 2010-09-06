@@ -406,9 +406,11 @@ a:hover { color: #d00; }
 .leftborder {
   border-left: 2px solid #b00;
 }
-
 .rightborder {
   border-right: 2px solid #b00;
+}
+.lowerborder {
+  border-bottom: 2px solid #b00;
 }
 
 .horserace-award {
@@ -416,9 +418,6 @@ a:hover { color: #d00; }
   color: #060;
 }
 
-.ballot_row {
-  border-bottom: 2px solid #b00;
-}
 .multipost {
   table-layout:fixed;
 }
@@ -465,6 +464,40 @@ a:hover { color: #d00; }
 
 #colleagues .lower-cell {
   padding-bottom: 6px;
+}
+
+#links .header {
+  background:   #a00;
+  color: #fff;
+  font-size: 14px;
+  text-align: left;
+  padding-top: 2px;
+  padding-bottom: 3px;
+  padding-left: 0.6em;
+}
+
+#links .link {
+  padding-top: 3px;
+  padding-left: 0.5em;
+}
+#links .link a:link {
+  font-weight: bold;
+  color: #006;
+  text-decoration: none;
+}
+#links .link a:visited {
+  font-weight: bold;
+  color: #006;
+  text-decoration: none;
+}
+#links .link a:hover {
+  font-weight: bold;
+  color: #a00;
+  text-decoration: underline;
+}
+#links .description {
+  padding-left: 6em;
+  padding-bottom: 5px;
 }
 
 #columns {

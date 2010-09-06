@@ -23,10 +23,10 @@
           %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 2)
         - if ranking[:status] == "limbo" && ranking[:share] <= 0.0
           -# because if ranking[:share] > 0.0 then it was just sent to limbo today and tally not done yet.
-          %td.cell-centred.limbo.ballot_row.leftborder{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
+          %td.cell-centred.limbo.lowerborder.leftborder{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
         - else
-          %td.cell-centred.ballot_row.leftborder= ranking[:rank]
-          %td.cell-centred.cell-link.ballot_row= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
+          %td.cell-centred.lowerborder.leftborder= ranking[:rank]
+          %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
         -# TODO: use named_route/resource
         -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
         - @flag = 0
@@ -37,7 +37,7 @@
             - if click.created_at > @created
               - @created = click.created_at
               - support = click.support
-        %td.cell-centred.ballot_row{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
+        %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
           = render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => support, :flag => @flag }
         - case
           - when ranking[:share] <= 0.0
@@ -46,9 +46,9 @@
             - rows = 2
           - when ranking[:share] >= 20.0
             - rows = 3
-        %td.cell-link.ballot_row
+        %td.cell-link.lowerborder
           = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
-        %td.ballot_row.rightborder
+        %td.lowerborder.rightborder
           %table.multipost{:style => "width: 100%"}
             - post = Post.find(:all, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC", :limit => rows)
             - post.each do |post|
