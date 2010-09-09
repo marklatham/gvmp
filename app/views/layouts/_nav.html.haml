@@ -23,6 +23,13 @@
           %li= link_to 'What is VoterMedia?', about_contact_path
           %li= link_to 'VoterMedia Team', '/about_contact#team'
       %li
+        = link_to 'LINKS', links_path
+        %ul
+          = render :partial => 'links/categories'
+          - @links_categories.each do |category|
+            %li{:style => "width: 18em"}
+              = link_to(category, links_path + '#' + category)
+      %li
         = link_to 'PUBLICATIONS', publications_path
         %ul
           %li= link_to 'Articles & papers', publications_path
@@ -30,4 +37,4 @@
           %li= link_to 'Presentations/talks', presentations_path
           %li= link_to 'Shareowner proposals', proposals_path
           %li= link_to 'VM Democracy Blog', 'http://votermedia.blogspot.com/'
-          %li= link_to('VM Finance Blog', 'http://votermedia.wordpress.com/')
+          %li= link_to 'VM Finance Blog', 'http://votermedia.wordpress.com/'

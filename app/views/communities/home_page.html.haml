@@ -13,38 +13,36 @@
           Video transcript available
           = link_to('here', '/videos/1') + '.'
       %td
-        %ul
-          %li
-            %strong{:style => 'color: #800'} VoterMedia
-            helps communities connect with their elected leaders, by letting voters allocate community funds to competing blogs -- e.g. see
-            %strong= link_to('UBC ballot page', '/ubc') + '.'
-            This can benefit student unions, municipalities,
-            = link_to('homeowners associations', '/publications/VoterMediaForHomeownersAssociations.pdf') + ','
-            other democracies and corporate shareowners.
-          %li
-            %strong{:style => 'color: #800'} It's easy:
-            Email admin[at]votermedia.org your community and blog information. We'll create the ballot page, usually within a day. Then voting begins, whether or not anyone is actually funding the bloggers. You promote the contest to potential bloggers and voters.
-          
-          %li
-            %strong{:style => 'color: #800'} It's cheap:
-            Usually a community would persuade its government to fund the voter-selected blogs. We suggest starting with $10/day, none of which goes to votermedia.org. (We're an all-volunteer nonprofit project.) Start at any time, and continue throughout the year. We can put the funding schedule into our system to calculate awards. Funders can pay bloggers directly, based on automated output from your community's
-            = link_to('accounting page like this', '/ubc/horserace') + '.'
+        %div{:style => "width: 425px; height: 300px; overflow:-moz-scrollbars-vertical; overflow-y:auto;"}
+          %ul
+            %li
+              %strong{:style => 'color: #800'} VoterMedia
+              helps communities connect with their elected leaders, by letting voters allocate community funds to competing blogs -- e.g. see
+              %strong= link_to('UBC ballot page', '/ubc') + '.'
+              This can benefit student unions, municipalities,
+              = link_to('homeowners associations', '/publications/VoterMediaForHomeownersAssociations.pdf') + ','
+              other democracies and corporate shareowners.
+            %li
+              %strong{:style => 'color: #800'} It's easy:
+              Email admin[at]votermedia.org your community and blog information. We'll create the ballot page, usually within a day. Then voting begins, whether or not anyone is actually funding the bloggers. You promote the contest to potential bloggers and voters.
+            %li
+              %strong{:style => 'color: #800'} It's cheap:
+              Usually a community would persuade its government to fund the voter-selected blogs. We suggest starting with $10/day, none of which goes to votermedia.org. (We're an all-volunteer nonprofit project.) Start at any time, and continue throughout the year. We can put the funding schedule into our system to calculate awards. Funders can pay bloggers directly, based on automated output from your community's
+              = link_to('accounting page like this', '/ubc/horserace') + '.'
+            %li
+              %strong VoterMedia
+              is in an early stage of growth. Our flagship implementation is at
+              %strong= link_to('UBC', '/ubc') + ','
+              where the student union has been funding blogs using our system. They are happy with it, so we encourage other communities to fund voter-selected blogs too. At this point, most communities are not yet doing that, so their ballot pages on this website are for if/when there is funding.
+              %br
+              %br
+              The communities and blogs listed below illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it. Your votes will be tallied, and will affect the shares and rankings. Please email your suggestions to admin[at]votermedia.org, like other blogs and communities we should add.
   
   %hr
   
   %div{:style => "text-align: center"}
     %h2 Which blogs serving your voter communities deserve funding?
     = render 'layouts/search'
-    %p 
-      Use search box and/or browse below; follow links to community ballots, 
-      then vote on blog funding:
-  
-  %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
-    %p
-      %strong VoterMedia
-      is in an early stage of growth. Our flagship implementation is at
-      %strong= link_to('UBC', '/ubc') + ','
-      where the student union has been funding blogs using our system. They are happy with it, so we encourage other communities to fund voter-selected blogs too. At this point, most communities are not yet doing that, so their ballot pages on this website are for if/when there is funding.
-    %p The communities and blogs listed below illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it. Your votes will be tallied, and will affect the shares and rankings. Please email your suggestions to admin[at]votermedia.org, like other blogs and communities we should add.
+    Use search box or browse below; follow links to community ballots, then vote on blog funding:
   
   = render 'search_table'

@@ -36,8 +36,7 @@
 
       %tr
         %td.footer-row{:colspan => 2}= paginate(@communities)
-        %td.footer-row{:colspan => 5, :align => "right", :style => "font-weight: bold"}
+        %td.footer-row{:colspan => 5, :align => "right"}
           Is your voter community not in our system? Add it by email to admin[at]votermedia.org
         - if current_user and (current_user.permission >= 4.0)
           %td.permission= link_to 'Add community', new_community_path
-

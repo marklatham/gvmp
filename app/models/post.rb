@@ -15,7 +15,16 @@ class Post < ActiveRecord::Base
     entries.each do |entry|
       entry.sanitize! rescue nil
       entry.url = entry.id unless entry.url # In rare cases when entry.url is NULL, use entry.id
-      unless entry.published # If there's no published datetime, create them in reverse order:
+      
+      entry.summary = "" unless entry.summary
+      entry.content = "" unless entry.content
+      if entry.summary.length > entry.content.length
+        show_text = entry.summary
+      else
+        show_text = entry.content
+      end
+      
+      unless entry.published # If there's no published datetime, create timestamps in reverse order:
         has_dates = false
         unless Post.find(:first, :conditions => ["website_id = ? and guid = ?", website.id, entry.id])
           create!(
@@ -25,8 +34,9 @@ class Post < ActiveRecord::Base
             :summary    => entry.summary,
             :url        => entry.url,
             :posted_at  => timestamp,
-            :guid       => entry.id)
-          timestamp = 1.second.ago(timestamp)
+            :guid       => entry.id,
+            :show_text  => show_text)
+          timestamp = 1.minute.ago(timestamp)
         end
       end
       create!(
@@ -36,7 +46,8 @@ class Post < ActiveRecord::Base
         :summary    => entry.summary,
         :url        => entry.url,
         :posted_at  => entry.published,
-        :guid       => entry.id
+        :guid       => entry.id,
+        :show_text  => show_text
       ) if entry.published > cutoff  rescue next
 #      ) unless exists? :guid => entry.id  rescue next
 

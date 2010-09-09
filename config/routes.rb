@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :links
+
   map.resources :videos
 
  
@@ -21,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
     community.resources :websites
   end
   map.resources :faqs
+  map.resources :links
   map.resources :presentations
   map.resources :proposals
   map.resources :pubs
@@ -39,6 +42,7 @@ ActionController::Routing::Routes.draw do |map|
   map.terminal         '/t',                   :controller => 'admin',       :action => 'terminal'
   map.shared_ips       '/shared_ips',          :controller => 'admin',       :action => 'shared_ips'
   map.mlresume         '/mlresume',            :controller => 'minimal',     :action => 'mlresume'
+  map.temp             '/temp',                :controller => 'minimal',     :action => 'temp' # For temporary use; not part of website.
   map.publications     '/publications',        :controller => 'pubs',        :action => 'index'
   map.gpw              '/gpw',                 :controller => 'clippings',   :action => 'gpw'
   
