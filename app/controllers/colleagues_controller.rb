@@ -13,6 +13,9 @@ class ColleaguesController < ApplicationController
     @colleagues = Colleague.find(:all, :order => "sequence, given_name, family_name")
   end
   
+  create.wants.html { redirect_to('/about_contact') }
+  update.wants.html { redirect_to('/about_contact') }
+  
   index.wants.yaml { render :yaml => collection }
 
 end

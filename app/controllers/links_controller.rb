@@ -13,6 +13,9 @@ class LinksController < ApplicationController
   update.flash  "Link was successfully updated."
   destroy.flash "Link removed."
   
+  create.wants.html { redirect_to(links_path) }
+  update.wants.html { redirect_to(links_path) }
+
   index.wants.yaml { render :yaml => collection }
 
 end

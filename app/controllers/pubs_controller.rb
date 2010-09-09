@@ -13,6 +13,9 @@ class PubsController < ApplicationController
     @pubs = Pub.find(:all, :order => "date_sequence DESC")
   end
   
+  create.wants.html { redirect_to(pubs_path) }
+  update.wants.html { redirect_to(pubs_path) }
+
   index.wants.yaml { render :yaml => collection }
 
 end
