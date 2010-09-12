@@ -1,19 +1,31 @@
 - main_column do
   
-  %table{:width => "850", :style => "margin: auto;"}
+  %table{:width => "100%"}
     %tr
-      %td
+      
+      %td{:width => "380px", :style => "vertical-align: top;"}
         %p
-          %object{:width => "425", :height => "344"}
+          %object
             %param{:name => "movie", :value => "http://www.youtube.com/v/8m45VbRDybA&hl=en&fs=1"}
             %param{:name => "allowFullScreen", :value => "true"}
             %param{:name => "allowscriptaccess", :value => "always"}
             %embed{:src => "http://www.youtube.com/v/8m45VbRDybA&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowscriptaccess => "always", :allowfullscreen => "true", :width => "346", :height => "280"}
         %p{:align => "center"}
-          Video transcript available
-          = link_to('here', '/videos/1') + '.'
-      %td{:style => "padding-right: 1em"}
-        %div{:style => "width: 425px; height: 300px; overflow:-moz-scrollbars-vertical; overflow-y:auto;"}
+          %strong VoterMedia at UBC:
+          = link_to('Transcript', '/videos/1')
+        %hr
+        %p
+          %object
+            %param{:name => "movie", :value => "http://www.youtube.com/v/Y8EMR4Ssl9c&hl=en&fs=1"}
+            %param{:name => "allowFullScreen", :value => "true"}
+            %param{:name => "allowscriptaccess", :value => "always"}
+            %embed{:src => "http://www.youtube.com/v/Y8EMR4Ssl9c&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowscriptaccess => "always", :allowfullscreen => "true", :width => "346", :height => "280"}
+        %p{:align => "center"}
+          %strong How VoterMedia Affects Election Campaigns:
+          = link_to('Transcript', '/videos/2')
+        %hr
+        
+        %div{:style => "width: 370px; height: 390px; overflow:-moz-scrollbars-vertical; overflow-y:auto;"}
           %ul
             %li
               %strong{:style => 'color: #800'} VoterMedia
@@ -33,22 +45,12 @@
               %strong{:style => 'color: #800'} VoterMedia in practice:
               Our flagship implementation is at
               %strong= link_to('UBC', '/ubc') + ','
-              where the student union has been funding blogs using our system. As you can see from the videos, they consider it a success.  We encourage you to start and promote such contests in your voting communities.  The communities and blogs listed below illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it.
-      %td
-        %p
-          %object{:width => "425", :height => "344"}
-            %param{:name => "movie", :value => "http://www.youtube.com/v/Y8EMR4Ssl9c&hl=en&fs=1"}
-            %param{:name => "allowFullScreen", :value => "true"}
-            %param{:name => "allowscriptaccess", :value => "always"}
-            %embed{:src => "http://www.youtube.com/v/Y8EMR4Ssl9c&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowscriptaccess => "always", :allowfullscreen => "true", :width => "346", :height => "280"}
-        %p{:align => "center"}
-          Video transcript available
-          = link_to('here', '/videos/2') + '.'
+              where the student union has been funding blogs using our system. As you can see from the videos, they consider it a success.  We encourage you to start and promote such contests in your voting communities.  The communities and blogs listed here illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it.
+        
+      %td{:style => "vertical-align: top;"}
+        %div{:style => "text-align: center"}
+          %h2 Which blogs serving your voter communities deserve funding?
+          = render 'layouts/search'
   
-  %hr
+        = render 'search_table'
   
-  %div{:style => "text-align: center"}
-    %h2 Which blogs serving your voter communities deserve funding?
-    = render 'layouts/search'
-  
-  = render 'search_table'

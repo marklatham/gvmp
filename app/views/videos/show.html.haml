@@ -11,7 +11,7 @@
     %param{:name => "allowscriptaccess", :value => "always"}
     %embed{:src => "http://www.youtube.com/v/" + @video.url + "&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowscriptaccess => "always", :allowfullscreen => "true", :width => "425", :height => "344"}
 
-%h2 Transcript:
+%h2 Transcript
 = @video.transcript
 
 - if current_user and (current_user.permission >= 7.0)
