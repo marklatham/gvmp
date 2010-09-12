@@ -2,7 +2,5 @@
   - form_tag(communities_path, {:method => 'get'}) do
     %label 
       Find communities:
-    %br
     = text_field_tag :q, params[:q], :maxlength => 100, :size => 24
-    %br
     = submit_tag 'Search'
