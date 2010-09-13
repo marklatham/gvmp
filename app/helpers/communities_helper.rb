@@ -13,7 +13,7 @@ module CommunitiesHelper
       location = [:city, :prov_state, :country].inject([]) { |l, f| l << community.send(f) }
       location.reject{|i| i.blank?}.join(', ')
     else
-      h truncate(community.send(area), :length => 15)
+      h truncate(community.send(area), :length => 30)
     end
   end
 

@@ -27,7 +27,9 @@ class WebsitesController < ApplicationController
   end
 
   destroy.after do
-    @community.n_websites = @community.websites.count
+    # I don't think this really works, does it? When we destroy a website record,
+    # will the associated rankings record(s) also be destroyed?? :
+    @community.n_websites = Ranking.count(:conditions => ["community_id = ? and dropped_at > ?", @community.id, Time.now])
     @community.save
   end
 
