@@ -276,6 +276,10 @@ a:hover { color: #d00; }
   padding-left: 1em;
 }
 
+.flashbanner {
+ z-index: -1;
+}
+
 #table1 .list-line-odd {
   background:   #fff;
 }
