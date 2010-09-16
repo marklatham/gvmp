@@ -48,7 +48,7 @@ class Post < ActiveRecord::Base
         :posted_at  => entry.published,
         :guid       => entry.id,
         :show_text  => show_text
-      ) if entry.published > cutoff  rescue next
+      ) if entry.published.in_time_zone('UTC') > 1.second.from_now(cutoff.in_time_zone('UTC'))  rescue next
 #      ) unless exists? :guid => entry.id  rescue next
 
     end
