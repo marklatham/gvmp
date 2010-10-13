@@ -38,6 +38,7 @@ ActionController::Routing::Routes.draw do |map|
   map.privacy          '/privacy',             :controller => 'public',      :action => 'privacy'
   map.how_you_can_help '/how_you_can_help',    :controller => 'public',      :action => 'how_you_can_help'
   map.ubc2010          '/ubc2010',             :controller => 'public',      :action => 'ubc2010'
+  map.ubcentry         '/ubcentry',            :controller => 'public',      :action => 'ubcentry'
   map.admin            '/admin',               :controller => 'admin',       :action => 'admin'
   map.terminal         '/t',                   :controller => 'admin',       :action => 'terminal'
   map.shared_ips       '/shared_ips',          :controller => 'admin',       :action => 'shared_ips'
