@@ -1,8 +1,13 @@
 - @page_title = 'Links'
 
-%h1{:style => "text-align: center"} Links to websites of related interest:
-
-%div{:style => "text-align: center"} Most descriptions below are simply quoted from the websites; VoterMedia.org does not vouch for their accuracy.
+%table{:style => "margin: auto;"}
+  %tr
+    %td
+      %h1{:style => "padding-right: 1em; padding-bottom: 0.3em; text-align: center"} Links to websites of related interest
+      %p{:style => "max-width: 35em; padding-left: 2em"}
+        Most descriptions below are simply quoted from the websites; VoterMedia.org does not vouch for their accuracy.
+    %td
+      %img{:src => "images/chain.jpg", :height => 141}
 
 - if current_user and (current_user.permission >= 7.0)
   %span.permission= link_to 'Create new Link', new_link_path
