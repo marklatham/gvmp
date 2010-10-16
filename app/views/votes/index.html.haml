@@ -6,7 +6,7 @@
   %tr
     %th Ip address
     %th Place
-    %th Comm.
+    %th{:colspan => 2} Community
     %th{:colspan => 2} Website
     %th Support
     -# %th
@@ -17,12 +17,15 @@
     %th Agent
 
   - for vote in @votes
-    %tr
+    %tr{:style => "white-space: nowrap"}
       %td= h vote.ip_address
       %td
         - if vote.place
           = vote.place
       %td{:style => "text-align: center"}= h vote.community_id
+      %td{:style => "padding-right: 1em"}
+        - if community = Community.find_by_id(vote.community_id)
+          = link_to(truncate(community.short_name, :length => 20, :omission => '\\'), "/" + community.idstring)
       %td{:style => "text-align: center"}= h vote.website_id
       %td
         - if website = Website.find_by_id(vote.website_id)
@@ -37,8 +40,7 @@
       -#     = h vote.updated_at
       %td{:style => "padding-left: 1em"}= vote.id
       -# %td{:style => "text-align: center"}= vote.ballot_type
-      %td{:style => "padding-left: 1em"}= truncate(vote.agent, :length => 75, :omission => '')
+      %td{:style => "padding-left: 1em"}= vote.agent
 
 %br
 
-= link_to 'New vote', new_vote_path
