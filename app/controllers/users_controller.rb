@@ -25,6 +25,9 @@ class UsersController < ApplicationController
       # protection if visitor resubmits an earlier form using back
       # button. Uncomment if you understand the tradeoffs.
       # reset session
+      @user.ip_address = request.remote_ip
+      @user.agent = request.user_agent
+      @user.save
       self.current_user = @user # !! now logged in
       redirect_back_or_default('/')
       notify("Login created -- welcome to the VoterMedia.org community!", :info)

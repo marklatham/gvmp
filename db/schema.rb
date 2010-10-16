@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100907033208) do
+ActiveRecord::Schema.define(:version => 20101016210331) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -236,6 +236,8 @@ ActiveRecord::Schema.define(:version => 20100907033208) do
     t.string   "remember_token",            :limit => 40
     t.datetime "remember_token_expires_at"
     t.decimal  "permission",                               :precision => 8, :scale => 3, :default => 0.0
+    t.string   "ip_address",                                                             :default => ""
+    t.string   "agent",                                                                  :default => ""
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
