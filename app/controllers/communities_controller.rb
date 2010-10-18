@@ -12,6 +12,8 @@ class CommunitiesController < ApplicationController
     c.redirect_if_permission_less_than 9.0
   end
 
+  cache_sweeper :community_sweeper, :only => [:create, :update, :destroy]
+
   def index
     @communities = Community.filter(params)
     respond_to do |format|

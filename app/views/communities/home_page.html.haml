@@ -58,5 +58,6 @@
           %h2 Which blogs serving your voter communities deserve funding?
           = render 'layouts/search'
   
-        = render 'search_table'
+        - cache(:fragment => "listing_page_#{params[:page]}") do
+          = render 'search_table'
   

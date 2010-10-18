@@ -14,7 +14,8 @@
         %td
         
           = render 'layouts/header'
-          = render 'layouts/nav'    
+          - cache(:fragment => 'nav') do
+            = render 'layouts/nav'    
 
           #main
             = flash_notice
