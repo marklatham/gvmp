@@ -1,12 +1,17 @@
 - @page_title = @community.short_name
 
 - main_column do
-  %h1{:style => "text-align: center"}= h @community.name
-  
-  %h3{:style => "text-align: center"}
-    How should the 
-    = h @community.short_name 
-    voter community divide funding among these blogs/websites?
+  %table{:style => "margin: auto"}
+    %tr
+      %td
+        %h1{:style => "text-align: center"}= h @community.name
+        %h3{:style => "text-align: center"}
+          How should the 
+          = h @community.short_name 
+          voter community divide funding among these blogs/websites?
+      - if File.exists?(RAILS_ROOT + "/public/images/id/" + @community.idstring + ".jpg")
+        %td{:style => "padding-left: 1em"}
+          %img{:src => "/images/id/" + @community.idstring + ".jpg"}
   
   .listing
     - if @community.websites.any?
