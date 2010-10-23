@@ -10,17 +10,17 @@
     = link_to @community.scope, communities_path(:q => @community.scope)
 
 %p
-  - if @community.wiki_url != ""
-    - if @community.category == "Corporation"
-      %label= link_to 'Yahoo finance page', @community.wiki_url, :target => "_blank"
-    - else
-      %label= link_to 'Wikipedia page', @community.wiki_url, :target => "_blank"
-    &nbsp; &nbsp;
   - if @community.official_url != ""
     - if @community.category == "Corporation"
       %label= link_to 'Official corporate website', @community.official_url, :target => "_blank"
     - else
       %label= link_to 'Official community website', @community.official_url, :target => "_blank"
+    &nbsp; &nbsp;
+  - if @community.wiki_url != ""
+    - if @community.category == "Corporation"
+      %label= link_to 'Yahoo Finance page', @community.wiki_url, :target => "_blank"
+    - else
+      %label= link_to 'Wikipedia page', @community.wiki_url, :target => "_blank"
 
 %p
   %label Description:

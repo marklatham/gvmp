@@ -5,6 +5,7 @@
 %table
   %tr
     %th Ip address
+    %th Location
     %th Place
     %th{:colspan => 2} Community
     %th{:colspan => 2} Website
@@ -17,8 +18,17 @@
     %th Agent
 
   - for vote in @votes
+    - if ip_record = Ip.find_by_ip_address(vote.ip_address)
+      - found_flag = TRUE
+    - else
+      - found_flag = FALSE
     %tr{:style => "white-space: nowrap"}
       %td= h vote.ip_address
+      %td
+        - if found_flag
+          = ip_record.country
+          = ip_record.region
+          = truncate(ip_record.city, :length => 12, :omission => '\\')
       %td
         - if vote.place
           = vote.place

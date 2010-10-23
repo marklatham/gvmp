@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101016210331) do
+ActiveRecord::Schema.define(:version => 20101019203500) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20101016210331) do
   add_index "communities", ["city"], :name => "index_communities_on_city"
   add_index "communities", ["country"], :name => "index_communities_on_country"
   add_index "communities", ["delta"], :name => "index_communities_on_delta"
+  add_index "communities", ["idstring"], :name => "index_communities_on_idstring"
   add_index "communities", ["name"], :name => "index_communities_on_name"
   add_index "communities", ["prov_state"], :name => "index_communities_on_prov_state"
   add_index "communities", ["scope"], :name => "index_communities_on_scope"
@@ -98,6 +99,49 @@ ActiveRecord::Schema.define(:version => 20101016210331) do
   end
 
   add_index "fundings", ["community_id"], :name => "index_fundings_on_community_id"
+
+  create_table "geo_ip_locations", :force => true do |t|
+    t.string   "country",     :default => ""
+    t.string   "region",      :default => ""
+    t.string   "city",        :default => ""
+    t.string   "postal_code", :default => ""
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "metro_code",  :default => ""
+    t.string   "area_code",   :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "geo_ips", :force => true do |t|
+    t.integer  "start_ip"
+    t.integer  "end_ip"
+    t.integer  "geo_ip_location_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "geo_ips", ["end_ip"], :name => "index_geo_ips_on_end_ip"
+  add_index "geo_ips", ["geo_ip_location_id"], :name => "index_geo_ips_on_geo_ip_location_id"
+  add_index "geo_ips", ["start_ip"], :name => "index_geo_ips_on_start_ip"
+
+  create_table "ips", :force => true do |t|
+    t.string   "ip_address",         :default => ""
+    t.integer  "integer_ip"
+    t.integer  "geo_ip_location_id"
+    t.string   "country",            :default => ""
+    t.string   "region",             :default => ""
+    t.string   "city",               :default => ""
+    t.string   "postal_code",        :default => ""
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "metro_code",         :default => ""
+    t.string   "area_code",          :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ips", ["ip_address"], :name => "index_ips_on_ip_address"
 
   create_table "links", :force => true do |t|
     t.string   "title",       :default => ""

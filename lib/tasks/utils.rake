@@ -9,6 +9,55 @@ namespace :utils do
     end
   end
   
+  desc "Make sure every ip_address in Votes table has a data record in Ips table"
+  task(:create_ips => :environment) do
+    
+    latest_ip = Ip.find(:last, :order => "id")
+    puts latest_ip.id
+    puts 1.day.ago(latest_ip.created_at)
+    votes = Vote.find(:all, :conditions => ["created_at > ?", 1.day.ago(latest_ip.created_at)],
+                      :group => "ip_address", :order => "id")
+    puts votes.size.to_s + " distinct ip addresses found in votes"
+    old_counter = 0
+    new_counter = 0
+    errors = 0
+    
+    votes.each do |vote|
+      
+      if Ip.find_by_ip_address(vote.ip_address)
+        old_counter += 1
+        puts vote.ip_address + " already in"
+      else
+        new_counter +=1
+        puts vote.ip_address + " not in"
+      
+        array = vote.ip_address.split('.')
+        ipnum = 16777216*array[0].to_i + 65536*array[1].to_i + 256*array[2].to_i + array[3].to_i
+      
+        if geo_ip = GeoIp.find(:first, :conditions => ["start_ip <= ? and end_ip >= ?", ipnum, ipnum])
+          if location = GeoIpLocation.find_by_id(geo_ip.geo_ip_location_id)
+            
+            Ip.create!({:ip_address => vote.ip_address, :integer_ip => ipnum,
+                        :geo_ip_location_id => location.id, :country => location.country,
+                        :region => location.region, :city => location.city, :postal_code => location.postal_code,
+                        :latitude => location.latitude, :longitude => location.longitude,
+                        :metro_code => location.metro_code, :area_code => location.area_code})
+          else
+            errors +=1
+            puts "No location found."
+          end
+        else
+          errors +=1
+          puts "No geo_ip found."
+        end
+        
+      end
+    end
+    puts old_counter.to_s + " existing ip addresses"
+    puts new_counter.to_s + " new ip addresses"
+    puts errors.to_s + " errors where we couldn't find matching data"
+  end
+  
   desc "Tally and update rankings for communities that need it"
   task(:tally_update => :environment) do
     
@@ -249,6 +298,35 @@ namespace :utils do
       pr.latest = pr.start
       pr.save
     end
+  end
+  
+  desc "Test some code"
+  task(:tc => :environment) do
+    
+    ipa = "4.2.144.31"
+    array = ipa.split('.')
+    ipnum = 16777216*array[0].to_i + 65536*array[1].to_i + 256*array[2].to_i + array[3].to_i
+    puts ipnum
+  end
+  
+  desc "Test some more code"
+  task(:tc2 => :environment) do
+    
+    ipnum = 67276831
+    
+    w = ( ipnum / 16777216 ).to_i % 256
+    x = ( ipnum / 65536    ).to_i % 256;
+    y = ( ipnum / 256      ).to_i % 256;
+    z = ( ipnum            ).to_i % 256;
+    
+    puts w.to_s + "." + x.to_s + "." + y.to_s + "." + z.to_s
+  end
+  
+  desc "Delete some data"
+  task(:deldata => :environment) do
+    
+    GeoIp.destroy_all("id > 9999999999999")
+    
   end
   
 end
