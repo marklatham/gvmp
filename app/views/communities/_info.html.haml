@@ -27,18 +27,18 @@
   = truncate(@community.description, :length => 500)
 
 %p
-  %label Entries:
-  You can add to or correct this community's data and website/blog list by emailing admin[at]votermedia.org.
-
--# %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
-
-%p
   %label Funding status:
   - if @community.status == nil || @community.status == ""
     Not currently funded. This ballot is for if and when there is funding. Without funding there may be few votes, which makes the rankings less meaningful. For a recently funded ballot, see
     = link_to('UBC AMS', '/ubc') + '.'
   - else
     %span.funded= truncate(@community.status, :length => 1000)
+
+%p
+  %label Add/Correct:
+  You can add to or correct this community's data and website/blog list by emailing admin[at]votermedia.org.
+
+-# %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
 
 - if current_user and (current_user.permission >= 4.0)
   %p.permission

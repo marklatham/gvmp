@@ -15,7 +15,7 @@
     -# %th Updated
     %th ID
     -# %th Type
-    %th Agent
+    %th{:style => "text-align: left; padding-left: 2em"} Agent
 
   - for vote in @votes
     - if ip_record = Ip.find_by_ip_address(vote.ip_address)
