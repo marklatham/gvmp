@@ -83,15 +83,15 @@ class Community < ActiveRecord::Base
     # we want to show it at bottom of ballot, at least temporarily.
     
     if rankings.any?
-      puts Time.now.to_s + " Found " + rankings.size.to_s + " rankings."
+      print rankings.size.to_s + " rankings. "
     else
-      puts Time.now.to_s + " Warning: Found no rankings!"
+      print "Warning: Found no rankings! "
     end
     
     if @votes.any?
-      puts "Found " + @votes.size.to_s + " votes."
+      print @votes.size.to_s + " votes. "
     else
-      puts "Found no votes."
+      print "Found no votes. "
     end
     
     # Make sure shares are nonnegative whole numbers, not all zero:

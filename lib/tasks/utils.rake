@@ -61,6 +61,9 @@ namespace :utils do
   desc "Tally and update rankings for communities that need it"
   task(:tally_update => :environment) do
     
+    now = Time.now
+    puts  'Task utils:tally_update started [%s]'.%([now])
+    
     # Designed to be run once an hour: daily tally update for communities that need it --
     # usually those in the time zone that just passed midnight.
     # If the server was down for a while, this will catch up one day every hour.
@@ -71,25 +74,26 @@ namespace :utils do
     communities = Community.find(:all, :order => "tallied_at, id")
     communities.each do |community|
         
-      puts "=============================== "  + community.id.to_s + ": " + community.name + " =========================="
-      puts Time.now.to_s + " Time to tally?"
+      # puts "=============================== "  + community.id.to_s + ": " + community.name + " =========================="
+      # puts Time.now.to_s + " Time to tally?"
       # Check to see if it's time to tally this community:
       Time.zone = community.time_zone
-      puts "Time zone: " + Time.zone.to_s
-      puts "Last tally cutoff: " + community.tallied_at.in_time_zone.to_s
+      # puts "Time zone: " + Time.zone.to_s
+      # puts "Last tally cutoff: " + community.tallied_at.in_time_zone.to_s
       tally_cutoff = 36.hours.from_now(community.tallied_at).in_time_zone.beginning_of_day
-      puts "Next tally cutoff: " + tally_cutoff.to_s
+      # puts "Next tally cutoff: " + tally_cutoff.to_s
       if 23.hours.from_now(community.tallied_at) > tally_cutoff
-        puts "Warning: Tally interval looks too short!"
+        puts "Warning: Tally interval looks too short for " + community.short_name
       end
       if 25.hours.from_now(community.tallied_at) < tally_cutoff
-        puts "Warning: Tally interval looks too long!"
+        puts "Warning: Tally interval looks too long for " + community.short_name
       end
       
       if tally_cutoff > Time.now
-        puts "Too soon to tally, so skipping this community."
+        # puts "Too soon to tally, so skipping this community."
       else
-        puts "OK, time to tally."
+        # puts "OK, time to tally."
+        print community.id.to_s + "   " + community.short_name + ": "
         
         # Whether or not there are rankings, make sure there are no leftover past_rankings for this date:
         tally_cutoff_date = 12.hours.ago(tally_cutoff).to_date
@@ -116,7 +120,7 @@ namespace :utils do
                                                      community.id,      tally_cutoff,      tally_cutoff], :order => "website_id")
         if rankings.any?
           
-          puts "Found " + rankings.size.to_s + " rankings as of tally cutoff."
+          # print rankings.size.to_s + " rankings. "
           
           community.tally(tally_cutoff, rankings)
           
@@ -127,7 +131,7 @@ namespace :utils do
             ranking.archive(tally_cutoff_date, fundings)
           end
           
-          puts "Next we will calculate and store periodic past rankings."
+          puts "Current rankings tallied. Calculate & store periodic past rankings."
           community.calc_periodic_rankings(tally_cutoff_date)
           # [Should we skip this calc when back-filling for many days? Using a counting loop within main routine?
           #  But if multi-period then it gets trickier...]
@@ -144,7 +148,8 @@ namespace :utils do
       Time.zone = "Pacific Time (US & Canada)"
       puts ""
     end
-    puts "=============================== TALLY UPDATE COMPLETED =========================="
+    puts  'Task utils:tally_update done [%0.7s seconds]'.%([Time.now - now])
+    # puts "=============================== TALLY UPDATE COMPLETED =========================="
     puts "================================================================================="
    }
   end
