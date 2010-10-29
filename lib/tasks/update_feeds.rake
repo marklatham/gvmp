@@ -20,7 +20,7 @@ namespace :feed do
     puts 'We have %d feed urls under consideration'.%( feed_urls.size)
     parse_hash = Feedzirra::Feed.fetch_and_parse( feed_urls, options )
     puts '   and %d feed urls parsed'.%( parse_hash.size)
-    
+    # File.write( "capture.yml", parse_hash.to_yaml )
     # -- list of feed_urls that Feedzirra could not parse
 #     puts '   Feedzirra failed to parse the following urls\n%s\n'.% ([feed_urls -parse_hash.keys])
     # --

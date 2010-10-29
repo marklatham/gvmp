@@ -61,8 +61,8 @@ namespace :utils do
   desc "Tally and update rankings for communities that need it"
   task(:tally_update => :environment) do
     
-    now = Time.now
-    puts  'Task utils:tally_update started [%s]'.%([now])
+    start_time = Time.now
+    puts  'Task utils:tally_update started [%s]'.%([start_time])
     
     # Designed to be run once an hour: daily tally update for communities that need it --
     # usually those in the time zone that just passed midnight.
@@ -137,8 +137,9 @@ namespace :utils do
           #  But if multi-period then it gets trickier...]
           
         else
-          puts "But there are no rankings to tally. Nonetheless, we deleted any leftover past_rankings for this date & "
-          puts "community, set any funding allocations to 0%, and moved the tallied_at date forward."
+          puts "0 rankings."
+          # puts "But there are no rankings to tally. Nonetheless, we deleted any leftover past_rankings for this date & "
+          # puts "community, set any funding allocations to 0%, and moved the tallied_at date forward."
         end
         
         community.tallied_at = tally_cutoff # This field is updated even if there were no rankings.
@@ -146,9 +147,8 @@ namespace :utils do
         
       end
       Time.zone = "Pacific Time (US & Canada)"
-      puts ""
     end
-    puts  'Task utils:tally_update done [%0.7s seconds]'.%([Time.now - now])
+    puts  'Task utils:tally_update done [%0.7s seconds]'.%([Time.now - start_time])
     # puts "=============================== TALLY UPDATE COMPLETED =========================="
     puts "================================================================================="
    }

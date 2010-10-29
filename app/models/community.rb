@@ -332,7 +332,7 @@ class Community < ActiveRecord::Base
       
         PastRanking.create!({:ranking_id => past_ranking.ranking_id, :community_id => self.id,
                              :website_id => past_ranking.website_id, :rank => 0, # rank will be set later
-                             :tallied_at => self.tallied_at, :share => share, :funds => funds, :award => award,
+                             :tallied_at => tally_cutoff_date, :share => share, :funds => funds, :award => award,
           :period => period, :start => first_ranked_date, :latest => last_ranked_date, :end => end_of_period})
       end
     end
