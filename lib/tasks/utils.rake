@@ -12,32 +12,35 @@ namespace :utils do
   desc "Make sure every ip_address in Votes table has a data record in Ips table"
   task(:create_ips => :environment) do
     
+    start_time = Time.now
+    puts  'Task utils:create_ips started [%s]'.%([start_time])
+    
     latest_ip = Ip.find(:last, :order => "id")
     puts latest_ip.id
     puts 1.day.ago(latest_ip.created_at)
-    votes = Vote.find(:all, :conditions => ["created_at > ?", 1.day.ago(latest_ip.created_at)],
-                      :group => "ip_address", :order => "id")
-    puts votes.size.to_s + " distinct ip addresses found in votes"
+    ips = Vote.find(:all, :conditions => ["created_at > ?", 1.day.ago(latest_ip.created_at)],
+                      :group => "ip_address", :order => "id").map(&:ip_address).compact
+    puts ips.size.to_s + " distinct ip addresses found in votes"
     old_counter = 0
     new_counter = 0
     errors = 0
     
-    votes.each do |vote|
+    ips.each do |ip|
       
-      if Ip.find_by_ip_address(vote.ip_address)
+      if Ip.find_by_ip_address(ip)
         old_counter += 1
-        puts vote.ip_address + " already in"
+        puts ip + " already in"
       else
         new_counter +=1
-        puts vote.ip_address + " not in"
+        puts ip + " not in"
       
-        array = vote.ip_address.split('.')
+        array = ip.split('.')
         ipnum = 16777216*array[0].to_i + 65536*array[1].to_i + 256*array[2].to_i + array[3].to_i
       
         if geo_ip = GeoIp.find(:first, :conditions => ["start_ip <= ? and end_ip >= ?", ipnum, ipnum])
           if location = GeoIpLocation.find_by_id(geo_ip.geo_ip_location_id)
             
-            Ip.create!({:ip_address => vote.ip_address, :integer_ip => ipnum,
+            Ip.create!({:ip_address => ip, :integer_ip => ipnum,
                         :geo_ip_location_id => location.id, :country => location.country,
                         :region => location.region, :city => location.city, :postal_code => location.postal_code,
                         :latitude => location.latitude, :longitude => location.longitude,
@@ -56,6 +59,7 @@ namespace :utils do
     puts old_counter.to_s + " existing ip addresses"
     puts new_counter.to_s + " new ip addresses"
     puts errors.to_s + " errors where we couldn't find matching data"
+    puts  'Task utils:create_ips done [%0.7s seconds]'.%([Time.now - start_time])
   end
   
   desc "Tally and update rankings for communities that need it"

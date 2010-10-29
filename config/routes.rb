@@ -46,6 +46,7 @@ ActionController::Routing::Routes.draw do |map|
   map.temp             '/temp',                :controller => 'minimal',     :action => 'temp' # For temporary use; not part of website.
   map.publications     '/publications',        :controller => 'pubs',        :action => 'index'
   map.gpw              '/gpw',                 :controller => 'clippings',   :action => 'gpw'
+  map.votesummary      '/votesummary',         :controller => 'votes',       :action => 'summary'
   
   map.horserace        '/:idstring/horserace', :controller => 'communities', :action => 'horserace'
   map.horserace_old    '/horserace/:id',       :controller => 'communities', :action => 'horserace'
@@ -88,7 +89,7 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
 
   map.connect ':controller.:format'
-  map.connect ':controller/:action' # Why doesn't this work for /clippings/gpw ? So created map.gpw instead.
+  map.connect ':controller/:action' # Why doesn't this work for /clippings/gpw etc? So created map.gpw etc instead.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
 end

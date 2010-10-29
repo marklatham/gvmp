@@ -8,7 +8,15 @@ class VotesController < ApplicationController
   index.before do
     @votes = Vote.find(:all, :order => "id DESC", :limit => "600")
   end
-
+  
+  def summary
+    @votes = Vote.find(:all, :order => "id DESC", :limit => "600")
+    respond_to do |format|
+      format.html
+      format.yaml { render :yaml => @votes }
+    end
+  end
+  
   create.flash  "Vote successfully created."
   update.flash  "Vote was successfully updated."
   destroy.flash "Vote removed."
