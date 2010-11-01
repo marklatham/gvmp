@@ -9,6 +9,100 @@ namespace :utils do
     end
   end
   
+  desc "How many days since the last day this ip voted on this community?"
+  task(:calc_days => :environment) do
+    
+    start_time = Time.now
+    puts  'Task utils:calc_days started [%s]'.%([start_time])
+    
+    votes = Vote.find(:all, :limit => 5000, :conditions => ["days IS NULL"], :order => "id")
+    puts votes.size.to_s + " new votes"
+    
+    votes.each do |vote|
+      
+      if community = Community.find_by_id(vote.community_id)
+        Time.zone = community.time_zone
+      else
+        Time.zone = "Pacific Time (US & Canada)"
+      end
+      
+      if previous_vote = Vote.find(:last, :conditions => ["community_id = ? and ip_address = ? and created_at < ?",
+                             vote.community_id, vote.ip_address, vote.created_at.in_time_zone.beginning_of_day], :order => "id")
+        vote.days = (vote.created_at.in_time_zone.to_date - previous_vote.created_at.in_time_zone.to_date).to_f
+        vote.save
+      else
+        vote.days = 0
+        vote.save
+      end
+      
+    end
+    
+    puts 'Task utils:calc_days done [%0.7s seconds]'.%([Time.now - start_time])
+    puts '====================================='
+  end
+  
+  desc "For new votes, calculate vote.days; and make sure vote.ip_address has a record in Ips table."
+  task(:process_votes => :environment) do
+    
+    start_time = Time.now
+    puts  'Task utils:process_votes started [%s]'.%([start_time])
+    
+    votes = Vote.find(:all, :conditions => ["days IS NULL"], :order => "id")
+    puts votes.size.to_s + " new votes"
+    
+    old_counter = 0
+    new_counter = 0
+    errors = 0
+    
+    votes.each do |vote|
+      
+      if community = Community.find_by_id(vote.community_id)
+        Time.zone = community.time_zone
+      else
+        Time.zone = "Pacific Time (US & Canada)"
+      end
+      if previous_vote = Vote.find(:last, :conditions => ["community_id = ? and ip_address = ? and created_at < ?",
+                             vote.community_id, vote.ip_address, vote.created_at.in_time_zone.beginning_of_day], :order => "id")
+        vote.days = (vote.created_at.in_time_zone.to_date - previous_vote.created_at.in_time_zone.to_date).to_f
+        vote.save
+      else
+        vote.days = 0
+        vote.save
+      end
+      
+      if Ip.find_by_ip_address(vote.ip_address)
+        old_counter += 1
+        puts vote.ip_address + " already in"
+      else
+        new_counter +=1
+        puts vote.ip_address + " not in"
+        array = vote.ip_address.split('.')
+        ipnum = 16777216*array[0].to_i + 65536*array[1].to_i + 256*array[2].to_i + array[3].to_i
+        if geo_ip = GeoIp.find(:first, :conditions => ["start_ip <= ? and end_ip >= ?", ipnum, ipnum])
+          if location = GeoIpLocation.find_by_id(geo_ip.geo_ip_location_id)
+            Ip.create!({:ip_address => vote.ip_address, :integer_ip => ipnum,
+                        :geo_ip_location_id => location.id, :country => location.country,
+                        :region => location.region, :city => location.city, :postal_code => location.postal_code,
+                        :latitude => location.latitude, :longitude => location.longitude,
+                        :metro_code => location.metro_code, :area_code => location.area_code})
+          else
+            errors +=1
+            puts "No location found."
+          end
+        else
+          errors +=1
+          puts "No geo_ip found."
+        end
+      end
+      
+    end
+    puts old_counter.to_s + " existing ip addresses"
+    puts new_counter.to_s + " new ip addresses"
+    puts errors.to_s + " errors where we couldn't find matching data"
+    puts 'Task utils:process_votes done [%0.7s seconds]'.%([Time.now - start_time])
+    puts '====================================='
+  end
+  
   desc "Make sure every ip_address in Votes table has a data record in Ips table"
   task(:create_ips => :environment) do
     

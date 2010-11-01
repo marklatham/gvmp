@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101019203500) do
+ActiveRecord::Schema.define(:version => 20101031222216) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(:version => 20101019203500) do
   end
 
   create_table "geo_ips", :force => true do |t|
-    t.integer  "start_ip"
-    t.integer  "end_ip"
+    t.integer  "start_ip",           :limit => 8
+    t.integer  "end_ip",             :limit => 8
     t.integer  "geo_ip_location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -307,6 +307,7 @@ ActiveRecord::Schema.define(:version => 20101019203500) do
     t.integer  "ballot_type",  :default => 0
     t.string   "agent",        :default => ""
     t.string   "place",        :default => ""
+    t.float    "days"
   end
 
   create_table "websites", :force => true do |t|
