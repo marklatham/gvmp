@@ -36,7 +36,7 @@ namespace :utils do
       end
       
     end
-    
+    Time.zone = "Pacific Time (US & Canada)"
     puts 'Task utils:calc_days done [%0.7s seconds]'.%([Time.now - start_time])
     puts '====================================='
   end
@@ -96,6 +96,7 @@ namespace :utils do
       end
       
     end
+    Time.zone = "Pacific Time (US & Canada)"
     puts old_counter.to_s + " existing ip addresses"
     puts new_counter.to_s + " new ip addresses"
     puts errors.to_s + " errors where we couldn't find matching data"

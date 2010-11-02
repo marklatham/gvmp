@@ -50,6 +50,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.horserace        '/:idstring/horserace', :controller => 'communities', :action => 'horserace'
   map.horserace_old    '/horserace/:id',       :controller => 'communities', :action => 'horserace'
+  map.community_votes  '/:idstring/votes',     :controller => 'communities', :action => 'votes'
   
   map.idstring         '/:idstring',           :controller => 'communities', :action => 'show'
   

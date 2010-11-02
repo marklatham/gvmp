@@ -1,0 +1,9 @@
+- @page_title = @community.short_name +  ": Votes"
+
+%h2
+  = link_to(@community.name, "/" + @community.idstring) + ':'
+  Vote Summary
+
+= render :partial => '/votes/summary_table'
+
+%br

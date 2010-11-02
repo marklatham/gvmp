@@ -8,7 +8,7 @@ class CommunitiesController < ApplicationController
     c.redirect_if_permission_less_than 7.0
   end
 
-  before_filter :only => :fund do |c|
+  before_filter :only => [:fund, :votes] do |c|
     c.redirect_if_permission_less_than 9.0
   end
 
@@ -284,6 +284,14 @@ class CommunitiesController < ApplicationController
                                                                      @community.id,        "day"], :order => "start")
     @latest_day = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
                                                                      @community.id,        "day"], :order => "start DESC")
+  end
+
+  def votes
+    
+    @community = Community.find_by_idstring(params[:idstring])
+    
+    @votes = Vote.find(:all, :conditions => ["community_id = ?", @community.id], :order => "id DESC", :limit => "600")
+    
   end
 
   private
