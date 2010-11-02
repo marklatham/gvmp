@@ -28,7 +28,11 @@
       - else
         - found_flag = FALSE
       %tr{:style => "white-space: nowrap"}
-        %td= h previous_vote.ip_address
+        %td
+          - if found_flag
+            = link_to previous_vote.ip_address, '/ips/votes/' + ip_record.id.to_s
+          - else
+            = h previous_vote.ip_address
         %td{:style => "text-align: right; padding-right: 1em"}= previous_vote.days.to_i if previous_vote.days
         %td
           - if found_flag

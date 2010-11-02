@@ -1,0 +1,9 @@
+- @page_title = "Ip Votes"
+
+%h2
+  Vote Summary for Ip =
+  = @ip.ip_address
+
+= render :partial => '/votes/summary_table'
+
+%br
