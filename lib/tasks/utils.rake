@@ -217,11 +217,14 @@ namespace :utils do
         # Get rankings for this community as of datetime tally_cutoff:
         rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
                                                      community.id,      tally_cutoff,      tally_cutoff], :order => "website_id")
+        
         if rankings.any?
           
           # print rankings.size.to_s + " rankings. "
           
           community.tally(tally_cutoff, rankings)
+          community.tallied_at = tally_cutoff
+          community.save
           
           # Prepare to archive the newly tallied rankings; first, find them: [Or should this be returned from community.tally?]
           rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
@@ -237,12 +240,11 @@ namespace :utils do
           
         else
           puts "0 rankings."
+          community.tallied_at = tally_cutoff # This field is updated even if there were no rankings.
+          community.save
           # puts "But there are no rankings to tally. Nonetheless, we deleted any leftover past_rankings for this date & "
           # puts "community, set any funding allocations to 0%, and moved the tallied_at date forward."
         end
-        
-        community.tallied_at = tally_cutoff # This field is updated even if there were no rankings.
-        community.save
         
       end
       Time.zone = "Pacific Time (US & Canada)"
