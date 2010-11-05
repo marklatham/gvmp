@@ -1,4 +1,4 @@
-%table
+%table{:cellspacing => 0}
   %tr
     %th Ip address
     %th Days
@@ -16,6 +16,7 @@
     -# %th Type
     %th{:style => "text-align: left; padding-left: 2em"} Agent
   
+  - background = "; background: #eee"
   - last_created = @votes[0].created_at
   - count_dittos = 0
   -# Create an extra vote before (to initialize the logic) and after (to make the last vote display) actual votes:
@@ -31,7 +32,8 @@
         - found_flag = TRUE
       - else
         - found_flag = FALSE
-      %tr{:style => "white-space: nowrap"}
+      
+      %tr{:style => "white-space: nowrap" + background}
         %td
           - if found_flag
             = link_to previous_vote.ip_address, '/ips/votes/' + ip_record.id.to_s
@@ -43,15 +45,15 @@
             = ip_record.country
             = ip_record.region
             = truncate(ip_record.city, :length => 12, :omission => '\\')
-        %td
-          - if previous_vote.place
-            = previous_vote.place
-        %td{:style => "text-align: center"}= h previous_vote.community_id
-        %td{:style => "padding-right: 1em"}
+        %td= previous_vote.place if previous_vote.place
+        %td{:style => "text-align: right"}
           - if community = Community.find_by_id(previous_vote.community_id)
-            = link_to(truncate(community.short_name, :length => 20, :omission => '\\'), community_votes_path(community.idstring))
-        %td{:style => "text-align: center"}= h previous_vote.website_id
-        %td
+            = link_to(previous_vote.community_id.to_s, community_votes_path(community.idstring))
+        %td{:style => "padding-left: 0.5em; padding-right: 1em"}
+          - if community
+            = link_to(truncate(community.short_name, :length => 20, :omission => '\\'), "/" + community.idstring)
+        %td{:style => "text-align: right"}= previous_vote.website_id
+        %td{:style => "padding-left: 0.5em"}
           - if website = Website.find_by_id(previous_vote.website_id)
             = truncate(website.title, :length => 20, :omission => '\\')
         %td{:style => "text-align: right; padding-right: 1em"}
@@ -65,6 +67,13 @@
         
         - count_dittos = 0
         - last_created = vote.created_at
+      
+      -# Toggle between shaded rows and non-shaded rows for each voting session = same ip with no gap over 1 hour:
+      - unless vote.ip_address == previous_vote.ip_address && (previous_vote.created_at - vote.created_at) < 60*60
+        - if background == ""
+          - background = "; background: #eee"
+        - else
+          - background = ""
     
     - count_dittos += 1
     - previous_vote = vote
