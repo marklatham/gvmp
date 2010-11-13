@@ -2,6 +2,11 @@
   %div#nav
     %ul
       %li
+        = link_to 'VIDEOS', root_path
+        %ul
+          %li= link_to 'VoterMedia at UBC', '/videos/1'
+          %li= link_to 'How VoterMedia Affects Election Campaigns', '/videos/2'
+      %li
         = link_to 'COMMUNITIES', root_path
         %ul
           %li{:style => "padding-right: 0.5em"}= link_to 'Home / Search / All', root_path
@@ -17,11 +22,6 @@
           %li= link_to 'Ballot Listings', '/faqs#Ballot Listings'
           %li= link_to 'Voting', '/faqs#Voting'
           %li= link_to 'Why VoterMedia Works', '/faqs#Why VoterMedia Works'
-      %li
-        = link_to 'ABOUT/CONTACT', about_contact_path
-        %ul
-          %li= link_to 'What is VoterMedia?', about_contact_path
-          %li= link_to 'VoterMedia Team', '/about_contact#team'
       %li
         = link_to 'LINKS', links_path
         %ul
