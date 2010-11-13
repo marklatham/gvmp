@@ -5,7 +5,19 @@
       = link_to site, root_path
       %span.release 
         beta
-
+    
+    %td
+      -# Google CSE Search Box Begins
+      
+      %form{:id => "searchbox_002073559408216882492:leynycgy7m8", :action => "http://www.google.com/cse"}
+        %input{:value => "002073559408216882492:leynycgy7m8", :name => "cx", :type => "hidden"}
+        %input{:value => "FORID:1", :name => "cof", :type => "hidden"}
+        %input{:name => "q", :size => "25", :type => "text"}
+        %input{:value => "Search VoterMedia", :name => "sa", :type => "submit"}
+      %script{:src => "http://www.google.com/coop/cse/brand?form=searchbox_002073559408216882492%3Aleynycgy7m8", :type => "text/javascript"}
+      
+      -# Google CSE Search Box Ends
+    
     %td#login-nav
       - if current_user
         %span.perm0= h current_user.login
