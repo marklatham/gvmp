@@ -26,7 +26,8 @@
           %td.cell-centred= render_location(community, :city)
           %td.cell-centred.rightborder= render_websites_count(community) 
 
-          = render_community_actions(community)
+          -# Commented out because it was displaying regardless of user permission level (don't know why):
+          -# = render_community_actions(community)
 
       %tr
         %td.footer-row{:colspan => 6}
