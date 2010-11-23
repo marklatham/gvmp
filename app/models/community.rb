@@ -200,6 +200,7 @@ class Community < ActiveRecord::Base
     days_full_value = 10
     days_valid = 60
     ranking_formula_denominator = 50
+    interpolation_range = 10.0
     cutoff = ranking.share + increment
     
     count = 0.00000001 * (100.0 - ranking.share)  # To break ties caused by having no votes. This will equalize shares.
@@ -219,7 +220,7 @@ class Community < ActiveRecord::Base
       #  if decayed_weight > 0.0  # This conditional not needed now that condition always true because of tie-breaker line above.
         
           if vote.ballot_type == 2
-            # ballot_type 2 is Interpolated Consensus with 5% increments:
+            # ballot_type 2 is Interpolated Consensus:
             if vote.support < 0.1
               # This is to catch the special case of vote.support = 0.0 -- no interpolation.
               if cutoff < 0.1
@@ -228,12 +229,12 @@ class Community < ActiveRecord::Base
               else
                 support_fraction = 0.0
               end
-            elsif vote.support - 2.5 > cutoff
+            elsif vote.support - 0.5*interpolation_range > cutoff
               support_fraction = 1.0
-            elsif vote.support + 2.5 < cutoff
+            elsif vote.support + 0.5*interpolation_range < cutoff
               support_fraction = 0.0
             else
-              support_fraction = 0.2 * (vote.support + 2.5 - cutoff)
+              support_fraction = (vote.support + 0.5*interpolation_range - cutoff) / interpolation_range
             end
             
           elsif vote.ballot_type == 101 # Changed from == 1 to in effect comment this out.
@@ -428,7 +429,7 @@ class Community < ActiveRecord::Base
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope eventually
     def featured
-      ids = [82, 96, 94, 51, 52, 81, 5, 205, 3, 151, 116, 109, 223]
+      ids = [82, 96, 94, 51, 52, 81, 5, 205, 59, 3, 151, 116, 109, 223]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
   end

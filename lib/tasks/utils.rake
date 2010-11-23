@@ -207,8 +207,7 @@ namespace :utils do
         fundings = Funding.find(:all, :conditions => ["community_id = ? and date = ?", community.id, tally_cutoff_date])
         fundings.each do |funding|
           if funding.allocated != 0
-            puts "Warning: Funding id " + funding.id.to_s + " was already "
-                                        + funding.allocated.to_s + "% allocated. Resetting to 0%."
+            puts "Warning: Funding id " + funding.id.to_s + " was already " + funding.allocated.to_s + "% allocated. Resetting to 0%."
             funding.allocated = 0
             funding.save
           end
