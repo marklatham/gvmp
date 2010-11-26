@@ -201,7 +201,14 @@ class Community < ActiveRecord::Base
     days_valid = 60
     ranking_formula_denominator = 50
     interpolation_range = 10.0
+    slope = 0.0
     cutoff = ranking.share + increment
+    
+    if ranking.website_id == 232
+      puts "========================================="
+      puts tally_cutoff
+      puts increment
+    end
     
     count = 0.00000001 * (100.0 - ranking.share)  # To break ties caused by having no votes. This will equalize shares.
     votes.each do |vote|
@@ -217,57 +224,62 @@ class Community < ActiveRecord::Base
           decayed_weight = 0.01 / days_old  # To break ties caused by having very few votes.
         end
         
-      #  if decayed_weight > 0.0  # This conditional not needed now that condition always true because of tie-breaker line above.
-        
-          if vote.ballot_type == 2
-            # ballot_type 2 is Interpolated Consensus:
-            if vote.support < 0.1
-              # This is to catch the special case of vote.support = 0.0 -- no interpolation.
-              if cutoff < 0.1
-                support_fraction = 1.0
-                # In case it's useful to see how many voted for 0.0
-              else
-                support_fraction = 0.0
-              end
-            elsif vote.support - 0.5*interpolation_range > cutoff
+        if vote.ballot_type == 2
+          # ballot_type 2 is Interpolated Consensus:
+          if vote.support < 0.1
+            # This is to catch the special case of vote.support = 0.0 -- no interpolation.
+            if cutoff < 0.1
               support_fraction = 1.0
-            elsif vote.support + 0.5*interpolation_range < cutoff
-              support_fraction = 0.0
-            else
-              support_fraction = (vote.support + 0.5*interpolation_range - cutoff) / interpolation_range
-            end
-            
-          elsif vote.ballot_type == 101 # Changed from == 1 to in effect comment this out.
-            # ballot_type 1 is simple percent vote for vote.support:
-            if vote.support >= cutoff
-              support_fraction = 1.0
+              # In case it's useful to see how many voted for 0.0
             else
               support_fraction = 0.0
             end
-            
-          elsif vote.ballot_type == 100 # Changed from == 0 to in effect comment this out.
-            # Ballot_type 0 means voted for "Increase Share" from vote.support = share when voted,
-            # interpreted as uniform distribution of vote from vote.support to 100.0:
-            if vote.support >= cutoff
-              support_fraction = 1.0
-            elsif vote.support >= 100.0 or cutoff > 100.0
-              support_fraction = 0.0
-            else
-              support_fraction = (100.0 - cutoff)/(100.0 - vote.support)
-            end
-            
-          else
-            # No provision for other ballot types at this point:
+          elsif vote.support - 0.5*interpolation_range > cutoff
+            support_fraction = 1.0
+          elsif vote.support + 0.5*interpolation_range < cutoff
             support_fraction = 0.0
-            
+          else
+            support_fraction = (vote.support + 0.5*interpolation_range - cutoff) / interpolation_range
           end
           
-          count += decayed_weight * support_fraction
+        elsif vote.ballot_type == 101 # Changed from == 1 to in effect comment this out.
+          # ballot_type 1 is simple percent vote for vote.support:
+          if vote.support >= cutoff
+            support_fraction = 1.0
+          else
+            support_fraction = 0.0
+          end
           
-      #  end
+        elsif vote.ballot_type == 100 # Changed from == 0 to in effect comment this out.
+          # Ballot_type 0 means voted for "Increase Share" from vote.support = share when voted,
+          # interpreted as uniform distribution of vote from vote.support to 100.0:
+          if vote.support >= cutoff
+            support_fraction = 1.0
+          elsif vote.support >= 100.0 or cutoff > 100.0
+            support_fraction = 0.0
+          else
+            support_fraction = (100.0 - cutoff)/(100.0 - vote.support)
+          end
+          
+        else
+          # No provision for other ballot types at this point:
+          support_fraction = 0.0
+          
+        end
+        
+        count += decayed_weight * support_fraction
+        
+        if ranking.website_id == 232
+          print decayed_weight
+          print ", "
+          puts support_fraction
+        end
+        
       end
     end
-    return count
+    # This is designed to encourage competition by handicapping larger shares. slope = 0.0 means no handicap.
+    sloped_count = count * ( 1.0 - slope*cutoff*0.01 )
+    return sloped_count
   end
   
   # Calculate periodic (non-daily) past_rankings for this community and date:

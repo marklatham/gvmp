@@ -86,14 +86,9 @@ namespace :utils do
     communities = Community.find(:all, :order => "tallied_at, id")
     communities.each do |community|
         
-      # puts "=============================== "  + community.id.to_s + ": " + community.name + " =========================="
-      # puts Time.now.to_s + " Time to tally?"
       # Check to see if it's time to tally this community:
       Time.zone = community.time_zone
-      # puts "Time zone: " + Time.zone.to_s
-      # puts "Last tally cutoff: " + community.tallied_at.in_time_zone.to_s
       tally_cutoff = 36.hours.from_now(community.tallied_at).in_time_zone.beginning_of_day
-      # puts "Next tally cutoff: " + tally_cutoff.to_s
       if 23.hours.from_now(community.tallied_at) > tally_cutoff
         puts "Warning: Tally interval looks too short for " + community.short_name
       end
@@ -101,10 +96,8 @@ namespace :utils do
         puts "Warning: Tally interval looks too long for " + community.short_name
       end
       
-      if tally_cutoff > Time.now
-        # puts "Too soon to tally, so skipping this community."
-      else
-        # puts "OK, time to tally."
+      unless tally_cutoff > Time.now
+      
         print community.id.to_s + "   " + community.short_name + ": "
         
         # Whether or not there are rankings, make sure there are no leftover past_rankings for this date:
@@ -154,15 +147,12 @@ namespace :utils do
           puts "0 rankings."
           community.tallied_at = tally_cutoff # This field is updated even if there were no rankings.
           community.save
-          # puts "But there are no rankings to tally. Nonetheless, we deleted any leftover past_rankings for this date & "
-          # puts "community, set any funding allocations to 0%, and moved the tallied_at date forward."
         end
         
       end
       Time.zone = "Pacific Time (US & Canada)"
     end
     puts  'Task utils:tally_update done [%0.7s seconds]'.%([Time.now - start_time])
-    # puts "=============================== TALLY UPDATE COMPLETED =========================="
     puts "================================================================================="
    }
   end
