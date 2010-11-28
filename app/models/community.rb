@@ -51,23 +51,23 @@ class Community < ActiveRecord::Base
   # This algorithm doesn't handle tie votes "fairly": it gives all the tied share to the first website.
   # So should probably be enhanced some time to make it fairer. But this problem is not significant when there are many
   # votes and some are over 10 days old.
-        
+    
     # How to select the latest vote from each IP address for each website?:
     # This doesn't get all data fields, so no good I guess:
-    #    @votes = Vote.maximum(:updated_at, 
+    #    votes = Vote.maximum(:updated_at, 
     #                               :conditions => ["community_id = ?", self.id],                     
     #                               :group => "ip_address, website_id")    
 
     # Found example at http://stackoverflow.com/questions/1129792/rails-active-record-find-in-conjunction-with-order-and-group
-    # but unsure how to code with just one query, so used naive way with too many queries:
+    # but unsure how to code with just one query, so used this slow naive way with too many queries:
 
     # This almost works, but returns the first record of each group (by ID, regardless of how sorted)
     # while we want the latest record:
-    @votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
-                                                             self.id,           tally_cutoff,  ""],
+    votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
+                                                       self.id,      tally_cutoff,            ""],
                        :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
     # So this finds last record in each group:
-    @votes.each do |vote|
+    votes.each do |vote|
       temp = Vote.find(:last, :conditions => ["community_id = ? and created_at < ? and website_id = ? and ip_address = ?",
                                          self.id, tally_cutoff, vote.website_id, vote.ip_address], :order => "created_at")
       vote.created_at = temp.created_at
@@ -88,8 +88,8 @@ class Community < ActiveRecord::Base
       print "Warning: Found no rankings! "
     end
     
-    if @votes.any?
-      print @votes.size.to_s + " votes. "
+    if votes.any?
+      print votes.size.to_s + " votes. "
     else
       print "Found no votes. "
     end
@@ -100,58 +100,49 @@ class Community < ActiveRecord::Base
       if ranking.share < 0.0
         ranking.share = 0.0
       end
-      ranking.save
     end
     if rankings.sum(&:share) <= 0.0
       rankings.each do |ranking|
         ranking.share = 1.0
-        ranking.save
       end
     end
 
     # Calculate count0 (# votes for share or more) and count1 (# votes for share+1 or more) for each ranking:
     rankings.each do |ranking|
-      ranking.count0 = countVotes(tally_cutoff, @votes, ranking, 0.0)
-      ranking.count1 = countVotes(tally_cutoff, @votes, ranking, 1.0)
-      ranking.save
+      ranking.count0 = countVotes(tally_cutoff, votes, ranking, 0.0)
+      ranking.count1 = countVotes(tally_cutoff, votes, ranking, 1.0)
     end
     
     # Need to adjust shares until they sum to 100.0 and max_count1 <= min_count0(for websites with positive shares).
-    # @max_count1 is the ranking record for the website that most deserves to have its share increased.
-    # @min_count0 is the ranking record for the website that most deserves to have its share decreased.
+    # max_count1 is the ranking record for the website that most deserves to have its share increased.
+    # min_count0 is the ranking record for the website that most deserves to have its share decreased.
     
-    @max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
+    max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
     # Can only reduce a share if it's positive, so:
     rankings_pos = rankings.find_all {|r| r.share > 0.0 }
-    @min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
-    # but if all shares = 0.0, @min_count0 is nil which gives error; hence prevented above.
+    min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+    # but if all shares = 0.0, min_count0 is nil which gives error; hence prevented above.
     
     # If shares sum to more than 100 (which shouldn't happen, but just in case), decrease 1 at a time:
     while rankings.sum(&:share) > 100.0
-      @min_count0.share -= 1.0
-      @min_count0.count1 = @min_count0.count0
-      @min_count0.count0 = countVotes(tally_cutoff, @votes, @min_count0, 0.0)
-      @min_count0.save
+      min_count0.share -= 1.0
+      min_count0.count1 = min_count0.count0
+      min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0)
       
-      rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
-                                                             self.id,   tally_cutoff,    tally_cutoff], :order => "website_id")
-      @max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
+      max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
-      @min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+      min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
     end
     
     # If shares sum to less than 100 (e.g. when first website[s] added), increase 1 at a time:
     while rankings.sum(&:share) < 100.0
-      @max_count1.share += 1.0
-      @max_count1.count0 = @max_count1.count1
-      @max_count1.count1 = countVotes(tally_cutoff, @votes, @max_count1, 1.0)
-      @max_count1.save
+      max_count1.share += 1.0
+      max_count1.count0 = max_count1.count1
+      max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0)
       
-      rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
-                                                             self.id,   tally_cutoff,    tally_cutoff], :order => "website_id")
-      @max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
+      max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
-      @min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+      min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
     end
 
     # Main loop: Adjust shares until max_count1 <= min_count0 i.e. find a cutoff number of votes (actually a range of cutoffs)
@@ -160,31 +151,26 @@ class Community < ActiveRecord::Base
     # If the highest bid is higher than the lowest offer, then a trade of 1% happens.
     # It's a competitive market for public goods:
     
-    while @min_count0.count0 < @max_count1.count1
-      # Move one percent share from @min_count0 to @max_count1
+    while min_count0.count0 < max_count1.count1
+      # Move one percent share from min_count0 to max_count1
       
-      @min_count0.share -= 1.0
-      @min_count0.count1 = @min_count0.count0
-      @min_count0.count0 = countVotes(tally_cutoff, @votes, @min_count0, 0.0)
-      @min_count0.save
+      min_count0.share -= 1.0
+      min_count0.count1 = min_count0.count0
+      min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0)
       
-      @max_count1.share += 1.0
-      @max_count1.count0 = @max_count1.count1
-      @max_count1.count1 = countVotes(tally_cutoff, @votes, @max_count1, 1.0)
-      @max_count1.save
+      max_count1.share += 1.0
+      max_count1.count0 = max_count1.count1
+      max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0)
       
-      rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
-                                                             self.id,   tally_cutoff,    tally_cutoff], :order => "website_id")
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
-      @min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
-      @max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
+      min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+      max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
     end
     
-    # Share calculations are now completed, so store rank of each website in this community:
-    
-      rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
-                                                             self.id,   tally_cutoff,    tally_cutoff],
-                             :order => "share DESC, count1 DESC, created_at DESC")
+    # Share calculations are now completed, so sort & store rank of each website in this community:
+    rankings.sort! do |a,b|
+      [b.share, b.count1, b.created_at] <=> [a.share, a.count1, a.created_at]
+    end
     rank_sequence = 0
     rankings.each do |ranking|
       rank_sequence += 1
@@ -194,7 +180,7 @@ class Community < ActiveRecord::Base
     end
     
   end
-
+  
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
   def countVotes(tally_cutoff, votes, ranking, increment)
     days_full_value = 10
@@ -221,7 +207,7 @@ class Community < ActiveRecord::Base
         elsif days_old < days_valid
           decayed_weight = (days_valid - days_old) / ranking_formula_denominator.to_f
         else
-          decayed_weight = 0.01 / days_old  # To break ties caused by having very few votes.
+          decayed_weight = 0.01 / days_old  # To break ties caused by having no votes during days_valid.
         end
         
         if vote.ballot_type == 2
@@ -270,6 +256,8 @@ class Community < ActiveRecord::Base
         count += decayed_weight * support_fraction
         
         if ranking.website_id == 232
+          print vote.id
+          print ", "
           print decayed_weight
           print ", "
           puts support_fraction
