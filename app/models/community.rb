@@ -48,31 +48,35 @@ class Community < ActiveRecord::Base
   
   def tally(tally_cutoff, rankings)
   # Should skip this if community has no websites/rankings or no votes, else probably get error.
-  # This algorithm doesn't handle tie votes "fairly": it gives all the tied share to the first website.
-  # So should probably be enhanced some time to make it fairer. But this problem is not significant when there are many
-  # votes and some are over 10 days old.
     
     # How to select the latest vote from each IP address for each website?:
     # This doesn't get all data fields, so no good I guess:
     #    votes = Vote.maximum(:updated_at, 
     #                               :conditions => ["community_id = ?", self.id],                     
     #                               :group => "ip_address, website_id")    
-
-    # Found example at http://stackoverflow.com/questions/1129792/rails-active-record-find-in-conjunction-with-order-and-group
-    # but unsure how to code with just one query, so used this slow naive way with too many queries:
-
+    
     # This almost works, but returns the first record of each group (by ID, regardless of how sorted)
     # while we want the latest record:
+    # votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
+    #                                                    self.id,      tally_cutoff,            ""],
+    #                    :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
+    
+    # So find votes sorted:
     votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
                                                        self.id,      tally_cutoff,            ""],
-                       :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
-    # So this finds last record in each group:
-    votes.each do |vote|
-      temp = Vote.find(:last, :conditions => ["community_id = ? and created_at < ? and website_id = ? and ip_address = ?",
-                                         self.id, tally_cutoff, vote.website_id, vote.ip_address], :order => "created_at")
-      vote.created_at = temp.created_at
-      vote.support = temp.support
-      vote.ballot_type = temp.ballot_type
+                            :order => "ip_address, website_id, created_at DESC")
+    
+    # Only count the latest vote from each ip_address on each website.
+    # For each [ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
+    keep_vote = votes[0]
+    index = 1
+    while votes[index]  # i.e. until we have gone past the end of votes array
+      if votes[index].ip_address ==  keep_vote.ip_address &&  votes[index].website_id == keep_vote. website_id
+        votes.delete(votes[index])
+      else
+        keep_vote = votes[index]
+        index += 1
+      end
     end
     
     unless self.tallied_at == rankings[0].tallied_at
@@ -129,9 +133,9 @@ class Community < ActiveRecord::Base
       min_count0.count1 = min_count0.count0
       min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0)
       
-      max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
       min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+      max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
     end
     
     # If shares sum to less than 100 (e.g. when first website[s] added), increase 1 at a time:
@@ -140,9 +144,9 @@ class Community < ActiveRecord::Base
       max_count1.count0 = max_count1.count1
       max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0)
       
-      max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
       min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
+      max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
     end
 
     # Main loop: Adjust shares until max_count1 <= min_count0 i.e. find a cutoff number of votes (actually a range of cutoffs)
@@ -152,7 +156,7 @@ class Community < ActiveRecord::Base
     # It's a competitive market for public goods:
     
     while min_count0.count0 < max_count1.count1
-      # Move one percent share from min_count0 to max_count1
+      # Move one percent share from min_count0 to max_count1:
       
       min_count0.share -= 1.0
       min_count0.count1 = min_count0.count0
@@ -167,7 +171,7 @@ class Community < ActiveRecord::Base
       max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
     end
     
-    # Share calculations are now completed, so sort & store rank of each website in this community:
+    # Share calculations are now completed, so sort & store rankings for this community:
     rankings.sort! do |a,b|
       [b.share, b.count1, b.created_at] <=> [a.share, a.count1, a.created_at]
     end
