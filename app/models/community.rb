@@ -194,7 +194,7 @@ class Community < ActiveRecord::Base
     slope = 0.0
     cutoff = ranking.share + increment
     
-    if ranking.website_id == 232
+    if ranking.website_id == 9232 #remove the 9 to get diagnostics on AMS Confidential tally
       puts "========================================="
       puts tally_cutoff
       puts increment
@@ -259,7 +259,7 @@ class Community < ActiveRecord::Base
         
         count += decayed_weight * support_fraction
         
-        if ranking.website_id == 232
+        if ranking.website_id == 9232 #remove the 9 to get diagnostics on AMS Confidential tally
           print vote.id
           print ", "
           print decayed_weight
@@ -277,6 +277,9 @@ class Community < ActiveRecord::Base
   # Calculate periodic (non-daily) past_rankings for this community and date:
   def calc_periodic_rankings(tally_cutoff_date)
     
+    if self.id == 82
+      puts "======= UBC calc_periodic_rankings diagnostics: ========"
+    end
     PastRanking.delete_all(["community_id = ? and period != ? and start <= ? and end >= ?",
                                     self.id,       "day", tally_cutoff_date, tally_cutoff_date])
     
@@ -328,13 +331,21 @@ class Community < ActiveRecord::Base
                                ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
                                        self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])
           share = award * 100 / funds
+          if self.id == 82
+            puts past_ranking.id.to_s + ", " + past_ranking.website_id.to_s + ", " + share.to_s + 
+                ", " + award.to_s + ", " + funds.to_s + ", FUNDED"
+          end
         else
           award = 0
           share = PastRanking.sum(:share, :conditions => 
                                ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
                                        self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
         end
-      
+        
+        if self.id == 82
+          puts past_ranking.id.to_s + ", " + past_ranking.website_id.to_s + ", " + share.to_s + 
+                ", " + award.to_s + ", " + funds.to_s + ", " + period
+        end
         PastRanking.create!({:ranking_id => past_ranking.ranking_id, :community_id => self.id,
                              :website_id => past_ranking.website_id, :rank => 0, # rank will be set later
                              :tallied_at => self.tallied_at, :share => share, :funds => funds, :award => award,
