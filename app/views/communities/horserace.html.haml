@@ -1,3 +1,4 @@
+- start_time = Time.now
 - @page_title = @community.short_name +  ": Horserace"
 
 %h2{:style => "text-align: center"}
@@ -16,5 +17,8 @@
   = render :partial => 'horserace_table'
 - else
   %p{:style => "text-align: center"} [There are no past funding shares from this ballot yet.]
+
+- if current_user and (current_user.permission >= 7.0)
+  %td.permission= Time.now - start_time
 
 %br

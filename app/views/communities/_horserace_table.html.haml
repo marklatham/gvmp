@@ -64,7 +64,7 @@
       %td.header-centred Award
   
   - date_tracker = @latest_day.start
-  - while date_tracker >= @earliest_day.start && date_tracker >= 3.months.ago(@latest_day.start) do
+  - while date_tracker >= @earliest_day.start do # && date_tracker >= 3.months.ago(@latest_day.start) do
     - @row_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start = ?", @community.id, "day", date_tracker], :order => "share DESC")
     - if @row_rankings[0]
       %tr{:class => cycle('list-line-odd', 'list-line-even')}
