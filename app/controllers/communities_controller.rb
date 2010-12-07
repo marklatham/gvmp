@@ -270,20 +270,48 @@ class CommunitiesController < ApplicationController
 
   def horserace
     
+    # This handles both URL formats like /ubc and /communities/82 :
     unless @community = Community.find_by_idstring(params[:idstring])
       @community = Community.find(params[:id])
     end
     
-    @master_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and share > 0",
-                                                    @community.id, "year", Date.today.beginning_of_year], :order => "share DESC")
-    @earliest_month = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
-                                                                     @community.id,        "month"], :order => "start")
-    @latest_month = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
-                                                                     @community.id,        "month"], :order => "start DESC")
-    @earliest_day = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
-                                                                     @community.id,        "day"], :order => "start")
-    @latest_day = PastRanking.find(:first, :conditions => ["community_id = ? and period = ?",
-                                                                     @community.id,        "day"], :order => "start DESC")
+    # Select rows to display in horserace table:
+    
+    @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ?",
+                            @community.id, "year", 4.years.ago(Date.today).beginning_of_year], :order => "start DESC, rank")
+    if @yearly_rankings.any?
+      @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ?",
+                            @community.id, "month", 1.year.ago(Date.today).beginning_of_year], :order => "start DESC")
+      
+      funded_months = @monthly_rankings.select{|mr| mr.funds > 0}
+      if funded_months.any?
+        earliest_day = [funded_months.map(&:start).min, 3.months.ago(Date.today)].min.beginning_of_month
+      else
+        earliest_day = 3.months.ago(Date.today).beginning_of_month
+      end
+      
+      @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ?",
+                                                           @community.id, "day", earliest_day], :order => "start DESC")
+      
+      # Select columns (i.e. websites) to display in horserace table:
+      
+      @website_ids =
+          @yearly_rankings.select{|yr| yr.share > 0 && yr.start == @yearly_rankings[0].start.beginning_of_year}.map(&:website_id)
+      
+      prior_year = @yearly_rankings.select{|yr| yr.share > 0 && yr.start == 1.year.ago(@yearly_rankings[0].start.beginning_of_year)}
+      
+      if prior_year.any?
+        prior_year_ids = prior_year.map(&:website_id)
+        if prior_year[0].funds > 0
+          @website_ids = @website_ids | prior_year_ids
+        elsif @website_ids.size < 8
+          @website_ids = @website_ids | prior_year_ids
+          @website_ids = @website_ids[0..7]
+        end
+      end
+      
+    end
+    
   end
 
   def votes
