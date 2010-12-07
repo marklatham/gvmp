@@ -1,12 +1,6 @@
 %table#table1{:cellspacing => 0, :style => "width: 20%; margin: auto;"}
 
-  %tr.header
-    %td.header-centred-grey{:style => "line-height: 36px"} Period
-    %td.header-centred-grey Total
-    - for website_id in @website_ids
-      %td.header-centred-grey{:colspan => 3}
-        - if website = Website.find(:first, :conditions => ["id = ?", website_id])
-          = link_to truncate(website.title, :length => 55, :omission => "..."), website.url
+  = render :partial => 'horserace_header'
 
   - periods = ['year', 'month', 'day']
   - periods.each do |period|
@@ -23,6 +17,7 @@
       - rankings = @daily_rankings
       - date_format = "%Y-%m-%d"
       - share_precision = 0
+      = render :partial => 'horserace_header'
     
     %tr.header
       %td.header-centred= period.capitalize
@@ -71,10 +66,4 @@
       %td.header-centred Share
       %td.header-centred Award
   
-  %tr.header
-    %td.header-centred-grey{:style => "line-height: 36px"} Period
-    %td.header-centred-grey Total
-    - for website_id in @website_ids
-      %td.header-centred-grey{:colspan => 3}
-        - if website = Website.find(:first, :conditions => ["id = ?", website_id])
-          = link_to truncate(website.title, :length => 55, :omission => "..."), website.url
+  = render :partial => 'horserace_header'

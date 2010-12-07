@@ -1,0 +1,7 @@
+%tr.header
+  %td.header-centred-grey{:style => "line-height: 36px"} Period
+  %td.header-centred-grey Total
+  - for website_id in @website_ids
+    %td.header-centred-grey{:colspan => 3}
+      - if website = Website.find(:first, :conditions => ["id = ?", website_id])
+        = link_to truncate(website.title, :length => 55, :omission => "..."), website.url
