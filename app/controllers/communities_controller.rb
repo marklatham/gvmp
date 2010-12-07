@@ -277,10 +277,10 @@ class CommunitiesController < ApplicationController
     
     # Select rows to display in horserace table:
     
-    @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ?",
-                            @community.id, "year", 4.years.ago(Date.today).beginning_of_year], :order => "start DESC, rank")
+    @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
+                            @community.id, "year", 4.years.ago(Date.today)], :order => "start DESC, rank")
     if @yearly_rankings.any?
-      @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ?",
+      @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
                             @community.id, "month", 1.year.ago(Date.today).beginning_of_year], :order => "start DESC")
       
       funded_months = @monthly_rankings.select{|mr| mr.funds > 0}
@@ -290,15 +290,15 @@ class CommunitiesController < ApplicationController
         earliest_day = 3.months.ago(Date.today).beginning_of_month
       end
       
-      @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ?",
+      @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
                                                            @community.id, "day", earliest_day], :order => "start DESC")
       
       # Select columns (i.e. websites) to display in horserace table:
       
       @website_ids =
-          @yearly_rankings.select{|yr| yr.share > 0 && yr.start == @yearly_rankings[0].start.beginning_of_year}.map(&:website_id)
+          @yearly_rankings.select{|yr| yr.share > 0 && yr.end == @yearly_rankings[0].end}.map(&:website_id)
       
-      prior_year = @yearly_rankings.select{|yr| yr.share > 0 && yr.start == 1.year.ago(@yearly_rankings[0].start.beginning_of_year)}
+      prior_year = @yearly_rankings.select{|yr| yr.share > 0 && yr.end == 1.year.ago(@yearly_rankings[0].end)}
       
       if prior_year.any?
         prior_year_ids = prior_year.map(&:website_id)
