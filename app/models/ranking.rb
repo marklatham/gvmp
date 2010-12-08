@@ -3,7 +3,6 @@ class Ranking < ActiveRecord::Base
   belongs_to :community
   
   # Store this ranking record in past_rankings table:
-  
   def archive(tally_cutoff_date, fundings)
     
     pr = PastRanking.create!({:ranking_id => self.id, :community_id => self.community_id, :website_id => self.website_id,
@@ -24,5 +23,5 @@ class Ranking < ActiveRecord::Base
     end
     
   end
-
+  
 end

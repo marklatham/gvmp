@@ -6,23 +6,23 @@
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
     %title= 'VoterMedia' + (@page_title.blank? ? '' : ": #{@page_title}")
     = stylesheet_link_tag 'main', 'screen', :media => "screen"
-
+  
   %body#welcome
     -# Wrapping the body inside a table cell helps prevent small displays like cell phones from compressing everything into too-narrow columns:
     %table{:style => "border-collapse: collapse", :width => "100%"}
       %tr
         %td
-        
+          
           = render 'layouts/header'
-          - cache(:fragment => 'nav') do
+          - cache(:fragment => 'layouts/nav') do
             = render 'layouts/nav'    
-
+          
           #main
             = flash_notice
             = yield
-
+          
           = render 'layouts/main_nav_bottom' 
-
+        
         -# No one was using this: = render 'layouts/uservoice'
         = render 'layouts/analytics'
         

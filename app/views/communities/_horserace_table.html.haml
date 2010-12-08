@@ -7,14 +7,17 @@
     
     - if period == 'year'
       - rankings = @yearly_rankings
+      - date_style = "font-weight: bold"
       - date_format = "%Y"
       - share_precision = 1
     - elsif period == 'month'
       - rankings = @monthly_rankings
-      - date_format = "%B&nbsp;%Y"
+      - date_style = "font-weight: bold"
+      - date_format = "%b&nbsp;%Y"
       - share_precision = 1
     - else
       - rankings = @daily_rankings
+      - date_style = "font-weight: normal; padding-left: 0.3em"
       - date_format = "%Y-%m-%d"
       - share_precision = 0
       = render :partial => 'horserace_header'
@@ -31,8 +34,7 @@
     - group_index = 0
     - until group_index >= rankings.size
       %tr{:class => cycle('list-line-odd', 'list-line-even')}
-        %td.cell-centred.leftborder
-          %strong= rankings[group_index].end.strftime(date_format)
+        %td.cell-centred.leftborder{:style => date_style}= rankings[group_index].end.strftime(date_format)
         %td.cell-centred.funded.rightborder
           %strong= '$' + number_with_precision(rankings[group_index].funds, :precision => 0)
         - for website_id in @website_ids
@@ -57,13 +59,5 @@
         - group_index += 1
         - break if group_index+1 >= rankings.size
       - group_index += 1
-  
-  %tr.header
-    %td.header-centred Day
-    %td.header-centred Funding
-    - for website_id in @website_ids
-      %td.header-centred #
-      %td.header-centred Share
-      %td.header-centred Award
   
   = render :partial => 'horserace_header'
