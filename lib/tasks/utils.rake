@@ -1,6 +1,6 @@
 namespace :utils do
 
-# Tasks below are in our cron jobs, which are grouped in files on RPG server directory /home/votermed/cron/ :
+#  Most tasks below are in our cron jobs, which are grouped in files on RPG server directory /home/votermed/cron/ :
 #  group1 runs hourly at hh:15 -- tasks utils:process_votes and utils:tally_updates
 #  group2 runs hourly at hh:35 -- task feed:load (in update_feeds.rake)
 #  group3 runs daily at 10:55 UTC = 3:55am Pacific -- tasks utils:delete_old_sessions, utils:count_websites, ts:in and ts:in:delta
@@ -113,7 +113,8 @@ namespace :utils do
         fundings = Funding.find(:all, :conditions => ["community_id = ? and date = ?", community.id, tally_cutoff_date])
         fundings.each do |funding|
           if funding.allocated != 0
-            puts "Warning: Funding id " + funding.id.to_s + " was already " + funding.allocated.to_s + "% allocated. Resetting to 0%."
+            puts "Warning: Funding id " + funding.id.to_s + " was already " +
+                  funding.allocated.to_s + "% allocated. Resetting to 0%."
             funding.allocated = 0
             funding.save
           end
@@ -140,8 +141,6 @@ namespace :utils do
           
           puts "Current rankings tallied. Calculate & store periodic past rankings."
           community.calc_periodic_rankings(tally_cutoff_date)
-          # [Should we skip this calc when back-filling for many days? Using a counting loop within main routine?
-          #  But if multi-period then it gets trickier...]
           
         else
           puts "0 rankings."
@@ -153,6 +152,77 @@ namespace :utils do
       Time.zone = "Pacific Time (US & Canada)"
     end
     puts  'Task utils:tally_update done [%0.7s seconds]'.%([Time.now - start_time])
+    puts "================================================================================="
+   }
+  end
+  
+  
+  desc "Recalculate past_rankings for communities where administrator has back-dated community.tallied_at"
+  # You may want to run utils:tally_update first, to make sure all other communities are up to date.
+  task(:tally_past => :environment) do
+    
+    start_time = Time.now
+    puts  'Task utils:tally_past started [%s]'.%([start_time])
+    
+    # Run this once per day of recalc needed:
+   1.times {
+    
+    puts Time.now.to_s + " Finding communities that need recalc."
+    communities = Community.find(:all, :order => "tallied_at, id")
+    communities.each do |community|
+      
+      # puts "====== " + community.id.to_s + "   " + community.short_name + ": "
+      
+      # Check to see if there are past_rankings to recalc for this community:
+      Time.zone = community.time_zone
+      tally_cutoff = 36.hours.from_now(community.tallied_at).in_time_zone.beginning_of_day
+      tally_cutoff_date = 12.hours.ago(tally_cutoff).to_date
+      # puts "Tally cutoff = " + tally_cutoff.to_s + ". Tally cutoff date = " + tally_cutoff_date.to_s
+      
+      unless tally_cutoff > Time.now
+        
+        # print community.id.to_s + "   " + community.short_name + ": "
+        
+        # Make sure any funding allocation totals are reset to 0:
+        fundings = Funding.find(:all, :conditions => ["community_id = ? and date = ?", community.id, tally_cutoff_date])
+        fundings.each do |funding|
+          if funding.allocated != 0
+            puts "Warning: Funding id " + funding.id.to_s + " was already " +
+                  funding.allocated.to_s + "% allocated. Resetting to 0%."
+            funding.allocated = 0
+            funding.save
+          end
+        end
+        
+        # Get past rankings for this community for tally_cutoff_date:
+        past_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start = ?",
+                                                               community.id,     "day", tally_cutoff_date], :order => "website_id")
+        
+        if past_rankings.any?
+          
+          print past_rankings.size.to_s + " past rankings on date " + tally_cutoff_date.to_s + ". "
+          
+          community.tally(tally_cutoff, past_rankings)
+          community.tallied_at = tally_cutoff
+          community.save
+          
+          past_rankings.each do |past_ranking|
+            past_ranking.allocate(fundings)
+          end
+          
+          puts "Tallied. Calculate & store periodic past rankings."
+          community.calc_periodic_rankings(tally_cutoff_date)
+          
+        else
+          puts "No rankings found. Move community.tallied_at forward."
+          community.tallied_at = tally_cutoff # This field is updated even if there were no rankings.
+          community.save
+        end
+        
+      end
+      Time.zone = "Pacific Time (US & Canada)"
+    end
+    puts  'Task utils:tally_past done [%0.7s seconds]'.%([Time.now - start_time])
     puts "================================================================================="
    }
   end
