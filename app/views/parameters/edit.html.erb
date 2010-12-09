@@ -1,0 +1,68 @@
+<h1>Editing parameter</h1>
+
+<% form_for(@parameter) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :as_of %><br />
+    <%= f.datetime_select :as_of %>
+  </p>
+  <p>
+    <%= f.label :community_id %><br />
+    <%= f.text_field :community_id %>
+  </p>
+  <p>
+    <%= f.label :days_full_value %><br />
+    <%= f.text_field :days_full_value %>
+  </p>
+  <p>
+    <%= f.label :days_valid %><br />
+    <%= f.text_field :days_valid %>
+  </p>
+  <p>
+    <%= f.label :ranking_formula_denominator %><br />
+    <%= f.text_field :ranking_formula_denominator %>
+  </p>
+  <p>
+    <%= f.label :interpolation_range %><br />
+    <%= f.text_field :interpolation_range %>
+  </p>
+  <p>
+    <%= f.label :old_votes_weight %><br />
+    <%= f.text_field :old_votes_weight %>
+  </p>
+  <p>
+    <%= f.label :bonus_votes %><br />
+    <%= f.text_field :bonus_votes %>
+  </p>
+  <p>
+    <%= f.label :spread %><br />
+    <%= f.text_field :spread %>
+  </p>
+  <p>
+    <%= f.label :spread_previous %><br />
+    <%= f.text_field :spread_previous %>
+  </p>
+  <p>
+    <%= f.label :start_voting %><br />
+    <%= f.datetime_select :start_voting %>
+  </p>
+  <p>
+    <%= f.label :float1 %><br />
+    <%= f.text_field :float1 %>
+  </p>
+  <p>
+    <%= f.label :tags %><br />
+    <%= f.text_field :tags %>
+  </p>
+  <p>
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @parameter %> |
+<%= link_to 'Back', parameters_path %>

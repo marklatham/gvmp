@@ -47,7 +47,13 @@ class Community < ActiveRecord::Base
   end
   
   def tally(tally_cutoff, rankings)
-  # Should skip this if community has no websites/rankings or no votes, else probably get error.
+    
+    # Get parameters for this community as of tally_cutoff
+    parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = ?", tally_cutoff, self.id], :order => "as_of")
+    unless parameter
+      parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = 0", tally_cutoff], :order => "as_of")
+    end
+    puts "Parameters as of " + parameter.as_of.to_s + " for community_id = " + parameter.community_id.to_s
     
     # How to select the latest vote from each IP address for each website?:
     # This doesn't get all data fields, so no good I guess:
@@ -113,8 +119,8 @@ class Community < ActiveRecord::Base
 
     # Calculate count0 (# votes for share or more) and count1 (# votes for share+1 or more) for each ranking:
     rankings.each do |ranking|
-      ranking.count0 = countVotes(tally_cutoff, votes, ranking, 0.0)
-      ranking.count1 = countVotes(tally_cutoff, votes, ranking, 1.0)
+      ranking.count0 = countVotes(tally_cutoff, votes, ranking, 0.0, parameter)
+      ranking.count1 = countVotes(tally_cutoff, votes, ranking, 1.0, parameter)
     end
     
     # Need to adjust shares until they sum to 100.0 and max_count1 <= min_count0(for websites with positive shares).
@@ -131,7 +137,7 @@ class Community < ActiveRecord::Base
     while rankings.sum(&:share) > 100.0
       min_count0.share -= 1.0
       min_count0.count1 = min_count0.count0
-      min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0)
+      min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0, parameter)
       
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
       min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
@@ -142,7 +148,7 @@ class Community < ActiveRecord::Base
     while rankings.sum(&:share) < 100.0
       max_count1.share += 1.0
       max_count1.count0 = max_count1.count1
-      max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0)
+      max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0, parameter)
       
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
       min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
@@ -160,11 +166,11 @@ class Community < ActiveRecord::Base
       
       min_count0.share -= 1.0
       min_count0.count1 = min_count0.count0
-      min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0)
+      min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0, parameter)
       
       max_count1.share += 1.0
       max_count1.count0 = max_count1.count1
-      max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0)
+      max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0, parameter)
       
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
       min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
@@ -186,38 +192,29 @@ class Community < ActiveRecord::Base
   end
   
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
-  def countVotes(tally_cutoff, votes, ranking, increment)
-    
-    days_full_value = 10
-    days_valid = 60
-    ranking_formula_denominator = 50
-    interpolation_range = 10.0
-    old_votes_weight = 0.01
-    bonus_votes = 0.0
-    spread = 1.0
-    old_spread = 0.00000001
+  def countVotes(tally_cutoff, votes, ranking, increment, parameter)
     
     cutoff = ranking.share + increment
     
-    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239
+    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
       puts "========================================="
       puts "Website_id: " + ranking.website_id.to_s
       puts tally_cutoff
       puts increment
     end
     
-    count = old_spread * (100.0 - ranking.share)  # To break ties caused by having no votes. This will equalize shares.
+    count = parameter.spread_previous * (100.0 - ranking.share)  # To break ties caused by having no votes. This will equalize shares.
     votes.each do |vote|
       if vote.website_id == ranking.website_id && vote.support
         
         # Time decay of vote:
         days_old = (tally_cutoff.to_date - vote.created_at.to_date).to_i
-        if days_old < days_full_value
+        if days_old < parameter.days_full_value
           decayed_weight = 1.0
-        elsif days_old < days_valid
-          decayed_weight = (days_valid - days_old) / ranking_formula_denominator.to_f
+        elsif days_old < parameter.days_valid
+          decayed_weight = (parameter.days_valid - days_old) / parameter.ranking_formula_denominator.to_f
         else
-          decayed_weight = old_votes_weight / days_old  # To break ties caused by having no votes during days_valid.
+          decayed_weight = parameter.old_votes_weight / days_old  # To break ties caused by having no votes during days_valid.
         end
         
         if vote.ballot_type == 2
@@ -230,12 +227,12 @@ class Community < ActiveRecord::Base
             else
               support_fraction = 0.0
             end
-          elsif vote.support - 0.5*interpolation_range > cutoff
+          elsif vote.support - 0.5*parameter.interpolation_range > cutoff
             support_fraction = 1.0
-          elsif vote.support + 0.5*interpolation_range < cutoff
+          elsif vote.support + 0.5*parameter.interpolation_range < cutoff
             support_fraction = 0.0
           else
-            support_fraction = (vote.support + 0.5*interpolation_range - cutoff) / interpolation_range
+            support_fraction = (vote.support + 0.5*parameter.interpolation_range - cutoff) / parameter.interpolation_range
           end
           
         elsif vote.ballot_type == 101 # Changed from == 1 to in effect comment this out.
@@ -265,7 +262,7 @@ class Community < ActiveRecord::Base
         
         count += decayed_weight * support_fraction
         
-        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239
+        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
           print vote.id
           print ", "
           print decayed_weight
@@ -276,7 +273,7 @@ class Community < ActiveRecord::Base
       end
     end
     # This is designed to encourage competition by handicapping larger shares. spread = 1.0 means no handicap:
-    spread_count = count / ( spread**(cutoff*0.01) ) + bonus_votes
+    spread_count = count / ( parameter.spread**(cutoff*0.01) ) + parameter.bonus_votes
     return spread_count
   end
   

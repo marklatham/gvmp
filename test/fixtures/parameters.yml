@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  as_of: 2010-12-08 17:17:28
+  community_id: 1
+  days_full_value: 1.5
+  days_valid: 1.5
+  ranking_formula_denominator: 1.5
+  interpolation_range: 1.5
+  old_votes_weight: 1.5
+  bonus_votes: 1.5
+  spread: 1.5
+  spread_previous: 1.5
+  start_voting: 2010-12-08 17:17:28
+  float1: 1.5
+  tags: MyString
+  notes: MyText
+
+two:
+  as_of: 2010-12-08 17:17:28
+  community_id: 1
+  days_full_value: 1.5
+  days_valid: 1.5
+  ranking_formula_denominator: 1.5
+  interpolation_range: 1.5
+  old_votes_weight: 1.5
+  bonus_votes: 1.5
+  spread: 1.5
+  spread_previous: 1.5
+  start_voting: 2010-12-08 17:17:28
+  float1: 1.5
+  tags: MyString
+  notes: MyText

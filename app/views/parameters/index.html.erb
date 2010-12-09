@@ -1,0 +1,46 @@
+<h1>Listing parameters</h1>
+
+<table>
+  <tr>
+    <th>As of</th>
+    <th>Community</th>
+    <th>Days full value</th>
+    <th>Days valid</th>
+    <th>Ranking formula denominator</th>
+    <th>Interpolation range</th>
+    <th>Old votes weight</th>
+    <th>Bonus votes</th>
+    <th>Spread</th>
+    <th>Spread previous</th>
+    <th>Start voting</th>
+    <th>Float1</th>
+    <th>Tags</th>
+    <th>Notes</th>
+  </tr>
+
+<% @parameters.each do |parameter| %>
+  <tr>
+    <td><%=h parameter.as_of %></td>
+    <td><%=h parameter.community_id %></td>
+    <td><%=h parameter.days_full_value %></td>
+    <td><%=h parameter.days_valid %></td>
+    <td><%=h parameter.ranking_formula_denominator %></td>
+    <td><%=h parameter.interpolation_range %></td>
+    <td><%=h parameter.old_votes_weight %></td>
+    <td><%=h parameter.bonus_votes %></td>
+    <td><%=h parameter.spread %></td>
+    <td><%=h parameter.spread_previous %></td>
+    <td><%=h parameter.start_voting %></td>
+    <td><%=h parameter.float1 %></td>
+    <td><%=h parameter.tags %></td>
+    <td><%=h parameter.notes %></td>
+    <td><%= link_to 'Show', parameter %></td>
+    <td><%= link_to 'Edit', edit_parameter_path(parameter) %></td>
+    <td><%= link_to 'Destroy', parameter, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New parameter', new_parameter_path %>

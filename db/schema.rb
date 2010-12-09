@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101031222216) do
+ActiveRecord::Schema.define(:version => 20101209011728) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -126,17 +126,17 @@ ActiveRecord::Schema.define(:version => 20101031222216) do
   add_index "geo_ips", ["start_ip"], :name => "index_geo_ips_on_start_ip"
 
   create_table "ips", :force => true do |t|
-    t.string   "ip_address",         :default => ""
-    t.integer  "integer_ip"
+    t.string   "ip_address",                      :default => ""
+    t.integer  "integer_ip",         :limit => 8
     t.integer  "geo_ip_location_id"
-    t.string   "country",            :default => ""
-    t.string   "region",             :default => ""
-    t.string   "city",               :default => ""
-    t.string   "postal_code",        :default => ""
+    t.string   "country",                         :default => ""
+    t.string   "region",                          :default => ""
+    t.string   "city",                            :default => ""
+    t.string   "postal_code",                     :default => ""
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "metro_code",         :default => ""
-    t.string   "area_code",          :default => ""
+    t.string   "metro_code",                      :default => ""
+    t.string   "area_code",                       :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -148,6 +148,25 @@ ActiveRecord::Schema.define(:version => 20101031222216) do
     t.string   "url",         :default => ""
     t.string   "category",    :default => ""
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "parameters", :force => true do |t|
+    t.datetime "as_of",                       :default => '2000-01-01 00:00:00'
+    t.integer  "community_id",                :default => 0
+    t.float    "days_full_value",             :default => 10.0
+    t.float    "days_valid",                  :default => 60.0
+    t.float    "ranking_formula_denominator", :default => 50.0
+    t.float    "interpolation_range",         :default => 10.0
+    t.float    "old_votes_weight",            :default => 0.0
+    t.float    "bonus_votes",                 :default => 0.0
+    t.float    "spread",                      :default => 1.0
+    t.float    "spread_previous",             :default => 0.0
+    t.datetime "start_voting",                :default => '2009-11-30 00:00:00'
+    t.float    "float1"
+    t.string   "tags",                        :default => ""
+    t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

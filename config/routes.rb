@@ -1,22 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :links
-
-  map.resources :videos
-
- 
-#  Commented out because we were getting spammed. Reactivate when we get spam screens in place: 
-#  map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
   
   map.root                   :controller => 'communities', :action => 'home_page'
   map.logout    '/logout',   :controller => 'sessions',    :action => 'destroy'
   map.login     '/login',    :controller => 'sessions',    :action => 'new'
   map.register  '/register', :controller => 'users',       :action => 'new'
   map.signup    '/signup',   :controller => 'users',       :action => 'create'
-
-  map.resources :users
-
-  map.resource :session
-
+  
   map.resources :clippings
   map.resources :colleagues
   map.resources :communities, :collection => { :search => :get, :manage => :get } do |community|
@@ -24,14 +13,27 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resources :faqs
   map.resources :links
+  map.resources :parameters
   map.resources :presentations
   map.resources :proposals
   map.resources :pubs
   map.resources :rankings
+  map.resource :session
+  map.resources :users
   map.resources :videos
   map.resources :votes
   map.resources :websites
   
+  map.admin            '/admin',               :controller => 'admin',       :action => 'admin'
+  map.terminal         '/t',                   :controller => 'admin',       :action => 'terminal'
+  map.shared_ips       '/shared_ips',          :controller => 'admin',       :action => 'shared_ips'
+  map.gpw              '/gpw',                 :controller => 'clippings',   :action => 'gpw'
+  map.horserace        '/:idstring/horserace', :controller => 'communities', :action => 'horserace'
+  map.horserace_old    '/horserace/:id',       :controller => 'communities', :action => 'horserace'
+  map.community_votes  '/:idstring/votes',     :controller => 'communities', :action => 'votes'
+  map.idstring         '/:idstring',           :controller => 'communities', :action => 'show'
+  map.mlresume         '/mlresume',            :controller => 'minimal',     :action => 'mlresume'
+  map.temp             '/temp',                :controller => 'minimal',     :action => 'temp' # Temporary use, not part of website.
   map.about_contact    '/about_contact',       :controller => 'public',      :action => 'about_contact'
   map.comdump          '/comdump.yaml',        :controller => 'public',      :action => 'comdump'
   map.terms            '/terms',               :controller => 'public',      :action => 'terms'
@@ -39,20 +41,11 @@ ActionController::Routing::Routes.draw do |map|
   map.how_you_can_help '/how_you_can_help',    :controller => 'public',      :action => 'how_you_can_help'
   map.ubc2010          '/ubc2010',             :controller => 'public',      :action => 'ubc2010'
   map.ubcentry         '/ubcentry',            :controller => 'public',      :action => 'ubcentry'
-  map.admin            '/admin',               :controller => 'admin',       :action => 'admin'
-  map.terminal         '/t',                   :controller => 'admin',       :action => 'terminal'
-  map.shared_ips       '/shared_ips',          :controller => 'admin',       :action => 'shared_ips'
-  map.mlresume         '/mlresume',            :controller => 'minimal',     :action => 'mlresume'
-  map.temp             '/temp',                :controller => 'minimal',     :action => 'temp' # For temporary use; not part of website.
   map.publications     '/publications',        :controller => 'pubs',        :action => 'index'
-  map.gpw              '/gpw',                 :controller => 'clippings',   :action => 'gpw'
   map.votesummary      '/votesummary',         :controller => 'votes',       :action => 'summary'
   
-  map.horserace        '/:idstring/horserace', :controller => 'communities', :action => 'horserace'
-  map.horserace_old    '/horserace/:id',       :controller => 'communities', :action => 'horserace'
-  map.community_votes  '/:idstring/votes',     :controller => 'communities', :action => 'votes'
-  
-  map.idstring         '/:idstring',           :controller => 'communities', :action => 'show'
+  #  Commented out because we were getting spammed. Reactivate when we get spam screens in place: 
+  #  map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
   
   # The priority is based upon order of creation: first created -> highest priority.
 

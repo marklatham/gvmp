@@ -1,0 +1,73 @@
+<p>
+  <b>As of:</b>
+  <%=h @parameter.as_of %>
+</p>
+
+<p>
+  <b>Community:</b>
+  <%=h @parameter.community_id %>
+</p>
+
+<p>
+  <b>Days full value:</b>
+  <%=h @parameter.days_full_value %>
+</p>
+
+<p>
+  <b>Days valid:</b>
+  <%=h @parameter.days_valid %>
+</p>
+
+<p>
+  <b>Ranking formula denominator:</b>
+  <%=h @parameter.ranking_formula_denominator %>
+</p>
+
+<p>
+  <b>Interpolation range:</b>
+  <%=h @parameter.interpolation_range %>
+</p>
+
+<p>
+  <b>Old votes weight:</b>
+  <%=h @parameter.old_votes_weight %>
+</p>
+
+<p>
+  <b>Bonus votes:</b>
+  <%=h @parameter.bonus_votes %>
+</p>
+
+<p>
+  <b>Spread:</b>
+  <%=h @parameter.spread %>
+</p>
+
+<p>
+  <b>Spread previous:</b>
+  <%=h @parameter.spread_previous %>
+</p>
+
+<p>
+  <b>Start voting:</b>
+  <%=h @parameter.start_voting %>
+</p>
+
+<p>
+  <b>Float1:</b>
+  <%=h @parameter.float1 %>
+</p>
+
+<p>
+  <b>Tags:</b>
+  <%=h @parameter.tags %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @parameter.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_parameter_path(@parameter) %> |
+<%= link_to 'Back', parameters_path %>
