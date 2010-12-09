@@ -187,20 +187,26 @@ class Community < ActiveRecord::Base
   
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
   def countVotes(tally_cutoff, votes, ranking, increment)
+    
     days_full_value = 10
     days_valid = 60
     ranking_formula_denominator = 50
     interpolation_range = 10.0
-    slope = 0.0
+    old_votes_weight = 0.01
+    bonus_votes = 0.0
+    spread = 1.0
+    old_spread = 0.00000001
+    
     cutoff = ranking.share + increment
     
-    if ranking.website_id == 9232 #remove the 9 to get diagnostics on AMS Confidential tally
+    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239
       puts "========================================="
+      puts "Website_id: " + ranking.website_id.to_s
       puts tally_cutoff
       puts increment
     end
     
-    count = 0.00000001 * (100.0 - ranking.share)  # To break ties caused by having no votes. This will equalize shares.
+    count = old_spread * (100.0 - ranking.share)  # To break ties caused by having no votes. This will equalize shares.
     votes.each do |vote|
       if vote.website_id == ranking.website_id && vote.support
         
@@ -211,7 +217,7 @@ class Community < ActiveRecord::Base
         elsif days_old < days_valid
           decayed_weight = (days_valid - days_old) / ranking_formula_denominator.to_f
         else
-          decayed_weight = 0.01 / days_old  # To break ties caused by having no votes during days_valid.
+          decayed_weight = old_votes_weight / days_old  # To break ties caused by having no votes during days_valid.
         end
         
         if vote.ballot_type == 2
@@ -259,7 +265,7 @@ class Community < ActiveRecord::Base
         
         count += decayed_weight * support_fraction
         
-        if ranking.website_id == 9232 #remove the 9 to get diagnostics on AMS Confidential tally
+        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239
           print vote.id
           print ", "
           print decayed_weight
@@ -269,9 +275,9 @@ class Community < ActiveRecord::Base
         
       end
     end
-    # This is designed to encourage competition by handicapping larger shares. slope = 0.0 means no handicap.
-    sloped_count = count * ( 1.0 - slope*cutoff*0.01 )
-    return sloped_count
+    # This is designed to encourage competition by handicapping larger shares. spread = 1.0 means no handicap:
+    spread_count = count / ( spread**(cutoff*0.01) ) + bonus_votes
+    return spread_count
   end
   
   # Calculate periodic (non-daily) past_rankings for this community and date:
