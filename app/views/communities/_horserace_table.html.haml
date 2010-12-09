@@ -13,11 +13,11 @@
     - elsif period == 'month'
       - rankings = @monthly_rankings
       - date_style = "font-weight: bold"
-      - date_format = "%b&nbsp;%Y"
+      - date_format = "%b %Y"
       - share_precision = 1
     - else
       - rankings = @daily_rankings
-      - date_style = "font-weight: normal; padding-left: 0.3em"
+      - date_style = "font-weight: normal; padding-left: 0.3em; white-space: nowrap"
       - date_format = "%Y-%m-%d"
       - share_precision = 0
       = render :partial => 'horserace_header'

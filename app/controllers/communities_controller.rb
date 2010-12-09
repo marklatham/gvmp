@@ -295,8 +295,7 @@ class CommunitiesController < ApplicationController
       
       # Select columns (i.e. websites) to display in horserace table:
       
-      @website_ids =
-          @yearly_rankings.select{|yr| yr.share > 0 && yr.end == @yearly_rankings[0].end}.map(&:website_id)
+      @website_ids = @yearly_rankings.select{|yr| yr.share > 0 && yr.end == @yearly_rankings[0].end}.map(&:website_id)
       
       prior_year = @yearly_rankings.select{|yr| yr.share > 0 && yr.end == 1.year.ago(@yearly_rankings[0].end)}
       
