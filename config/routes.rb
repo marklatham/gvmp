@@ -31,7 +31,6 @@ ActionController::Routing::Routes.draw do |map|
   map.horserace        '/:idstring/horserace', :controller => 'communities', :action => 'horserace'
   map.horserace_old    '/horserace/:id',       :controller => 'communities', :action => 'horserace'
   map.community_votes  '/:idstring/votes',     :controller => 'communities', :action => 'votes'
-  map.idstring         '/:idstring',           :controller => 'communities', :action => 'show'
   map.mlresume         '/mlresume',            :controller => 'minimal',     :action => 'mlresume'
   map.temp             '/temp',                :controller => 'minimal',     :action => 'temp' # Temporary use, not part of website.
   map.about_contact    '/about_contact',       :controller => 'public',      :action => 'about_contact'
@@ -43,6 +42,9 @@ ActionController::Routing::Routes.draw do |map|
   map.ubcentry         '/ubcentry',            :controller => 'public',      :action => 'ubcentry'
   map.publications     '/publications',        :controller => 'pubs',        :action => 'index'
   map.votesummary      '/votesummary',         :controller => 'votes',       :action => 'summary'
+  
+  # Must have lower priority than the above named routes:
+  map.idstring         '/:idstring',           :controller => 'communities', :action => 'show'
   
   #  Commented out because we were getting spammed. Reactivate when we get spam screens in place: 
   #  map.add_to_community '/communities/:id/add_to', :controller => 'communities', :action => 'add_to'
