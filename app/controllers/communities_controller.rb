@@ -40,7 +40,6 @@ class CommunitiesController < ApplicationController
     end
     @rankings = @community.rankings.with_websites.paginate :page => params[:page], :per_page => 20
     @ballot = find_ballot
-    @max_share = @community.rankings.map(&:share).max
   end
 
   def new
