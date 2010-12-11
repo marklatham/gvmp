@@ -21,6 +21,12 @@ namespace :utils do
     
     votes.each do |vote|
       
+      if place = Place.find(:first, :conditions => ["? LIKE ip_string", vote.ip_address])
+        vote.place = place.name
+      else
+        vote.place = nil
+      end
+      
       if community = Community.find_by_id(vote.community_id)
         Time.zone = community.time_zone
       else

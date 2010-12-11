@@ -200,6 +200,7 @@ class Community < ActiveRecord::Base
       puts "========================================="
       puts "Website_id: " + ranking.website_id.to_s
       puts tally_cutoff
+      puts ranking.share
       puts increment
     end
     
@@ -232,7 +233,7 @@ class Community < ActiveRecord::Base
           elsif vote.support + 0.5*parameter.interpolation_range < cutoff
             support_fraction = 0.0
           else
-            support_fraction = (vote.support + 0.5*parameter.interpolation_range - cutoff) / parameter.interpolation_range
+            support_fraction = 0.5 + ( (vote.support - cutoff) / parameter.interpolation_range )
           end
           
         elsif vote.ballot_type == 101 # Changed from == 1 to in effect comment this out.

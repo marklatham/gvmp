@@ -148,17 +148,11 @@ class CommunitiesController < ApplicationController
       @support = 0
     end
     
-    if @place = Place.find(:first, :conditions => ["? LIKE ip_string", @ip])
-      @name = @place.name
-    else
-      @name = nil
-    end
-    
     #First we delete the old votes
     delete_vote(@community, @website, @ip)
     
     vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
-                         :website_id => @website.id, :support => @support, :ballot_type => "2", :place => @name})
+                         :website_id => @website.id, :support => @support, :ballot_type => "2"})
 
     @ballot = find_ballot
     @ballot.add_vote(vote)

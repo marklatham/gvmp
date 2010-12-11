@@ -5,7 +5,7 @@
       .last_vote{:id => "last_vote_#{website.id}"}
         You voted
         = number_with_precision(support, :precision => 0) + '%'
-    - max_share = @community.rankings.map(&:share).max
+    - max_share = @community.rankings[0].share
     - if @community.id == 82 # UBC AMS: menu decided by funder
       = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30']]), :id=>"ajax_form_percent", :onchange => "jQuery(\"#ajax_form_percent_#{website.id}\").submit();")
     - elsif max_share < 35.0
