@@ -28,7 +28,7 @@
           %td.cell-centred.lowerborder.leftborder= ranking[:rank]
           %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
         -# TODO: use named_route/resource
-        -# if @ballot.click.find(:last, :conditions => ["community_id = ? and website_id = ?", @community.id, ranking[:website].id]) this doesn't work so I wrote the ugly code below. Code finds latest vote for that website and checks if support is negative (i.e. vote cancelled).
+        -# There must be a cleaner way to code this. Find latest vote (if any) in this session for this website:
         - @flag = 0
         - @created = Time.parse("1999-01-01 16:57:45.608000 -04:00")
         - for click in @ballot.clicks
