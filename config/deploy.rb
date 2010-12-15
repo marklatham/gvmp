@@ -4,8 +4,8 @@ set :ssh_options, { :forward_agent => true }
 set :user , "votermed"
 
 # The domain name of the server to deploy to, this can be your domain or the domain of the server.
-# set :server_name, "votermedia.org"
-set :server_name, "voter.railsplayground.net" # for VPS migration on RPG
+set :server_name, "votermedia.org"
+# set :server_name, "voter.railsplayground.net" # for VPS migration on RPG
 
 # If you are using git, uncomment the following line and comment out the line above.
 set :scm, :git
