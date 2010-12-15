@@ -148,15 +148,19 @@ class CommunitiesController < ApplicationController
       @support = 0
     end
     
-    # First we delete the old votes. Revision: This is not necessary, and is probably causing problems.
+    # This hides the problem of repeating votes, by deleting them. But doesn't work right anyway, so comment out:
     # delete_vote(@community, @website, @ip)
     
-    vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
+    # Using @community.updated_at is a clumsy way to reduce the repeat vote problem, but serves as a bandaid for now:
+    if @community.updated_at < 1.second.ago(Time.now)
+      vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
                          :website_id => @website.id, :support => @support, :ballot_type => "2"})
-
-    @ballot = find_ballot
-    @ballot.add_vote(vote)
-
+      @ballot = find_ballot
+      @ballot.add_vote(vote)
+    end
+    @community.updated_at = Time.now
+    @community.save
+    
     respond_to do |format|
       format.html { redirect_to :action => :show, :id => @community}
       format.js
