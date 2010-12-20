@@ -157,9 +157,9 @@ class CommunitiesController < ApplicationController
                          :website_id => @website.id, :support => @support, :ballot_type => "2"})
       @ballot = find_ballot
       @ballot.add_vote(vote)
+      @community.updated_at = Time.now
+      @community.save
     end
-    @community.updated_at = Time.now
-    @community.save
     
     respond_to do |format|
       format.html { redirect_to :action => :show, :id => @community}
