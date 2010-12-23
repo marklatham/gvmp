@@ -179,15 +179,21 @@ namespace :utils do
       
       # puts "====== " + community.id.to_s + "   " + community.short_name + ": "
       
-      # Check to see if there are past_rankings to recalc for this community:
+      # Not sure if this is necessary or if it's unhelpful:
       Time.zone = community.time_zone
-      tally_cutoff = 36.hours.from_now(community.tallied_at).in_time_zone.beginning_of_day
-      tally_cutoff_date = 12.hours.ago(tally_cutoff).to_date
-      # puts "Tally cutoff = " + tally_cutoff.to_s + ". Tally cutoff date = " + tally_cutoff_date.to_s
       
-      unless tally_cutoff > Time.now
+      # Check to see if there are any subsequent past_rankings to recalc for this community.
+      # This is written so as to handle both cutoff systems used pre- & post- 2010-04-01,
+      # when we changed from about 3:15am Pacific time cutoff to the subsequent midnight cutoff in community's time zone:
+      
+      if next_ranking = PastRanking.find(:first, :conditions => ["community_id = ? and period = ? and tallied_at > ?",
+                                           community.id, "day", 3.hours.from_now(community.tallied_at)], :order => "tallied_at")
+      
+        tally_cutoff = next_ranking.tallied_at
+        tally_cutoff_date = next_ranking.start
+        puts "Tally cutoff = " + tally_cutoff.to_s + ". Tally cutoff date = " + tally_cutoff_date.to_s
         
-        # print community.id.to_s + "   " + community.short_name + ": "
+        print community.id.to_s + "   " + community.short_name + ": "
         
         # Make sure any funding allocation totals are reset to 0:
         fundings = Funding.find(:all, :conditions => ["community_id = ? and date = ?", community.id, tally_cutoff_date])
@@ -220,9 +226,7 @@ namespace :utils do
           community.calc_periodic_rankings(tally_cutoff_date)
           
         else
-          puts "No rankings found. Move community.tallied_at forward."
-          community.tallied_at = tally_cutoff # This field is updated even if there were no rankings.
-          community.save
+          puts "Warning! No rankings found -- shouldn't be possible here."
         end
         
       end
