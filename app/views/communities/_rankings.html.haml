@@ -38,7 +38,7 @@
               - @created = click.created_at
               - support = click.support
         %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
-          = render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => support, :flag => @flag, :max_share => @rankings[0][:share] }
+          = render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => support, :flag => @flag }
         - case
           - when ranking[:share] <= 0.0
             - rows = 1

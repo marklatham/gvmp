@@ -205,7 +205,7 @@ class Community < ActiveRecord::Base
       puts increment
     end
     
-    count = parameter.spread_previous * (100.0 - ranking.share)  # To break ties caused by having no votes. This will equalize shares.
+    count = parameter.spread_previous * (100.0 - ranking.share) # To break ties caused by having no votes. This will equalize shares.
     votes.each do |vote|
       if vote.website_id == ranking.website_id && vote.support
         

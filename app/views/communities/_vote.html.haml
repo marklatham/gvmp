@@ -1,4 +1,6 @@
 -# EREZ: jQuery picks up elements based on their html id. Hence every element that we manipulate on the page MUST have a unique id. Here we create that using the website's id, like this "ajax_form_percent_#{ranking[:website].id}". It's a good practice to have the model generate those unique id's... So this should be done in the future as we start using jQuery more.
+-# vote_for_website code is in communities_controller
+
 .inner_vote_cell{:id => "vote_element_#{website.id}"}
   - form_tag({:action => :vote_for_website, :id => website.id, :community => community.id}, :method=>:post, :id=>"ajax_form_percent_#{website.id}") do
     - if flag == 1 && support >= 0
@@ -7,6 +9,7 @@
         = number_with_precision(support, :precision => 0) + '%'
         -# if current_user and (current_user.permission >= 7.0) # for debugging
         -#  = @ballot.clicks.size
+    - max_share = community.rankings.map(&:share).max
     - if community.id == 82 # UBC AMS: menu decided by funder
       = select_tag(:percent, options_for_select([['Select:', ''], ['0%', '0'], ['5%', '5'], ['10%', '10'], ['15%', '15'], ['20%', '20'], ['25%', '25'], ['30%', '30']]), :id=>"ajax_form_percent", :onchange => "jQuery(\"#ajax_form_percent_#{website.id}\").submit();")
     - elsif max_share < 35.0
