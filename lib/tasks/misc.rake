@@ -124,6 +124,18 @@ namespace :misc do
   end
   
   
+  desc "Delete old flags in votes table"
+  task(:fill5 => :environment) do
+    
+    votes = Vote.find(:all, :conditions => ["place = ?", "old"])
+    votes.each do |vote|
+      vote.place = ""
+      vote.save
+    end
+    
+  end
+  
+  
   desc "Bulk edit data"
   task(:edit_data => :environment) do
     
