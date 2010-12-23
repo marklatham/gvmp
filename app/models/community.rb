@@ -68,8 +68,9 @@ class Community < ActiveRecord::Base
     #                    :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
     
     # So find votes sorted:
-    votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
-                                                       self.id,      tally_cutoff,            ""],
+    votes = Vote.find(:all, :conditions =>
+            ["community_id = ? and created_at > ? and created_at < ? and (place = ? or place IS NULL or place = ?)",
+                       self.id, parameter.start_voting, tally_cutoff,            "",                        "old"],
                             :order => "ip_address, website_id, created_at DESC")
     
     # Only count the latest vote from each ip_address on each website.
