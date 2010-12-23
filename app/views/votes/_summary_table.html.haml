@@ -4,6 +4,7 @@
     %th Days
     %th Location
     %th Place
+    %th Created
     %th{:colspan => 2} Community
     %th{:colspan => 2} Website
     %th Support
@@ -46,6 +47,7 @@
             = ip_record.region
             = truncate(ip_record.city, :length => 12, :omission => '\\')
         %td= previous_vote.place if previous_vote.place
+        %td= previous_vote.place_created_at.strftime("%Y-%m-%d") if previous_vote.place_created_at
         %td{:style => "text-align: right"}
           - if community = Community.find_by_id(previous_vote.community_id)
             = link_to(previous_vote.community_id.to_s, community_votes_path(community.idstring))

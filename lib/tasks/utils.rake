@@ -5,7 +5,6 @@ namespace :utils do
 #  group2 runs hourly at hh:35 -- task feed:load (in update_feeds.rake)
 #  group3 runs daily at 10:55 UTC = 3:55am Pacific -- tasks utils:delete_old_sessions, utils:count_websites, ts:in and ts:in:delta
   
-  
   desc "For new votes, calculate vote.days; and make sure vote.ip_address has a record in Ips table."
   task(:process_votes => :environment) do
     
@@ -23,10 +22,11 @@ namespace :utils do
       
       if place = Place.find(:first, :conditions => ["? LIKE ip_string", vote.ip_address])
         vote.place = place.name
+        vote.place_created_at = place.created_at
       else
         vote.place = nil
+        vote.place_created_at = nil
       end
-      
       if community = Community.find_by_id(vote.community_id)
         Time.zone = community.time_zone
       else
@@ -35,11 +35,10 @@ namespace :utils do
       if previous_vote = Vote.find(:last, :conditions => ["community_id = ? and ip_address = ? and created_at < ?",
                              vote.community_id, vote.ip_address, vote.created_at.in_time_zone.beginning_of_day], :order => "id")
         vote.days = (vote.created_at.in_time_zone.to_date - previous_vote.created_at.in_time_zone.to_date).to_f
-        vote.save
       else
         vote.days = 0
-        vote.save
       end
+      vote.save
       
       if Ip.find_by_ip_address(vote.ip_address)
         old_counter += 1
