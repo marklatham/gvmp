@@ -136,6 +136,7 @@ namespace :utils do
           community.tally(tally_cutoff, rankings)
           community.tallied_at = tally_cutoff
           community.save
+          puts Time.now.to_s + " Tally completed."
           
           # Prepare to archive the newly tallied rankings; first, find them: [Or should this be returned from community.tally?]
           rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
@@ -144,7 +145,7 @@ namespace :utils do
             ranking.archive(tally_cutoff_date, fundings)
           end
           
-          puts "Current rankings tallied. Calculate & store periodic past rankings."
+          puts Time.now.to_s + " Current rankings tallied. Calculate & store periodic past rankings."
           community.calc_periodic_rankings(tally_cutoff_date)
           
         else
@@ -186,7 +187,7 @@ namespace :utils do
       # when we changed from about 3:15am Pacific time cutoff to the subsequent midnight cutoff in community's time zone:
       
       if next_ranking = PastRanking.find(:first, :conditions => ["community_id = ? and period = ? and tallied_at > ?",
-                                           community.id, "day", 3.hours.from_now(community.tallied_at)], :order => "tallied_at")
+                                           community.id, "day", 4.hours.from_now(community.tallied_at)], :order => "tallied_at")
       
         tally_cutoff = next_ranking.tallied_at
         tally_cutoff_date = next_ranking.start

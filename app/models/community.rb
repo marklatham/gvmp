@@ -75,16 +75,18 @@ class Community < ActiveRecord::Base
     
     # Only count the latest vote from each ip_address on each website.
     # For each [ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
+    puts Time.now.to_s + " Number of votes found = " + votes.size.to_s
     keep_vote = votes[0]
-    index = 1
-    while votes[index]  # i.e. until we have gone past the end of votes array
-      if votes[index].ip_address ==  keep_vote.ip_address &&  votes[index].website_id == keep_vote. website_id
-        votes.delete(votes[index])
-      else
-        keep_vote = votes[index]
-        index += 1
+    votes_to_count = []
+    votes_to_count << keep_vote
+    votes.each do |vote|
+      unless vote.ip_address == keep_vote.ip_address && vote.website_id == keep_vote.website_id
+        keep_vote = vote
+        votes_to_count << keep_vote
       end
     end
+    votes = votes_to_count
+    puts Time.now.to_s + " Number of votes left = " + votes.size.to_s
     
     unless self.tallied_at == rankings[0].tallied_at
       puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
