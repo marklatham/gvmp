@@ -76,7 +76,7 @@ class Community < ActiveRecord::Base
     # Only count the latest vote from each ip_address on each website.
     # For each [ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
     puts Time.now.to_s + " Number of votes found = " + votes.size.to_s
-    if votes.size > 0
+    if votes.any?
       keep_vote = votes[0]
       votes_to_count = []
       votes_to_count << keep_vote
@@ -101,12 +101,6 @@ class Community < ActiveRecord::Base
       print rankings.size.to_s + " rankings. "
     else
       print "Warning: Found no rankings! "
-    end
-    
-    if votes.any?
-      print votes.size.to_s + " votes. "
-    else
-      print "Found no votes. "
     end
     
     # Make sure shares are nonnegative whole numbers, not all zero:
@@ -196,6 +190,76 @@ class Community < ActiveRecord::Base
     
   end
   
+  def check(tally_cutoff, rankings)
+    # This repeats a lot of code from tally routine above. But here, just checking 2 vote counts per website.
+    # Get parameters for this community as of tally_cutoff
+    parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = ?", tally_cutoff, self.id], :order => "as_of")
+    unless parameter
+      parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = 0", tally_cutoff], :order => "as_of")
+    end
+    puts "Parameters as of " + parameter.as_of.to_s + " for community_id = " + parameter.community_id.to_s
+    
+    # How to select the latest vote from each IP address for each website?:
+    # This doesn't get all data fields, so no good I guess:
+    #    votes = Vote.maximum(:updated_at, 
+    #                               :conditions => ["community_id = ?", self.id],                     
+    #                               :group => "ip_address, website_id")    
+    
+    # This almost works, but returns the first record of each group (by ID, regardless of how sorted)
+    # while we want the latest record:
+    # votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
+    #                                                    self.id,      tally_cutoff,            ""],
+    #                    :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
+    
+    # So find votes sorted:
+    votes = Vote.find(:all, :conditions =>
+            ["community_id = ? and created_at > ? and created_at < ? and (place_created_at > ? or place_created_at IS NULL)",
+                       self.id, parameter.start_voting, tally_cutoff,            tally_cutoff],
+                            :order => "ip_address, website_id, created_at DESC")
+    
+    # Only count the latest vote from each ip_address on each website.
+    # For each [ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
+    puts Time.now.to_s + " Number of votes found = " + votes.size.to_s
+    if votes.any?
+      keep_vote = votes[0]
+      votes_to_count = []
+      votes_to_count << keep_vote
+      votes.each do |vote|
+        unless vote.ip_address == keep_vote.ip_address && vote.website_id == keep_vote.website_id
+          keep_vote = vote
+          votes_to_count << keep_vote
+        end
+      end
+      votes = votes_to_count
+    end
+    puts Time.now.to_s + " Number of votes left = " + votes.size.to_s
+    
+    unless self.tallied_at == rankings[0].tallied_at
+      puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
+    end
+    
+    # ranking.status = limbo means website hasn't entered contest but
+    # we want to show it at bottom of ballot, at least temporarily.
+    
+    if rankings.any?
+      puts rankings.size.to_s + " rankings. "
+    else
+      puts "Warning: Found no rankings! "
+    end
+    
+    # Calculate count0 (# votes for share or more) and count1 (# votes for share+1 or more) for each ranking:
+    rankings.each do |ranking|
+      check_count0 = countVotes(tally_cutoff, votes, ranking, 0.0, parameter)
+      check_count1 = countVotes(tally_cutoff, votes, ranking, 1.0, parameter)
+      unless ((ranking.count0-check_count0)*1000).round == 0 && ((ranking.count1-check_count1)*1000).round == 0
+        puts ranking.end.strftime("%Y-%m-%d") + ", " + self.id.to_s + ", " + ranking.website_id.to_s + ", " + ranking.share.to_s +
+        ", " + ranking.count0.to_s + ", " + check_count0.to_s + ", " + (ranking.count0-check_count0).to_s +
+        ", " + ranking.count1.to_s + ", " + check_count1.to_s + ", " + (ranking.count1-check_count1).to_s
+      end
+    end
+    
+  end
+  
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
   def countVotes(tally_cutoff, votes, ranking, increment, parameter)
     
@@ -278,8 +342,13 @@ class Community < ActiveRecord::Base
         
       end
     end
+    # This is mainly to give parameter.spread something to work with in the rare case where there are no votes.
+    # For that purpose, something tiny like parameter.bonus_votes = 0.01 would be sufficient.
+    # If we do this, then it could take the place of parameter.spread_previous.
+    count += parameter.bonus_votes
+    
     # This is designed to encourage competition by handicapping larger shares. spread = 1.0 means no handicap:
-    spread_count = count / ( parameter.spread**(cutoff*0.01) ) + parameter.bonus_votes
+    spread_count = count / ( parameter.spread**(cutoff*0.01) )
     return spread_count
   end
   

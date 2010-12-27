@@ -163,6 +163,63 @@ namespace :utils do
   end
   
   
+  desc "Recalculate count0 & count1 for communities where administrator has back-dated community.tallied_at"
+  # You may want to run utils:tally_update first, to make sure all other communities are up to date.
+  task(:check_past => :environment) do
+    # This repeats a lot of code from tally_past routine above. But here, just checking 2 vote counts per website.
+    start_time = Time.now
+    puts  'Task utils:check_past started [%s]'.%([start_time])
+    
+    # Run this once per day of recalc needed:
+   1.times {
+    
+    puts Time.now.to_s + " Finding communities that need recalc."
+    communities = Community.find(:all, :order => "tallied_at, id")
+    communities.each do |community|
+      
+      # puts "====== " + community.id.to_s + "   " + community.short_name + ": "
+      
+      # Not sure if this is necessary or if it's unhelpful:
+      Time.zone = community.time_zone
+      
+      # Check to see if there are any subsequent past_rankings to recalc for this community.
+      # This is written so as to handle both cutoff systems used pre- & post- 2010-04-01,
+      # when we changed from about 3:15am Pacific time cutoff to the subsequent midnight cutoff in community's time zone:
+      
+      if next_ranking = PastRanking.find(:first, :conditions => ["community_id = ? and period = ? and tallied_at > ?",
+                                           community.id, "day", 4.hours.from_now(community.tallied_at)], :order => "tallied_at")
+      
+        tally_cutoff = next_ranking.tallied_at
+        tally_cutoff_date = next_ranking.start
+        puts "Tally cutoff = " + tally_cutoff.to_s + ". Tally cutoff date = " + tally_cutoff_date.to_s
+        
+        print community.id.to_s + "   " + community.short_name + ": "
+        
+        # Get past rankings for this community for tally_cutoff_date:
+        past_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start = ?",
+                                                               community.id,     "day", tally_cutoff_date], :order => "website_id")
+        
+        if past_rankings.any?
+          
+          print past_rankings.size.to_s + " past rankings on date " + tally_cutoff_date.to_s + ". "
+          
+          community.check(tally_cutoff, past_rankings)
+          community.tallied_at = tally_cutoff
+          community.save
+          
+        else
+          puts "Warning! No rankings found -- shouldn't be possible here."
+        end
+        
+      end
+      Time.zone = "Pacific Time (US & Canada)"
+    end
+    puts  'Task utils:check_past done [%0.7s seconds]'.%([Time.now - start_time])
+    puts "================================================================================="
+   }
+  end
+  
+  
   desc "Recalculate past_rankings for communities where administrator has back-dated community.tallied_at"
   # You may want to run utils:tally_update first, to make sure all other communities are up to date.
   task(:tally_past => :environment) do
