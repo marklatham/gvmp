@@ -24,6 +24,7 @@ class CommunitiesController < ApplicationController
 
   def home_page
     @communities = Community.filter(params)
+    @videos = Video.find(:all, :order => "id")
     respond_to do |format|
       format.html
       format.yaml { render :yaml => @communities }

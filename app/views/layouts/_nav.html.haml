@@ -3,10 +3,10 @@
     %ul
       %li
         = link_to 'VIDEOS', root_path
+        - @videos = Video.find(:all, :order => "id")
         %ul
-          %li= link_to 'VoterMedia at UBC', '/videos/1'
-          %li= link_to 'How VoterMedia Affects Election Campaigns', '/videos/2'
-          %li= link_to 'VoterMedia Should Be Continuous', '/videos/3'
+          - @videos.each do |video|
+            %li= link_to video.title, video_path(video)
       %li
         = link_to 'COMMUNITIES', root_path
         %ul
