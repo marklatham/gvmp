@@ -3,9 +3,9 @@
     %ul
       %li
         = link_to 'VIDEOS', root_path
-        - @videos = Video.find(:all, :order => "id")
         %ul
-          - @videos.each do |video|
+          - videos = Video.find(:all, :order => "id")
+          - videos.each do |video|
             %li= link_to video.title, video_path(video)
       %li
         = link_to 'COMMUNITIES', root_path
