@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101223003730) do
+ActiveRecord::Schema.define(:version => 20101231041233) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -248,6 +248,7 @@ ActiveRecord::Schema.define(:version => 20101223003730) do
     t.string   "journal"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "pages"
   end
 
   create_table "rankings", :force => true do |t|

@@ -2,7 +2,7 @@
 
 %table#table1{:cellspacing => 0, :style => "margin: auto;"}
   %tr#pubs_header
-    %td{:colspan => 2, :style => "padding: 1em"}
+    %td{:colspan => 3, :style => "padding: 1em"}
       %h1 Publications: Articles & papers
     %td{:style => "font-weight: bold; padding-top: 1em; vertical-align: top; text-align: center"}
       = 'See also:'
@@ -17,6 +17,7 @@
   %tr.header 
     %td.header-centred Date
     %td.header-left Title & link
+    %td.header-centred Pages
     %td.header-centred Country
     %td.header-left Journal / description / site
 
@@ -24,13 +25,14 @@
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred.leftborder= pub.date_text
       %td.cell-link= pub.title
+      %td.cell-centred= pub.pages.round if pub.pages
       %td.cell-centred= pub.country
       %td.cell-left.rightborder= pub.journal
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= link_to 'Edit', edit_pub_path(pub)
         %td.permission= link_to 'Destroy', pub, :confirm => 'Are you sure?', :method => :delete
   %tr
-    %td.footer-row{:colspan => 4}
+    %td.footer-row{:colspan => 5}
         
 %br
 - if current_user and (current_user.permission >= 7.0)
