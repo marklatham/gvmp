@@ -3,22 +3,25 @@
   %table{:width => "100%"}
     %tr
       
-      %td{:width => "380px", :style => "vertical-align: top;"}
+      %td{:style => "vertical-align: top; max-width: 340px"}
         
-        - @videos.each do |video|
-          %p{:align => "center"}
-            %object.flashbanner
-              %param{:name => "movie", :value => "http://www.youtube.com/v/" + video.url + "&hl=en&fs=1"}
-              %param{:name => "allowFullScreen", :value => "true"}
-              %param{:name => "allowscriptaccess", :value => "always"}
-              %param{:name => "wmode", :value => "transparent"}
-              %embed{:src => "http://www.youtube.com/v/" + video.url + "&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowfullscreen => "true", :allowscriptaccess => "always", :wmode => "transparent", :width => "260", :height => "210"}
-          %p{:align => "center"}
-            %strong= video.title + ":"
-            = link_to 'Transcript', video_path(video)
-          %hr
+        %table
+          - @videos.each do |video|
+            %tr
+              %td{:align => "center"}
+                %p
+                  %strong= video.title + ":"
+                %p= link_to 'Transcript', video_path(video)
+              %td
+                %p
+                  %object.flashbanner
+                    %param{:name => "movie", :value => "http://www.youtube.com/v/" + video.url + "&hl=en&fs=1"}
+                    %param{:name => "allowFullScreen", :value => "true"}
+                    %param{:name => "allowscriptaccess", :value => "always"}
+                    %param{:name => "wmode", :value => "transparent"}
+                    %embed{:src => "http://www.youtube.com/v/" + video.url + "&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowfullscreen => "true", :allowscriptaccess => "always", :wmode => "transparent", :width => "260", :height => "210"}
         
-        %div{:style => "width: 370px; height: 410px; overflow:-moz-scrollbars-vertical; overflow-y:auto;"}
+        %div{:style => "height: 410px; overflow:-moz-scrollbars-vertical; overflow-y:auto;"}
           %ul{:style => 'padding-right: 1em'}
             %li
               %strong{:style => 'color: #800'} VoterMedia
@@ -39,10 +42,12 @@
               %strong= link_to('UBC', '/ubc') + ','
               where the student union has been funding blogs using our system. As you can see from the videos, they consider it a success.  We encourage you to start and promote such contests in your voting communities. The communities and blogs listed on this website illustrate the potential future expansion of VoterMedia. The ballots are working, so please vote for the blogs you think deserve it.
         %hr
-        %p
+        %p{:align => "center", :style => "white-space:nowrap"}
           There's also this one-page
           = link_to('Introduction to VoterMedia', '/publications/IntroductionToVoterMedia.pdf') + '.'
-        
+      
+      %td &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      
       %td{:style => "vertical-align: top;"}
         %div{:style => "text-align: center"}
           %h2 Which blogs serving your voter communities deserve funding?
