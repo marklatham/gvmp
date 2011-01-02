@@ -1,11 +1,11 @@
 - main_column do
   
-  %table{:width => "100%"}
+  %table{:width => "100%", :cellspacing => 0}
     %tr
       
       %td{:style => "vertical-align: top; max-width: 340px"}
         
-        %table
+        %table{:cellspacing => 0}
           - @videos.each do |video|
             %tr
               %td{:align => "center"}
@@ -46,7 +46,7 @@
           There's also this one-page
           = link_to('Introduction to VoterMedia', '/publications/IntroductionToVoterMedia.pdf') + '.'
       
-      %td &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      %td &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       
       %td{:style => "vertical-align: top;"}
         %div{:style => "text-align: center"}
