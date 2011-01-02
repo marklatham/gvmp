@@ -420,13 +420,20 @@ class Community < ActiveRecord::Base
                                        self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
         end
         
+        count0 = PastRanking.sum(:count0, :conditions => 
+                               ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
+                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
+        count1 = PastRanking.sum(:count1, :conditions => 
+                               ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
+                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
+        
         if self.id == 82
           puts past_ranking.id.to_s + ", " + past_ranking.website_id.to_s + ", " + share.to_s + 
                 ", " + award.to_s + ", " + funds.to_s + ", " + period
         end
         PastRanking.create!({:ranking_id => past_ranking.ranking_id, :community_id => self.id,
                              :website_id => past_ranking.website_id, :rank => 0, # rank will be set later
-                             :tallied_at => self.tallied_at, :share => share, :funds => funds, :award => award,
+          :tallied_at => self.tallied_at, :share => share, :funds => funds, :award => award, :count0 => count0, :count1 => count1,
           :period => period, :start => first_ranked_date, :latest => last_ranked_date, :end => end_of_period})
       end
     end
