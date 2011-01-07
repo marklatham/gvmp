@@ -9,10 +9,6 @@
 %h3{:style => "text-align: center"}
   Past funding shares from
   = link_to "this ballot", "/" + @community.idstring
-  - if @yearly_rankings.any?
-    for websites/blogs with positive
-    -# = @master_rankings[0].start.year.to_s
-    shares
 
 - if @yearly_rankings.any?
   = render :partial => 'horserace_table'
