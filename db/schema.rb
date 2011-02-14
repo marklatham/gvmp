@@ -114,8 +114,8 @@ ActiveRecord::Schema.define(:version => 20101231041233) do
   end
 
   create_table "geo_ips", :force => true do |t|
-    t.integer  "start_ip",           :limit => 8
-    t.integer  "end_ip",             :limit => 8
+    t.integer  "start_ip"
+    t.integer  "end_ip"
     t.integer  "geo_ip_location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -126,17 +126,17 @@ ActiveRecord::Schema.define(:version => 20101231041233) do
   add_index "geo_ips", ["start_ip"], :name => "index_geo_ips_on_start_ip"
 
   create_table "ips", :force => true do |t|
-    t.string   "ip_address",                      :default => ""
-    t.integer  "integer_ip",         :limit => 8
+    t.string   "ip_address",         :default => ""
+    t.integer  "integer_ip"
     t.integer  "geo_ip_location_id"
-    t.string   "country",                         :default => ""
-    t.string   "region",                          :default => ""
-    t.string   "city",                            :default => ""
-    t.string   "postal_code",                     :default => ""
+    t.string   "country",            :default => ""
+    t.string   "region",             :default => ""
+    t.string   "city",               :default => ""
+    t.string   "postal_code",        :default => ""
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "metro_code",                      :default => ""
-    t.string   "area_code",                       :default => ""
+    t.string   "metro_code",         :default => ""
+    t.string   "area_code",          :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end

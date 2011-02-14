@@ -17,3 +17,20 @@ Fix by calling html_safe.
 
 Call 'html_safe' ONLY and ONLY IF you are absolutely certain that you
 are producing safe html tags. Otherwise, this can cause security problems.
+
+* Displaying Date and Time
+
+Rails 2
+  post.posted_at.to_s(:Y_mon)
+
+Rails 3
+  I18n.l post.posted_at, :format => :Y_mon
+  
+Or just use:
+  'render_datetime'  (in communities_helper.rb)
+
+  See config/locales/en.yml to set the various formats
+
+* Deprecation
+
+Read the logs to learn the deprecated methods

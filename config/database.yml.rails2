@@ -1,0 +1,11 @@
+development:
+  adapter:  mysql
+  database: gvmp_dev
+  username: gvmp_dev
+  password: gvmp
+
+test:
+  adapter:  mysql
+  database: gvmp_test
+  username: gvmp_test
+  password: gvmp

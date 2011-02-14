@@ -12,12 +12,10 @@ Makefile
 index
 index/**/*
 db/sphinx/**/*
-db/*.sqlite3
 .manifest
 *~
-
+.bundle
 vendor/plugins/**/.git
-Gemfile.lock
 *.log
 *.o
 *.so

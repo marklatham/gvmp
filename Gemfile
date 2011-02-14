@@ -12,3 +12,13 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'ruby-debug'
 end
+
+# These are gems in the orignal vendor/gems folder.
+# Commented for now until we identified the code
+# that needs it.
+# gem 'sax-machine'
+# gem 'nokogiri'
+# gem 'loofah'
+# gem 'feedzirra'
+# gem 'curb'
+# gem 'columbus'
