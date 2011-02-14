@@ -18,6 +18,8 @@ Fix by calling html_safe.
 Call 'html_safe' ONLY and ONLY IF you are absolutely certain that you
 are producing safe html tags. Otherwise, this can cause security problems.
 
+You can also call 'simple_format'. Useful for description and long text.
+
 * Displaying Date and Time
 
 Rails 2

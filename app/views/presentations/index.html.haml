@@ -16,8 +16,8 @@
   - for presentation in @presentations
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred= presentation.pdate
-      %td.cell-centred{:style => "font-weight: bold"}= presentation.place
-      %td.cell-centred= presentation.host
+      %td.cell-centred{:style => "font-weight: bold"}= simple_format presentation.place
+      %td.cell-centred= simple_format presentation.host
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= link_to 'Edit', edit_presentation_path(presentation)
         %td.permission= link_to 'Destroy', presentation, :confirm => 'Are you sure?', :method => :delete

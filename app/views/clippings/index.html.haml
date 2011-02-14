@@ -21,7 +21,7 @@
       %td.cell-link.cell-centred= link_to clipping.source, clipping.source_url
       %td.cell-centred= clipping.author
       %td.cell-link.cell-centred= link_to clipping.title, clipping.title_url
-      %td.cell-centred= clipping.description
+      %td.cell-centred= simple_format clipping.description
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= link_to 'Edit', edit_clipping_path(clipping)
         %td.permission= link_to 'Destroy', clipping, :confirm => 'Are you sure?', :method => :delete

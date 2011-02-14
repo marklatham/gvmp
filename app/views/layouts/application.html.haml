@@ -6,7 +6,7 @@
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
     %title= 'VoterMedia' + (@page_title.blank? ? '' : ": #{@page_title}")
     = stylesheet_link_tag 'main', 'screen', :media => "screen"
-    <%= csrf_meta_tag %>
+    = csrf_meta_tag
 
   
   %body#welcome

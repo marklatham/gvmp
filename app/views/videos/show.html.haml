@@ -13,7 +13,7 @@
     %embed{:src => "http://www.youtube.com/v/" + @video.url + "&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowfullscreen => "true", :allowscriptaccess => "always", :wmode => "transparent", :width => "425", :height => "344"}
 
 %h2 Transcript
-= @video.transcript
+= sanitize simple_format @video.transcript
 
 - if current_user and (current_user.permission >= 7.0)
   %p.permission= link_to "Edit this video's data", edit_video_path(@video)

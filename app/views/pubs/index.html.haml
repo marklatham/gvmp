@@ -24,10 +24,10 @@
   - for pub in @pubs
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
       %td.cell-centred.leftborder= pub.date_text
-      %td.cell-link= pub.title
+      %td.cell-link=  pub.title.html_safe
       %td.cell-centred= pub.pages.round if pub.pages
       %td.cell-centred= pub.country
-      %td.cell-left.rightborder= pub.journal
+      %td.cell-left.rightborder= pub.journal.html_safe
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= link_to 'Edit', edit_pub_path(pub)
         %td.permission= link_to 'Destroy', pub, :confirm => 'Are you sure?', :method => :delete

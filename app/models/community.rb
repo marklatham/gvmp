@@ -43,7 +43,7 @@ class Community < ActiveRecord::Base
   end
 
   def location
-    "#{city} &nbsp; #{prov_state} &nbsp; #{country}"
+    "#{city} #{prov_state} #{country}"
   end
   
   def tally(tally_cutoff, rankings)

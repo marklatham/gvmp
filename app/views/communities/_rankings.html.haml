@@ -75,13 +75,14 @@
 
 %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
 
-  %p= will_paginate @rankings
+  %p= paginate @rankings
 
   %p
     Vote % shares for as many as you like.
     %noscript= 'Click Submit after each vote.'
     Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
-    = '[' + link_to('FAQ&nbsp;on&nbsp;voting', '/faqs#Voting') + ']'
+    = "[#{link_to('FAQ on voting', '/faqs#Voting')}]".html_safe
+    
 
   %p
     %strong
