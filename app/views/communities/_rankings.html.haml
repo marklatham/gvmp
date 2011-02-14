@@ -55,9 +55,9 @@
               %tr
                 %td.postdate{:style => "width: 6em"}
                   - if post.posted_at < 6.months.ago
-                    = post.posted_at.to_s(:Y_mon)
+                    = render_datetime post.posted_at, :Y_mon #post.posted_at.to_s(:Y_mon)
                   - else
-                    = post.posted_at.to_s(:mon_day)
+                    = render_datetime post.posted_at, :mon_day
                 %td.post.cut
                   - show_stripped = strip_tags(post.show_text)
                   %a{:href => post.url, :target => "_blank", :title => truncate(show_stripped, :length => 1000)}

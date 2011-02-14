@@ -25,6 +25,10 @@ module CommunitiesHelper
     number_with_delimiter(community.n_websites)
   end
 
+  def render_datetime(dt, format)
+    I18n.l dt, :format => format
+  end
+
 
   def render_community_actions(community)
     return unless current_user
