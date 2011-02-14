@@ -2,7 +2,7 @@
   %tr
     %td#banner
       - site = 'Voter' + content_tag(:span, 'Media.org', :class => 'banner2')
-      = link_to site, root_path
+      = link_to site.html_safe, root_path
       %span.release 
         beta
     
