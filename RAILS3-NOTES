@@ -1,0 +1,19 @@
+* Views
+
+All strings are automatically escaped. Therefore, you might see a lot
+of html tags.
+
+For example, this code:
+
+  - site = 'Voter' + content_tag(:span, 'Media.org', :class => 'banner2')
+  = link_to site, root_path
+
+will show as html tags
+
+  <span class="banner2">Media.org<span>
+
+Fix by calling html_safe.
+  link_to site.html_safe
+
+Call 'html_safe' ONLY and ONLY IF you are absolutely certain that you
+are producing safe html tags. Otherwise, this can cause security problems.
