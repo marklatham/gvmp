@@ -1,4 +1,3 @@
-# Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
   def is_url?(string)
     string.slice(0, 4) == "http" and 
@@ -14,11 +13,10 @@ module ApplicationHelper
     content_tag(:span, s, :class => 'separator')
   end
 
-
+  # TODO use alias_method
   def paginate(collection)
     will_paginate(collection)
   end
-
 
   def flash_notice
     html = if flash[:success]
@@ -34,5 +32,7 @@ module ApplicationHelper
     flash.discard
     html
   end
+
+
 
 end
