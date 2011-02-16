@@ -32,7 +32,7 @@
     Not currently funded. This ballot is for if and when there is funding. Without funding there may be few votes, which makes the rankings less meaningful. For a funded ballot, see
     = link_to('UBC AMS', '/ubc') + '.'
   - else
-    %span.funded= truncate(@community.status, :length => 1000)
+    %span.funded= truncate(@community.status, :length => 1000).html_safe
 
 %p
   %label Add/Correct:

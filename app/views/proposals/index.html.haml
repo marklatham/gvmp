@@ -20,8 +20,7 @@
     %td.header-centred Ticker
     %td.header-centred Proposal
     %td.header-centred Management Arguments; Proponent Responses; SEC Decision
-    %td.header-centred
-      AGM date; Proxy link; Result
+    %td.header-centred AGM date; Proxy link; Result
 
   - for proposal in @proposals
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
@@ -36,8 +35,8 @@
         - if proposal.proposal_url && (proposal.proposal_url.size > 0)
           = link_to(proposal.proposal_type, 'proposals/' + proposal.proposal_url)
         - else
-          = proposal.proposal_type
-      %td.cell-centred= proposal.correspondence
+          = proposal.proposal_type.html_safe
+      %td.cell-centred= proposal.correspondence.html_safe
       %td.cell-centred
         - if proposal.proxy_url && (proposal.proxy_url.size > 0)
           = link_to proposal.date_agm, proposal.proxy_url
@@ -45,7 +44,7 @@
           = proposal.date_agm
         %br
         - if proposal.in_proxy
-          = proposal.yes_percent.to_s + '%&nbsp;yes'
+          = (proposal.yes_percent.to_s + '%&nbsp;yes').html_safe
         - else
           Omitted
       - if current_user and (current_user.permission >= 7.0)

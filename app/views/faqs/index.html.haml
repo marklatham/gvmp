@@ -32,7 +32,7 @@
 
     %tr
       %td.answer
-        = faq.answer
+        = faq.answer.html_safe
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= faq.sequence
 
@@ -54,7 +54,7 @@
 
     %tr
       %td.answer
-        = faq.answer
+        = faq.answer.html_safe
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= faq.sequence
 
@@ -76,7 +76,7 @@
 
     %tr
       %td.answer
-        = faq.answer
+        = faq.answer.html_safe
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= faq.sequence
 
@@ -98,7 +98,7 @@
 
     %tr
       %td.answer
-        = faq.answer
+        = faq.answer.html_safe
       - if current_user and (current_user.permission >= 7.0)
         %td.permission= faq.sequence
 
