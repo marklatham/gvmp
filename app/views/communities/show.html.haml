@@ -10,7 +10,7 @@
           How should the 
           = h @community.short_name 
           voter community divide funding among these blogs/websites?
-      - if File.exists?(RAILS_ROOT + "/public/images/id/" + @community.idstring + ".jpg")
+      - if File.exists?(Rails.root.to_s + "/public/images/id/" + @community.idstring + ".jpg")
         %td{:style => "padding-left: 1em"}
           %img{:src => "/images/id/" + @community.idstring + ".jpg"}
   

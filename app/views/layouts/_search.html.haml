@@ -1,5 +1,5 @@
 #search
-  - form_tag(communities_path, {:method => 'get'}) do
+  = form_tag(communities_path, {:method => 'get'}) do
     %label 
       Find communities:
     = text_field_tag :q, params[:q], :maxlength => 100, :size => 24
