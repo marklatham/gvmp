@@ -9,7 +9,7 @@ class IpsController < ApplicationController
     
     @ip = Ip.find_by_id(params[:id])
     
-    @votes = Vote.find(:all, :conditions => ["ip_address = ?", @ip.ip_address], :order => "id DESC", :limit => "600")
+    @votes = Vote.where("ip_address = ?", @ip.ip_address).order("id DESC").limit(600)
     
   end
   

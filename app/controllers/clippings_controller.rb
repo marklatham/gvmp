@@ -10,7 +10,7 @@ class ClippingsController < ApplicationController
   destroy.flash "Clipping removed."
   
   index.before do
-    @clippings = Clipping.find(:all, :order => "date_sequence DESC")
+    @clippings = Clipping.order("date_sequence DESC")
   end
 
   create.wants.html { redirect_to(clippings_path) }

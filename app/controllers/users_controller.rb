@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.find(:all, :order => "id")
+    @users = User.order("id")
   end
   
   def new

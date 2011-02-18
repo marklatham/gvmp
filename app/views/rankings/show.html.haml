@@ -30,7 +30,7 @@
         %td.cell-centred= '--'
       - else
         %td.cell-right.funded
-          %strong= '$' + number_with_precision(past_ranking.award, :precision => 2) + '&nbsp;'
+          %strong= ('$' + number_with_precision(past_ranking.award, :precision => 2) + '&nbsp;').html_safe
 
   %tr.header
     %td.header-centred Month
@@ -41,7 +41,8 @@
 
   - for past_ranking in @monthly_rankings
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
-      %td.cell-centred= past_ranking.start.to_s(:month_Y)
+      %td.cell-centred
+        %strong= past_ranking.start.strftime("%b %Y")
       - if past_ranking.status == "limbo"
         %td.cell-centred= '--'
         %td.cell-centred.cell-like-link= '--'
@@ -53,7 +54,7 @@
         %td.cell-centred= '--'
       - else
         %td.cell-right.funded
-          %strong= '$' + number_with_precision(past_ranking.award, :precision => 2) + '&nbsp;'
+          %strong= ('$' + number_with_precision(past_ranking.award, :precision => 2) + '&nbsp;').html_safe
 
   %tr.header
     %td.header-centred Day
@@ -64,7 +65,7 @@
 
   - for past_ranking in @daily_rankings
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
-      %td.cell-centred= past_ranking.created_at.to_s(:Ymd)
+      %td.cell-centred= past_ranking.start.to_s
       - if past_ranking.status == "limbo"
         %td.cell-centred= '--'
         %td.cell-centred.cell-like-link= '--'
@@ -76,6 +77,6 @@
         %td.cell-centred= '--'
       - else
         %td.cell-right.funded
-          %strong= '$' + number_with_precision(past_ranking.award, :precision => 2) + '&nbsp;'
+          %strong= ('$' + number_with_precision(past_ranking.award, :precision => 2) + '&nbsp;').html_safe
 
 %br

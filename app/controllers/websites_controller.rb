@@ -16,7 +16,7 @@ class WebsitesController < ApplicationController
 
   create.after do
     @community.websites << @website
-    @community.n_websites = Ranking.count(:conditions => ["community_id = ? and dropped_at > ?", @community.id, Time.now])
+    @community.n_websites = Ranking.where("community_id = ? and dropped_at > ?", @community.id, Time.now).count
     @community.save
     
     ranking = Ranking.find(:last, :conditions => ["community_id = ? and website_id = ?",
@@ -29,7 +29,7 @@ class WebsitesController < ApplicationController
   destroy.after do
     # I don't think this really works, does it? When we destroy a website record,
     # will the associated rankings record(s) also be destroyed?? :
-    @community.n_websites = Ranking.count(:conditions => ["community_id = ? and dropped_at > ?", @community.id, Time.now])
+    @community.n_websites = Ranking.where("community_id = ? and dropped_at > ?", @community.id, Time.now).count
     @community.save
   end
 

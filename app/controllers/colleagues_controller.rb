@@ -10,7 +10,7 @@ class ColleaguesController < ApplicationController
   destroy.flash "Colleague removed."
   
   index.before do
-    @colleagues = Colleague.find(:all, :order => "sequence, given_name, family_name")
+    @colleagues = Colleague.order("sequence, given_name, family_name")
   end
   
   create.wants.html { redirect_to('/about_contact') }

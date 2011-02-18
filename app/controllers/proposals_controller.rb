@@ -10,7 +10,7 @@ class ProposalsController < ApplicationController
   destroy.flash "Proposal removed."
   
   index.before do
-    @proposals = Proposal.find(:all, :order => "date_submitted DESC")
+    @proposals = Proposal.order("date_submitted DESC")
   end
 
   create.wants.html { redirect_to(proposals_path) }

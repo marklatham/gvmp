@@ -6,11 +6,11 @@ class VotesController < ApplicationController
   end
 
   index.before do
-    @votes = Vote.find(:all, :order => "id DESC", :limit => "600")
+    @votes = Vote.order("id DESC").limit(600)
   end
   
   def summary
-    @votes = Vote.find(:all, :order => "id DESC", :limit => "600")
+    @votes = Vote.order("id DESC").limit(600)
     respond_to do |format|
       format.html
       format.yaml { render :yaml => @votes }

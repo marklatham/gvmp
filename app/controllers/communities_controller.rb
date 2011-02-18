@@ -24,7 +24,7 @@ class CommunitiesController < ApplicationController
 
   def home_page
     @communities = Community.filter(params)
-    @videos = Video.find(:all, :order => "id")
+    @videos = Video.order("id")
     respond_to do |format|
       format.html
       format.yaml { render :yaml => @communities }
@@ -276,11 +276,11 @@ class CommunitiesController < ApplicationController
     
     # Select rows to display in horserace table:
     
-    @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
-                            @community.id, "year", 4.years.ago(Date.today)], :order => "start DESC, rank")
+    @yearly_rankings = PastRanking.where("community_id = ? and period = ? and end >= ?",
+                                              @community.id, "year", 4.years.ago(Date.today)).order("start DESC, rank")
     if @yearly_rankings.any?
-      @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
-                            @community.id, "month", 1.year.ago(Date.today).beginning_of_year], :order => "start DESC")
+      @monthly_rankings = PastRanking.where("community_id = ? and period = ? and end >= ?",
+                                  @community.id, "month", 1.year.ago(Date.today).beginning_of_year).order("start DESC")
       
       funded_months = @monthly_rankings.select{|mr| mr.funds > 0}
       if funded_months.any?
@@ -289,8 +289,8 @@ class CommunitiesController < ApplicationController
         earliest_day = 3.months.ago(Date.today).beginning_of_month
       end
       
-      @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
-                                                           @community.id, "day", earliest_day], :order => "start DESC")
+      @daily_rankings = PastRanking.where("community_id = ? and period = ? and end >= ?",
+                                                          @community.id, "day", earliest_day).order("start DESC")
       
       # Select columns (i.e. websites) to display in horserace table:
       
@@ -325,7 +325,7 @@ class CommunitiesController < ApplicationController
     
     @community = Community.find_by_idstring(params[:idstring])
     
-    @votes = Vote.find(:all, :conditions => ["community_id = ?", @community.id], :order => "id DESC", :limit => "600")
+    @votes = Vote.where("community_id = ?", @community.id).order("id DESC").limit(600)
     
   end
 

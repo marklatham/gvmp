@@ -6,7 +6,7 @@ class LinksController < ApplicationController
   end
 
   index.before do
-    @links = Link.find(:all, :order => "title")
+    @links = Link.order("title")
   end
   
   create.flash  "Link successfully created."

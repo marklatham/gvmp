@@ -10,7 +10,7 @@ class PubsController < ApplicationController
   destroy.flash "Publication removed."
   
   index.before do
-    @pubs = Pub.find(:all, :order => "date_sequence DESC")
+    @pubs = Pub.order("date_sequence DESC")
   end
   
   create.wants.html { redirect_to(pubs_path) }

@@ -10,7 +10,7 @@ class PresentationsController < ApplicationController
   destroy.flash "Presentation removed."
   
   index.before do
-    @presentations = Presentation.find(:all, :order => "pdate DESC")
+    @presentations = Presentation.order("pdate DESC")
   end
 
   create.wants.html { redirect_to(presentations_path) }

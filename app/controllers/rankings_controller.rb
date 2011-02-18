@@ -5,7 +5,7 @@ class RankingsController < ApplicationController
   end
 
   def index
-    @rankings = Ranking.find(:all, :order => "community_id, rank")
+    @rankings = Ranking.order("community_id, rank")
  
     respond_to do |format|
       format.html # index.html.erb
@@ -18,13 +18,10 @@ class RankingsController < ApplicationController
     @ranking = Ranking.find(params[:id])
     @website = Website.find(@ranking.website_id)
     @community = Community.find(@ranking.community_id)
-    @daily_rankings = PastRanking.find(:all, :conditions => ["ranking_id = ? and period = ?", params[:id], "day"],
-                                       :order => "start DESC")
-    @monthly_rankings = PastRanking.find(:all, :conditions => ["ranking_id = ? and period = ?", params[:id], "month"],
-                                       :order => "start DESC")
-    @yearly_rankings = PastRanking.find(:all, :conditions => ["ranking_id = ? and period = ?", params[:id], "year"],
-                                       :order => "start DESC")
-    @fundings = Funding.find(:all, :conditions => ["community_id = ?", @ranking.community_id], :order => "date DESC")
+    @daily_rankings = PastRanking.where("ranking_id = ? and period = ?", params[:id], "day").order("start DESC")
+    @monthly_rankings = PastRanking.where("ranking_id = ? and period = ?", params[:id], "month").order("start DESC")
+    @yearly_rankings = PastRanking.where("ranking_id = ? and period = ?", params[:id], "year").order("start DESC")
+    @fundings = Funding.where("community_id = ?", @ranking.community_id).order("date DESC")
  
     respond_to do |format|
       format.html # show.html.haml
