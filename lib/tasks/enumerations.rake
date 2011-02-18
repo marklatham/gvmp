@@ -2,7 +2,7 @@ namespace :enumerations do
 
   require 'active_record/fixtures'
 
-  ENUM_DIR = File.join(RAILS_ROOT, 'db', 'data')
+  ENUM_DIR = File.join(Rails.root.to_s, 'db', 'data')
 
   desc "Reload enumerations data from #{ENUM_DIR}. Accepts optional MODEL parameter, a comma-separated string of model names, to reload only those models."
   task :reload => :environment do
