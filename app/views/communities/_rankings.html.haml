@@ -23,10 +23,12 @@
           %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 2)
         - if ranking[:status] == "limbo" && ranking[:share] <= 0.0
           -# because if ranking[:share] > 0.0 then it was just sent to limbo today and tally not done yet.
-          %td.cell-centred.limbo.lowerborder.leftborder{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
+          %td.cell-centred.limbo.lowerborder.leftborder{:colspan => 2}
+            = link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
         - else
           %td.cell-centred.lowerborder.leftborder= ranking[:rank]
-          %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
+          %td.cell-centred.cell-link.lowerborder
+            = link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
         -# TODO: use named_route/resource
         -# There must be a cleaner way to code this. Find latest vote (if any) in this session for this website:
         - @flag = 0
@@ -38,7 +40,7 @@
               - @created = click.created_at
               - support = click.support
         %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
-          = render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => support, :flag => @flag }
+          = render :partial=>'vote', :locals=>{:community=>@community, :website=>ranking[:website], :support=>support, :flag=>@flag}
         - case
           - when ranking[:share] <= 0.0
             - rows = 1
@@ -50,7 +52,7 @@
           = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
         %td.lowerborder.rightborder
           %table.multipost{:style => "width: 100%"}
-            - post = Post.find(:all, :conditions => ["website_id = ?", ranking[:website]], :order => "posted_at DESC", :limit => rows)
+            - post = Post.where("website_id = ?", ranking[:website]).order("posted_at DESC").limit(rows)
             - post.each do |post|
               %tr
                 %td.postdate{:style => "width: 6em"}
@@ -82,7 +84,6 @@
     %noscript= 'Click Submit after each vote.'
     Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
     = "[#{link_to('FAQ on voting', '/faqs#Voting')}]".html_safe
-    
 
   %p
     %strong
@@ -93,4 +94,6 @@
   %p If you don't want other users of your computer to see your votes, please exit browser when finished voting.
   
   - if @rankings.last[:status] == "limbo"
-    %p You can vote for blogs/websites shown above as "Not entered". If they do enter later, your votes will count for them then. To enter, email mark[at]votermedia.org.
+    %p
+      You can vote for blogs/websites shown above as "Not entered". If they do enter later, your votes will count for them then.
+      To enter, email mark[at]votermedia.org.

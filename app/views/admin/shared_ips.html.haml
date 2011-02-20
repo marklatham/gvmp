@@ -9,8 +9,8 @@
     %th #faves
 
   - @votes_by_ip.each do |vote|
-    - agents = Vote.count(:agent, :distinct => true, :conditions => ["ip_address = ?", vote.ip_address])
-    - faves = Vote.count(:website_id, :distinct => true, :conditions => ["ip_address = ? AND support = ?", vote.ip_address, '40'])
+    - agents = Vote.where("ip_address = ?", vote.ip_address).count(:agent, :distinct => true)
+    - faves = Vote.where("ip_address = ? AND support = ?", vote.ip_address, '40').count(:website_id, :distinct => true)
     - if agents > 3 || faves > 3
       %tr
         %td= vote.ip_address

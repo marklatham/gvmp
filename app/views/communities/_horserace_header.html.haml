@@ -3,5 +3,5 @@
   %td.header-centred-grey Total
   - for website_id in @website_ids
     %td.header-centred-grey{:colspan => 3}
-      - if website = Website.find(:first, :conditions => ["id = ?", website_id])
+      - if website = Website.where("id = ?", website_id).first
         = link_to truncate(website.title, :length => 55, :omission => "..."), website.url

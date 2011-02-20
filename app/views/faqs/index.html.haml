@@ -20,7 +20,7 @@
       %a{ :name => "Our Organization" }
       %h3 FAQs: Our Organization
   
-  - faqs = Faq.find(:all, :order => "sequence", :conditions => ["category = ?", "1. Organization"])
+  - faqs = Faq.where("category = ?", "1. Organization").order("sequence")
   - for faq in faqs
 
     %tr
@@ -42,7 +42,7 @@
       %a{ :name => "Ballot Listings" }
       %h3 FAQs: Ballot Listings
   
-  - faqs = Faq.find(:all, :order => "sequence", :conditions => ["category = ?", "2. Listings"])
+  - faqs = Faq.where("category = ?", "2. Listings").order("sequence")
   - for faq in faqs
 
     %tr
@@ -64,7 +64,7 @@
       %a{ :name => "Voting" }
       %h3 FAQs: Voting
   
-  - faqs = Faq.find(:all, :order => "sequence", :conditions => ["category = ?", "3. Voting"])
+  - faqs = Faq.where("category = ?", "3. Voting").order("sequence")
   - for faq in faqs
 
     %tr
@@ -86,7 +86,7 @@
       %a{ :name => "Why VoterMedia Works" }
       %h3 FAQs: Why VoterMedia Works
   
-  - faqs = Faq.find(:all, :order => "sequence", :conditions => ["category = ?", "4. Why VM Works"])
+  - faqs = Faq.where("category = ?", "4. Why VM Works").order("sequence")
   - for faq in faqs
 
     %tr
