@@ -4,9 +4,9 @@ class AdminController < ApplicationController
 
   # Tally all percent votes (button on admin page)
   def tally_all
-    @communities = Community.find(:all)
+    @communities = Community.all
     @communities.each do |community|
-      @rankings = Ranking.find(:all, :conditions => ["community_id = ?", community.id])
+      @rankings = Ranking.where("community_id = ?", community.id)
       if @rankings.any?
         community.tally
       end
@@ -16,7 +16,7 @@ class AdminController < ApplicationController
 
   # Set ballot_type for past votes (button on admin page)
   def set_ballot_types
-    @votes = Vote.find(:all)
+    @votes = Vote.all
     @votes.each do |vote|
       # One-click voting started 2009-08-09, which in test data was id 247:
       if vote.id > 246
@@ -35,7 +35,7 @@ class AdminController < ApplicationController
 
   # Trim newlines \n and whitespace off the end of three fields:
   def clean_data
-    @websites = Website.find(:all)
+    @websites = Website.all
     @websites.each do |website|
       unless website.title.nil?
         @title = website.title.chomp
@@ -44,7 +44,7 @@ class AdminController < ApplicationController
       end
     end
     
-    @communities = Community.find(:all)
+    @communities = Community.all
     @communities.each do |community|
       unless community.name.nil?
         @name = community.name.chomp
@@ -61,7 +61,7 @@ class AdminController < ApplicationController
   end
   
   def shared_ips
-    @votes_by_ip = Vote.find(:all, :order => "ip_address", :group => "ip_address")
+    @votes_by_ip = Vote.group("ip_address").order("ip_address")
   end
   
   def terminal_create
