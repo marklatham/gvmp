@@ -105,7 +105,7 @@ class Community < ActiveRecord::Base
         ranking.share = 0.0
       end
     end
-    if rankings.sum(&:share) <= 0.0
+    if rankings.sum(:share) <= 0.0
       rankings.each do |ranking|
         ranking.share = 1.0
       end
@@ -128,7 +128,7 @@ class Community < ActiveRecord::Base
     # but if all shares = 0.0, min_count0 is nil which gives error; hence prevented above.
     
     # If shares sum to more than 100 (which shouldn't happen, but just in case), decrease 1 at a time:
-    while rankings.sum(&:share) > 100.0
+    while rankings.sum(:share) > 100.0
       min_count0.share -= 1.0
       min_count0.count1 = min_count0.count0
       min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0, parameter)
@@ -139,7 +139,7 @@ class Community < ActiveRecord::Base
     end
     
     # If shares sum to less than 100 (e.g. when first website[s] added), increase 1 at a time:
-    while rankings.sum(&:share) < 100.0
+    while rankings.sum(:share) < 100.0
       max_count1.share += 1.0
       max_count1.count0 = max_count1.count1
       max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0, parameter)

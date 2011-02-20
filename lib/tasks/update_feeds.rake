@@ -2,10 +2,10 @@ namespace :feed do
   desc "Find feed urls"
   task :find => :environment do
     # Find as many feed_urls as Columbus will give us
-    Website.find( :all ).each do |website|
+    Website.all.each do |website|
       website.update_attribute :feed_url, Columbus.new( website.url ).primary.url  rescue nil
     end
-    feed_urls =  Website.find( :all ).map( &:feed_url ).uniq.compact
+    feed_urls =  Website.all.map( &:feed_url ).uniq.compact
     puts 'We have %d feed urls under consideration'.%( feed_urls.size)
   end
 
@@ -16,7 +16,7 @@ namespace :feed do
     # can filter this with "if_modified_since" ==> see Feedzirra docs
     options = {}
     
-    feed_urls =  Website.find( :all ).map( &:feed_url ).uniq.compact
+    feed_urls =  Website.all.map( &:feed_url ).uniq.compact
     puts 'We have %d feed urls under consideration'.%( feed_urls.size)
     parse_hash = Feedzirra::Feed.fetch_and_parse( feed_urls, options )
     puts '   and %d feed urls parsed'.%( parse_hash.size)
@@ -50,10 +50,8 @@ namespace :feed do
     # can filter this with "if_modified_since" ==> see Feedzirra docs
     options = {}
     
-    feed_urls =  Website.find( :all,
-     :conditions => ["id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ?",
-                     "225", "30", "232", "31", "221", "223", "222", "239", "226", "35"]
-                     ).map( &:feed_url ).uniq.compact
+    feed_urls =  Website.where("id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ? OR id = ?",
+                     "225", "30", "232", "31", "221", "223", "222", "239", "226", "35").map( &:feed_url ).uniq.compact
     puts 'We have %d feed urls under consideration'.%( feed_urls.size)
     parse_hash = Feedzirra::Feed.fetch_and_parse( feed_urls, options )
     puts '   and %d feed urls parsed'.%( parse_hash.size)
@@ -89,17 +87,12 @@ namespace :feed do
     options = {}
     
   # fake outdent so don't have to indent code below:
-   sites = Website.find(:all,
-     :conditions => ["id = ? OR id = ? OR id = ?",
-                     "225", "30", "232"]
-                     )
+   sites = Website.where("id = ? OR id = ? OR id = ?", "225", "30", "232")
     
    sites.each do |site|
     puts 'website.id = %d'.%(site.id)
     
-    
-    feed_urls =  Website.find( :all,
-     :conditions => ["id = ?", site.id] ).map( &:feed_url ).uniq.compact
+    feed_urls =  Website.where("id = ?", site.id).map( &:feed_url ).uniq.compact
     puts 'We have %d feed urls under consideration'.%( feed_urls.size)
     parse_hash = Feedzirra::Feed.fetch_and_parse( feed_urls, options )
     puts '   and %d feed urls parsed'.%( parse_hash.size)

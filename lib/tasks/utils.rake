@@ -11,7 +11,7 @@ namespace :utils do
     start_time = Time.now
     puts  'Task utils:process_votes started [%s]'.%([start_time])
     
-    votes = Vote.find(:all, :conditions => ["days IS NULL"], :order => "id")
+    votes = Vote.where("days IS NULL").order("id")
     puts votes.size.to_s + " new votes"
     
     old_counter = 0
@@ -20,7 +20,7 @@ namespace :utils do
     
     votes.each do |vote|
       
-      if place = Place.find(:first, :conditions => ["? LIKE ip_string", vote.ip_address])
+      if place = Place.where("? LIKE ip_string", vote.ip_address).first
         vote.place = place.name
         vote.place_created_at = place.created_at
       else
@@ -32,8 +32,8 @@ namespace :utils do
       else
         Time.zone = "Pacific Time (US & Canada)"
       end
-      if previous_vote = Vote.find(:last, :conditions => ["community_id = ? and ip_address = ? and created_at < ?",
-                             vote.community_id, vote.ip_address, vote.created_at.in_time_zone.beginning_of_day], :order => "id")
+      if previous_vote = Vote.where("community_id = ? and ip_address = ? and created_at < ?",
+                             vote.community_id, vote.ip_address, vote.created_at.in_time_zone.beginning_of_day).order("id").last
         vote.days = (vote.created_at.in_time_zone.to_date - previous_vote.created_at.in_time_zone.to_date).to_f
       else
         vote.days = 0
@@ -48,7 +48,7 @@ namespace :utils do
         puts vote.ip_address + " not in"
         array = vote.ip_address.split('.')
         ipnum = 16777216*array[0].to_i + 65536*array[1].to_i + 256*array[2].to_i + array[3].to_i
-        if geo_ip = GeoIp.find(:first, :conditions => ["start_ip <= ? and end_ip >= ?", ipnum, ipnum])
+        if geo_ip = GeoIp.where("start_ip <= ? and end_ip >= ?", ipnum, ipnum).first
           if location = GeoIpLocation.find_by_id(geo_ip.geo_ip_location_id)
             Ip.create!({:ip_address => vote.ip_address, :integer_ip => ipnum,
                         :geo_ip_location_id => location.id, :country => location.country,
@@ -88,7 +88,7 @@ namespace :utils do
    1.times {
     
     puts Time.now.to_s + " Finding communities that need tallying."
-    communities = Community.find(:all, :order => "tallied_at, id")
+    communities = Community.order("tallied_at, id")
     communities.each do |community|
         
       # Check to see if it's time to tally this community:
@@ -115,7 +115,7 @@ namespace :utils do
         end
         
         # Make sure any funding allocation totals are reset to 0:
-        fundings = Funding.find(:all, :conditions => ["community_id = ? and date = ?", community.id, tally_cutoff_date])
+        fundings = Funding.where("community_id = ? and date = ?", community.id, tally_cutoff_date)
         fundings.each do |funding|
           if funding.allocated != 0
             puts "Warning: Funding id " + funding.id.to_s + " was already " +
@@ -126,8 +126,8 @@ namespace :utils do
         end
         
         # Get rankings for this community as of datetime tally_cutoff:
-        rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
-                                                     community.id,      tally_cutoff,      tally_cutoff], :order => "website_id")
+        rankings = Ranking.where("community_id = ? and created_at < ? and dropped_at > ?",
+                                               community.id,      tally_cutoff,      tally_cutoff).order("website_id")
         
         if rankings.any?
           
@@ -139,8 +139,8 @@ namespace :utils do
           puts Time.now.to_s + " Tally completed."
           
           # Prepare to archive the newly tallied rankings; first, find them: [Or should this be returned from community.tally?]
-          rankings = Ranking.find(:all, :conditions => ["community_id = ? and created_at < ? and dropped_at > ?",
-                                                     community.id,      tally_cutoff,      tally_cutoff], :order => "website_id")
+          rankings = Ranking.where("community_id = ? and created_at < ? and dropped_at > ?",
+                                               community.id,      tally_cutoff,      tally_cutoff).order("website_id")
           rankings.each do |ranking|
             ranking.archive(tally_cutoff_date, fundings)
           end
@@ -174,7 +174,7 @@ namespace :utils do
    1.times {
     
     puts Time.now.to_s + " Finding communities that need recalc."
-    communities = Community.find(:all, :order => "tallied_at, id")
+    communities = Community.order("tallied_at, id")
     communities.each do |community|
       
       # puts "====== " + community.id.to_s + "   " + community.short_name + ": "
@@ -186,8 +186,8 @@ namespace :utils do
       # This is written so as to handle both cutoff systems used pre- & post- 2010-04-01,
       # when we changed from about 3:15am Pacific time cutoff to the subsequent midnight cutoff in community's time zone:
       
-      if next_ranking = PastRanking.find(:first, :conditions => ["community_id = ? and period = ? and tallied_at > ?",
-                                           community.id, "day", 4.hours.from_now(community.tallied_at)], :order => "tallied_at")
+      if next_ranking = PastRanking.where("community_id = ? and period = ? and tallied_at > ?",
+                                           community.id, "day", 4.hours.from_now(community.tallied_at)).order("tallied_at").first
       
         tally_cutoff = next_ranking.tallied_at
         tally_cutoff_date = next_ranking.start
@@ -196,8 +196,8 @@ namespace :utils do
         print community.id.to_s + "   " + community.short_name + ": "
         
         # Get past rankings for this community for tally_cutoff_date:
-        past_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start = ?",
-                                                               community.id,     "day", tally_cutoff_date], :order => "website_id")
+        past_rankings = PastRanking.where("community_id = ? and period = ? and start = ?",
+                                                               community.id,     "day", tally_cutoff_date).order("website_id")
         
         if past_rankings.any?
           
@@ -231,7 +231,7 @@ namespace :utils do
    1.times {
     
     puts Time.now.to_s + " Finding communities that need recalc."
-    communities = Community.find(:all, :order => "tallied_at, id")
+    communities = Community.order("tallied_at, id")
     communities.each do |community|
       
       # puts "====== " + community.id.to_s + "   " + community.short_name + ": "
@@ -243,8 +243,8 @@ namespace :utils do
       # This is written so as to handle both cutoff systems used pre- & post- 2010-04-01,
       # when we changed from about 3:15am Pacific time cutoff to the subsequent midnight cutoff in community's time zone:
       
-      if next_ranking = PastRanking.find(:first, :conditions => ["community_id = ? and period = ? and tallied_at > ?",
-                                           community.id, "day", 4.hours.from_now(community.tallied_at)], :order => "tallied_at")
+      if next_ranking = PastRanking.where("community_id = ? and period = ? and tallied_at > ?",
+                                           community.id, "day", 4.hours.from_now(community.tallied_at)).order("tallied_at").first
       
         tally_cutoff = next_ranking.tallied_at
         tally_cutoff_date = next_ranking.start
@@ -253,7 +253,7 @@ namespace :utils do
         print community.id.to_s + "   " + community.short_name + ": "
         
         # Make sure any funding allocation totals are reset to 0:
-        fundings = Funding.find(:all, :conditions => ["community_id = ? and date = ?", community.id, tally_cutoff_date])
+        fundings = Funding.where("community_id = ? and date = ?", community.id, tally_cutoff_date)
         fundings.each do |funding|
           if funding.allocated != 0
             puts "Warning: Funding id " + funding.id.to_s + " was already " +
@@ -264,8 +264,8 @@ namespace :utils do
         end
         
         # Get past rankings for this community for tally_cutoff_date:
-        past_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start = ?",
-                                                               community.id,     "day", tally_cutoff_date], :order => "website_id")
+        past_rankings = PastRanking.where("community_id = ? and period = ? and start = ?",
+                                                      community.id,     "day", tally_cutoff_date).order("website_id")
         
         if past_rankings.any?
           
@@ -297,7 +297,7 @@ namespace :utils do
   
   desc "Delete session records that are more than 30 days old"
   task(:delete_old_sessions => :environment) do
-    sessions = Session.find(:all, :conditions => ["updated_at < ?", 1.month.ago])
+    sessions = Session.where("updated_at < ?", 1.month.ago)
     sessions.each do |session|
       session.delete
     end
@@ -309,12 +309,12 @@ namespace :utils do
     puts Time.now.to_s + " Checking n_websites for all communities."
     communities = Community.find(:all)
     communities.each do |community|
-      check_n_websites = Ranking.count(:conditions => ["community_id = ? and dropped_at > ?", community.id, Time.now])
+      check_n_websites = Ranking.where("community_id = ? and dropped_at > ?", community.id, Time.now).count
       unless community.n_websites == check_n_websites
         puts "Updating n_websites for " + community.name + " from " + community.n_websites.to_s +
              " to " + check_n_websites.to_s
         puts "Ranking ids:"
-        rankings = Ranking.find(:all, :conditions => ["community_id = ? and dropped_at > ?", community.id, Time.now])
+        rankings = Ranking.where("community_id = ? and dropped_at > ?", community.id, Time.now)
         rankings.each do |ranking|
           print ranking.id.to_s + ", "
         end

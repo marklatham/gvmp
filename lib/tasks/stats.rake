@@ -16,8 +16,8 @@ namespace :stats do
     puts "From: " + start.to_s
     puts "Until: " + finish.to_s
     
-    votes = Vote.find(:all, :conditions =>
-      ["community_id = ? and created_at >= ? and created_at < ? and (place = ? or place IS NULL)", c_id, start, finish, ""])
+    votes = Vote.where("community_id = ? and created_at >= ? and created_at < ? and (place = ? or place IS NULL)",
+                                     c_id,               start,             finish,         "")
     puts votes.size.to_s + " votes in " + community.short_name + " this period."
     
     votes_pos = votes.select{|vote| vote.support > 0}
