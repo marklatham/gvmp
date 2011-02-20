@@ -6,7 +6,7 @@ class Post < ActiveRecord::Base
   def self.add_entries(website, entries)
     
     # Only save posts newer than what we already have. If we have none, save those newer than 2009-01-01.
-    latest = Post.find(:first, :conditions => ["website_id = ?", website.id], :order => "posted_at DESC")
+    latest = Post.where("website_id = ?", website.id).order("posted_at").last
     cutoff = Time.parse("2009-01-01 16:57:45.608000 -04:00")
     cutoff = latest.posted_at if latest
     timestamp = Time.now
@@ -26,7 +26,7 @@ class Post < ActiveRecord::Base
       
       unless entry.published # If there's no published datetime, create timestamps in reverse order:
         has_dates = false
-        unless Post.find(:first, :conditions => ["website_id = ? and guid = ?", website.id, entry.id])
+        unless Post.where("website_id = ? and guid = ?", website.id, entry.id).first
           create!(
             :website    => website,
             :headline   => entry.title,
@@ -53,7 +53,7 @@ class Post < ActiveRecord::Base
 
     end
     
-    to_delete = Post.find(:all, :conditions => ["website_id = ?", website.id], :order => "posted_at DESC")
+    to_delete = Post.where("website_id = ?", website.id).order("posted_at DESC")
     if has_dates # Delete all but latest 5 posts for this website:
       count = 0
       to_delete.each do |post|

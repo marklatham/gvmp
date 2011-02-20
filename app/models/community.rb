@@ -49,9 +49,9 @@ class Community < ActiveRecord::Base
   def tally(tally_cutoff, rankings)
     
     # Get parameters for this community as of tally_cutoff
-    parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = ?", tally_cutoff, self.id], :order => "as_of")
+    parameter = Parameter.where("as_of <= ? and community_id = ?", tally_cutoff, self.id).order("as_of").last
     unless parameter
-      parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = 0", tally_cutoff], :order => "as_of")
+      parameter = Parameter.where("as_of <= ? and community_id = 0", tally_cutoff).order("as_of").last
     end
     puts "Parameters as of " + parameter.as_of.to_s + " for community_id = " + parameter.community_id.to_s
     
@@ -68,10 +68,8 @@ class Community < ActiveRecord::Base
     #                    :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
     
     # So find votes sorted:
-    votes = Vote.find(:all, :conditions =>
-            ["community_id = ? and created_at > ? and created_at < ? and (place_created_at > ? or place_created_at IS NULL)",
-                       self.id, parameter.start_voting, tally_cutoff,            tally_cutoff],
-                            :order => "ip_address, website_id, created_at DESC")
+    votes=Vote.where("community_id = ? and created_at > ? and created_at < ? and (place_created_at > ? or place_created_at IS NULL)",
+                        self.id, parameter.start_voting, tally_cutoff, tally_cutoff).order("ip_address, website_id, created_at DESC")
     
     # Only count the latest vote from each ip_address on each website.
     # For each [ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
@@ -93,9 +91,6 @@ class Community < ActiveRecord::Base
     unless self.tallied_at == rankings[0].tallied_at
       puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
     end
-    
-    # ranking.status = limbo means website hasn't entered contest but
-    # we want to show it at bottom of ballot, at least temporarily.
     
     if rankings.any?
       print rankings.size.to_s + " rankings. "
@@ -193,9 +188,9 @@ class Community < ActiveRecord::Base
   def check(tally_cutoff, rankings)
     # This repeats a lot of code from tally routine above. But here, just checking 2 vote counts per website.
     # Get parameters for this community as of tally_cutoff
-    parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = ?", tally_cutoff, self.id], :order => "as_of")
+    parameter = Parameter.where("as_of <= ? and community_id = ?", tally_cutoff, self.id).order("as_of").last
     unless parameter
-      parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = 0", tally_cutoff], :order => "as_of")
+      parameter = Parameter.where("as_of <= ? and community_id = 0", tally_cutoff).order("as_of").last
     end
     puts "Parameters as of " + parameter.as_of.to_s + " for community_id = " + parameter.community_id.to_s
     
@@ -212,10 +207,8 @@ class Community < ActiveRecord::Base
     #                    :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
     
     # So find votes sorted:
-    votes = Vote.find(:all, :conditions =>
-            ["community_id = ? and created_at > ? and created_at < ? and (place_created_at > ? or place_created_at IS NULL)",
-                       self.id, parameter.start_voting, tally_cutoff,            tally_cutoff],
-                            :order => "ip_address, website_id, created_at DESC")
+    votes=Vote.where("community_id = ? and created_at > ? and created_at < ? and (place_created_at > ? or place_created_at IS NULL)",
+                        self.id, parameter.start_voting, tally_cutoff, tally_cutoff).order("ip_address, website_id, created_at DESC")
     
     # Only count the latest vote from each ip_address on each website.
     # For each [ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
@@ -237,9 +230,6 @@ class Community < ActiveRecord::Base
     unless self.tallied_at == rankings[0].tallied_at
       puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
     end
-    
-    # ranking.status = limbo means website hasn't entered contest but
-    # we want to show it at bottom of ballot, at least temporarily.
     
     if rankings.any?
       puts rankings.size.to_s + " rankings. "
@@ -371,19 +361,16 @@ class Community < ActiveRecord::Base
         end_of_period = tally_cutoff_date.end_of_year
       end
       
-      first_ranked_date = PastRanking.minimum(:start,
-                                     :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
-                                                                 self.id, "day", beginning_of_period, end_of_period])
-      last_ranked_date = PastRanking.maximum(:start,
-                                     :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
-                                                                 self.id, "day", beginning_of_period, end_of_period])
+      first_ranked_date = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ?",
+                                                          self.id, "day", beginning_of_period, end_of_period).minimum(:start)
+      last_ranked_date = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ?",
+                                                          self.id, "day", beginning_of_period, end_of_period).maximum(:start)
       
-      funds = Funding.sum(:amount, :conditions => ["community_id = ? and date >= ? and date <= ?",
-                                                      self.id, first_ranked_date, last_ranked_date])
+      funds = Funding.where("community_id = ? and date >= ? and date <= ?",
+                                        self.id, first_ranked_date, last_ranked_date).sum(:amount)
       
-      n_days = PastRanking.count(:start, :distinct => true, :conditions =>
-                                                ["community_id = ? and period = ? and start >= ? and start <= ?",
-                                                  self.id, "day", first_ranked_date, last_ranked_date])
+      n_days = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ?",
+                                              self.id, "day", first_ranked_date, last_ranked_date).count(:start, :distinct => true)
       if n_days != 1 + (last_ranked_date - first_ranked_date)
         puts "Warning: n_days = " + n_days.to_s + " but we seem to have " +
          (1 + (last_ranked_date - first_ranked_date) - n_days).to_s + " missing days in this " + period + "."
@@ -391,23 +378,18 @@ class Community < ActiveRecord::Base
       
       # Find the ranking_ids that have any past_rankings on the days we are considering:
       if funds > 0
-        past_rankings = PastRanking.find(:all, :conditions =>
-                                                ["community_id = ? and period = ? and start >= ? and start <= ? and funds > 0",
-                                                  self.id, "day", first_ranked_date, last_ranked_date],
-                                                  :order => "ranking_id, start", :group => "ranking_id")
+        past_rankings = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ? and funds > 0",
+                        self.id, "day", first_ranked_date, last_ranked_date).group("ranking_id").order("ranking_id, start")
       else
-        past_rankings = PastRanking.find(:all, :conditions =>
-                                                ["community_id = ? and period = ? and start >= ? and start <= ?",
-                                                  self.id, "day", first_ranked_date, last_ranked_date],
-                                                  :order => "ranking_id, start", :group => "ranking_id")
+        past_rankings = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ?",
+                        self.id, "day", first_ranked_date, last_ranked_date).group("ranking_id").order("ranking_id, start")
       end
       
       past_rankings.each do |past_ranking|
         
         if funds > 0
-          award = PastRanking.sum(:award, :conditions => 
-                               ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
-                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])
+          award = PastRanking.where("community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
+                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date).sum(:award)
           share = award * 100 / funds
           if self.id == 82
             puts past_ranking.id.to_s + ", " + past_ranking.website_id.to_s + ", " + share.to_s + 
@@ -415,17 +397,14 @@ class Community < ActiveRecord::Base
           end
         else
           award = 0
-          share = PastRanking.sum(:share, :conditions => 
-                               ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
-                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
+          share = PastRanking.where("community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
+                                    self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date).sum(:share)/n_days
         end
         
-        count0 = PastRanking.sum(:count0, :conditions => 
-                               ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
-                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
-        count1 = PastRanking.sum(:count1, :conditions => 
-                               ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
-                                       self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
+        count0 = PastRanking.where("community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
+                                    self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date).sum(:count0)/n_days
+        count1 = PastRanking.where("community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
+                                    self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date).sum(:count1)/n_days
         
         if self.id == 82
           puts past_ranking.id.to_s + ", " + past_ranking.website_id.to_s + ", " + share.to_s + 
@@ -446,16 +425,14 @@ class Community < ActiveRecord::Base
   # Update periodic (non-daily) past_rankings ranks for this community; also check totals:
   def rankpr(date_to_process)
     
-    monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
-                            self.id, "month", date_to_process.beginning_of_month, date_to_process.end_of_month],
-                            :order => "share DESC, count1 DESC")
+    monthly_rankings = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ?",
+                self.id, "month", date_to_process.beginning_of_month, date_to_process.end_of_month).order("share DESC, count1 DESC")
     if monthly_rankings.any?
       checkpr(monthly_rankings)
     end
     
-    yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and start >= ? and start <= ?",
-                            self.id, "year", date_to_process.beginning_of_year, date_to_process.end_of_year],
-                            :order => "share DESC, count1 DESC")
+    yearly_rankings = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ?",
+                  self.id, "year", date_to_process.beginning_of_year, date_to_process.end_of_year).order("share DESC, count1 DESC")
     if yearly_rankings.any?
       checkpr(yearly_rankings)
     end
