@@ -6,7 +6,6 @@ gem 'mysql'
 gem 'newrelic_rpm'
 gem 'rails', '3.0.4'
 gem 'thinking-sphinx', '2.0.0', :require => 'thinking_sphinx'
-gem 'webby'
 gem 'will_paginate'
 
 group :development, :test do
@@ -15,7 +14,7 @@ group :development, :test do
   gem 'ruby-debug'
 end
 
-# These are gems in the orignal vendor/gems folder.
+# These are gems in the original vendor/gems folder.
 # Commented for now until we identified the code
 # that needs it.
 # gem 'columbus'
