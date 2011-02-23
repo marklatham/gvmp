@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101231041233) do
+ActiveRecord::Schema.define(:version => 20110223021633) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -302,6 +302,7 @@ ActiveRecord::Schema.define(:version => 20101231041233) do
     t.decimal  "permission",                               :precision => 8, :scale => 3, :default => 0.0
     t.string   "ip_address",                                                             :default => ""
     t.string   "agent",                                                                  :default => ""
+    t.string   "member",                                                                 :default => ""
   end
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
@@ -329,6 +330,8 @@ ActiveRecord::Schema.define(:version => 20101231041233) do
     t.string   "place",            :default => ""
     t.float    "days"
     t.datetime "place_created_at"
+    t.integer  "user_id"
+    t.string   "member",           :default => ""
   end
 
   create_table "websites", :force => true do |t|
