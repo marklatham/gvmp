@@ -30,6 +30,7 @@ GEM
     activesupport (3.0.4)
     arel (2.0.8)
     builder (2.1.2)
+    cancan (1.5.1)
     columnize (0.3.2)
     curb (0.7.10)
     database_cleaner (0.6.3)
@@ -111,6 +112,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  cancan
   database_cleaner
   feedzirra
   haml

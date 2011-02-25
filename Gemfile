@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'cancan'
 gem 'feedzirra'
 gem 'haml'
 gem 'mysql'
