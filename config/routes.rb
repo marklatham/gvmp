@@ -1,11 +1,8 @@
 Gvmp::Application.routes.draw do
+  devise_for :users
+
   root :to => 'communities#home_page'
 
-  match '/logout',   :to => 'sessions#destroy', :as => 'logout'
-  match '/login',    :to => 'sessions#new',     :as => 'login'
-  match '/register', :to => 'users#new',        :as => 'register'
-  match '/signup',   :to => 'users#create',     :as => 'signup'
- 
   resources :clippings
   resources :colleagues
   resources :communities do
@@ -22,8 +19,8 @@ Gvmp::Application.routes.draw do
   resources :proposals
   resources :pubs
   resources :rankings
-  resource :session
-  resources :users
+#  resource :session  # replaced by devise routes
+#  resources :users  # replaced by devise routes
   resources :videos
   resources :votes
   resources :websites
