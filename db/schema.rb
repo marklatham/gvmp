@@ -1,15 +1,16 @@
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101231041233) do
+ActiveRecord::Schema.define(:version => 20110225222630) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -114,8 +115,8 @@ ActiveRecord::Schema.define(:version => 20101231041233) do
   end
 
   create_table "geo_ips", :force => true do |t|
-    t.integer  "start_ip"
-    t.integer  "end_ip"
+    t.integer  "start_ip",           :limit => 8
+    t.integer  "end_ip",             :limit => 8
     t.integer  "geo_ip_location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -126,17 +127,17 @@ ActiveRecord::Schema.define(:version => 20101231041233) do
   add_index "geo_ips", ["start_ip"], :name => "index_geo_ips_on_start_ip"
 
   create_table "ips", :force => true do |t|
-    t.string   "ip_address",         :default => ""
-    t.integer  "integer_ip"
+    t.string   "ip_address",                      :default => ""
+    t.integer  "integer_ip",         :limit => 8
     t.integer  "geo_ip_location_id"
-    t.string   "country",            :default => ""
-    t.string   "region",             :default => ""
-    t.string   "city",               :default => ""
-    t.string   "postal_code",        :default => ""
+    t.string   "country",                         :default => ""
+    t.string   "region",                          :default => ""
+    t.string   "city",                            :default => ""
+    t.string   "postal_code",                     :default => ""
     t.float    "latitude"
     t.float    "longitude"
-    t.string   "metro_code",         :default => ""
-    t.string   "area_code",          :default => ""
+    t.string   "metro_code",                      :default => ""
+    t.string   "area_code",                       :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -290,21 +291,27 @@ ActiveRecord::Schema.define(:version => 20101231041233) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "login",                     :limit => 40,                                :default => "",  :null => false
-    t.string   "name",                      :limit => 100,                               :default => "",  :null => false
-    t.string   "email",                     :limit => 100,                               :default => "",  :null => false
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
+    t.string   "email",                               :default => "", :null => false
+    t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                       :default => "", :null => false
+    t.string   "reset_password_token"
+    t.string   "remember_token"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",                       :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_token",            :limit => 40
-    t.datetime "remember_token_expires_at"
-    t.decimal  "permission",                               :precision => 8, :scale => 3, :default => 0.0
-    t.string   "ip_address",                                                             :default => ""
-    t.string   "agent",                                                                  :default => ""
   end
 
-  add_index "users", ["login"], :name => "index_users_on_login", :unique => true
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
   create_table "videos", :force => true do |t|
     t.string   "title",       :default => ""
@@ -329,6 +336,8 @@ ActiveRecord::Schema.define(:version => 20101231041233) do
     t.string   "place",            :default => ""
     t.float    "days"
     t.datetime "place_created_at"
+    t.integer  "user_id"
+    t.string   "member",           :default => ""
   end
 
   create_table "websites", :force => true do |t|
