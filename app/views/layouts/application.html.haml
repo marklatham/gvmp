@@ -21,7 +21,14 @@
             = render 'layouts/nav'    
           
           #main
+            -# Notices from devise:
+            - if notice
+              %div.success= notice
+            - if alert
+              %div.warning= alert
+            -# Other notices:
             = flash_notice
+            
             = yield
           
           = render 'layouts/main_nav_bottom' 

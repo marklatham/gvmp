@@ -19,17 +19,17 @@
       -# Google CSE Search Box Ends
     
     %td#login-nav
-      - if current_user
-        %span.perm0= h current_user.login
-        - if current_user.permission >= 7.0
-          %span.permission= '(' + link_to('admin', admin_path) + ')'
-        - elsif current_user.permission >= 4.0
-          %span.permission= '(editor)'
+      - if user_signed_in?
+        %span.perm0= h current_user.email
+        -# - if current_user.permission >= 7.0
+        -# %span.permission= '(' + link_to('admin', admin_path) + ')'
+        -# - elsif current_user.permission >= 4.0
+        -# %span.permission= '(editor)'
         %span.perm0
           = link_separator
-          = link_to 'Logout', logout_path
+          = link_to 'Logout', destroy_user_session_path
       - else
         %span.perm0
-          = link_to 'Register', register_path
+          = link_to 'Register', new_user_registration_path
           = link_separator
-          = link_to 'Login', login_path
+          = link_to 'Login', new_user_session_path
