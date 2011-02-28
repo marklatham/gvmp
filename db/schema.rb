@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110223021633) do
+ActiveRecord::Schema.define(:version => 20110228215413) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -169,6 +169,8 @@ ActiveRecord::Schema.define(:version => 20110223021633) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "transition"
+    t.float    "no_login_weight",             :default => 1.0
   end
 
   create_table "past_rankings", :force => true do |t|
@@ -318,6 +320,16 @@ ActiveRecord::Schema.define(:version => 20110223021633) do
     t.datetime "updated_at"
   end
 
+  create_table "views", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "community_id"
+    t.string   "ip_address",   :default => ""
+    t.string   "agent",        :default => ""
+    t.string   "referrer",     :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "votes", :force => true do |t|
     t.integer  "community_id"
     t.integer  "website_id"
@@ -332,6 +344,7 @@ ActiveRecord::Schema.define(:version => 20110223021633) do
     t.datetime "place_created_at"
     t.integer  "user_id"
     t.string   "member",           :default => ""
+    t.string   "referrer",         :default => ""
   end
 
   create_table "websites", :force => true do |t|

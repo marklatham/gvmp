@@ -39,6 +39,8 @@ class CommunitiesController < ApplicationController
     unless @community = Community.find_by_idstring(params[:idstring])
       @community = Community.find(params[:id])
     end
+    View.create!({:community_id => @community.id, :ip_address => request.remote_ip,
+                         :agent => request.user_agent, :referrer => request.referer})
     @rankings = @community.rankings.with_websites.paginate :page => params[:page], :per_page => 20
     @ballot = find_ballot
   end
@@ -156,10 +158,10 @@ class CommunitiesController < ApplicationController
     if @community.updated_at < 1.second.ago(Time.now)
       if current_user
         vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
-                         :user_id => current_user.id, :member => current_user.member,
+                         :user_id => current_user.id, :member => current_user.member, :referrer => request.referer,
                          :website_id => @website.id, :support => @support, :ballot_type => "2"})
       else
-        vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
+        vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id, :referrer => request.referer,
                          :website_id => @website.id, :support => @support, :ballot_type => "2"})
       end
       
