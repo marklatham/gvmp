@@ -124,7 +124,7 @@ class CommunitiesController < ApplicationController
       @date += 1
     end
     
-    redirect_to :action => :show, :id => @community
+    redirect_to "/" + @community.idstring
   end
   
   # Reconstruct a date object from date_select helper form params
@@ -163,7 +163,7 @@ class CommunitiesController < ApplicationController
     end
     
     respond_to do |format|
-      format.html { redirect_to :action => :show, :id => @community}
+      format.html { redirect_to "/" + @community.idstring}
       format.js
     end
   end
