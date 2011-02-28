@@ -20,4 +20,4 @@ vendor/plugins/**/.git
 *.o
 *.so
 *config.h
-
+.rvmrc
