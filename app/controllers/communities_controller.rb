@@ -160,7 +160,7 @@ class CommunitiesController < ApplicationController
     # delete_vote(@community, @website, @ip)
     
     # Using @community.updated_at is a clumsy way to reduce the repeat vote problem, but serves as a bandaid for now:
-    if @community.updated_at < 1.second.ago(Time.now)
+    if @community.updated_at < 5.seconds.ago(Time.now)
       if current_user
         vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
                          :user_id => current_user.id, :member => current_user.member, :referrer => request.referer,
