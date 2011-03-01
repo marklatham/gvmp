@@ -15,6 +15,11 @@
   
   .listing
     - if @community.websites.any?
+      - if @community.id == 82
+        %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
+          %strong
+            NOTE: Login may be required for your vote to be counted in this community.
+            Please register then login via links at upper right.
       = render :partial => 'rankings'
     - else
       = render :partial => 'no_rankings'

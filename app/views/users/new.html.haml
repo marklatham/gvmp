@@ -1,52 +1,77 @@
 - @page_title = 'Register'
 
-%h1 Register as a new user of VoterMedia.org
+- if current_user and (current_user.permission >= 9.0)
 
-%p
-  [You don't need to register or log in to vote -- see
-  = link_to('FAQ: Voting', '/faqs#Voting') + '.'
-  So we haven't built much functionality for this yet.]
+  %h2 Create new user:
 
-- @user.password = @user.password_confirmation = nil
+  - @user.password = @user.password_confirmation = nil
 
-= error_messages_for :user
+  = error_messages_for :user
 
-- form_for :user, :url => users_path do |f|
+  - form_for :user, :url => users_path do |f|
 
-  %hr
+    %hr
 
-  %h4 Required:
+    %h4 Required:
 
-  %p
-    = label_tag 'login'
+    %p
+      = label_tag 'login'
+      %br
+      = f.text_field :login
+
+    %p
+      = label_tag 'password'
+      %br
+      = f.password_field :password
+
+    %p
+      = label_tag 'password_confirmation', 'Confirm Password'
+      %br
+      = f.password_field :password_confirmation
+  
+    %hr
+
+    %h4 Optional:
+
+    %p
+      = label_tag 'Your name'
+      %br
+      = f.text_field :name
+
+    %hr
     %br
-    = f.text_field :login
 
-  %p
-    = label_tag 'password'
-    %br
-    = f.password_field :password
+    %p
+      = submit_tag 'REGISTER'
 
-  %p
-    = label_tag 'password_confirmation', 'Confirm Password'
-    %br
-    = f.password_field :password_confirmation
-
-  %hr
-
-  %h4 Optional:
-
-  %p
-    = label_tag 'Your name'
-    %br
-    = f.text_field :name
-
-  %hr
+  %br
   %br
 
+%div{:style => "margin-left: 10%; margin-right: 10%;"}
+  
+  %h1 Register as a new user of VoterMedia.org
+  
   %p
-    = submit_tag 'REGISTER'
+    We are building a more convenient voter registration system, but for now please register by emailing your name, city and
+    country of residence, and your choice of password to Mark Latham (mark[at]votermedia.org).
+  
+  %p
+    If you belong to a student union and plan to vote in its votermedia ballot, please also include:
+  
+  %p
+    Name of student union:
+    
+  %p
+    Your student number:
+    
+  %p
+    Please validate your student affiliation by sending your email from an address issued by that educational institution,
+    and/or by a Facebook message to
+    = link_to("Mark Latham", "http://www.facebook.com/votermedia")
+    from your Facebook account with that network membership.
 
-%br
-%br
-%br
+  %hr
+
+  %strong Thanks for registering and voting!
+  %br
+  %br

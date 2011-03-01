@@ -48,6 +48,8 @@ class Community < ActiveRecord::Base
   
   def tally(tally_cutoff, rankings)
     
+    print rankings.size.to_s + " rankings. "
+    
     # Get parameters for this community as of tally_cutoff
     parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = ?", tally_cutoff, self.id], :order => "as_of")
     unless parameter
@@ -55,52 +57,50 @@ class Community < ActiveRecord::Base
     end
     puts "Parameters as of " + parameter.as_of.to_s + " for community_id = " + parameter.community_id.to_s
     
-    # How to select the latest vote from each IP address for each website?:
-    # This doesn't get all data fields, so no good I guess:
-    #    votes = Vote.maximum(:updated_at, 
-    #                               :conditions => ["community_id = ?", self.id],                     
-    #                               :group => "ip_address, website_id")    
-    
-    # This almost works, but returns the first record of each group (by ID, regardless of how sorted)
-    # while we want the latest record:
-    # votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
-    #                                                    self.id,      tally_cutoff,            ""],
-    #                    :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
-    
-    # So find votes sorted:
+    # Get votes on this community:
     votes = Vote.find(:all, :conditions =>
             ["community_id = ? and created_at > ? and created_at < ? and (place_created_at > ? or place_created_at IS NULL)",
-                       self.id, parameter.start_voting, tally_cutoff,            tally_cutoff],
-                            :order => "ip_address, website_id, created_at DESC")
-    
-    # Only count the latest vote from each ip_address on each website.
-    # For each [ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
+                       self.id, parameter.start_voting, tally_cutoff,            tally_cutoff])
     puts Time.now.to_s + " Number of votes found = " + votes.size.to_s
+    
+    # Set vote.user_id = 0 if not a member of this community:
+    votes.each do |vote|
+      vote.user_id = 0 unless vote.member.include?(self.idstring)
+    end
+    votes=votes.sort{|a,b|[a.user_id,a.ip_address,a.website_id,b.created_at]<=>[b.user_id,b.ip_address,b.website_id,a.created_at]}
+    
+    # Only count the latest vote from each user or ip_address, on each website.
+    # For each [user, ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
     if votes.any?
-      keep_vote = votes[0]
       votes_to_count = []
+      keep_vote = votes[0]
       votes_to_count << keep_vote
       votes.each do |vote|
-        unless vote.ip_address == keep_vote.ip_address && vote.website_id == keep_vote.website_id
-          keep_vote = vote
-          votes_to_count << keep_vote
+        unless keep_vote.user_id == 0 # Not 0, so user is a known member, so:
+          unless vote.user_id == keep_vote.user_id && vote.website_id == keep_vote.website_id
+            keep_vote = vote
+            votes_to_count << keep_vote
+          end
+        else # Vote not cast by logged in member, so:
+          unless vote.ip_address == keep_vote.ip_address && vote.website_id == keep_vote.website_id
+            keep_vote = vote
+            votes_to_count << keep_vote
+          end
         end
       end
       votes = votes_to_count
     end
     puts Time.now.to_s + " Number of votes left = " + votes.size.to_s
     
-    unless self.tallied_at == rankings[0].tallied_at
-      puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
+    if self.id == 82 # Output to check if UBC AMS: last 50 votes:
+      votes=votes.sort{|a,b|[b.user_id,b.created_at]<=>[a.user_id,a.created_at]}
+      votes.first(50).each do |vote|
+        puts vote.created_at.to_s + ", " + vote.user_id.to_s + ", " + vote.ip_address.to_s + ", " + vote.website_id.to_s + ", " + vote.support.to_s
+      end
     end
     
-    # ranking.status = limbo means website hasn't entered contest but
-    # we want to show it at bottom of ballot, at least temporarily.
-    
-    if rankings.any?
-      print rankings.size.to_s + " rankings. "
-    else
-      print "Warning: Found no rankings! "
+    unless self.tallied_at == rankings[0].tallied_at
+      puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
     end
     
     # Make sure shares are nonnegative whole numbers, not all zero:
@@ -191,6 +191,9 @@ class Community < ActiveRecord::Base
   end
   
   def check(tally_cutoff, rankings)
+    
+    puts rankings.size.to_s + " rankings. "
+    
     # This repeats a lot of code from tally routine above. But here, just checking 2 vote counts per website.
     # Get parameters for this community as of tally_cutoff
     parameter = Parameter.find(:last, :conditions => ["as_of <= ? and community_id = ?", tally_cutoff, self.id], :order => "as_of")
@@ -238,15 +241,6 @@ class Community < ActiveRecord::Base
       puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
     end
     
-    # ranking.status = limbo means website hasn't entered contest but
-    # we want to show it at bottom of ballot, at least temporarily.
-    
-    if rankings.any?
-      puts rankings.size.to_s + " rankings. "
-    else
-      puts "Warning: Found no rankings! "
-    end
-    
     # Calculate count0 (# votes for share or more) and count1 (# votes for share+1 or more) for each ranking:
     rankings.each do |ranking|
       check_count0 = countVotes(tally_cutoff, votes, ranking, 0.0, parameter)
@@ -265,13 +259,13 @@ class Community < ActiveRecord::Base
     
     cutoff = ranking.share + increment
     
-    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
-      puts "========================================="
-      puts "Website_id: " + ranking.website_id.to_s
-      puts tally_cutoff
-      puts ranking.share
-      puts increment
-    end
+#    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
+#      puts "========================================="
+#      puts "Website_id: " + ranking.website_id.to_s
+#      puts tally_cutoff
+#      puts ranking.share
+#      puts increment
+#    end
     
     count = parameter.spread_previous * (100.0 - ranking.share) # To break ties caused by having no votes. This will equalize shares.
     votes.each do |vote|
@@ -330,15 +324,22 @@ class Community < ActiveRecord::Base
           
         end
         
-        count += decayed_weight * support_fraction
-        
-        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
-          print vote.id
-          print ", "
-          print decayed_weight
-          print ", "
-          puts support_fraction
+        login_factor = 1.0  # default value
+        if parameter.transition  # Does this community have a transition date to login weighting?
+          if parameter.transition < vote.created_at && vote.user_id == 0
+            login_factor = parameter.no_login_weight  # Lower weight if not logged in after transition.
+          end
         end
+        
+        count += decayed_weight * support_fraction * login_factor
+        
+#        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
+#          print vote.id
+#          print ", "
+#          print decayed_weight
+#          print ", "
+#          puts support_fraction
+#        end
         
       end
     end
@@ -355,9 +356,9 @@ class Community < ActiveRecord::Base
   # Calculate periodic (non-daily) past_rankings for this community and date:
   def calc_periodic_rankings(tally_cutoff_date)
     
-    if self.id == 82
-      puts "======= UBC calc_periodic_rankings diagnostics: ========"
-    end
+#    if self.id == 82
+#      puts "======= UBC calc_periodic_rankings diagnostics: ========"
+#    end
     PastRanking.delete_all(["community_id = ? and period != ? and start <= ? and end >= ?",
                                     self.id,       "day", tally_cutoff_date, tally_cutoff_date])
     
@@ -427,10 +428,10 @@ class Community < ActiveRecord::Base
                                ["community_id = ? and ranking_id = ? and period = ? and start >= ? and start <= ?",
                                        self.id, past_ranking.ranking_id, "day", first_ranked_date, last_ranked_date])/n_days
         
-        if self.id == 82
-          puts past_ranking.id.to_s + ", " + past_ranking.website_id.to_s + ", " + share.to_s + 
-                ", " + award.to_s + ", " + funds.to_s + ", " + period
-        end
+#        if self.id == 82
+#          puts past_ranking.id.to_s + ", " + past_ranking.website_id.to_s + ", " + share.to_s + 
+#                ", " + award.to_s + ", " + funds.to_s + ", " + period
+#        end
         PastRanking.create!({:ranking_id => past_ranking.ranking_id, :community_id => self.id,
                              :website_id => past_ranking.website_id, :rank => 0, # rank will be set later
           :tallied_at => self.tallied_at, :share => share, :funds => funds, :award => award, :count0 => count0, :count1 => count1,

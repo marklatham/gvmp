@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-  before_filter :except => [:new, :create] do |c|
-    c.redirect_if_permission_less_than 7.0
+  before_filter :except => :new do |c|
+    c.redirect_if_permission_less_than 9.0
   end
 
   def index
