@@ -63,12 +63,16 @@ class Community < ActiveRecord::Base
                        self.id, parameter.start_voting, tally_cutoff,            tally_cutoff])
     puts Time.now.to_s + " Number of votes found = " + votes.size.to_s
     
-    if self.id == 82
-      # Set vote.user_id = 0 if not a member of this community:
-      votes.each do |vote|
-        vote.user_id = 0 unless vote.member.include?(self.idstring)
+    votes.each do |vote|
+      if vote.user_id
+        if self.id == 82
+          vote.user_id = 0 unless vote.member.include?(self.idstring) # Set vote.user_id = 0 if not a member of this community
+        end
+      else
+        vote.user_id = 0
       end
     end
+    
     votes=votes.sort{|a,b|[a.user_id,a.ip_address,a.website_id,b.created_at]<=>[b.user_id,b.ip_address,b.website_id,a.created_at]}
     
     # Only count the latest vote from each user or ip_address, on each website.

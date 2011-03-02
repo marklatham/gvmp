@@ -107,10 +107,10 @@ a:hover { color: #d00; }
   font-size: 14px;
 }
 #login-nav .perm0 {
-  color: #888;
+  color: #111;
 }
 #login-nav .perm0 a {
-  color: #888;
+  color: #111;
   text-decoration: none;
 }
 #login-nav .perm0 a:hover {
