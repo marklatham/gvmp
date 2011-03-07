@@ -303,8 +303,13 @@ class CommunitiesController < ApplicationController
         earliest_day = 3.months.ago(Date.today).beginning_of_month
       end
       
-      @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
+      if @community.id == 82
+        @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ? and end <= ?",
+                                            @community.id, "day", earliest_day, Date.new(2011, 3, 6)], :order => "start DESC")
+      else
+        @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
                                                            @community.id, "day", earliest_day], :order => "start DESC")
+      end
       
       # Select columns (i.e. websites) to display in horserace table:
       

@@ -3,15 +3,18 @@
     - if current_user and (current_user.permission >= 8.5)
       %th.header-centred.permission{:style => "width: 3em"} Ct1
       %th.header-centred.permission{:style => "width: 3em"} Ct0
-    %th.header-centred{:style => "width: 3em"} #
-    %th.header-centred{:style => "width: 4em"} Share
+    %th.header-centred{:style => "width: 3em"}
+    -# %th.header-centred{:style => "width: 4em"} Share
     %th.header-centred{:style => "width: 8em"} Your&nbsp;Votes
     %th.header-left{:style => "width: 18em"} Blog/Website
     -# The non-breaking spaces help the table width on my iPAQ. Need to check on iPhone.
     %th.header-left &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     - if current_user and (current_user.permission >= 8.5)
       %td{:style => "width: 3em"}
-
+  
+  - if @community.id == 82
+    - @rankings = @rankings.sort{|a,b| a[:website].title <=> b[:website].title}
+  
   - @rankings.each do |ranking|
     -# In case website was deleted but orphaned ranking record still exists:
     -# And to exclude rankings that have been dropped:
@@ -25,8 +28,9 @@
           -# because if ranking[:share] > 0.0 then it was just sent to limbo today and tally not done yet.
           %td.cell-centred.limbo.lowerborder.leftborder{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
         - else
-          %td.cell-centred.lowerborder.leftborder= ranking[:rank]
-          %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
+          %td.cell-centred.lowerborder.leftborder
+          -# = ranking[:rank]
+          -# %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
         -# TODO: use named_route/resource
         -# There must be a cleaner way to code this. Find latest vote (if any) in this session for this website:
         - @flag = 0
@@ -49,13 +53,16 @@
         - else
           %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
             = render :partial => 'vote', :locals => { :community => @community, :website => ranking[:website], :support => support, :flag => @flag }
-        - case
-          - when ranking[:share] <= 0.0
-            - rows = 1
-          - when ranking[:share] > 0.0 && ranking[:share] < 20.0
-            - rows = 2
-          - when ranking[:share] >= 20.0
-            - rows = 3
+        - if @community.id == 82
+          - rows = 3
+        - else
+          - case
+            - when ranking[:share] <= 0.0
+              - rows = 1
+            - when ranking[:share] > 0.0 && ranking[:share] < 20.0
+              - rows = 2
+            - when ranking[:share] >= 20.0
+              - rows = 3
         %td.cell-link.lowerborder
           = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
         %td.lowerborder.rightborder
@@ -81,7 +88,7 @@
     - if current_user and (current_user.permission >= 8.5)
       %td
       %td
-    %td{:colspan => 5, :style => "border-bottom: 8px solid #a00; padding: 0px"}
+    %td{:colspan => 4, :style => "border-bottom: 8px solid #a00; padding: 0px"}
 
 %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
 
