@@ -12,9 +12,9 @@
 %p
   - if @community.official_url != ""
     - if @community.category == "Corporation"
-      %label= link_to 'Official corporate website', @community.official_url, :target => "_blank"
+      %label= link_to 'Official ' + @community.short_name + ' website', @community.official_url, :target => "_blank"
     - else
-      %label= link_to 'Official community website', @community.official_url, :target => "_blank"
+      %label= link_to 'Official ' + @community.short_name + ' website', @community.official_url, :target => "_blank"
     &nbsp; &nbsp;
   - if @community.wiki_url != ""
     - if @community.category == "Corporation"
@@ -29,7 +29,8 @@
 %p
   %label Funding status:
   - if @community.status == nil || @community.status == ""
-    Not currently funded. This ballot is for if and when there is funding. Without funding there may be few votes, which makes the rankings less meaningful. For a funded ballot, see
+    Not currently funded. This ballot is for if and when there is funding.
+    Without funding there may be few votes, which makes the rankings less meaningful. For a funded ballot, see
     = link_to('UBC AMS', '/ubc') + '.'
   - else
     %span.funded= truncate(@community.status, :length => 1000)

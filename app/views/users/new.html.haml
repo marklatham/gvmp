@@ -52,15 +52,43 @@
   %h1 Register as a voter on VoterMedia.org
   
   %p
-    We are building an automated voter registration system, but for now please register by emailing your name, city and
-    country of residence to Mark Latham (mark[at]votermedia.org).
+    We are building an automated voter registration system, but for now please copy and paste the text
+    between the horizontal lines below into an email,
+    fill in the blanks and send it to Mark Latham (mark[at]votermedia.org):
+    
+  %hr
   
   %p
-    If you belong to a student union and plan to vote in its votermedia ballot, please also include the name of the student union;
-    and please validate your affiliation by sending your email from an address issued by that educational institution,
-    and/or by a Facebook message to
-    = link_to("Mark Latham", "http://www.facebook.com/votermedia")
-    from your Facebook account with that network membership.
+    Please register me as a voter on website votermedia.org. I agree to the terms of use at
+    = link_to("votermedia.org/terms", "/terms") + "."
+  
+  %p
+    %strong First name:
+  
+  %p
+    %strong Last name:
+  
+  %p
+    %strong City of residence:
+  
+  %p
+    %strong Country of residence:
+  
+  %p
+    If you belong to a student union and plan to vote in its votermedia ballot, please also include --
+  
+  %p
+    %strong Name of student union:
+  
+  %p
+    and validate your student affiliation by either --
+    
+    %ol
+      %li{:style => "font-weight: normal"} sending your email from an address issued by that educational institution, or
+      %li{:style => "font-weight: normal"}
+        sending your email from your (non-affiliated) address and sending a Facebook message to
+        = link_to("Mark Latham", "http://www.facebook.com/votermedia")
+        from your Facebook account with a network membership for that institution.
 
   %hr
 
