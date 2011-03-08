@@ -290,12 +290,22 @@ class CommunitiesController < ApplicationController
     
     # Select rows to display in horserace table:
     
-    @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
+    if @community.id == 82
+      @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ? and end <= ?",
+                            @community.id, "year", 4.years.ago(Date.today), Date.new(2011, 2, 28)], :order => "start DESC, rank")
+    else
+      @yearly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
                             @community.id, "year", 4.years.ago(Date.today)], :order => "start DESC, rank")
+    end
+    
     if @yearly_rankings.any?
-      @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
+      if @community.id == 82
+        @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ? and end <= ?",
+                    @community.id, "month", 1.year.ago(Date.today).beginning_of_year, Date.new(2011, 2, 28)], :order => "start DESC")
+      else
+        @monthly_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
                             @community.id, "month", 1.year.ago(Date.today).beginning_of_year], :order => "start DESC")
-      
+      end
       funded_months = @monthly_rankings.select{|mr| mr.funds > 0}
       if funded_months.any?
         earliest_day = [funded_months.map(&:start).min, 3.months.ago(Date.today)].min.beginning_of_month
@@ -305,7 +315,7 @@ class CommunitiesController < ApplicationController
       
       if @community.id == 82
         @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ? and end <= ?",
-                                            @community.id, "day", earliest_day, Date.new(2011, 3, 6)], :order => "start DESC")
+                                            @community.id, "day", earliest_day, Date.new(2011, 2, 28)], :order => "start DESC")
       else
         @daily_rankings = PastRanking.find(:all, :conditions => ["community_id = ? and period = ? and end >= ?",
                                                            @community.id, "day", earliest_day], :order => "start DESC")
