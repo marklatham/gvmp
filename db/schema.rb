@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110225222630) do
+ActiveRecord::Schema.define(:version => 20110309221619) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -170,6 +170,8 @@ ActiveRecord::Schema.define(:version => 20110225222630) do
     t.text     "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "transition"
+    t.float    "no_login_weight",             :default => 1.0
   end
 
   create_table "past_rankings", :force => true do |t|
@@ -307,6 +309,7 @@ ActiveRecord::Schema.define(:version => 20110225222630) do
     t.datetime "confirmation_sent_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "member",                              :default => ""
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
@@ -320,6 +323,16 @@ ActiveRecord::Schema.define(:version => 20110225222630) do
     t.string   "category",    :default => ""
     t.string   "url",         :default => ""
     t.text     "transcript"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "views", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "community_id"
+    t.string   "ip_address",   :default => ""
+    t.string   "agent",        :default => ""
+    t.string   "referrer",     :default => ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -338,6 +351,7 @@ ActiveRecord::Schema.define(:version => 20110225222630) do
     t.datetime "place_created_at"
     t.integer  "user_id"
     t.string   "member",           :default => ""
+    t.string   "referrer",         :default => ""
   end
 
   create_table "websites", :force => true do |t|
