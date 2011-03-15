@@ -4,7 +4,10 @@
       %th.header-centred.permission{:style => "width: 3em"} Ct1
       %th.header-centred.permission{:style => "width: 3em"} Ct0
     %th.header-centred{:style => "width: 3em"}
-    -# %th.header-centred{:style => "width: 4em"} Share
+      - unless @community.id == 82
+        = '#'
+    - unless @community.id == 82
+      %th.header-centred{:style => "width: 4em"} Share
     %th.header-centred{:style => "width: 8em"} Your&nbsp;Votes
     %th.header-left{:style => "width: 18em"} Blog/Website
     -# The non-breaking spaces help the table width on my iPAQ. Need to check on iPhone.
@@ -29,8 +32,10 @@
           %td.cell-centred.limbo.lowerborder.leftborder{:colspan => 2}= link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
         - else
           %td.cell-centred.lowerborder.leftborder
-          -# = ranking[:rank]
-          -# %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
+            - unless @community.id == 82
+              = ranking[:rank]
+          - unless @community.id == 82
+            %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
         -# TODO: use named_route/resource
         -# There must be a cleaner way to code this. Find latest vote (if any) in this session for this website:
         - @flag = 0
@@ -88,7 +93,11 @@
     - if current_user and (current_user.permission >= 8.5)
       %td
       %td
-    %td{:colspan => 4, :style => "border-bottom: 8px solid #a00; padding: 0px"}
+    - if @community.id == 82
+      - colspan = 4
+    - else
+      - colspan = 5
+    %td{:colspan => colspan, :style => "border-bottom: 8px solid #a00; padding: 0px"}
 
 %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
 
