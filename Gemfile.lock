@@ -49,6 +49,7 @@ GEM
       nokogiri (> 0.0.0)
       sax-machine (>= 0.0.12)
     haml (3.0.25)
+    hpricot (0.8.3)
     i18n (0.5.0)
     linecache (0.43)
     loofah (1.0.0)
@@ -101,8 +102,11 @@ GEM
       ruby-debug-base (~> 0.10.4.0)
     ruby-debug-base (0.10.4)
       linecache (>= 0.3)
+    ruby_parser (2.0.6)
+      sexp_processor (~> 3.0)
     sax-machine (0.0.16)
       nokogiri (> 0.0.0)
+    sexp_processor (3.0.5)
     thinking-sphinx (2.0.0)
       activerecord (>= 3.0.0)
       riddle (>= 1.2.0)
@@ -123,10 +127,12 @@ DEPENDENCIES
   devise
   feedzirra
   haml
+  hpricot
   mysql
   newrelic_rpm
   rails (= 3.0.4)
   rspec-rails
   ruby-debug
+  ruby_parser
   thinking-sphinx (= 2.0.0)
   will_paginate
