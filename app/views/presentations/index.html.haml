@@ -4,7 +4,7 @@
 
 %h3{:style => "text-align: center"} Talks by Mark Latham on VoterMedia in corporations and democracies
 
-- if current_user and (current_user.permission >= 7.0)
+- if can? :create, Presentation
   %p.permission= link_to 'Add new presentation', new_presentation_path
 
 %table#table1{:style => "margin: auto;"}
@@ -18,8 +18,7 @@
       %td.cell-centred= presentation.pdate
       %td.cell-centred{:style => "font-weight: bold"}= simple_format presentation.place
       %td.cell-centred= simple_format presentation.host
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, presentation
         %td.permission= link_to 'Edit', edit_presentation_path(presentation)
-        %td.permission= link_to 'Destroy', presentation, :confirm => 'Are you sure?', :method => :delete
 
 %br

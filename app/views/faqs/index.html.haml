@@ -9,7 +9,7 @@
     %td
       %img{:src => "images/lemur.jpg", :height => 409}
 
-- if current_user and (current_user.permission >= 7.0)
+- if can? :create, Faq
   %span.permission= link_to 'Create new FAQ', new_faq_path
 
 %table#faq{:cellspacing => 0, :style => "width: 80%; min-width: 46em; margin-left: 10%; margin-right: 10%;"}
@@ -26,14 +26,13 @@
     %tr
       %td.question
         = h faq.question
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, faq
         %td.permission= link_to 'Edit', edit_faq_path(faq)
-        %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
 
     %tr
       %td.answer
         = faq.answer.html_safe
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, faq
         %td.permission= faq.sequence
 
   %tr
@@ -48,14 +47,13 @@
     %tr
       %td.question
         = h faq.question
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, faq
         %td.permission= link_to 'Edit', edit_faq_path(faq)
-        %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
 
     %tr
       %td.answer
         = faq.answer.html_safe
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, faq
         %td.permission= faq.sequence
 
   %tr
@@ -70,14 +68,13 @@
     %tr
       %td.question
         = h faq.question
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, faq
         %td.permission= link_to 'Edit', edit_faq_path(faq)
-        %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
 
     %tr
       %td.answer
         = faq.answer.html_safe
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, faq
         %td.permission= faq.sequence
 
   %tr
@@ -92,19 +89,18 @@
     %tr
       %td.question
         = h faq.question
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, faq
         %td.permission= link_to 'Edit', edit_faq_path(faq)
-        %td.permission= link_to 'Destroy', faq, :confirm => 'Are you sure?', :method => :delete
 
     %tr
       %td.answer
         = faq.answer.html_safe
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, faq
         %td.permission= faq.sequence
 
 %br
 
-- if current_user and (current_user.permission >= 7.0)
+- if can? :create, Faq
   %span.permission= link_to 'Create new FAQ', new_faq_path
   %br
   %br

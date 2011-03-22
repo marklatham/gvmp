@@ -18,8 +18,8 @@
   %b Answer:
   = @faq.answer
 
-
-= link_to 'Edit', edit_faq_path(@faq)
+- if can? :update, @faq
+  = link_to 'Edit', edit_faq_path(@faq)
 |
 = link_to 'Back', faqs_path
 

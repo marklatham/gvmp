@@ -28,14 +28,13 @@
       %td.cell-centred= pub.pages.round if pub.pages
       %td.cell-centred= pub.country
       %td.cell-left.rightborder= pub.journal.html_safe
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, pub
         %td.permission= link_to 'Edit', edit_pub_path(pub)
-        %td.permission= link_to 'Destroy', pub, :confirm => 'Are you sure?', :method => :delete
   %tr
     %td.footer-row{:colspan => 5}
         
 %br
-- if current_user and (current_user.permission >= 7.0)
+- if can? :create, Pub
   %span.permission= link_to 'Add new publication', new_pub_path
   %br
   %br

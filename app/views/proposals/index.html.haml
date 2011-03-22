@@ -7,7 +7,7 @@
       %p{:style => "max-width: 50em; padding-left: 2em"}
         The goals and rationale for these proposals are explained in the article
         = link_to('Proxy Voting Brand Competition', '/publications/ProxyVotingBrandCompetition.pdf') + '.'
-        There's an updated version of the Proxy Advisor proposal in
+        There is an updated version of the Proxy Advisor proposal in
         = link_to('this post', 'http://votermedia.wordpress.com/2010/06/01/ultimate-proxy-advisor-proposal-revised/')
         on the VoterMedia Finance Blog.
     %td
@@ -47,9 +47,8 @@
           = (proposal.yes_percent.to_s + '%&nbsp;yes').html_safe
         - else
           Omitted
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, proposal
         %td.permission= link_to 'Edit', edit_proposal_path(proposal)
-        %td.permission= link_to 'Destroy', proposal, :confirm => 'Are you sure?', :method => :delete
 
 %p
   Only a representative sample of management arguments, proponent responses and SEC decisions are linked above.
@@ -62,7 +61,7 @@
   with Board arguments.
 
 %br
-- if current_user and (current_user.permission >= 7.0)
+- if can? :create, Proposal
   %span.permission= link_to 'Add new proposal', new_proposal_path
   %br
   %br

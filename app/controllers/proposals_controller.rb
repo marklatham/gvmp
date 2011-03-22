@@ -1,9 +1,6 @@
 class ProposalsController < ApplicationController
   resource_controller
-
-  before_filter :except => :index do |c|
-    c.redirect_if_permission_less_than 7.0
-  end
+  load_and_authorize_resource
 
   create.flash  "Proposal successfully created."
   update.flash  "Proposal was successfully updated."

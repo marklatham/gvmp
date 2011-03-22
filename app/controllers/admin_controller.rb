@@ -1,6 +1,5 @@
 class AdminController < ApplicationController
-
-  before_filter { |c| c.redirect_if_permission_less_than 8.5 }
+  before_filter :authenticate
 
   # Tally all percent votes (button on admin page)
   def tally_all
@@ -79,4 +78,14 @@ class AdminController < ApplicationController
     redirect_to :action => :admin
   end
   
+  
+  private
+  
+  def authenticate
+    unless can? :manage, :all
+      flash[:error] = "Access denied."
+      redirect_to root_url
+    end
+  end
+
 end

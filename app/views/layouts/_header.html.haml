@@ -21,10 +21,8 @@
     %td#login-nav
       - if user_signed_in?
         %span.perm0= h current_user.email
-        -# - if current_user.permission >= 7.0
-        -# %span.permission= '(' + link_to('admin', admin_path) + ')'
-        -# - elsif current_user.permission >= 4.0
-        -# %span.permission= '(editor)'
+        - if can? :manage, :all
+          %span.permission= ('(' + link_to('admin', admin_path) + ')').html_safe
         %span.perm0
           = link_separator
           = link_to 'Logout', destroy_user_session_path

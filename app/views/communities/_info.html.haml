@@ -41,10 +41,10 @@
 
 -# %p= link_to('See all our data on this community & add to it', add_to_community_path(@community))
 
-- if current_user and (current_user.permission >= 4.0)
+- if can? :update, Community
   %p.permission
     = link_to('Edit community data', edit_community_path(@community))
-    - if current_user and (current_user.permission >= 9.0)
+    - if can? :manage, Community
       &nbsp; &nbsp;
       = link_to('Fund', '/communities/fund/' + @community.id.to_s)
 

@@ -9,7 +9,7 @@
     %td
       %img{:src => "images/chain.jpg", :height => 141}
 
-- if current_user and (current_user.permission >= 7.0)
+- if can? :create, Link
   %span.permission= link_to 'Create new Link', new_link_path
 
 %table#links{:cellspacing => 0, :cellpadding => 1, :style => "width: 80%; min-width: 46em; margin-left: 10%; margin-right: 10%;"}
@@ -31,9 +31,8 @@
         %tr
           %td.link.leftborder.rightborder
             = link_to link.title, link.url
-          - if current_user and (current_user.permission >= 7.0)
+          - if can? :update, link
             %td.permission= link_to 'Edit', edit_link_path(link)
-            %td.permission= link_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete
 
         %tr
           %td.description.lowerborder.leftborder.rightborder

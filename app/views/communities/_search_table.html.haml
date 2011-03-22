@@ -24,16 +24,16 @@
           %td.cell-centred= render_location(community, :country)
           %td.cell-centred= render_location(community, :prov_state)
           %td.cell-centred= render_location(community, :city)
-          %td.cell-centred.rightborder= render_websites_count(community) 
-
-          -# Commented out because it was displaying regardless of user permission level (don't know why):
-          -# = render_community_actions(community)
-
+          %td.cell-centred.rightborder= render_websites_count(community)
+          - if can? :update, community
+            %td.cell-centred.permission= link_to('Edit', edit_community_path(community))
+          
       %tr
         %td.footer-row{:colspan => 6}
           %table{:style => "width: 100%"}
             %tr
               %td{:style => "white-space: nowrap"}= paginate(@communities)
-              %td{:align => "right", :style => "padding-left: 2em"} Is your voter community not in our system? Add it by email to admin[at]votermedia.org
-        -# - if current_user and (current_user.permission >= 4.0)
-          -# %td.permission= link_to 'Add community', new_community_path
+              %td{:align => "right", :style => "padding-left: 2em"}
+                Is your voter community not in our system? Add it by email to admin[at]votermedia.org
+        - if can? :create, Community
+          %td.permission= link_to 'Add community', new_community_path

@@ -15,7 +15,7 @@
 - else
   %p{:style => "text-align: center"} [There are no past funding shares from this ballot yet.]
 
-- if current_user and (current_user.permission >= 7.0)
+- if can? :manage, :all
   %p.permission
     Page prep time --
     = Time.now - start_time

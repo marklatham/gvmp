@@ -1,16 +1,6 @@
 class CommunitiesController < ApplicationController
-  # before_filter :only => [:edit, :update] do |c|
-  before_filter :only => [:new, :create, :edit, :update] do |c|
-    c.redirect_if_permission_less_than 4.0
-  end
-
-  before_filter :only => :destroy do |c|
-    c.redirect_if_permission_less_than 7.0
-  end
-
-  before_filter :only => [:fund, :votes] do |c|
-    c.redirect_if_permission_less_than 9.0
-  end
+  resource_controller
+  load_and_authorize_resource
 
   cache_sweeper :community_sweeper, :only => [:create, :update, :destroy]
 
@@ -43,41 +33,17 @@ class CommunitiesController < ApplicationController
     @ballot = find_ballot
   end
 
-  def new
-    @community = Community.new
-  end
-
   def create
     @community = Community.new(params[:community])
     @community.creator_ip = request.remote_ip
     @community.tallied_at = Time.now
     if @community.save
-      notify "Community successfully created."
+      flash[:notice] = "Community successfully created."
       redirect_to "/" + @community.idstring
     else
-      render_invalid_create(@community)
+      flash[:error] = "Error -- community not created."
+      redirect_to root_url
     end
-  end
-
-  def edit
-    @community = Community.find(params[:id])
-  end
-
-  def update
-    @community = Community.find(params[:id])
-    if @community.update_attributes(params[:community])
-      notify('Community was successfully updated.', :success)
-      redirect_to "/" + @community.idstring
-    else
-      render_invalid_update(@community)
-    end
-  end
-
-  def destroy
-    @community = Community.find(params[:id])
-    @community.destroy
-    notify('Community removed.', :info)
-    redirect_back_or('/')
   end
 
   def add_to

@@ -1,9 +1,6 @@
 class VotesController < ApplicationController
   resource_controller
-
-  before_filter do |c|
-    c.redirect_if_permission_less_than 8.5
-  end
+  load_and_authorize_resource
 
   index.before do
     @votes = Vote.order("id DESC").limit(600)

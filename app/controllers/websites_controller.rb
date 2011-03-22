@@ -1,14 +1,7 @@
 class WebsitesController < ApplicationController
   resource_controller
+  load_and_authorize_resource
   belongs_to :community
-
-  before_filter :only => [:new, :create, :edit, :update] do |c|
-    c.redirect_if_permission_less_than 4.0
-  end
-
-  before_filter :only => [:index, :destroy] do |c|
-    c.redirect_if_permission_less_than 5.0
-  end
 
   create.before do
     @website.creator_ip = request.remote_ip

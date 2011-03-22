@@ -1,9 +1,6 @@
 class ParametersController < ApplicationController
   resource_controller
-
-  before_filter :except => :index do |c|
-    c.redirect_if_permission_less_than 9.0
-  end
+  load_and_authorize_resource
 
   create.flash  "Parameter successfully created."
   update.flash  "Parameter was successfully updated."

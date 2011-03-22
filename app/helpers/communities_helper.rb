@@ -29,21 +29,4 @@ module CommunitiesHelper
     I18n.l dt, :format => format
   end
 
-
-  def render_community_actions(community)
-    return unless current_user
-
-    text = ''
-    if current_user.permission >= 4.0
-      text << content_tag(:span, link_to('Edit', edit_community_path(community)), :class => 'permission')
-    end
-
-    if current_user.permission >= 7.0
-      text << ' '
-      text << content_tag(:span, link_to('Destroy', community, :confirm => 'Are you sure?', :method => :delete), :class => 'permission')
-    end
-
-    content_tag(:td, text, :class => 'actions')
-  end
-
 end

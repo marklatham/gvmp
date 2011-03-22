@@ -2,7 +2,7 @@
 
 %h1{:style => "text-align: center"} Clippings: Media coverage of VoterMedia
 
-- if current_user and (current_user.permission >= 7.0)
+- if can? :create, Clipping
   %span.permission= link_to 'Add new clipping', new_clipping_path
   %br
   %br
@@ -22,8 +22,6 @@
       %td.cell-centred= clipping.author
       %td.cell-link.cell-centred= link_to clipping.title, clipping.title_url
       %td.cell-centred= simple_format clipping.description
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, clipping
         %td.permission= link_to 'Edit', edit_clipping_path(clipping)
-        %td.permission= link_to 'Destroy', clipping, :confirm => 'Are you sure?', :method => :delete
-
 %br

@@ -1,10 +1,8 @@
 class VideosController < ApplicationController
   resource_controller
+  load_and_authorize_resource
 
-  before_filter :except => :show do |c|
-    c.redirect_if_permission_less_than 7.0
-  end
-  # When we have more than one video, pretty up the index page and allow public access to it too.
+  # When we have enough videos, pretty up the index page and allow public access to it too.
 
   create.flash  "Video successfully created."
   update.flash  "Video was successfully updated."

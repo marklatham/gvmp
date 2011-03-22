@@ -22,9 +22,9 @@
   
   %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
 
-    - if current_user and (current_user.permission >= 9.0)
+    - if can? :read, Vote
       %p.permission= link_to 'Votes', community_votes_path(@community.idstring)
-    - if current_user and (current_user.permission >= 4.0)
+    - if can? :create, Website
       %p.permission= link_to 'Add a blog/website to this community', new_community_website_path(@community)
   
     - if @community.category == 'Homeowner'

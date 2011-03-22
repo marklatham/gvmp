@@ -1,10 +1,7 @@
 class IpsController < ApplicationController
   resource_controller
+  load_and_authorize_resource
 
-  before_filter do |c|
-    c.redirect_if_permission_less_than 9.0
-  end
-  
   def votes
     
     @ip = Ip.find_by_id(params[:id])

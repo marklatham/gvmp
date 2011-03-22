@@ -36,9 +36,8 @@
         = h colleague.family_name
       %td.upper-cell
         = h colleague.role
-      - if current_user and (current_user.permission >= 7.0)
+      - if can? :update, colleague
         %td.permission= link_to 'Edit', edit_colleague_path(colleague)
-        %td.permission= link_to 'Destroy', colleague, :confirm => 'Are you sure?', :method => :delete
     %tr
       %td.lower-cell
         = h colleague.email
@@ -52,7 +51,7 @@
     %td
     %td.lower-cell{:colspan => 2} [Titles and affiliations shown for identification only.]
 
-- if current_user and (current_user.permission >= 7.0)
+- if can? :create, Colleague
   %span.permission= link_to 'Create new colleague', new_colleague_path
   %br
   %br

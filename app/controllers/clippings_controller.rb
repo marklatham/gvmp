@@ -1,9 +1,6 @@
 class ClippingsController < ApplicationController
   resource_controller
-
-  before_filter :only => [:new, :create, :edit, :update, :destroy] do |c|
-    c.redirect_if_permission_less_than 7.0
-  end
+  load_and_authorize_resource
 
   create.flash  "Clipping successfully created."
   update.flash  "Clipping was successfully updated."

@@ -1,6 +1,6 @@
 %table#table1{:cellspacing => 0, :style => "table-layout: fixed; width: 80%; min-width: 46em; margin-left: 10%; margin-right: 10%;"}
   %tr.header
-    - if current_user and (current_user.permission >= 8.5)
+    - if can? :manage, @rankings
       %th.header-centred.permission{:style => "width: 3em"} Ct1
       %th.header-centred.permission{:style => "width: 3em"} Ct0
     %th.header-centred{:style => "width: 3em"} #
@@ -9,7 +9,7 @@
     %th.header-left{:style => "width: 18em"} Blog/Website
     -# The non-breaking spaces help the table width on my iPAQ. Need to check on iPhone.
     %th.header-left &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    - if current_user and (current_user.permission >= 8.5)
+    - if can? :update, Website
       %td{:style => "width: 3em"}
 
   - @rankings.each do |ranking|
@@ -18,7 +18,7 @@
     -# Should these two conditions be handled in communities_controller?
     - if ranking[:website] && ranking[:status] != "out"
       %tr
-        - if current_user and (current_user.permission >= 8.5)
+        - if can? :manage, @rankings
           %td.cell-centred.permission= number_with_precision(ranking[:count1], :precision => 2)
           %td.cell-centred.permission= number_with_precision(ranking[:count0], :precision => 2)
         - if ranking[:status] == "limbo" && ranking[:share] <= 0.0
@@ -67,10 +67,10 @@
                       %span{:style => "font-weight: bold"}= truncate(post.headline + ":", :length => 300)
                     = truncate(show_stripped, :length => 300)
           
-        - if current_user and (current_user.permission >= 8.5)
+        - if can? :update, Website
           %td.permission= link_to 'Edit', edit_website_path(ranking[:website])
   %tr
-    - if current_user and (current_user.permission >= 8.5)
+    - if can? :manage, @rankings
       %td
       %td
     %td{:colspan => 5, :style => "border-bottom: 8px solid #a00; padding: 0px"}

@@ -15,5 +15,5 @@
 %h2 Transcript
 = sanitize simple_format @video.transcript
 
-- if current_user and (current_user.permission >= 7.0)
+- if can? :update, @video
   %p.permission= link_to "Edit this video's data", edit_video_path(@video)
