@@ -1,8 +1,10 @@
 Gvmp::Application.routes.draw do
+  match '/auth/:provider/callback' => 'authentications#create'
   devise_for :users, :path_names => { :sign_up => "register", :sign_in => "login", :sign_out => "logout" }
 
   root :to => 'communities#home_page'
 
+  resources :authentications
   resources :clippings
   resources :colleagues
   resources :communities do
