@@ -1,47 +1,22 @@
+# These helper methods can be called in your template to set variables to be used in the layout
+# This module should be included in all views globally,
+# to do so you may need to add this line to your ApplicationController
+#   helper :layout
 module LayoutHelper
-
-  def single_column(options={}, &block)
-    column(merge_kv({:class => 'single_column'}, options), &block)
+  def title(page_title, show_title = true)
+    content_for(:title) { h(page_title.to_s) }
+    @show_title = show_title
   end
 
-  def single_center(&block)
-    column({:class => 'single_center'}, &block)
+  def show_title?
+    @show_title
   end
 
-  def wide_column(&block)
-    column({:class => 'wide_column'}, &block)
+  def stylesheet(*args)
+    content_for(:head) { stylesheet_link_tag(*args) }
   end
 
-  def main_column(options={}, &block)
-    column(merge_kv({:class => 'main_column'}, options), &block)
+  def javascript(*args)
+    content_for(:head) { javascript_include_tag(*args) }
   end
-
-  def sidebar_column(options={}, &block)
-    column(merge_kv({:class => 'sidebar'}, options), &block)
-  end
-
-  def nav_separator(html = '&#124')
-    content_tag(:span, html, :class => 'separator') 
-  end
-
-
-  private
-
-  
-  def merge_kv(op1, op2)
-    join = op1
-    op2.keys.each do |k|
-      if op1.has_key?(k)
-        join[k] << ' ' << op2[k]
-      else
-        join[k] = op2[k]
-      end
-    end
-    join
-  end
-
-  def column(options={}, &block)
-    concat content_tag(:div, capture(&block), options)
-  end
-
 end
