@@ -28,6 +28,8 @@
           = link_to 'Logout', destroy_user_session_path
       - else
         %span.perm0
-          = link_to 'Register', new_user_registration_path
+          -# = link_to 'Register', new_user_registration_path
+          = link_to 'Register', authentications_path
           = link_separator
-          = link_to 'Login', new_user_session_path
+          -# = link_to 'Login', new_user_session_path
+          = link_to 'Login', authentications_path
