@@ -1,4 +1,5 @@
 class AuthenticationsController < ApplicationController
+  load_and_authorize_resource
   def index
     @authentications = current_user.authentications if current_user
   end
@@ -19,7 +20,19 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = "Signed in successfully."
       sign_in_and_redirect(:user, authentication.user)
     elsif current_user
-      current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+      current_user.authentications.create!(
+        :provider => omniauth['provider'],
+        :uid => omniauth['uid'],
+        :token => omniauth['credentials']['token'],
+        :secret => omniauth['credentials']['secret'],
+        :name => omniauth['user_info']['name'],
+        :first_name => omniauth['user_info']['first_name'],
+        :last_name => omniauth['user_info']['last_name'],
+        :first_name => omniauth['user_info']['first_name'],
+        :location => omniauth['user_info']['location'],
+        :image => omniauth['user_info']['image'],
+        :email => omniauth['user_info']['email']
+        )
       flash[:notice] = "Authentication successful."
       redirect_to authentications_url
     else

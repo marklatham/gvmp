@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110328225540) do
+ActiveRecord::Schema.define(:version => 20110401221154) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -18,6 +18,15 @@ ActiveRecord::Schema.define(:version => 20110328225540) do
     t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "token"
+    t.string   "secret"
+    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "location"
+    t.string   "image"
+    t.string   "provider_url"
+    t.string   "email"
   end
 
   create_table "clippings", :force => true do |t|
