@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'cancan'
 gem 'devise'
+gem 'fb_graph'
 gem 'feedzirra'
 gem 'haml'
 gem 'hpricot'
