@@ -8,6 +8,7 @@ class Ability
     if user.permission > 8.0
       can :manage, :all  # manage means all actions
     else
+      can :create, Authentication
       can :manage, Authentication do |authentication|
         authentication.try(:user) == user
       end
