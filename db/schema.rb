@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406215228) do
+ActiveRecord::Schema.define(:version => 20110407212744) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20110406215228) do
     t.string   "provider_url"
     t.string   "email"
     t.text     "yaml"
+    t.string   "nickname"
   end
 
   create_table "clippings", :force => true do |t|

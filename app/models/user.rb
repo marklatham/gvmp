@@ -31,7 +31,8 @@ class User < ActiveRecord::Base
       :location => omniauth['user_info']['location'],
       :image => omniauth['user_info']['image'],
       :email => omniauth['user_info']['email'],
-      :yaml => omniauth.to_yaml # Can be useful to see all this info during development.
+      :yaml => omniauth.to_yaml, # Can be useful to see all this info during development.
+      :nickname => omniauth['user_info']['nickname']
       }
     if save_it
       authentications.create!(auth_params)
@@ -52,11 +53,17 @@ class User < ActiveRecord::Base
     (authentications.empty? || !password.blank?) && super
   end
   
+  # Callback to overwrite if confirmation is required or not.
+  def confirmation_required?
+    !confirmed?
+  end
+  
   protected
 
   def apply_facebook(omniauth)
     if (extra = omniauth['extra']['user_hash'] rescue false)
       self.email = (extra['email'] rescue '')
+      self.confirmed_at = Time.now
     end
   end
   
