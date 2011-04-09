@@ -27,9 +27,27 @@
           = link_separator
           = link_to 'Logout', destroy_user_session_path
       - else
-        %span.perm0
+        %span
+          %table
+            %tr
+              %td.fb
+                %a{:href => "/auth/facebook"}
+                  %table
+                    %tr
+                      %td
+                        Log in via
+                        %br
+                        facebook
+                      %td
+                        = image_tag "facebook_32.png"
+              %td.other
+                %a{:href => new_user_session_path}
+                  Other
+                  %br
+                  options
+                
           -# = link_to 'Register', new_user_registration_path
-          = link_to 'Register', authentications_path
-          = link_separator
+          -# = link_to 'Register', authentications_path
+          -# = link_separator
           -# = link_to 'Login', new_user_session_path
-          = link_to 'Login', authentications_path
+          -# = link_to 'Login', authentications_path

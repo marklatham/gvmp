@@ -1,18 +1,56 @@
-- @page_title = 'Log in'
+- @page_title = 'Login Options'
 
-%h2 Log in
-= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  %p
-    = f.label :email
-    %br/
-    = f.text_field :email
-  %p
-    = f.label :password
-    %br/
-    = f.password_field :password
-  - if devise_mapping.rememberable?
-    %p
-      = f.check_box :remember_me
-      = f.label :remember_me
-  %p= f.submit "Log in"
-= render :partial => "devise/shared/links"
+%div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
+
+  %h2 Login Options
+
+  %p{:style => "max-width: 50em"}
+    = link_to "Facebook login", "/auth/facebook"
+    is simplest for most voters, but you can create a votermedia.org login if you prefer.
+    If you belong to a student union and plan to vote in its votermedia ballot,
+    it's best to use an email address issued by that educational institution.
+  
+  %table
+    %tr
+      %td
+        %h3 Create your votermedia.org login:
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          %p
+            = f.label :email
+            %br/
+            = f.text_field :email
+          - if @user.password_required?
+            %p
+              = f.label :password
+              %br/
+              = f.password_field :password
+            %p
+              = f.label :password_confirmation
+              %br/
+              = f.password_field :password_confirmation
+          %p= f.submit "Create login"
+      
+      %td{:style => "width: 20%"}
+      
+      %td
+        %h3
+          Already created one?
+          %br
+          Log in to votermedia.org:
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          %p
+            = f.label :email
+            %br/
+            = f.text_field :email
+          %p
+            = f.label :password
+            %br/
+            = f.password_field :password
+          - if devise_mapping.rememberable?
+            %p
+              = f.check_box :remember_me
+              = f.label :remember_me
+          %p= f.submit "Log in"
+        = render :partial => "devise/shared/links"
+        %br
