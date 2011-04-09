@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :authentications
+  has_many :authentications, :dependent => :destroy
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :lockable and :timeoutable
@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
   
   def apply_omniauth(omniauth, save_it = false)
     case omniauth['provider']
@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
       self.apply_facebook(omniauth)
     end
     self.email = omniauth['user_info']['email'] if email.blank?
+    self.first_name = omniauth['user_info']['first_name'] if first_name.blank?
+    self.last_name = omniauth['user_info']['last_name'] if last_name.blank?
     build_authentications(omniauth, save_it)
   end
   
@@ -27,7 +29,6 @@ class User < ActiveRecord::Base
       :name => omniauth['user_info']['name'],
       :first_name => omniauth['user_info']['first_name'],
       :last_name => omniauth['user_info']['last_name'],
-      :first_name => omniauth['user_info']['first_name'],
       :location => omniauth['user_info']['location'],
       :image => omniauth['user_info']['image'],
       :email => omniauth['user_info']['email'],
@@ -61,10 +62,10 @@ class User < ActiveRecord::Base
   protected
 
   def apply_facebook(omniauth)
-    if (extra = omniauth['extra']['user_hash'] rescue false)
-      self.email = (extra['email'] rescue '')
-      self.confirmed_at = Time.now
-    end
+    self.email = (omniauth['user_info']['email'] rescue '')
+    self.first_name = (omniauth['user_info']['first_name'] rescue '')
+    self.last_name = (omniauth['user_info']['last_name'] rescue '')
+    self.confirmed_at = Time.now
   end
   
 end

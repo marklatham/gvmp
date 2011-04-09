@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110407212744) do
+ActiveRecord::Schema.define(:version => 20110409024359) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -330,6 +330,8 @@ ActiveRecord::Schema.define(:version => 20110407212744) do
     t.datetime "updated_at"
     t.string   "member",                                                            :default => ""
     t.decimal  "permission",                          :precision => 8, :scale => 3, :default => 0.0
+    t.string   "first_name",                                                        :default => "",  :null => false
+    t.string   "last_name",                                                         :default => "",  :null => false
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
