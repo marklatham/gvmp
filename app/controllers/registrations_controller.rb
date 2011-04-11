@@ -4,6 +4,10 @@ class RegistrationsController < Devise::RegistrationsController
     session[:omniauth] = nil unless @user.new_record?
   end
   
+  def edit
+    @fb_authentication = @user.authentications.find_by_provider('facebook')
+  end
+  
   private
   
   def build_resource(*args)

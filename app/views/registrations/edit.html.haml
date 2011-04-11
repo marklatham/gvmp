@@ -1,42 +1,69 @@
-- @page_title = 'My Preferences'
+- @page_title = 'Settings'
 
 %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
 
-  %h2 Edit My Preferences
-  We plan to build some features you can customize, but for now here's what you can change:
-  -# To do: Make this edit process work if user created via Facebook (no votermedia password!).
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-    = devise_error_messages!
-    %p
-      = f.label :first_name
-      %br/
-      = f.text_field :first_name
-    %p
-      = f.label :last_name
-      %br/
-      = f.text_field :last_name
-    %p
-      = f.label :email
-      %br/
-      = f.text_field :email
-    %p{:style => "margin-left: 3%"}
-      = f.label :password
-      %i (leave blank if you don't want to change it)
-      %br/
-      = f.password_field :password
-    %p{:style => "margin-left: 3%"}
-      = f.label :password_confirmation
-      %i (same as above, so blank if not changing)
-      %br/
-      = f.password_field :password_confirmation
-    %p
-      = f.label :current_password
-      %i (we need your current password to confirm any changes)
-      %br/
-      = f.password_field :current_password
-    %p= f.submit "Update"
+  %h2 Edit Your VoterMedia Settings
+  %p We plan to build more features you can customize. For now, here's what you can change:
+  
+  %h3 Facebook Authentication:
+  %blockquote
+    - if @fb_authentication
+      %p Your VoterMedia login is authenticated via Facebook, so you can log in via our Facebook link.
+      - if @user.encrypted_password.blank?
+        %p If you would like to also create a password on votermedia.org for direct login using your email address:
+        %ol{:style => "font-weight: normal"}
+          %li Log out.
+          %li Go to "Other options" (link at top right when logged out).
+          %li Go to "Forgot your password?" (link at bottom right of "Login Options page).
+          %li Type your email address and click on "Send me reset password intructions".
+          -# TO DO: Replace the above 4 steps with a single button.
+      %p If you would like to keep your VoterMedia login, but no longer authenticate it via Facebook:
+      -# This code below isn't working: :confirm => "Are you sure?"
+      -# Possible cause & solution at http://railsforum.com/viewtopic.php?id=38460
+      = button_to "Delete my Facebook authentication", @fb_authentication, :method=>:delete, :class=>"remove", :confirm=>"Are you sure?"
+      
+    - else
+      %p
+        If you have a Facebook login, you can link it to your VoterMedia login, giving you a second way to log in here:
+        = button_to "Link my Facebook login", "/auth/facebook"
+  
+  - unless @user.encrypted_password.blank?
+    %h3 Update Your VoterMedia Profile:
+    %blockquote
+      -# To do: Make this edit process work if user created via Facebook (no votermedia password!).
+      = form_for(resource, :as=>resource_name, :url=>registration_path(resource_name), :html=>{:method=>:put}) do |f|
+        = devise_error_messages!
+        %p
+          = f.label :first_name
+          %br/
+          = f.text_field :first_name
+        %p
+          = f.label :last_name
+          %br/
+          = f.text_field :last_name
+        %p
+          = f.label :email
+          %br/
+          = f.text_field :email
+        %blockquote
+          %p
+            = f.label :password
+            %i (leave blank if you don't want to change it)
+            %br/
+            = f.password_field :password
+          %p
+            = f.label :password_confirmation
+            %i (same as above, so blank if not changing)
+            %br/
+            = f.password_field :password_confirmation
+        %p
+          = f.label :current_password
+          %i (we need your current password to confirm any changes)
+          %br/
+          = f.password_field :current_password
+        %p= f.submit "Save my VoterMedia profile changes"
 
 %div{:style => "margin-left: 60%"}
-  %h3 Delete my votermedia login entirely:
-  #{button_to "Delete my votermedia login", registration_path(resource_name), :confirm => "Are you sure?", :method => :delete}
+  %h3 Delete VoterMedia login entirely:
+  = button_to "Delete my VoterMedia login", registration_path(resource_name), :confirm=>"Are you sure?", :method=>:delete
   %br

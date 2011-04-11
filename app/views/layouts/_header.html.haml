@@ -25,7 +25,7 @@
           %span.permission= ('(' + link_to('admin', admin_path) + ')').html_safe
         %br
         %span.perm0
-          = link_to 'Preferences', edit_user_registration_path
+          = link_to 'Settings', edit_user_registration_path
           &nbsp; &nbsp; &nbsp;
           = link_to 'Logout', destroy_user_session_path
       - else
