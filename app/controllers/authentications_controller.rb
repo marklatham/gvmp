@@ -25,7 +25,20 @@ class AuthenticationsController < ApplicationController
       flash[:notice] = "Authentication successful."
       redirect_to authentications_url
     else
-      user = User.new
+      unless omniauth['user_info']['email'].blank?  # Shouldn't be blank if auth by Facebook.
+        if user = User.find_by_email(omniauth['user_info']['email'])
+          unless user.confirmed_at
+            user.delete
+            user = User.new
+          else
+            # This is the only case where we don't create a new user: existing user with same email confirmed.
+          end
+        else
+          user = User.new
+        end
+      else
+        user = User.new
+      end
       user.apply_omniauth(omniauth)
       if user.save
         flash[:notice] = "Signed in successfully."

@@ -25,7 +25,7 @@ en:
       confirmed: 'Your login email was successfully confirmed. You are now logged in.'
     registrations:
       signed_up: 'You have registered successfully. You should soon receive an email with confirmation instructions. If not, please let us know by emailing admin@votermedia.org'
-      updated: 'You updated your preferences successfully.'
+      updated: 'You updated your profile successfully.'
       destroyed: 'Bye! Your votermedia login was successfully deleted. We hope to see you again soon.'
     unlocks:
       send_instructions: 'You will receive an email with instructions about how to unlock your login in a few minutes.'
