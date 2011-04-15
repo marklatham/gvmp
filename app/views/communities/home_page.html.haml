@@ -51,7 +51,7 @@
       %td{:style => "vertical-align: top;"}
         %div{:style => "text-align: center"}
           %h2 Which blogs serving your voter communities deserve funding?
-          = render 'layouts/search'
+          -# = render 'layouts/search'
   
         - cache(:fragment => "listing_page_#{params[:page]}") do
           = render 'search_table'
