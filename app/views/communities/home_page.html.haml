@@ -13,6 +13,7 @@
                 %p
                   %strong= video.title + ":"
                 %p= link_to 'Transcript', video_path(video)
+                %p= link_to 'Watch on YouTube', 'http://www.youtube.com/watch?v=' + video.url + '&feature=player_embedded', :target => "_blank"
               %td
                 %p
                   %object.flashbanner
@@ -52,7 +53,7 @@
       %td{:style => "vertical-align: top;"}
         %div{:style => "text-align: center"}
           %h2 Which blogs serving your voter communities deserve funding?
-          = render 'layouts/search'
+          -# = render 'layouts/search'
   
         - cache(:fragment => "listing_page_#{params[:page]}") do
           = render 'search_table'
