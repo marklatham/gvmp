@@ -12,8 +12,6 @@
     %param{:name => "wmode", :value => "transparent"}
     %embed{:src => "http://www.youtube.com/v/" + @video.url + "&hl=en&fs=1", :type => "application/x-shockwave-flash", :allowfullscreen => "true", :allowscriptaccess => "always", :wmode => "transparent", :width => "425", :height => "344"}
 
-%p{:align => "center"}= link_to 'Watch on YouTube', 'http://www.youtube.com/watch?v=' + @video.url + '&feature=player_embedded', :target => "_blank"
-
 %h2 Transcript
 = sanitize simple_format @video.transcript
 
