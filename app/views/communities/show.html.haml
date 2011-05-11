@@ -16,6 +16,17 @@
   
   .listing
     - if @community.websites.any?
+      - unless current_user
+        %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
+          %strong
+            NOTE: Most communities give your votes more weight if you log in -- see links at upper right.
+      - if @community.id == 82
+        %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
+          %strong
+            Award calculations suspended while we phase in the new login system (more info
+            = link_to('here', 'http://votermedia.blogspot.com/2011/03/ubc-continuous-votermedia-award.html') + ').'
+            Meanwhile, blogs shown below in alphabetical order.
+      %br
       = render :partial => 'rankings'
     - else
       = render :partial => 'no_rankings'

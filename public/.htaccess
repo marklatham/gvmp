@@ -1,5 +1,5 @@
 RailsBaseURI /
-PassengerAppRoot /home/votermed/apps/gvmp/current
+PassengerAppRoot /home/votermed.railsplayground.net/apps/gvmp/current
 RewriteEngine on
 
 RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
