@@ -142,7 +142,7 @@ class CommunitiesController < ApplicationController
     
     Feedback.create!({:community_id => @community.id, :comment => @comment, :ip_address => @ip, :agent => @agent})
 
-    notify "Thanks for your comment!"
+    flash[:notice] = "Thanks for your comment!"
     redirect_to "/" + @community.idstring
   end
   

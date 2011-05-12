@@ -26,6 +26,8 @@ class Ability
       can :home_page, Community
       can :horserace, Community
       can :search, Community
+      can :submit_feedback, Community
+      can :vote_for_website, Community
     end
   end
 end
