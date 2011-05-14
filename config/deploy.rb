@@ -1,11 +1,11 @@
 set :ssh_options, { :forward_agent => true }
 
 # Your cPanel/SSH login name
-set :user , "votermed"
+set :user, "votermed.railsplayground.net"
 
 # The domain name of the server to deploy to, this can be your domain or the domain of the server.
-set :server_name, "votermedia.org"
-# set :server_name, "voter.railsplayground.net" # for VPS migration on RPG
+# set :server_name, "votermedia.org" # for VPS migration on RPG
+set :server_name, "votermed.railsplayground.net" # for rails3 until votermedia.org points there
 
 # If you are using git, uncomment the following line and comment out the line above.
 set :scm, :git
@@ -15,8 +15,8 @@ set :scm, :git
 set :application, "gvmp"
 
 # the url for your repository
-set :repository,  "git://git.assembla.com/gvmp.git"
-set :branch, 'master'
+set :repository, "git://git.assembla.com/gvmp.git"
+set :branch, "rails3"
 
 set :deploy_to, "/home/#{user}/apps/#{application}"
 set :use_sudo, false
@@ -29,9 +29,9 @@ role :db,  server_name, :primary => true
 
 task :after_update_code, :roles => :app do
   db.symlink
-  deploy.rebuild_gems
-  sphinx.symlink 
-  sphinx.configure
+  deploy.install_gems
+#  sphinx.symlink
+#  sphinx.configure
 end
 
 namespace :deploy do
@@ -41,8 +41,8 @@ namespace :deploy do
     passenger.restart
   end
 
-  task :rebuild_gems do
-    run "rake -f #{release_path}/Rakefile gems:build RAILS_ENV=production"
+  task :install_gems do
+    run "cd #{deploy_to}/current && bundle install && /opt/ruby-enterprise-1.8.7-2009.10/bin/bundle install"
   end
 
 end
@@ -51,7 +51,7 @@ namespace :passenger do
 
   desc "Restart dispatchers"
   task :restart do
-    sphinx.restart
+#    sphinx.restart
     run "touch #{current_path}/tmp/restart.txt"
   end
 end
@@ -63,31 +63,4 @@ namespace :db do
   end
 
 end
-
-namespace :sphinx do 
-  task :symlink, :roles => :app do
-    run "ln -nfs #{shared_path}/config/sphinx.yml #{release_path}/config"
-    run "ln -nfs #{shared_path}/db/sphinx #{release_path}/db/"
-  end
-
-  task :configure, :roles => :app do
-    run "cd #{release_path} && rake thinking_sphinx:configure RAILS_ENV=production"
-  end
-
-  task :start, :roles => :app do
-    run "cd #{current_path} && rake thinking_sphinx:start RAILS_ENV=production"
-  end
-
-  task :stop , :roles => :app do
-    run "cd #{current_path} && rake thinking_sphinx:stop RAILS_ENV=production"
-  end
-
-  task :restart, :roles => :app do
-    stop
-    start
-  end
-
-end
-
-
 
