@@ -1,4 +1,4 @@
-RailsBaseURI /
+RackBaseURI /
 PassengerAppRoot /home/votermed.railsplayground.net/apps/gvmp/current
 RewriteEngine on
 
