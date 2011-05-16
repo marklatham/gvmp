@@ -11,7 +11,6 @@ gem 'newrelic_rpm'
 gem 'omniauth'
 gem 'rails', '3.0.4'
 gem 'ruby_parser'
-gem 'thinking-sphinx', '2.0.0', :require => 'thinking_sphinx'
 gem 'will_paginate'
 
 group :development do
@@ -32,3 +31,4 @@ end
 # Commented for now until we identified the code
 # that needs it:
 # gem 'columbus'
+# gem 'thinking-sphinx', '2.0.0', :require => 'thinking_sphinx'
