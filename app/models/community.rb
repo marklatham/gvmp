@@ -29,11 +29,11 @@ class Community < ActiveRecord::Base
 
 
   # Required by sphinx
-  define_index do
-    indexes name, short_name, category, country, prov_state, city, scope, :sortable => true
-    has n_websites, :sortable => true
-    set_property :delta => true
-  end
+#  define_index do
+#    indexes name, short_name, category, country, prov_state, city, scope, :sortable => true
+#    has n_websites, :sortable => true
+#    set_property :delta => true
+#  end
 
   cattr_reader :per_page
   @@per_page = 30
