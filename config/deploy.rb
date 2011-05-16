@@ -42,7 +42,7 @@ namespace :deploy do
   end
 
   task :install_gems do
-    run "cd #{deploy_to}/current && bundle install && /opt/ruby-enterprise-1.8.7-2009.10/bin/bundle install"
+    run "cd #{release_path} && bundle install && /opt/ruby-enterprise-1.8.7-2009.10/bin/bundle install"
   end
 
 end
