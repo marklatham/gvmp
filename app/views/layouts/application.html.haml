@@ -6,8 +6,8 @@
     %meta{'http-equiv' => "content-type", :content => "text/html;charset=UTF-8"}
     %title= 'VoterMedia' + (@page_title.blank? ? '' : ": #{@page_title}")
     = stylesheet_link_tag 'main', 'screen', :media => "screen"
+    = javascript_include_tag :defaults, 'jquery', 'jquery_ujs', 'application'
     = csrf_meta_tag
-
   
   %body#welcome
     -# Wrapping the body inside a table cell helps prevent small displays like cell phones from
@@ -35,5 +35,3 @@
         
         -# No one was using this: = render 'layouts/uservoice'
         = render 'layouts/analytics'
-        
-  = javascript_include_tag :defaults, 'jquery'
