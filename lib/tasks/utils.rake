@@ -294,7 +294,6 @@ namespace :utils do
    }
   end
   
-  # I guess this is not needed in our rails3 app because devise doesn't use sessions table, so sessions table obsolete?:
   desc "Delete session records that are more than 30 days old"
   task(:delete_old_sessions => :environment) do
     sessions = Session.where("updated_at < ?", 1.month.ago)
