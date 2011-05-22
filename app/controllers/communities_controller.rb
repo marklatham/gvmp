@@ -120,8 +120,13 @@ class CommunitiesController < ApplicationController
     
     # Using @community.updated_at is a clumsy way to reduce the repeat vote problem, but serves as a bandaid for now:
     if @community.updated_at < 1.second.ago(Time.now)
-      vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id,
+      if current_user
+        vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id, :referrer => request.referer,
+                         :website_id => @website.id, :support => @support, :ballot_type => "2", :user_id => current_user.id})
+      else
+        vote = Vote.create!({:ip_address => @ip, :agent => @agent, :community_id => @community.id, :referrer => request.referer,
                          :website_id => @website.id, :support => @support, :ballot_type => "2"})
+      end
       @ballot = find_ballot
       @ballot.add_vote(vote)
       @community.updated_at = Time.now

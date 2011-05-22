@@ -38,6 +38,11 @@ namespace :utils do
       else
         vote.days = 0
       end
+      if vote.user_id
+        if authentication = Authentication.where("user_id = ? and provider = ?", vote.user_id, "facebook").any?
+          vote.fb_login = true
+        end
+      end
       vote.save
       
       if Ip.find_by_ip_address(vote.ip_address)
