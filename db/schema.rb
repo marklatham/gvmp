@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228215413) do
+ActiveRecord::Schema.define(:version => 20110601202725) do
 
   create_table "clippings", :force => true do |t|
     t.date     "date_sequence"
@@ -345,6 +345,9 @@ ActiveRecord::Schema.define(:version => 20110228215413) do
     t.integer  "user_id"
     t.string   "member",           :default => ""
     t.string   "referrer",         :default => ""
+    t.boolean  "fb_login",         :default => false
+    t.boolean  "fb_membership",    :default => false
+    t.boolean  "email_membership", :default => false
   end
 
   create_table "websites", :force => true do |t|
