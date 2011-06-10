@@ -20,7 +20,7 @@
     
     %td#login-nav
       - if user_signed_in?
-        %span.perm0= h current_user.email
+        %span.perm0= h current_user.first_name + ' ' + current_user.last_name
         - if can? :manage, :all
           %span.permission= ('(' + link_to('admin', admin_path) + ')').html_safe
         %br

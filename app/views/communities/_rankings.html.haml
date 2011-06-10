@@ -53,7 +53,7 @@
             %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
               = render :partial=>'vote', :locals=>{:community=>@community, :website=>ranking[:website], :support=>support, :flag=>@flag}
           - else
-            %td.cell-centred.lowerborder [Log in required]
+            %td.cell-centred.lowerborder [Login required]
         - else
           %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
             = render :partial=>'vote', :locals=>{:community=>@community, :website=>ranking[:website], :support=>support, :flag=>@flag}
