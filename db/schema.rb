@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110520223338) do
+ActiveRecord::Schema.define(:version => 20110610174252) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -288,6 +288,25 @@ ActiveRecord::Schema.define(:version => 20110520223338) do
   end
 
   add_index "rankings", ["community_id", "website_id"], :name => "index_rankings_on_community_id_and_website_id", :unique => true
+
+  create_table "relations", :force => true do |t|
+    t.integer  "community_id"
+    t.string   "name",         :default => ""
+    t.string   "coding",       :default => ""
+    t.datetime "ended_at"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relationships", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "relation_id"
+    t.datetime "renewed_at"
+    t.datetime "ended_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
