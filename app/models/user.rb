@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
     self.first_name = omniauth['user_info']['first_name'] if first_name.blank?
     self.last_name = omniauth['user_info']['last_name'] if last_name.blank?
     build_authentications(omniauth, save_it)
+    self.save
+    build_relationships(omniauth)
   end
   
   def build_authentications(omniauth, save_it = false)
@@ -39,6 +41,31 @@ class User < ActiveRecord::Base
       authentications.create!(auth_params)
     else
       authentications.build(auth_params)
+    end
+  end
+  
+  def build_relationships(omniauth)
+    relations = Relation.all
+    relations.each do |relation|
+      case relation.name
+      when 'fb_education'
+        if omniauth['provider'] == 'facebook'
+          if omniauth.to_yaml.include? relation.coding
+            relationship = Relationship.new
+            relationship.relation_id = relation.id
+            relationship.user_id = self.id
+            relationship.save
+          end
+        end
+      when 'email'
+        puts omniauth['user_info']['email']
+        if (omniauth['user_info']['email'].include? relation.coding) || (self.email.include? relation.coding)
+          relationship = Relationship.new
+          relationship.relation_id = relation.id
+          relationship.user_id = self.id
+          relationship.save
+        end
+      end
     end
   end
   
