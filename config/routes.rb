@@ -1,5 +1,6 @@
 Gvmp::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
+  match '/auth/failure' => 'authentications#failure'
   devise_for :users, :controllers => {:registrations => 'registrations'}, :path_names => { :sign_up => "register", :sign_in => "login", :sign_out => "logout" }
 
   root :to => 'communities#home_page'
