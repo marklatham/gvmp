@@ -1,7 +1,8 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
   
   facebook_secret = Authentication.where("user_id = ? and provider = ?", -1, "facebook").first.uid
-  provider :facebook, '179591418728914', facebook_secret, {:scope => 'offline_access, email'} # user_education_history, 
+  provider :facebook, '179591418728914', facebook_secret, {:scope => 'offline_access, email'} # prod: fb vm; secret in auth table
+#  provider :facebook, '217101418321000', facebook_secret, {:scope => 'offline_access, email'} # dev: fb vm2; secret in auth table
   
   linked_in_secret = Authentication.where("user_id = ? and provider = ?", -1, "linked_in").first.uid
   provider :linked_in, '7nDh7oX2EyciTyguIrLvoaU2ASKLK5gjkxC179piy40eiRK7iHRq-TOdu1vBIXnz', linked_in_secret
