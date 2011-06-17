@@ -58,12 +58,30 @@ class User < ActiveRecord::Base
           end
         end
       when 'email'
-        puts omniauth['user_info']['email']
         if (omniauth['user_info']['email'].include? relation.coding) || (self.email.include? relation.coding)
           relationship = Relationship.new
           relationship.relation_id = relation.id
           relationship.user_id = self.id
           relationship.save
+        end
+      end
+    end
+  end
+  
+  def update_relationships
+    relations = Relation.all
+    relations.each do |relation|
+      case relation.name
+      when 'fb_education'
+        # write this later
+      when 'email'
+        if self.email.include? relation.coding
+          unless Relationship.where("relation_id = ? and user_id = ?", relation.id, self.id).first
+            relationship = Relationship.new
+            relationship.relation_id = relation.id
+            relationship.user_id = self.id
+            relationship.save
+          end
         end
       end
     end

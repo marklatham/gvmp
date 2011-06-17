@@ -20,6 +20,9 @@
     
     %td#login-nav
       - if user_signed_in?
+        - unless @updated_relationships
+          - current_user.update_relationships
+          - @updated_relationships = true
         %span.perm0= h current_user.first_name + ' ' + current_user.last_name
         - if can? :manage, :all
           %span.permission= ('(' + link_to('admin', admin_path) + ')').html_safe
