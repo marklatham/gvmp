@@ -42,6 +42,14 @@ namespace :utils do
         if authentication = Authentication.where("user_id = ? and provider = ?", vote.user_id, "facebook").any?
           vote.fb_login = true
         end
+        relationships = Relationship.where("user_id = ?", vote.user_id)
+        relationships.each do |relationship|
+          relation = Relation.find_by_id(relationship.relation_id)
+          if relation.community_id == vote.community_id
+            vote.fb_membership = true if relation.name == "fb_education"
+            vote.email_membership = true if relation.name == "email"
+          end
+        end
       end
       vote.save
       
