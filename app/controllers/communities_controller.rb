@@ -105,8 +105,8 @@ class CommunitiesController < ApplicationController
   def vote_for_website
     @ip = request.remote_ip
     @agent = request.user_agent
-    @website = Website.find(params[:id])
-    @community = Community.find(params[:community])
+    @website = Website.find(params[:website])
+    @community = Community.find(params[:id])
     @support = params[:percent].to_f
     if @support > 100
       @support = 100

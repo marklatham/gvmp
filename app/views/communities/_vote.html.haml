@@ -2,7 +2,7 @@
 -# vote_for_website code is in communities_controller
 
 .inner_vote_cell{:id => "vote_element_#{website.id}"}
-  = form_tag({:action => :vote_for_website, :id => website.id, :community => community.id}, :method=>:post, :id=>"ajax_form_percent_#{website.id}") do
+  = form_tag({:action => :vote_for_website, :id => community.id, :website => website.id}, :method=>:post, :id=>"ajax_form_percent_#{website.id}") do
     - if flag == 1 && support >= 0
       .last_vote{:id => "last_vote_#{website.id}"}
         You voted
