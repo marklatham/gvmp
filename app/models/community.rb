@@ -55,14 +55,21 @@ class Community < ActiveRecord::Base
     end
     puts "Parameters as of " + parameter.as_of.to_s + " for community_id = " + parameter.community_id.to_s
     
-    votes_login = Vote.where("community_id = ? and created_at > ? and created_at < ? and user_id IS NOT NULL and
+    votes_login = Vote.where("community_id = ? and created_at > ? and created_at < ? and
+                              (user_id IS NOT NULL and (fb_login <> 0 or email_membership <> 0)) and
                               (place_created_at > ? or place_created_at IS NULL)",
                       self.id, parameter.start_voting, tally_cutoff, tally_cutoff).order("user_id, website_id, created_at DESC")
-    
-    votes_nologin = Vote.where("community_id = ? and created_at > ? and created_at < ? and user_id IS NULL and
+    # Note that if the login is via non-community email not facebook, then vote is grouped with nonlogin here:
+    votes_email = Vote.where("community_id = ? and created_at > ? and created_at < ? and 
+                              (user_id IS NOT NULL and (fb_login = 0 and email_membership = 0)) and
+                              (place_created_at > ? or place_created_at IS NULL)",
+                      self.id, parameter.start_voting, tally_cutoff, tally_cutoff).order("user_id, website_id, created_at DESC")
+    votes_nologin = Vote.where("community_id = ? and created_at > ? and created_at < ? and
+                               user_id IS NULL and
                               (place_created_at > ? or place_created_at IS NULL)",
                       self.id, parameter.start_voting, tally_cutoff, tally_cutoff).order("ip_address, website_id, created_at DESC")
     puts "Number of logged in votes found = " + votes_login.size.to_s
+    puts "Number of email votes found = " + votes_email.size.to_s
     puts "Number of non logged in votes found = " + votes_nologin.size.to_s
     
     # Only count the latest logged in vote from each user_id on each website:
@@ -79,8 +86,29 @@ class Community < ActiveRecord::Base
         end
       end
     end
+    puts "Number of logged in votes left = " + votes_login_to_count.size.to_s
     
-    # Also, find the latest non logged in vote from ip_address on each website:
+    votes_email_to_count = []
+    if votes_email.any?
+      keep_vote = votes_email[0]
+      votes_email_to_count << keep_vote
+      votes_email.each do |vote_email|
+        puts vote_email.id.to_s + " " + vote_email.ip_address + " " + vote_email.website_id.to_s + " " + vote_email.user_id.to_s
+        unless vote_email.user_id == keep_vote.user_id && vote_email.website_id == keep_vote.website_id
+          keep_vote = vote_email
+          votes_email_to_count << keep_vote
+        end
+      end
+    end
+    puts "Number of email votes left = " + votes_email_to_count.size.to_s
+    
+    # Note that if the login is via non-community email not facebook, then vote is grouped with nonlogin here:
+    votes_nologin = votes_nologin.concat(votes_email_to_count)
+    votes_nologin.sort! do |a,b|
+      [b.ip_address, b.website_id, b.created_at] <=> [a.ip_address, a.website_id, a.created_at]
+    end
+    
+    # Find the latest non logged in vote from ip_address on each website:
     votes_nologin_to_count = []
     if votes_nologin.any?
       keep_vote = votes_nologin[0]
@@ -93,7 +121,6 @@ class Community < ActiveRecord::Base
       end
     end
     
-    puts "Number of logged in votes left = " + votes_login_to_count.size.to_s
     puts "Number of non logged in votes left = " + votes_nologin_to_count.size.to_s
     
     # Drop non-logged-in votes from IPs with logged-in votes being counted in days_valid period:
@@ -113,6 +140,14 @@ class Community < ActiveRecord::Base
     end
     
     puts "Number of votes to count = " + votes.size.to_s
+    
+    votes.each do |vote|
+      if vote.user_id
+        puts vote.id.to_s + " " + vote.ip_address + " " + vote.website_id.to_s + " " + vote.user_id.to_s
+      else
+        puts vote.id.to_s + " " + vote.ip_address + " " + vote.website_id.to_s
+      end
+    end
     
     unless self.tallied_at == rankings[0].tallied_at
       puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied: " + self.tallied_at.to_s
