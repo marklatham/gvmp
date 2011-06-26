@@ -21,7 +21,6 @@
     %td#login-nav
       - if user_signed_in?
         - unless session[:updated_relationships]
-          - puts "updating"
           - current_user.update_relationships
           - session[:updated_relationships] = true
         %span.perm0= h current_user.first_name + ' ' + current_user.last_name

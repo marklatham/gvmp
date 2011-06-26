@@ -55,41 +55,67 @@ class Community < ActiveRecord::Base
     end
     puts "Parameters as of " + parameter.as_of.to_s + " for community_id = " + parameter.community_id.to_s
     
-    # How to select the latest vote from each IP address for each website?:
-    # This doesn't get all data fields, so no good I guess:
-    #    votes = Vote.maximum(:updated_at, 
-    #                               :conditions => ["community_id = ?", self.id],                     
-    #                               :group => "ip_address, website_id")    
+    votes_login = Vote.where("community_id = ? and created_at > ? and created_at < ? and user_id IS NOT NULL and
+                              (place_created_at > ? or place_created_at IS NULL)",
+                      self.id, parameter.start_voting, tally_cutoff, tally_cutoff).order("user_id, website_id, created_at DESC")
     
-    # This almost works, but returns the first record of each group (by ID, regardless of how sorted)
-    # while we want the latest record:
-    # votes = Vote.find(:all, :conditions => ["community_id = ? and created_at < ? and (place = ? or place IS NULL)",
-    #                                                    self.id,      tally_cutoff,            ""],
-    #                    :order => "website_id, ip_address, created_at DESC", :group => "website_id, ip_address")    
+    votes_nologin = Vote.where("community_id = ? and created_at > ? and created_at < ? and user_id IS NULL and
+                              (place_created_at > ? or place_created_at IS NULL)",
+                      self.id, parameter.start_voting, tally_cutoff, tally_cutoff).order("ip_address, website_id, created_at DESC")
+    puts "Number of logged in votes found = " + votes_login.size.to_s
+    puts "Number of non logged in votes found = " + votes_nologin.size.to_s
     
-    # So find votes sorted:
-    votes=Vote.where("community_id = ? and created_at > ? and created_at < ? and (place_created_at > ? or place_created_at IS NULL)",
-                        self.id, parameter.start_voting, tally_cutoff, tally_cutoff).order("ip_address, website_id, created_at DESC")
+    # Only count the latest logged in vote from each user_id on each website:
+    # For each [user_id or ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group.
     
-    # Only count the latest vote from each ip_address on each website.
-    # For each [ip_address, website_id], votes are in reverse chronological order, so keep the first one in each group:
-    puts Time.now.to_s + " Number of votes found = " + votes.size.to_s
-    if votes.any?
-      keep_vote = votes[0]
-      votes_to_count = []
-      votes_to_count << keep_vote
-      votes.each do |vote|
-        unless vote.ip_address == keep_vote.ip_address && vote.website_id == keep_vote.website_id
-          keep_vote = vote
-          votes_to_count << keep_vote
+    votes_login_to_count = []
+    if votes_login.any?
+      keep_vote = votes_login[0]
+      votes_login_to_count << keep_vote
+      votes_login.each do |vote_login|
+        unless vote_login.user_id == keep_vote.user_id && vote_login.website_id == keep_vote.website_id
+          keep_vote = vote_login
+          votes_login_to_count << keep_vote
         end
       end
-      votes = votes_to_count
     end
-    puts Time.now.to_s + " Number of votes left = " + votes.size.to_s
+    
+    # Also, find the latest non logged in vote from ip_address on each website:
+    votes_nologin_to_count = []
+    if votes_nologin.any?
+      keep_vote = votes_nologin[0]
+      votes_nologin_to_count << keep_vote
+      votes_nologin.each do |vote_nologin|
+        unless vote_nologin.ip_address == keep_vote.ip_address && vote_nologin.website_id == keep_vote.website_id
+          keep_vote = vote_nologin
+          votes_nologin_to_count << keep_vote
+        end
+      end
+    end
+    
+    puts "Number of logged in votes left = " + votes_login_to_count.size.to_s
+    puts "Number of non logged in votes left = " + votes_nologin_to_count.size.to_s
+    
+    # Drop non-logged-in votes from IPs with logged-in votes being counted in days_valid period:
+    ips_with_login_votes = []
+    votes_login_to_count.each do |vote_login|
+      days_old = (tally_cutoff.to_date - vote_login.created_at.to_date).to_i
+      if days_old < parameter.days_valid
+        ips_with_login_votes << vote_login.ip_address
+      end
+    end
+    ips_with_login_votes = ips_with_login_votes.uniq.sort
+    votes = votes_login_to_count
+    votes_nologin_to_count.each do |vote_nologin|
+      unless ips_with_login_votes.include?(vote_nologin.ip_address)
+        votes << vote_nologin
+      end
+    end
+    
+    puts "Number of votes to count = " + votes.size.to_s
     
     unless self.tallied_at == rankings[0].tallied_at
-      puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied!"
+      puts "Warning: Rankings last tallied at " + rankings[0].tallied_at.to_s + " not same as when community last tallied: " + self.tallied_at.to_s
     end
     
     if rankings.any?
@@ -255,13 +281,13 @@ class Community < ActiveRecord::Base
     
     cutoff = ranking.share + increment
     
-    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
-      puts "========================================="
-      puts "Website_id: " + ranking.website_id.to_s
-      puts tally_cutoff
-      puts ranking.share
-      puts increment
-    end
+#    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
+#      puts "========================================="
+#      puts "Website_id: " + ranking.website_id.to_s
+#      puts tally_cutoff
+#      puts ranking.share
+#      puts increment
+#    end
     
     count = parameter.spread_previous * (100.0 - ranking.share) # To break ties caused by having no votes. This will equalize shares.
     votes.each do |vote|
@@ -322,13 +348,13 @@ class Community < ActiveRecord::Base
         
         count += decayed_weight * support_fraction
         
-        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
-          print vote.id
-          print ", "
-          print decayed_weight
-          print ", "
-          puts support_fraction
-        end
+#        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
+#          print vote.id
+#          print ", "
+#          print decayed_weight
+#          print ", "
+#          puts support_fraction
+#        end
         
       end
     end
