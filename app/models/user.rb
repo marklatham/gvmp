@@ -73,7 +73,16 @@ class User < ActiveRecord::Base
     relations.each do |relation|
       case relation.name
       when 'fb_education'
-        # write this later
+        if authentication = Authentication.where("user_id = ? and provider = ?", self.id, "facebook").first
+          if authentication.yaml.include? relation.coding
+            unless Relationship.where("relation_id = ? and user_id = ?", relation.id, self.id).first
+              relationship = Relationship.new
+              relationship.relation_id = relation.id
+              relationship.user_id = self.id
+              relationship.save
+            end
+          end
+        end
       when 'email'
         if self.email.include? relation.coding
           unless Relationship.where("relation_id = ? and user_id = ?", relation.id, self.id).first
