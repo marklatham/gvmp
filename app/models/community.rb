@@ -313,7 +313,7 @@ class Community < ActiveRecord::Base
   
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
   def countVotes(tally_cutoff, votes, ranking, increment, parameter)
-    
+    puts "COUNTING VOTES:"
     cutoff = ranking.share + increment
     
 #    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
@@ -381,7 +381,20 @@ class Community < ActiveRecord::Base
           
         end
         
-        count += decayed_weight * support_fraction
+        # Weight vote according to login info re that community:
+        login_factor = parameter.no_login_weight
+        login_factor = parameter.email_membership_weight if vote.email_membership?
+        puts login_factor
+        if vote.fb_membership?
+          login_factor = parameter.fb_membership_weight if parameter.fb_membership_weight > login_factor
+        elsif vote.fb_login?
+          login_factor = parameter.fb_login_weight if parameter.fb_login_weight > login_factor
+        elsif vote.user_id
+          login_factor = parameter.email_only_weight if parameter.email_only_weight > login_factor
+          puts (login_factor + 10)
+        end
+        puts "vote.id = " + vote.id.to_s + "; login factor = " + login_factor.to_s
+        count += decayed_weight * support_fraction * login_factor
         
 #        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
 #          print vote.id

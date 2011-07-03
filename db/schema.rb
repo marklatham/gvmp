@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110610174252) do
+ActiveRecord::Schema.define(:version => 20110701194944) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -190,7 +190,11 @@ ActiveRecord::Schema.define(:version => 20110610174252) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "transition"
-    t.float    "no_login_weight",             :default => 1.0
+    t.float    "no_login_weight",             :default => 0.1
+    t.float    "email_only_weight",           :default => 0.2
+    t.float    "fb_login_weight",             :default => 0.5
+    t.float    "email_membership_weight",     :default => 1.0
+    t.float    "fb_membership_weight",        :default => 1.0
   end
 
   create_table "past_rankings", :force => true do |t|
