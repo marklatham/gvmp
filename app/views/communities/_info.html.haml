@@ -24,7 +24,7 @@
 
 %p
   %label Description:
-  = simple_format truncate(@community.description, :length => 500)
+  = truncate(@community.description, :length => 500).html_safe
 
 %p
   %label Funding status:

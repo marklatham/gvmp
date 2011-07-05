@@ -50,8 +50,17 @@
         
         - if @community.id == 82
           - if current_user
-            %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
-              = render :partial=>'vote', :locals=>{:community=>@community, :website=>ranking[:website], :support=>support, :flag=>@flag}
+            - can_vote = false
+            - relationships = Relationship.where("user_id = ?", current_user.id)
+            - relationships.each do |relationship|
+              - relation = Relation.find_by_id(relationship.relation_id)
+              - if relation.community_id == @community.id && (relation.name == "fb_education" || relation.name == "email")
+                - can_vote = true
+            - if can_vote
+              %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
+                = render :partial=>'vote', :locals=>{:community=>@community, :website=>ranking[:website], :support=>support, :flag=>@flag}
+            - else
+              %td.cell-centred.lowerborder [UBC membership required]
           - else
             %td.cell-centred.lowerborder [Login required]
         - else
