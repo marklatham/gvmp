@@ -4,6 +4,17 @@ namespace :misc do
 # Routines here are one-off manually run tasks not used in our online system, so OK to change:
 #########################################################################################
   
+  desc "Set all existing vote.user_id to 0 when restarting logins in Rails 3"
+  task(:votes_edit_users => :environment) do
+    
+    votes = Vote.where("user_id IS NOT NULL")
+    votes.each do |vote|
+      vote.user_id = 0
+      vote.save
+    end
+    
+  end
+  
   
   desc "Set all community.tallied_at to restart tallying from then"
   task(:start_date => :environment) do
