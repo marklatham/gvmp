@@ -93,7 +93,7 @@ class Community < ActiveRecord::Base
       keep_vote = votes_email[0]
       votes_email_to_count << keep_vote
       votes_email.each do |vote_email|
-        puts vote_email.id.to_s + " " + vote_email.ip_address + " " + vote_email.website_id.to_s + " " + vote_email.user_id.to_s
+#        puts vote_email.id.to_s + " " + vote_email.ip_address + " " + vote_email.website_id.to_s + " " + vote_email.user_id.to_s
         unless vote_email.user_id == keep_vote.user_id && vote_email.website_id == keep_vote.website_id
           keep_vote = vote_email
           votes_email_to_count << keep_vote
@@ -142,10 +142,12 @@ class Community < ActiveRecord::Base
     puts "Number of votes to count = " + votes.size.to_s
     
     votes.each do |vote|
-      if vote.user_id
-        puts vote.id.to_s + " " + vote.ip_address + " " + vote.website_id.to_s + " " + vote.user_id.to_s
-      else
-        puts vote.id.to_s + " " + vote.ip_address + " " + vote.website_id.to_s
+      if vote.created_at > 2.months.ago(tally_cutoff)
+        if vote.user_id
+          puts vote.id.to_s + " " + vote.ip_address + " " + vote.website_id.to_s + " " + vote.user_id.to_s
+        else
+          puts vote.id.to_s + " " + vote.ip_address + " " + vote.website_id.to_s
+        end
       end
     end
     
@@ -247,6 +249,7 @@ class Community < ActiveRecord::Base
   end
   
   def check(tally_cutoff, rankings)
+    # NEED TO UPDATE THIS REPEATED CODE BEFORE USING IT AGAIN!
     # This repeats a lot of code from tally routine above. But here, just checking 2 vote counts per website.
     # Get parameters for this community as of tally_cutoff
     parameter = Parameter.where("as_of <= ? and community_id = ?", tally_cutoff, self.id).order("as_of").last
@@ -313,7 +316,7 @@ class Community < ActiveRecord::Base
   
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
   def countVotes(tally_cutoff, votes, ranking, increment, parameter)
-    puts "COUNTING VOTES:"
+    puts "Counting votes for website id " + ranking.website_id.to_s if ranking.community_id == 96
     cutoff = ranking.share + increment
     
 #    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
@@ -384,16 +387,18 @@ class Community < ActiveRecord::Base
         # Weight vote according to login info re that community:
         login_factor = parameter.no_login_weight
         login_factor = parameter.email_membership_weight if vote.email_membership?
-        puts login_factor
+#        puts login_factor if vote.created_at > 2.months.ago(tally_cutoff)
         if vote.fb_membership?
           login_factor = parameter.fb_membership_weight if parameter.fb_membership_weight > login_factor
         elsif vote.fb_login?
           login_factor = parameter.fb_login_weight if parameter.fb_login_weight > login_factor
         elsif vote.user_id
           login_factor = parameter.email_only_weight if parameter.email_only_weight > login_factor
-          puts (login_factor + 10)
+#          puts (login_factor + 10) if vote.created_at > 2.months.ago(tally_cutoff)
         end
-        puts "vote.id = " + vote.id.to_s + "; login factor = " + login_factor.to_s
+        puts "vote.id = " + vote.id.to_s + "; decayed_weight = " + decayed_weight.to_s + 
+        "; support_fraction = " + support_fraction.to_s + "; login factor = " +
+        login_factor.to_s if vote.created_at > 2.months.ago(tally_cutoff) && ranking.community_id == 96
         count += decayed_weight * support_fraction * login_factor
         
 #        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
