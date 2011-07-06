@@ -24,10 +24,17 @@ class CommunitiesController < ApplicationController
   def manage
     @communities = Community.filter(params.merge(:sorted => 'recently_created'))
   end
-  
+
   def show 
     unless @community = Community.find_by_idstring(params[:idstring])
       @community = Community.find(params[:id])
+    end
+    if current_user
+      View.create!({:community_id => @community.id, :user_id => current_user.id, :ip_address => request.remote_ip,
+                         :agent => request.user_agent, :referrer => request.referer})
+    else
+      View.create!({:community_id => @community.id, :ip_address => request.remote_ip,
+                         :agent => request.user_agent, :referrer => request.referer})
     end
     @rankings = @community.rankings.with_websites.paginate :page => params[:page], :per_page => 20
     @ballot = find_ballot
