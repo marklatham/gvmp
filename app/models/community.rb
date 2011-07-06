@@ -316,8 +316,9 @@ class Community < ActiveRecord::Base
   
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
   def countVotes(tally_cutoff, votes, ranking, increment, parameter)
-    puts "Counting votes for website id " + ranking.website_id.to_s if ranking.community_id == 96
     cutoff = ranking.share + increment
+    puts "Counting votes for website id " + ranking.website_id.to_s +
+         " at cutoff = " + cutoff.to_s if ranking.community_id == 96
     
 #    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
 #      puts "========================================="
@@ -397,7 +398,7 @@ class Community < ActiveRecord::Base
 #          puts (login_factor + 10) if vote.created_at > 2.months.ago(tally_cutoff)
         end
         puts "vote.id = " + vote.id.to_s + "; decayed_weight = " + decayed_weight.to_s + 
-        "; support_fraction = " + support_fraction.to_s + "; login factor = " +
+        "; support = " + vote.support.to_s + "; support_fraction = " + support_fraction.to_s + "; login factor = " +
         login_factor.to_s if vote.created_at > 2.months.ago(tally_cutoff) && ranking.community_id == 96
         count += decayed_weight * support_fraction * login_factor
         

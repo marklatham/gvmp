@@ -48,6 +48,6 @@ Gvmp::Application.configure do
   config.active_support.deprecation = :notify
   
   # Following gem devise setup instructions:
-  config.action_mailer.default_url_options = { :host => 'votermed.railsplayground.net' }
+  config.action_mailer.default_url_options = { :host => 'votermedia.org' }
   
 end
