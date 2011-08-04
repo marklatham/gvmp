@@ -16,7 +16,7 @@
       %td{:style => "width: 3em"}
   
   - if @community.id == 82
-    - @rankings = @rankings.sort{|a,b| a[:website].title <=> b[:website].title}
+    - @rankings = @rankings.sort{|a,b| a[:website].title.downcase <=> b[:website].title.downcase}
   
   - @rankings.each do |ranking|
     -# In case website was deleted but orphaned ranking record still exists:
