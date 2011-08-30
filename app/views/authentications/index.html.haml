@@ -16,23 +16,20 @@
           -# Possible cause & solution at http://railsforum.com/viewtopic.php?id=38460
           = button_to "Delete", authentication, :method=>:delete, :class=>"remove", :confirm=>"Are you sure?"
         %div.clear
-  %p
-    %strong Add another service to sign in with:
+  -# %p
+  -#   %strong Add another service to sign in with:
 - else
-  %p
-    %strong Sign in through one of these services:
-
-%a.auth_provider{:href=>"/auth/facebook"}
-  = image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook"
-  Facebook
+  %a.auth_provider{:href=>"/auth/facebook"}
+    = image_tag "facebook_64.png", :size => "64x64", :alt => "Facebook"
+    Facebook
   
-%a.auth_provider{:href=>"/auth/linked_in"}
-  = image_tag "linked_in_64.png", :size => "64x64", :alt => "LinkedIn"
-  LinkedIn
+-# %a.auth_provider{:href=>"/auth/linked_in"}
+-#   = image_tag "linked_in_64.png", :size => "64x64", :alt => "LinkedIn"
+-#   LinkedIn
   
-%a.auth_provider{:href=>"/auth/twitter"}
-  = image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter"
-  Twitter
+-# %a.auth_provider{:href=>"/auth/twitter"}
+-#   = image_tag "twitter_64.png", :size => "64x64", :alt => "Twitter"
+-#   Twitter
   
 -# %a.auth_provider{:href=>"/auth/google_apps"}
 -#   = image_tag "google_64.png", :size => "64x64", :alt => "Google"
@@ -42,8 +39,5 @@
 
 - unless user_signed_in?
   %p
-    %strong Don't use these services?
-    = link_to "Register", new_user_registration_path
-    or
-    = link_to "login", new_user_session_path
-    with a password.
+    %strong
+    = link_to "Other login options", new_user_session_path
