@@ -1,11 +1,14 @@
 set :ssh_options, { :forward_agent => true }
 
 # Your cPanel/SSH login name
-set :user, "votermed.railsplayground.net"
+# set :user, "votermed.railsplayground.net" # FOR VPS PRODUCTION
+set :user, "votermed" # FOR VPS STAGING
+# set :user, "votermed" # FOR SHARED
 
 # The domain name of the server to deploy to, this can be your domain or the domain of the server.
-# set :server_name, "votermedia.org" # for VPS migration on RPG
-set :server_name, "votermed.railsplayground.net" # for rails3 until votermedia.org points there
+# set :server_name, "votermedia.org" # FOR VPS PRODUCTION
+set :server_name, "voter.railsplayground.net" # FOR VPS STAGING
+# set :server_name, "votermedia.railsplayground.net" # FOR SHARED
 
 # If you are using git, uncomment the following line and comment out the line above.
 set :scm, :git
@@ -29,7 +32,7 @@ role :db,  server_name, :primary => true
 
 task :after_update_code, :roles => :app do
   db.symlink
-  deploy.install_gems
+#  deploy.install_gems
 #  sphinx.symlink
 #  sphinx.configure
 end
@@ -42,7 +45,8 @@ namespace :deploy do
   end
 
   task :install_gems do
-    run "cd #{release_path} && bundle install && /opt/ruby-enterprise-1.8.7-2009.10/bin/bundle install"
+    run "cd #{release_path} && bundle install --deployment"
+#    run "cd #{release_path} && bundle install --deployment && /opt/ruby-enterprise-1.8.7-2009.10/bin/bundle install --deployment"
   end
 
 end
@@ -52,7 +56,7 @@ namespace :passenger do
   desc "Restart dispatchers"
   task :restart do
 #    sphinx.restart
-    run "touch #{current_path}/tmp/restart.txt"
+#    run "touch #{current_path}/tmp/restart.txt"
   end
 end
 
