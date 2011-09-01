@@ -193,6 +193,7 @@ class Community < ActiveRecord::Base
     # If shares sum to more than 100 (which shouldn't happen, but just in case), decrease 1 at a time:
     while rankings.sum(:share) > 100.0
       min_count0.share -= 1.0
+      min_count0.save
       min_count0.count1 = min_count0.count0
       min_count0.count0 = countVotes(tally_cutoff, votes, min_count0, 0.0, parameter)
       
@@ -204,6 +205,7 @@ class Community < ActiveRecord::Base
     # If shares sum to less than 100 (e.g. when first website[s] added), increase 1 at a time:
     while rankings.sum(:share) < 100.0
       max_count1.share += 1.0
+      max_count1.save
       max_count1.count0 = max_count1.count1
       max_count1.count1 = countVotes(tally_cutoff, votes, max_count1, 1.0, parameter)
       
@@ -211,7 +213,7 @@ class Community < ActiveRecord::Base
       min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
       max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
     end
-
+    
     # Main loop: Adjust shares until max_count1 <= min_count0 i.e. find a cutoff number of votes (actually a range of cutoffs)
     # where shares sum to 100.0 using that same cutoff to determine each website's share.
     # This is like a stock market order matching system. Each count1 is a bid; each count0 is an offer.
@@ -232,6 +234,7 @@ class Community < ActiveRecord::Base
       rankings_pos = rankings.find_all {|r| r.share > 0.0 }
       min_count0 = rankings_pos.min {|a,b| a.count0 <=> b.count0 }
       max_count1 = rankings.max {|a,b| a.count1 <=> b.count1 }
+      
     end
     
     # Share calculations are now completed, so sort & store rankings for this community:
@@ -317,8 +320,8 @@ class Community < ActiveRecord::Base
   # Subroutine to count the number of (time-decayed) votes for shares >= cutoff = ranking.share + increment
   def countVotes(tally_cutoff, votes, ranking, increment, parameter)
     cutoff = ranking.share + increment
-    puts "Counting votes for website id " + ranking.website_id.to_s +
-         " at cutoff = " + cutoff.to_s if ranking.community_id == 96
+#    puts "Counting votes for website id " + ranking.website_id.to_s +
+#         " at cutoff = " + cutoff.to_s if ranking.community_id == 82
     
 #    if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
 #      puts "========================================="
