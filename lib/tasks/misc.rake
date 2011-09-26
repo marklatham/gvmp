@@ -4,6 +4,21 @@ namespace :misc do
 # Routines here are one-off manually run tasks not used in our online system, so OK to change:
 #########################################################################################
   
+  
+  desc "Test whether a community record will update properly"
+  task(:update_com => :environment) do
+    
+    choose = 299
+    community = Community.find(choose)
+    puts "community.tallied_at = " + community.tallied_at.to_s
+    community.tallied_at = Time.now
+    community.save
+    puts "community.tallied_at = " + community.tallied_at.to_s
+    community = Community.find(choose)
+    puts "community.tallied_at = " + community.tallied_at.to_s
+  end
+  
+  
   desc "Set all existing vote.user_id to 0 when restarting logins in Rails 3"
   task(:votes_edit_users => :environment) do
     
@@ -12,7 +27,6 @@ namespace :misc do
       vote.user_id = 0
       vote.save
     end
-    
   end
   
   
