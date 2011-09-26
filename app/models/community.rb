@@ -566,6 +566,7 @@ class Community < ActiveRecord::Base
   
   
   class << self
+    
     def filter(params={})
 
       # TODO: Separate the sphinx search
@@ -592,6 +593,15 @@ class Community < ActiveRecord::Base
       ids = [82, 96, 175, 51, 52, 81, 5, 205, 59, 3, 151, 116, 109, 223]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
+    def bc_muni_funded
+      ids = [26, 297, 47, 50, 53]
+      find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
+    end
+    def bc_muni_others
+      ids = [280, 28, 221, 34, 35, 188, 40, 287, 51, 288, 52, 54]
+      find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
+    end
+    
   end
 
 end
