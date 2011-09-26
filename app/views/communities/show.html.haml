@@ -10,22 +10,19 @@
           How should the 
           = h @community.short_name 
           voter community divide funding among these blogs/websites?
+        - unless current_user
+          %h4{:style => "text-align: center; color: grey"}
+            [BTW most communities give your votes more weight if you log in.]
+        - if @community.id == 82
+          %h4{:style => "text-align: center"}
+            Award calculations will resume when the AMS gives us the go-ahead.
+            Meanwhile, blogs shown below in alphabetical order.
       - if File.exists?(Rails.root.to_s + "/public/images/id/" + @community.idstring + ".jpg")
         %td{:style => "padding-left: 1em"}
           %img{:src => "/images/id/" + @community.idstring + ".jpg"}
   
   .listing
     - if @community.websites.any?
-      - unless current_user
-        %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
-          %strong
-            NOTE: Most communities give your votes more weight if you log in -- see links at upper right.
-      - if @community.id == 82
-        %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
-          %strong
-            Award calculations suspended while we phase in the new login system (more info
-            = link_to('here', 'http://votermedia.blogspot.com/2011/03/ubc-continuous-votermedia-award.html') + ').'
-            Meanwhile, blogs shown below in alphabetical order.
       %br
       = render :partial => 'rankings'
     - else
