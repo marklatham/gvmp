@@ -2,9 +2,11 @@
   %div#nav
     %ul
       %li
-        = link_to 'BC-MUNI-2011', root_path
+        = link_to 'BC-MUNI-2011', '/bcmuni2011'
         %ul
-          %li{:style => "padding-right: 0.5em"} FEATURED:
+          %li{:style => "padding-left: 1em"}
+            = link_to("Contest Info", "/bcmuni2011")
+          %li{:style => "padding-right: 0.5em"} FUNDED CONTESTS:
           - Community.bc_muni_funded.each do |community|
             %li{:style => "padding-left: 1em"}
               = link_to(community.short_name, "/" + community.idstring)

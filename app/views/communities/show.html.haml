@@ -13,6 +13,9 @@
         - unless current_user
           %h4{:style => "text-align: center; color: grey"}
             [BTW most communities give your votes more weight if you log in.]
+        - if Community.bc_muni_funded.include?(@community)
+          %h4{:style => "text-align: center; color: green"}
+            This ballot will allocate up to $1,000 to competing blogs! (Info in grey box below.)
         - if @community.id == 82
           %h4{:style => "text-align: center"}
             Award calculations will resume when the AMS gives us the go-ahead.
