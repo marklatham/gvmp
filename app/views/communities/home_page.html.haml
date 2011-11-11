@@ -6,6 +6,15 @@
       
       %td{:style => "vertical-align: top; max-width: 340px"}
         
+        %h3{:style => "color: green"}
+          $5,000 contest for blogs covering municipal elections in
+          = link_to('North Vancouver', '/northvan') + ','
+          = link_to('West Vancouver', '/westvan') + ','
+          = link_to('Burnaby', '/burnaby') + ','
+          = link_to('Surrey', '/surreybc') + ' &'
+          = link_to('Richmond', '/richmondbc') + ':'
+          = link_to('info here', '/bcmuni2011')
+      
         %table{:cellspacing => 0}
           - @videos.each do |video|
             %tr
