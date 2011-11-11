@@ -16,10 +16,6 @@
         - if Community.bc_muni_funded.include?(@community)
           %h4{:style => "text-align: center; color: green"}
             This ballot will allocate up to $1,000 to competing blogs! (Info in grey box below.)
-        - if @community.id == 82
-          %h4{:style => "text-align: center"}
-            Award calculations will resume when the AMS gives us the go-ahead.
-            Meanwhile, blogs shown below in alphabetical order.
       - if File.exists?(Rails.root.to_s + "/public/images/id/" + @community.idstring + ".jpg")
         %td{:style => "padding-left: 1em"}
           %img{:src => "/images/id/" + @community.idstring + ".jpg"}

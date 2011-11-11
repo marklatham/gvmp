@@ -4,19 +4,14 @@
       %th.header-centred.permission{:style => "width: 3em"} Ct1
       %th.header-centred.permission{:style => "width: 3em"} Ct0
     %th.header-centred{:style => "width: 3em"}
-      - unless @community.id == 82
-        = '#'
-    - unless @community.id == 82
-      %th.header-centred{:style => "width: 4em"} Share
+      = '#'
+    %th.header-centred{:style => "width: 4em"} Share
     %th.header-centred{:style => "width: 8em"} Your&nbsp;Votes
     %th.header-left{:style => "width: 18em"} Blog/Website
     -# The non-breaking spaces help the table width on my iPAQ. Need to check on iPhone.
     %th.header-left &nbsp;Recent&nbsp;Posts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     - if can? :update, Website
       %td{:style => "width: 3em"}
-  
-  - if @community.id == 82
-    - @rankings = @rankings.sort{|a,b| a[:website].title.downcase <=> b[:website].title.downcase}
   
   - @rankings.each do |ranking|
     -# In case website was deleted but orphaned ranking record still exists:
@@ -33,10 +28,8 @@
             = link_to "Not entered", '/rankings/' + ranking[:ranking_id].to_s
         - else
           %td.cell-centred.lowerborder.leftborder
-            - unless @community.id == 82
-              = ranking[:rank]
-          - unless @community.id == 82
-            %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
+            = ranking[:rank]
+          %td.cell-centred.cell-link.lowerborder= link_to number_with_precision(ranking[:share], :precision => 0) + '%', '/rankings/' + ranking[:ranking_id].to_s
         -# TODO: use named_route/resource
         -# There must be a cleaner way to code this. Find latest vote (if any) in this session for this website:
         - @flag = 0
@@ -48,35 +41,16 @@
               - @created = click.created_at
               - support = click.support
         
-        - if @community.id == 82
-          - if current_user
-            - can_vote = false
-            - relationships = Relationship.where("user_id = ?", current_user.id)
-            - relationships.each do |relationship|
-              - relation = Relation.find_by_id(relationship.relation_id)
-              - if relation.community_id == @community.id && (relation.name == "fb_education" || relation.name == "email")
-                - can_vote = true
-            - if can_vote
-              %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
-                = render :partial=>'vote', :locals=>{:community=>@community, :website=>ranking[:website], :support=>support, :flag=>@flag}
-            - else
-              %td.cell-centred.lowerborder [UBC membership required]
-          - else
-            %td.cell-centred.lowerborder [Login required]
-        - else
-          %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
-            = render :partial=>'vote', :locals=>{:community=>@community, :website=>ranking[:website], :support=>support, :flag=>@flag}
+        %td.cell-centred.lowerborder{:id => "vote_cell_#{ranking[:website].id}", :style => "color: green"}
+          = render :partial=>'vote', :locals=>{:community=>@community, :website=>ranking[:website], :support=>support, :flag=>@flag}
         
-        - if @community.id == 82
-          - rows = 3
-        - else
-          - case
-            - when ranking[:share] <= 0.0
-              - rows = 1
-            - when ranking[:share] > 0.0 && ranking[:share] < 20.0
-              - rows = 2
-            - when ranking[:share] >= 20.0
-              - rows = 3
+        - case
+          - when ranking[:share] <= 0.0
+            - rows = 1
+          - when ranking[:share] > 0.0 && ranking[:share] < 20.0
+            - rows = 2
+          - when ranking[:share] >= 20.0
+            - rows = 3
         %td.cell-link.lowerborder
           = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
         %td.lowerborder.rightborder
@@ -102,10 +76,7 @@
     - if can? :manage, @rankings
       %td
       %td
-    - if @community.id == 82
-      - colspan = 4
-    - else
-      - colspan = 5
+    - colspan = 5
     %td{:colspan => colspan, :style => "border-bottom: 8px solid #a00; padding: 0px"}
 
 %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
@@ -113,9 +84,10 @@
   %p= paginate @rankings
 
   %p
-    Vote % shares for as many as you like.
+    Vote % shares for as many blogs as you like.
     %noscript= 'Click Submit after each vote.'
-    Nonvotes are equivalent to 0%. Your votes need not sum to 100%. Shares updated nightly. &nbsp; &nbsp;
+    Nonvotes are equivalent to 0%. Your votes need not sum to 100%.
+    You can vote any time; about once a week is good. Shares updated nightly. &nbsp; &nbsp;
     = "[#{link_to('FAQ on voting', '/faqs#Voting')}]".html_safe
 
   %p
