@@ -31,6 +31,7 @@ namespace :feed do
       # pull the website out from the feed_url
       website = Website.find_by_feed_url k  rescue next
       unless feed.respond_to? :entries
+        puts k
         puts '***  feed failed to respond_to? :entries class = %s on site %s'.%([feed.class, website.title])
         puts feed.to_yaml
         next
@@ -66,6 +67,7 @@ namespace :feed do
       # pull the website out from the feed_url
       website = Website.find_by_feed_url k  rescue next
       unless feed.respond_to? :entries
+        puts k
         puts '***  feed failed to respond_to? :entries class = %s on site %s'.%([feed.class, website.title])
         puts feed.to_yaml
         next

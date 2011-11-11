@@ -61,7 +61,8 @@
         %td{:style => "text-align: right; padding-right: 1em"}
           - if previous_vote.support
             = number_with_precision(previous_vote.support, :precision => 0) + '%'
-        %td{:style => "text-align: center"}= previous_vote.created_at.to_s(:YmdHMS)
+        %td{:style => "text-align: center"}
+          = previous_vote.created_at.in_time_zone('Pacific Time (US & Canada)').to_s(:YmdHMS)
         %td{:style => "text-align: right"}= (last_created - previous_vote.created_at).round
         %td{:style => "text-align: right"}= count_dittos
         %td{:style => "padding-left: 1em"}= previous_vote.id
