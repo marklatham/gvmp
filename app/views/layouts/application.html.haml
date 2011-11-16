@@ -9,6 +9,8 @@
     = stylesheet_link_tag 'main', 'screen', :media => "screen"
     = javascript_include_tag :defaults, 'jquery', 'jquery_ujs', 'application', 'rails'
     = csrf_meta_tag
+    - if RAILS_ENV == 'production'
+      = render 'layouts/google_analytics'
   
   %body#welcome
     -# Wrapping the body inside a table cell helps prevent small displays like cell phones from
