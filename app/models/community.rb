@@ -594,11 +594,11 @@ class Community < ActiveRecord::Base
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
     def bc_muni_funded
-      ids = [297, 53, 26, 50, 47]
+      ids = [26, 297, 50]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
     def bc_muni_others
-      ids = [280, 28, 221, 34, 35, 188, 40, 287, 51, 288, 52, 54]
+      ids = [280, 28, 221, 188, 40, 47, 287, 51, 288, 52, 53, 54]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
     
