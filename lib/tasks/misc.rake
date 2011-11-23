@@ -228,4 +228,65 @@ namespace :misc do
     
   end
   
+  
+  desc "Fill in zone field for votes starting 2011-10-01"
+  task(:fill_zones => :environment) do
+    
+    start_time = Time.now
+    puts  'Task utils:process_votes started [%s]'.%([start_time])
+    
+    votes = Vote.where("created_at > ?", "2011-10-01").order("id")
+    puts votes.size.to_s + " new votes"
+    
+    # Often get several votes in a row from same ip on same community, so no need to look up zone in that case.
+    # Store the previous zone and check that condition first. Initialize:
+    last_community = 0
+    last_ip = ""
+    last_zone = 9
+
+    votes.each do |vote|
+      
+      # LOOK UP ZONE FOR THIS VOTE FROM PROXIMITY TABLE = lowest-number zone that matches:
+      
+      if vote.community_id == last_community && vote.ip_address == last_ip
+        vote.zone = last_zone
+      else
+        proximities = Proximity.where("community_id = ? and start_at < ? and end_at > ?",
+                                      vote.community_id, vote.created_at, vote.created_at).order("zone")
+        if proximities.size == 0
+          vote.zone = 0 # No zones are defined -- distinguish from no zones match which is encoded as zone = 9.
+        else
+          vote.zone = 9 # Default to worst zone unless another zone matches:
+          
+          if ip = Ip.find_by_ip_address(vote.ip_address)
+            proximities.each do |proximity|
+              if ip.country == proximity.country && ip.region == proximity.region && ip.city == proximity.city
+                vote.zone = proximity.zone
+                break
+              elsif ip.country == proximity.country && ip.region == proximity.region && proximity.city == ""
+                vote.zone = proximity.zone
+                break
+              elsif ip.country == proximity.country && proximity.region == "" && proximity.city == ""
+                vote.zone = proximity.zone
+                break
+              end
+            end
+          end
+          
+        end
+        
+        vote.save
+        last_community = vote.community_id
+        last_ip = vote.ip_address
+        last_zone = vote.zone
+        
+      end
+      
+    end # End of votes.each do loop.
+    
+    puts 'Task utils:process_votes done [%0.7s seconds]'.%([Time.now - start_time])
+    puts '====================================='
+  end
+  
+  
 end

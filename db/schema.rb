@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110925221714) do
+ActiveRecord::Schema.define(:version => 20111123221146) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -89,40 +89,6 @@ ActiveRecord::Schema.define(:version => 20110925221714) do
   add_index "communities", ["prov_state"], :name => "index_communities_on_prov_state"
   add_index "communities", ["scope"], :name => "index_communities_on_scope"
   add_index "communities", ["short_name"], :name => "index_communities_on_short_name"
-
-  create_table "communities_prod", :force => true do |t|
-    t.string   "name",               :default => "",                           :null => false
-    t.string   "short_name",         :default => "",                           :null => false
-    t.string   "category",           :default => "",                           :null => false
-    t.string   "country",            :default => "",                           :null => false
-    t.string   "prov_state",         :default => "",                           :null => false
-    t.string   "city",               :default => "",                           :null => false
-    t.string   "official_url",       :default => "",                           :null => false
-    t.string   "wiki_url",           :default => "",                           :null => false
-    t.text     "description",                                                  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "scope",              :default => "",                           :null => false
-    t.text     "add_to_description",                                           :null => false
-    t.string   "creator_ip",         :default => "",                           :null => false
-    t.string   "adder_ip",           :default => "",                           :null => false
-    t.boolean  "delta",              :default => false
-    t.text     "status",                                                       :null => false
-    t.string   "time_zone",          :default => "Pacific Time (US & Canada)", :null => false
-    t.datetime "tallied_at",         :default => '2000-01-01 00:00:00'
-    t.integer  "n_websites",         :default => 0
-    t.string   "idstring",           :default => ""
-  end
-
-  add_index "communities_prod", ["category"], :name => "index_communities_on_category"
-  add_index "communities_prod", ["city"], :name => "index_communities_on_city"
-  add_index "communities_prod", ["country"], :name => "index_communities_on_country"
-  add_index "communities_prod", ["delta"], :name => "index_communities_on_delta"
-  add_index "communities_prod", ["idstring"], :name => "index_communities_on_idstring"
-  add_index "communities_prod", ["name"], :name => "index_communities_on_name"
-  add_index "communities_prod", ["prov_state"], :name => "index_communities_on_prov_state"
-  add_index "communities_prod", ["scope"], :name => "index_communities_on_scope"
-  add_index "communities_prod", ["short_name"], :name => "index_communities_on_short_name"
 
   create_table "faqs", :force => true do |t|
     t.string   "category"
@@ -229,6 +195,11 @@ ActiveRecord::Schema.define(:version => 20110925221714) do
     t.float    "fb_login_weight",             :default => 0.5
     t.float    "email_membership_weight",     :default => 1.0
     t.float    "fb_membership_weight",        :default => 1.0
+    t.float    "zone1",                       :default => 1.0
+    t.float    "zone2",                       :default => 1.0
+    t.float    "zone3",                       :default => 1.0
+    t.float    "zone4",                       :default => 1.0
+    t.float    "zone9",                       :default => 1.0
   end
 
   create_table "past_rankings", :force => true do |t|
@@ -296,6 +267,18 @@ ActiveRecord::Schema.define(:version => 20110925221714) do
     t.string   "proxy_url"
     t.boolean  "in_proxy"
     t.float    "yes_percent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "proximities", :force => true do |t|
+    t.integer  "community_id"
+    t.string   "country",      :default => ""
+    t.string   "region",       :default => ""
+    t.string   "city",         :default => ""
+    t.integer  "zone"
+    t.datetime "start_at",     :default => '2000-01-01 00:00:00'
+    t.datetime "end_at",       :default => '3000-01-01 00:00:00'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -434,6 +417,7 @@ ActiveRecord::Schema.define(:version => 20110925221714) do
     t.boolean  "fb_login",         :default => false
     t.boolean  "fb_membership",    :default => false
     t.boolean  "email_membership", :default => false
+    t.integer  "zone",             :default => 0
   end
 
   create_table "websites", :force => true do |t|

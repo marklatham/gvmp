@@ -400,10 +400,21 @@ class Community < ActiveRecord::Base
           login_factor = parameter.email_only_weight if parameter.email_only_weight > login_factor
 #          puts (login_factor + 10) if vote.created_at > 2.months.ago(tally_cutoff)
         end
-        puts "vote.id = " + vote.id.to_s + "; decayed_weight = " + decayed_weight.to_s + 
-        "; support = " + vote.support.to_s + "; support_fraction = " + support_fraction.to_s + "; login factor = " +
-        login_factor.to_s if vote.created_at > 2.months.ago(tally_cutoff) && ranking.community_id == 96
-        count += decayed_weight * support_fraction * login_factor
+#        puts "vote.id = " + vote.id.to_s + "; decayed_weight = " + decayed_weight.to_s + 
+#        "; support = " + vote.support.to_s + "; support_fraction = " + support_fraction.to_s + "; login factor = " +
+#        login_factor.to_s if vote.created_at > 2.months.ago(tally_cutoff) && ranking.community_id == 96
+        
+        # Weight vote by zone:
+        zone_factor = case vote.zone
+        when 1 then parameter.zone1
+        when 2 then parameter.zone2
+        when 3 then parameter.zone3
+        when 4 then parameter.zone4
+        when 9 then parameter.zone9
+        else 1.0 # Default -- no effect.
+        end
+        
+        count += decayed_weight * support_fraction * login_factor * zone_factor
         
 #        if ranking.website_id == 232 || ranking.website_id == 225 || ranking.website_id == 239 || ranking.website_id == 269
 #          print vote.id
