@@ -235,7 +235,7 @@ namespace :misc do
     start_time = Time.now
     puts  'Task utils:process_votes started [%s]'.%([start_time])
     
-    votes = Vote.where("created_at > ?", "2011-10-01").order("id")
+    votes = Vote.where("created_at > ?", "2011-11-01").order("id")
     puts votes.size.to_s + " new votes"
     
     # Often get several votes in a row from same ip on same community, so no need to look up zone in that case.
