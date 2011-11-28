@@ -471,13 +471,13 @@ class Community < ActiveRecord::Base
       end
       
       # Find the ranking_ids that have any past_rankings on the days we are considering:
-      if funds > 0
-        past_rankings = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ? and funds > 0",
-                        self.id, "day", first_ranked_date, last_ranked_date).group("ranking_id").order("ranking_id, start")
-      else
+#      if funds > 0
+#        past_rankings = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ? and funds > 0",
+#                        self.id, "day", first_ranked_date, last_ranked_date).group("ranking_id").order("ranking_id, start")
+#      else
         past_rankings = PastRanking.where("community_id = ? and period = ? and start >= ? and start <= ?",
                         self.id, "day", first_ranked_date, last_ranked_date).group("ranking_id").order("ranking_id, start")
-      end
+#      end
       
       past_rankings.each do |past_ranking|
         

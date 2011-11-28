@@ -229,7 +229,7 @@ namespace :misc do
   end
   
   
-  desc "Fill in zone field for votes starting 2011-10-01"
+  desc "Fill in zone field for votes starting 2011-11-01"
   task(:fill_zones => :environment) do
     
     start_time = Time.now
