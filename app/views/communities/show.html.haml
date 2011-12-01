@@ -13,9 +13,6 @@
         - unless current_user
           %h4{:style => "text-align: center; color: grey"}
             [Most communities give your votes more weight if you log in and/or are a community member.]
-        - if Community.bc_muni_funded.include?(@community)
-          %h4{:style => "text-align: center; color: green"}
-            This ballot will allocate up to $1,000 to competing blogs! (Info in grey box below.)
       - if File.exists?(Rails.root.to_s + "/public/images/id/" + @community.idstring + ".jpg")
         %td{:style => "padding-left: 1em"}
           %img{:src => "/images/id/" + @community.idstring + ".jpg"}

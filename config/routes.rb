@@ -38,7 +38,7 @@ Gvmp::Application.routes.draw do
   match '/mlresume',            :to => 'minimal#mlresume',      :as => 'mlresume'
   match '/temp',                :to => 'minimal#temp',          :as => 'temp'  # Temporary use, not part of website.
   match '/about_contact',       :to => 'public#about_contact',  :as => 'about_contact'
-  match '/bcmuni2011',          :to => 'public#bcmuni2011',     :as => 'bcmuni2011'
+  match '/bcmuni',              :to => 'public#bcmuni',         :as => 'bcmuni'
   match '/comdump.yaml',        :to => 'public#comdump',        :as => 'comdump'
   match '/terms',               :to => 'public#terms',          :as => 'terms'
   match '/privacy',             :to => 'public#privacy',        :as => 'privacy'

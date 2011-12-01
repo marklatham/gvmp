@@ -22,5 +22,9 @@ RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
 RewriteCond %{HTTP_HOST} ^www.votermedia.org$
 RewriteRule ^sfu$ "http\:\/\/votermedia\.org\/sfss" [R=301,L]
 
+RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
+RewriteCond %{HTTP_HOST} ^www.votermedia.org$
+RewriteRule ^bcmuni2011$ "http\:\/\/votermedia\.org\/bcmuni" [R=301,L]
+
 RewriteCond %{HTTP_HOST} ^voter.railsplayground.net$
 RewriteRule ^sfu$ "http\:\/\/voter\.railsplayground\.net\/sfss" [R=301,L]
