@@ -1,30 +1,3 @@
 RackBaseURI /
 PassengerAppRoot /home/votermed.railsplayground.net/apps/gvmp/current
 RewriteEngine on
-
-RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
-RewriteCond %{HTTP_HOST} ^www.votermedia.org$
-RewriteRule ^communities\/82\-ubc\-ams$ "http\:\/\/votermedia\.org\/ubc" [R=301,L]
-
-RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
-RewriteCond %{HTTP_HOST} ^www.votermedia.org$
-RewriteRule ^communities\/94\-su\-uofc$ "http\:\/\/votermedia\.org\/ucalgary" [R=301,L]
-
-RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
-RewriteCond %{HTTP_HOST} ^www.votermedia.org$
-RewriteRule ^communities\/96\-uvss$ "http\:\/\/votermedia\.org\/uvss" [R=301,L]
-
-RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
-RewriteCond %{HTTP_HOST} ^www.votermedia.org$
-RewriteRule ^uvic$ "http\:\/\/votermedia\.org\/uvss" [R=301,L]
-
-RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
-RewriteCond %{HTTP_HOST} ^www.votermedia.org$
-RewriteRule ^sfu$ "http\:\/\/votermedia\.org\/sfss" [R=301,L]
-
-RewriteCond %{HTTP_HOST} ^votermedia.org$ [OR]
-RewriteCond %{HTTP_HOST} ^www.votermedia.org$
-RewriteRule ^bcmuni2011$ "http\:\/\/votermedia\.org\/bcmuni" [R=301,L]
-
-RewriteCond %{HTTP_HOST} ^voter.railsplayground.net$
-RewriteRule ^sfu$ "http\:\/\/voter\.railsplayground\.net\/sfss" [R=301,L]

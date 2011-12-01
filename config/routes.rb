@@ -2,9 +2,14 @@ Gvmp::Application.routes.draw do
   match '/auth/:provider/callback' => 'authentications#create'
   match '/auth/failure' => 'authentications#failure'
   devise_for :users, :controllers => {:registrations => 'registrations'}, :path_names => { :sign_up => "register", :sign_in => "login", :sign_out => "logout" }
-
+  
   root :to => 'communities#home_page'
-
+  
+  match '/bcmuni2011'             => redirect('/bcmuni')
+  match '/communities/82-ubc-ams' => redirect('/ubc')
+  match '/sfu'                    => redirect('/sfss')
+  match '/uvic'                   => redirect('/uvss')
+  
   resources :authentications
   resources :clippings
   resources :colleagues
@@ -47,8 +52,8 @@ Gvmp::Application.routes.draw do
   match '/ubcentry',            :to => 'public#ubcentry',       :as => 'ubcentry'
   match '/publications',        :to => 'pubs#index',             :as => 'publications'
   match '/votesummary',         :to => 'votes#summary',         :as => 'votesummary'
- 
-  match '/:idstring',           :to => 'communities#show',      :as => 'idstring'
+  
+   match '/:idstring',           :to => 'communities#show',      :as => 'idstring'
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
