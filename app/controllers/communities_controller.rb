@@ -270,30 +270,43 @@ class CommunitiesController < ApplicationController
       @daily_rankings = PastRanking.where("community_id = ? and period = ? and end >= ?",
                                                            @community.id, "day", earliest_day).order("start DESC")
       
-      # Select columns (i.e. websites) to display in horserace table:
+      # Select columns (i.e. websites) to show in horserace table:
+      # This complex logical sequence tries to satisfy various possible users' priorities.
       
-      websites = @yearly_rankings.select{|yr| yr.end == @yearly_rankings[0].end}
-      if websites.size > 8
-        websites_pos = websites.select{|website| website.share > 0}
-        if websites_pos.size >= 8
-          websites = websites_pos
-        else
-          websites = websites[0..7]
-        end
+      today          = @daily_rankings.select{|day| day.end == @daily_rankings[0].end}.sort_by{|ranking| ranking.rank}
+      today_pos      = today.select{|day| day.share > 0}.sort_by{|ranking| ranking.rank}
+      this_month_pos = @monthly_rankings.select{|month| month.share > 0 && month.end == @monthly_rankings[0].end}.sort_by{|ranking| ranking.rank}
+      last_month_pos = @monthly_rankings.select{|month| month.share > 0 && month.end == 1.month.ago(@monthly_rankings[0].end)}.sort_by{|ranking| ranking.rank}
+      this_year_pos  = @yearly_rankings.select{|year| year.share > 0 && year.end == @yearly_rankings[0].end}.sort_by{|ranking| ranking.rank}
+      last_year_pos  = @yearly_rankings.select{|year| year.share > 0 && year.end == 1.year.ago(@yearly_rankings[0].end)}.sort_by{|ranking| ranking.rank}
+      
+      # First, websites we'll show regardless of how many there are:
+      @website_ids = today_pos.map(&:website_id) | this_month_pos.map(&:website_id) | last_month_pos.map(&:website_id)
+      if this_year_pos.any?
+        @website_ids = @website_ids | this_year_pos.map(&:website_id) if this_year_pos[0].funds > 0
       end
-      @website_ids = websites.map(&:website_id)
-      
-      prior_year = @yearly_rankings.select{|yr| yr.share > 0 && yr.end == 1.year.ago(@yearly_rankings[0].end)}
-      
-      if prior_year.any?
-        prior_year_ids = prior_year.map(&:website_id)
-        if prior_year[0].funds > 0
-          @website_ids = @website_ids | prior_year_ids
-        elsif @website_ids.size < 8
-          @website_ids = @website_ids | prior_year_ids
-          @website_ids = @website_ids[0..7]
-        end
+      if last_year_pos.any?
+        @website_ids = @website_ids | last_year_pos.map(&:website_id) if last_year_pos[0].funds > 0
       end
+      
+      # Then include websites we'll show unless/until we are showing 8:
+      
+      if @website_ids.size < 8
+        @website_ids = @website_ids | today.map(&:website_id) # This will append websites with 0% share today, since we already have the > 0% ones.
+        @website_ids = @website_ids[0..7]
+      end
+      
+      if @website_ids.size < 8
+        @website_ids = @website_ids | this_year_pos.map(&:website_id) # This will append websites if there was no funding this year.
+        @website_ids = @website_ids[0..7]
+      end
+      
+      if @website_ids.size < 8
+        @website_ids = @website_ids | last_year_pos.map(&:website_id) # This will append websites if there was no funding last year.
+        @website_ids = @website_ids[0..7]
+      end
+      
+      # The website sequence in @website_ids may not be ideal, but coding the ideal sort seems too much trouble for now, so leaving as is.
       
     end
     
