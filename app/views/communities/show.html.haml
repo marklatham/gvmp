@@ -10,6 +10,9 @@
           How should the 
           = h @community.short_name 
           voter community divide funding among these blogs/websites?
+        - if @community.id == 82
+          %h3{:style => "text-align: center; color: green"}
+            $1,000 award pool for OneTime VoterMedia: See "Funding status" below
         - unless current_user
           %h4{:style => "text-align: center; color: grey"}
             [Most communities give your votes more weight if you log in and/or are a community member.]

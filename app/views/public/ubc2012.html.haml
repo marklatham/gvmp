@@ -1,0 +1,160 @@
+- @page_title = 'UBC 2012'
+
+%h1 University of British Columbia 2012
+
+%h3 This year there are two UBC VoterMedia competitions:
+
+%table#table1{:cellspacing => 2, :cellpadding => 3}
+
+  %tr.header
+    %td
+    %th.header-left One-Time VoterMedia
+    %th.header-left Continuous VoterMedia
+
+  %tr.list-line-even
+    %td.label Voting period:
+    %td.cell-left January 23 – 27, 2010
+    %td.cell-left
+      %span= link_to 'Vote now', '/ubc'
+      = "(started in 2009, continuing indefinitely)"
+    
+  %tr
+    %td.label Voting frequency:
+    %td.cell-left Vote once
+    %td.cell-left Vote early & often! e.g. once a week
+
+  %tr.list-line-even
+    %td.label Login to vote?:
+    %td.cell-left Required
+    %td.cell-left Not required
+
+  %tr
+    %td.label Award pool:
+    %td.cell-left $1,000
+    %td.cell-left Currently $0
+
+  %tr.list-line-even
+    %td.label Award dates:
+    %td.cell-left All decided on January 27
+    %td.cell-left % shares calculated daily
+
+  %tr
+    %td.label Entry fee:
+    %td.cell-left $20
+    %td.cell-left No entry fee
+
+  %tr.list-line-even
+    %td.label Entry deadline:
+    %td.cell-left January 13
+    %td.cell-left No deadline -- enter any time
+
+  %tr
+    %td.label Entry form:
+    %td.cell-left
+      = link_to 'AMS OneTime VoterMedia Contest Entry Form', '/ubc1vm'
+      = link_to '[doc]', '/ubc/AMSOneTimeVoterMediaContestEntryForm.doc'
+    %td.cell-left See "How to enter..." below.
+
+  %tr.list-line-even
+    %td.label Ballot choices:
+    %td.cell-left 0%, 10%, 20%, 30%, 40%
+    %td.cell-left 0%, 10%, 20%, 30%, 40%
+
+  %tr
+    %td.label Award calculation:
+    %td.cell-left
+      = link_to 'One-Time VoterMedia Calc Example', '/misc/1VMSharesCalcExample.xls'
+    %td.cell-left
+      See
+      = link_to '"How are votes tallied?"', '/faqs#Voting'
+
+  %tr.list-line-even
+    %td.label Who can enter:
+    %td.cell-left{:style => "max-width: 22em"}
+      UBC AMS members.
+    %td.cell-left{:style => "max-width: 30em"}
+      UBC AMS members.
+
+  %tr
+    %td.label Who can vote:
+    %td.cell-left UBC AMS members.
+    %td.cell-left Anyone with web access who cares about UBC media.
+
+  %tr.list-line-even
+    %td.label Sponsor:
+    %td.cell-left= link_to 'UBC Alma Mater Society', 'http://www.ams.ubc.ca'
+    %td.cell-left Not currently sponsored
+
+  %tr
+    %td.label Administrator:
+    %td.cell-left AMS VoterMedia Admin Amy Chen: chenamy7[at]gmail.com
+    %td.cell-left Mark Latham: mark[at]votermedia.org
+
+  %tr.list-line-even
+    %td.label More info:
+    %td.cell-left
+      = link_to 'AMS Elections', 'http://www.ams.ubc.ca/governance/ams-elections/'
+      &
+      Article 14 in 
+      = link_to 'AMS Electoral Procedures', 'http://www.ams.ubc.ca/wp-content/uploads/2011/12/Electoral-Procedures-electronic-for-2012-election.pdf'
+
+    %td.cell-left
+      = link_to 'FAQ', faqs_path
+      &
+      = link_to 'VoterMedia Democracy Blog', 'http://votermedia.blogspot.com'
+      &
+      = link_to 'Terms', terms_path
+  %tr
+    %td.label Voting platform:
+    %td.cell-left
+      AMS Elections ballot
+      = link_to 'will be linked here', 'http://www.ams.ubc.ca/governance/ams-elections/'
+    %td.cell-left= link_to 'This website\'s UBC AMS ballot - vote now', '/ubc'
+
+%hr
+
+%a{:name => "enter"}
+%h3 How to enter the UBC Continuous VoterMedia Competition:
+
+%div{:style => "margin-left: 10%; margin-right: 10%;"}
+
+  %p
+    To enter your blog (or website or other media) in
+    = link_to("this competition", "/ubc") + ","
+    please copy and paste all the text between the horizontal lines below into an email,
+    fill in all the blanks and send it to Mark Latham (mark[at]votermedia.org).
+    There is no entry fee and no entry deadline. The contest is continuous, so you can enter any time.
+
+%hr
+
+%div{:style => "margin-left: 10%; margin-right: 10%;"}
+
+  %p
+    %strong Name of Blog
+    (or website or other media):
+
+  %p
+    %strong URL
+    (blog/website address): http://
+  
+  %p
+    I am the Editor of this blog (or website or other media). At least 40% of its content is directly related to the AMS,
+    UBC Vancouver or its affiliated institutions, or student life at UBC Vancouver or its affiliated institutions.
+    I hereby apply to enter it in the UBC AMS Continuous VoterMedia Competition with online ballot at
+    = link_to("votermedia.org/ubc", "/ubc") + "."
+    I agree to the website terms at
+    = link_to("votermedia.org/terms", "/terms")
+    and the UBC AMS Electoral Procedures linked from the
+    =link_to 'AMS Elections web page', 'http://www.ams.ubc.ca/governance/ams-elections'
+    (www.ams.ubc.ca/governance/ams-elections), in particular Article 14: VoterMedia.
+    I am an Active Member of the AMS. I request that any awards this blog wins in this contest be paid to me as the representative of the blog's contributors.
+    I will notify you promptly of any future changes of the information I am submitting in this entry. My contact information is:
+  
+  %strong
+    %p Name:
+    %p Email:
+    %p Phone:
+    %p Mailing address:
+
+%hr
+%br
