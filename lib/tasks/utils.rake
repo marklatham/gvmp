@@ -12,6 +12,7 @@ namespace :utils do
     puts  'Task utils:process_votes started [%s]'.%([start_time])
     
     votes = Vote.where("days IS NULL").order("id")
+#    votes = Vote.where("days < -1").order("id")  # for debugging
     puts votes.size.to_s + " new votes"
     
     old_counter = 0
@@ -95,7 +96,6 @@ namespace :utils do
           vote.zone = 0 # No zones are defined -- distinguish from no zones match which is encoded as zone = 9.
         else
           vote.zone = 9 # Default to worst zone unless another zone matches:
-          
           if ip = Ip.find_by_ip_address(vote.ip_address)
             proximities.each do |proximity|
               if ip.country == proximity.country && ip.region == proximity.region && ip.city == proximity.city
@@ -110,15 +110,12 @@ namespace :utils do
               end
             end
           end
-          
         end
-        
-        vote.save
-        last_community = vote.community_id
-        last_ip = vote.ip_address
-        last_zone = vote.zone
-        
       end
+      vote.save
+      last_community = vote.community_id
+      last_ip = vote.ip_address
+      last_zone = vote.zone
       
     end # End of votes.each do loop.
     
