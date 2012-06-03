@@ -24,7 +24,4 @@
       %td.cell-centred= simple_format clipping.description
       - if can? :update, clipping
         %td.permission= link_to 'Edit', edit_clipping_path(clipping)
-        -# This code below isn't working: :confirm => 'Are you sure?'.
-        -# Possible cause & solution at http://railsforum.com/viewtopic.php?id=38460
-        %td.permission= button_to "Destroy", clipping, :method=>:delete, :confirm=>"Are you sure?"
 %br
