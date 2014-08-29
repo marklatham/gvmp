@@ -4,8 +4,6 @@
       %li
         = link_to 'BC-MUNI', '/bcmuni'
         %ul
-          %li{:style => "padding-left: 1em"}
-            = link_to("Contest Info", "/bcmuni")
           %li{:style => "padding-right: 0.5em"} FEATURED CONTESTS:
           - Community.bc_muni_funded.each do |community|
             %li{:style => "padding-left: 1em"}
@@ -52,4 +50,4 @@
           %li= link_to 'Shareowner proposals', proposals_path
           %li= link_to 'VM Democracy Blog', 'http://votermedia.blogspot.com/'
           %li= link_to 'VM Finance Blog', 'http://votermedia.wordpress.com/'
-          %li= link_to 'Twitter: @votermedia', 'http://twitter.com/votermedia'
+          %li= link_to 'Twitter: votermedia', 'http://twitter.com/#!/search/realtime/votermedia'

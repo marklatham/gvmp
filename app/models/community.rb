@@ -601,7 +601,7 @@ class Community < ActiveRecord::Base
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope eventually
     def featured
-      ids = [82, 96, 175, 51, 52, 81, 5, 205, 59, 3, 151, 116, 109, 223]
+      ids = [82, 175, 51, 52, 81, 5, 205, 59, 3, 151, 299, 300, 171, 116, 109, 223]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
     def bc_muni_funded
@@ -609,7 +609,7 @@ class Community < ActiveRecord::Base
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
     def bc_muni_others
-      ids = [280, 28, 221, 188, 40, 47, 287, 51, 288, 52, 53, 54]
+      ids = [280, 28, 221, 36, 188, 40, 47, 287, 51, 288, 52, 53, 54]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
     

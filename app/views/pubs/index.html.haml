@@ -12,7 +12,8 @@
         %li= link_to 'Presentations: Mark Latham on VoterMedia', presentations_path
         %li= link_to 'Shareowner proposal campaign 1999-2006', proposals_path
         %li= link_to 'VoterMedia Democracy Blog', 'http://votermedia.blogspot.com/'
-        %li= link_to('VoterMedia Finance Blog', 'http://votermedia.wordpress.com/')
+        %li= link_to 'VoterMedia Finance Blog', 'http://votermedia.wordpress.com/'
+        %li= link_to 'Twitter: votermedia', 'http://twitter.com/search/realtime/votermedia'
 
   %tr.header 
     %td.header-centred Date
@@ -32,7 +33,10 @@
         %td.permission= link_to 'Edit', edit_pub_path(pub)
   %tr
     %td.footer-row{:colspan => 5}
-        
+
+%blockquote
+  Many of the above papers are also archived at
+  = link_to('Social Science Research Network', 'http://papers.ssrn.com/sol3/cf_dev/AbsByAuth.cfm?per_id=1331') + '.'
 %br
 - if can? :create, Pub
   %span.permission= link_to 'Add new publication', new_pub_path

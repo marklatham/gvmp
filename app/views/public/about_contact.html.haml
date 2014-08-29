@@ -29,6 +29,7 @@
   - for colleague in @colleagues
     %tr
       %td.photo{:rowspan => 2}
+        %a{ :name => colleague.role }
         - if colleague.photo != ""
           %img{:src => "images/"+colleague.photo, :width => 80, :height => 100}
       %td.upper-cell
