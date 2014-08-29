@@ -2,7 +2,7 @@
 
 %div{:style => "width: 80%; margin-left: 10%; margin-right: 10%;"}
   %p
-    %b VoterMedia.org
+    %b Votermedia.org
     improves the accountability of elected leaders by letting you vote on funding for blogs
     that cover how you are being represented. This can improve policies and reduce corruption
     in organizations, including governments, corporations, unions, nonprofits etc.
@@ -11,20 +11,18 @@
     public interest project.
     We are implementing voter-media as explained in the
     = link_to('FAQ', faqs_path) + ','
-    the paper 
-    = link_to 'Global Voter Media Platform', '/publications/GlobalVoterMediaPlatform.pdf'
+    the paper
+    = link_to 'Experiments in Voter Funded Media', '/publications/ExperimentsInVoterFundedMedia.pdf'
     and our other
     = link_to('publications', '/publications') + '.'
-  
+    This website is built by a group of volunteers (below).
   %p
-    This website is built by a group of volunteers (below). 
-    We plan to create a nonprofit organization to manage the project, 
-    with a board of directors elected by the website's users.
-    We are already practising what we preach, by
-    = link_to('inviting blogs to critique VoterMedia.org', '/communities/104') + '.'
+    BTW even though
+    = link_to('Mark Latham has joined the Liberal Party of Canada', 'http://votermedia.blogspot.ca/2013/12/why-i-joined-liberalparty-of-canada-lpc.html') + ','
+    votermedia.org is still a nonpartisan project.
 %br
 %a{ :name => 'team' }
-%h3{:style => "text-align: center"} The VoterMedia Team:
+%h3{:style => "text-align: center"} The Votermedia Team:
 %table#colleagues{:cellspacing => 0, :cellpadding => 2, :style => "margin: auto;"}
   - for colleague in @colleagues
     %tr

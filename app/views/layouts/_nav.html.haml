@@ -2,17 +2,6 @@
   %div#nav
     %ul
       %li
-        = link_to 'BC-MUNI', '/bcmuni'
-        %ul
-          %li{:style => "padding-right: 0.5em"} FEATURED CONTESTS:
-          - Community.bc_muni_funded.each do |community|
-            %li{:style => "padding-left: 1em"}
-              = link_to(community.short_name, "/" + community.idstring)
-          %li{:style => "padding-right: 0.5em"} OTHERS WITH BLOGS:
-          - Community.bc_muni_others.each do |community|
-            %li{:style => "padding-left: 1em"}
-              = link_to(community.short_name, "/" + community.idstring)
-      %li
         = link_to 'VIDEOS', root_path
         %ul
           - videos = Video.order("id")
@@ -50,4 +39,4 @@
           %li= link_to 'Shareowner proposals', proposals_path
           %li= link_to 'VM Democracy Blog', 'http://votermedia.blogspot.com/'
           %li= link_to 'VM Finance Blog', 'http://votermedia.wordpress.com/'
-          %li= link_to 'Twitter: votermedia', 'http://twitter.com/#!/search/realtime/votermedia'
+          %li= link_to 'Twitter: votermedia', 'http://twitter.com/votermedia'

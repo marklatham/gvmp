@@ -1,13 +1,13 @@
 set :ssh_options, { :forward_agent => true }
 
 # Your cPanel/SSH login name
-# set :user, "votermed.railsplayground.net" # FOR VPS PRODUCTION
-set :user, "votermed" # FOR VPS STAGING
+set :user, "votermed.railsplayground.net" # FOR VPS PRODUCTION
+# set :user, "votermed" # FOR VPS STAGING
 # set :user, "votermed" # FOR SHARED
 
 # The domain name of the server to deploy to, this can be your domain or the domain of the server.
-# set :server_name, "votermedia.org" # FOR VPS PRODUCTION
-set :server_name, "voter.railsplayground.net" # FOR VPS STAGING
+set :server_name, "votermedia.org" # FOR VPS PRODUCTION
+# set :server_name, "voter.railsplayground.net" # FOR VPS STAGING
 # set :server_name, "votermedia.railsplayground.net" # FOR SHARED
 
 # If you are using git, uncomment the following line and comment out the line above.

@@ -33,4 +33,49 @@
 
 %p= link_to 'Shared ips', shared_ips_path
 
+%h4 Data downloads:
+
+%p
+  = link_to 'clippings.yaml', '/clippings.yaml'
+  
+%p
+  = link_to 'colleagues.yaml', '/colleagues.yaml'
+  -# [index listing restricted to admin]
+
+%p
+  = link_to 'communities: comdump.yaml', '/comdump.yaml'
+
+%p
+  = link_to 'faqs.yaml', '/faqs.yaml'
+  -# [always enabled -- no confidential data]
+
+%p
+  = link_to 'presentations.yaml', '/presentations.yaml'
+
+%p
+  = link_to 'proposals.yaml', '/proposals.yaml'
+  -# Problems with yaml: need to indent some data lines?!
+
+%p
+  = link_to 'pubs.yaml', '/pubs.yaml'
+  -# [always enabled -- no confidential data]
+
+%p
+  = link_to 'rankings.yaml', '/rankings.yaml'
+  -# [index listing restricted to admin]
+
+%p
+  = link_to 'votes.yaml', '/votes.yaml'
+  -# [index listing restricted to admin]
+
+%p
+  = link_to 'websites.yaml', '/websites.yaml'
+  -# [index listing restricted to admin]
+
+%p
+  = button_to 'Clean data', :action => :clean_data
+  (Do this once after uploading data from yaml files.
+  It trims the newlines & whitespace off the end of three fields. Newlines got added as a way of
+  handling special characters like colons or pipes -- I forget which.)
+
 %br

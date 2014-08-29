@@ -1,7 +1,15 @@
 - @page_title = 'Privacy Policy'
 
 %h2 Privacy Policy for VoterMedia.org Website
- 
+
+%p
+  %i
+    "You may have my number, you can take my name, but you'll never have my heart." --
+    = link_to("Adele", "https://www.youtube.com/watch?v=DeumyOzKqgI")
+
+%p
+  Well, we want your heart too. That's why we protect your data with care. Our privacy policy expresses that in more detail:
+
 %p
   VoterMedia.org is a nonprofit project, planning to soon become a democratic organization controlled by its website users. 
   This is to ensure that the organization treats users as they want to be treated – with respect and consideration. 
@@ -9,9 +17,9 @@
 
 %p
   Our current Privacy Policy is published and updated here at
-  = auto_link_urls(privacy_url) + '.' 
+  = link_to(privacy_url, privacy_url) + '.' 
   Revisions to this policy are announced at
-  = auto_link_urls('http://votermedia.blogspot.com/search/label/Website%20Terms') + '.'
+  = link_to('http://votermedia.blogspot.ca/search/label/Website%20Terms', 'http://votermedia.blogspot.ca/search/label/Website%20Terms') + '.'
 
 %p
   Our Privacy Policy is developed, updated and implemented to conform with the 

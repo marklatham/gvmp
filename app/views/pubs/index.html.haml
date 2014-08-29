@@ -10,17 +10,17 @@
       %ul
         %li= link_to 'Clippings: Media discussions of VoterMedia', clippings_path
         %li= link_to 'Presentations: Mark Latham on VoterMedia', presentations_path
-        %li= link_to 'Shareowner proposal campaign 1999-2006', proposals_path
+        %li= link_to 'Shareowner proposal campaign', proposals_path
         %li= link_to 'VoterMedia Democracy Blog', 'http://votermedia.blogspot.com/'
         %li= link_to 'VoterMedia Finance Blog', 'http://votermedia.wordpress.com/'
-        %li= link_to 'Twitter: votermedia', 'http://twitter.com/search/realtime/votermedia'
+        %li= link_to 'Twitter: votermedia', 'http://twitter.com/votermedia'
 
   %tr.header 
     %td.header-centred Date
     %td.header-left Title & link
     %td.header-centred Pages
     %td.header-centred Country
-    %td.header-left Journal / description / site
+    %td.header-left Description
 
   - for pub in @pubs
     %tr{:class => cycle('list-line-odd', 'list-line-even')}
