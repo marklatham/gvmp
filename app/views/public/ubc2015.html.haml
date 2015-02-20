@@ -1,0 +1,140 @@
+- @page_title = 'UBC 2015'
+
+%h1 University of British Columbia 2015
+
+%h3 This year there are two UBC AMS VoterMedia competitions:
+
+%table#table1{:cellspacing => 2, :cellpadding => 3}
+
+  %tr.header
+    %td
+    %th.header-left One-Time VoterMedia (1VM)
+    %th.header-left Continuous VoterMedia (CVM)
+
+  %tr.list-line-even
+    %td.label Voting period:
+    %td.cell-left March 9 - 13, 2015
+    %td.cell-left
+      %span= link_to 'Vote now', '/ubc'
+      = "(until at least March 20, probably longer)"
+    
+  %tr
+    %td.label Voting frequency:
+    %td.cell-left Vote once
+    %td.cell-left Vote early & often! e.g. once a week
+
+  %tr.list-line-even
+    %td.label Login to vote?:
+    %td.cell-left Required
+    %td.cell-left Not required, but logged-in votes get more weight
+
+  %tr
+    %td.label Award pool:
+    %td.cell-left $1,500
+    %td.cell-left At least $10/day, starting about February 23
+
+  %tr.list-line-even
+    %td.label Award dates:
+    %td.cell-left All decided on March 13
+    %td.cell-left % shares calculated daily; paid out by end of March
+
+  %tr
+    %td.label Entry fee:
+    %td.cell-left $30
+    %td.cell-left No entry fee
+
+  %tr.list-line-even
+    %td.label Entry deadline:
+    %td.cell-left February 22
+    %td.cell-left No deadline -- enter any time
+
+  %tr
+    %td.label Entry form:
+    %td.cell-left
+      = link_to 'AMS OneTime VoterMedia Contest Entry Form', 'http://ow.ly/ITGn0'
+    %td.cell-left See "How to enter..." below.
+
+  %tr.list-line-even
+    %td.label Ballot choices:
+    %td.cell-left 0%, 10%, 20%, 30%, 40%
+    %td.cell-left 0%, 10%, 20%, 30%, 40% (unless there are fewer than 3 entries)
+
+  %tr
+    %td.label Award calculation:
+    %td.cell-left
+      = link_to 'One-Time VoterMedia Calc Example', '/misc/1VMSharesCalcExample.xls'
+    %td.cell-left
+      See
+      = link_to '"How are votes tallied?"', '/faqs#Voting'
+
+  %tr.list-line-even
+    %td.label Who can enter:
+    %td.cell-left{:style => "max-width: 22em"}
+      UBC AMS members.
+    %td.cell-left{:style => "max-width: 30em"}
+      UBC AMS members.
+
+  %tr
+    %td.label Who can vote:
+    %td.cell-left UBC AMS members.
+    %td.cell-left Anyone with web access who cares about UBC media.
+
+  %tr.list-line-even
+    %td.label Sponsor:
+    %td.cell-left= link_to 'UBC Alma Mater Society', 'http://www.ams.ubc.ca'
+    %td.cell-left= link_to 'Mark Latham', '/about_contact'
+
+  %tr
+    %td.label Administrator:
+    %td.cell-left AMS Online Communications Officer Selina Ho: Elections_comms[at]ams.ubc.ca
+    %td.cell-left Mark Latham: mark[at]votermedia.org
+
+  %tr.list-line-even
+    %td.label More info:
+    %td.cell-left
+      = link_to 'AMS VoterMedia page', 'http://www.ams.ubc.ca/VM'
+      &
+      = link_to 'AMS Elections page', 'http://www.ams.ubc.ca/studentsociety/elections-2/'
+
+    %td.cell-left
+      = link_to 'FAQ', faqs_path
+      &
+      = link_to 'VoterMedia Democracy Blog > UBC', 'http://votermedia.blogspot.ca/search/label/UBC'
+      &
+      = link_to 'Terms', terms_path
+  %tr
+    %td.label Voting platform:
+    %td.cell-left
+      AMS Elections ballot
+      = link_to 'will probably be linked here', 'http://www.ams.ubc.ca/studentsociety/elections-2/'
+    %td.cell-left= link_to 'This website\'s UBC AMS ballot - vote now', '/ubc'
+
+%hr
+
+%a{:name => "enter"}
+%h3 How to enter the UBC Continuous VoterMedia (CVM) Competition:
+
+%div{:style => "margin-left: 10%; margin-right: 10%;"}
+
+  %p
+    To enter your blog (or website or other media) in
+    = link_to("this competition", "/ubc") + ","
+    first create a link from your blog's home page to
+    = link_to("the contest page", "/ubc") + "."
+    This is required for entry, and helps direct your readers to the ballot so they
+    can vote for you.
+  %p
+    Then there are two ways to go, depending on whether you are also entering the
+    = link_to("One-Time VoterMedia (1VM) competition", "http://www.ams.ubc.ca/VM") + "."
+    If you are entering 1VM, please fill out its entry form first,
+    because its entry data are forwarded to Mark Latham. Then all you need to do is
+    email (mark[at]votermedia.org) & tell him you'd like to enter CVM also.
+  %p
+    If you're not entering 1VM, then to enter CVM please copy-paste the
+    = link_to("1VM entry form", 'http://ow.ly/ITGn0')
+    into an email, delete the part about the entry fee,
+    fill it in and email to (mark[at]votermedia.org).
+  %p
+    Then blog about the AMS elections to win funding in both contests!
+%hr
+%br

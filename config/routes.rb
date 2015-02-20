@@ -50,6 +50,7 @@ Gvmp::Application.routes.draw do
   match '/how_you_can_help',    :to => 'public#how_you_can_help',     :as => 'how_you_can_help'
   match '/ubc2010',             :to => 'public#ubc2010',              :as => 'ubc2010'
   match '/ubc2012',             :to => 'public#ubc2012',              :as => 'ubc2012'
+  match '/ubc2015',             :to => 'public#ubc2015',              :as => 'ubc2015'
   match '/ubcentry',            :to => 'public#ubc2012',              :as => 'ubc2012'
   match '/ubc1vm',              :to => 'public#ubc1vm',               :as => 'ubc1vm'
   match '/publications',        :to => 'pubs#index',                  :as => 'publications'
