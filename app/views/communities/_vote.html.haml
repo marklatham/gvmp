@@ -8,7 +8,9 @@
         You voted
         = number_with_precision(support, :precision => 0) + '%'
     - max_share = community.rankings.map(&:share).max
-    - if max_share < 35.0
+    - if community.id == 82
+      = select_tag(:percent, options_for_select([['Vote:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40']]), :onchange => "jQuery(\"#ajax_form_percent_#{website.id}\").submit();")
+    - elsif max_share < 35.0
       = select_tag(:percent, options_for_select([['Vote:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40']]), :onchange => "jQuery(\"#ajax_form_percent_#{website.id}\").submit();")
     - elsif max_share < 45.0
       = select_tag(:percent, options_for_select([['Vote:', ''], ['0%', '0'], ['10%', '10'], ['20%', '20'], ['30%', '30'], ['40%', '40'], ['50%', '50']]), :onchange => "jQuery(\"#ajax_form_percent_#{website.id}\").submit();")
