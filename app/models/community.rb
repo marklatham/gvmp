@@ -583,7 +583,7 @@ class Community < ActiveRecord::Base
       # TODO: Separate the sphinx search
       if params[:q]
         return search(params[:q], :page => params[:page], :per_page => @@per_page, 
-                      :order => 'n_websites DESC, country ASC, category ASC, name ASC')
+                      :order => 'n_websites DESC, country ASC, prov_state ASC, category ASC, name ASC')
       end
 
       scope = self
@@ -591,7 +591,7 @@ class Community < ActiveRecord::Base
         sorted = sorted.downcase.to_sym
         scope = scope.send(sorted) if self.scopes.keys.include?(sorted)
       else
-        scope = scope.scoped(:order => 'n_websites DESC, lower(country), lower(category), lower(name)') 
+        scope = scope.scoped(:order => 'n_websites DESC, lower(country), lower(prov_state), lower(category), lower(name)') 
       end
 
       scope.paginate(:page => params[:page])
@@ -601,7 +601,7 @@ class Community < ActiveRecord::Base
     # TODO: A community should be marked by admin as featured
     # Should be a named_scope eventually
     def featured
-      ids = [82, 51, 52, 81, 201, 200, 5, 205, 281, 59, 3, 151, 299, 300, 171, 109, 223]
+      ids = [82, 51, 52, 81, 201, 200, 5, 205, 281, 59, 3, 151, 299, 171, 109, 223]
       find(:all, :conditions => ["id in (?)", ids]).sort{|a, b| ids.index(a.id) <=> ids.index(b.id)}
     end
     def bc_muni_funded
