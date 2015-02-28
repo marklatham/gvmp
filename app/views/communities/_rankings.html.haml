@@ -48,17 +48,26 @@
           - if @community.id == 82
             - if ranking[:website].id == 485
               - imagestring = "left-shark.png"
+              - url = ranking[:website].url
             - elsif ranking[:website].id == 484
               - imagestring = "iamablog.png"
+              - url = "https://twitter.com/iamablogubc"
             - elsif ranking[:website].id == 225
               - imagestring = "ubc-insiders.jpeg"
+              - url = "https://twitter.com/ubcinsiders"
             - elsif ranking[:website].id == 449
               - imagestring = "ubc-underground.jpeg"
+              - url = "https://twitter.com/UBCUnderground"
             - elsif ranking[:website].id == 441
               - imagestring = "syrup-trap.png"
+              - url = "https://twitter.com/SyrupTrap"
+            - elsif ranking[:website].id == 487
+              - imagestring = "elections-101.gif"
+              - url = ranking[:website].url
             - else
               - imagestring = "favicon.ico"
-            = link_to image_tag("/images/" + imagestring, :height => 48, :style => "border-radius: 6px", :align => "middle"), ranking[:website].url, :target => "_blank"
+              - url = ranking[:website].url
+            = link_to image_tag("/images/" + imagestring, :height => 48, :style => "border-radius: 6px", :align => "middle"), url, :target => "_blank"
           = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
         
         - case
@@ -68,6 +77,7 @@
             - rows = 2
           - when ranking[:share] >= 20.0
             - rows = 3
+        - rows = 3 if @community.id == 82
         %td.lowerborder.rightborder
           %table.multipost{:style => "width: 100%"}
             - post = Post.where("website_id = ?", ranking[:website]).order("posted_at DESC").limit(rows)
