@@ -47,27 +47,30 @@
         %td.cell-link.lowerborder
           - if @community.id == 82
             - if ranking[:website].id == 485
-              - imagestring = "left-shark.png"
+              - image_url = "/images/left-shark.png"
               - url = ranking[:website].url
             - elsif ranking[:website].id == 484
-              - imagestring = "iamablog.png"
+              - image_url = "https://twitter.com/iamablogubc/profile_image?size=bigger"
               - url = "https://twitter.com/iamablogubc"
             - elsif ranking[:website].id == 225
-              - imagestring = "ubc-insiders.jpeg"
+              - image_url = "https://twitter.com/ubcinsiders/profile_image?size=bigger"
               - url = "https://twitter.com/ubcinsiders"
             - elsif ranking[:website].id == 449
-              - imagestring = "ubc-underground.jpeg"
+              - image_url = "https://twitter.com/UBCUnderground/profile_image?size=bigger"
               - url = "https://twitter.com/UBCUnderground"
             - elsif ranking[:website].id == 441
-              - imagestring = "syrup-trap.png"
+              - image_url = "https://twitter.com/SyrupTrap/profile_image?size=bigger"
               - url = "https://twitter.com/SyrupTrap"
             - elsif ranking[:website].id == 487
-              - imagestring = "elections-101.gif"
+              - image_url = "/images/elections-101.gif"
+              - url = ranking[:website].url
+            - elsif ranking[:website].id == 488
+              - image_url = "/images/ubc-blankspace.png"
               - url = ranking[:website].url
             - else
-              - imagestring = "favicon.ico"
+              - image_url = "/images/favicon.ico"
               - url = ranking[:website].url
-            = link_to image_tag("/images/" + imagestring, :height => 48, :style => "border-radius: 6px", :align => "middle"), url, :target => "_blank"
+            = link_to image_tag(image_url, :height => 48, :style => "border-radius: 6px", :align => "middle"), url, :target => "_blank"
           = link_to truncate(ranking[:website].title, :length => 55, :omission => "..."), ranking[:website].url, :target => "_blank"
         
         - case
@@ -85,9 +88,9 @@
               %tr
                 %td.postdate{:style => "width: 6em"}
                   - if post.posted_at < 6.months.ago
-                    = render_datetime post.posted_at, :Y_mon #post.posted_at.to_s(:Y_mon)
+                    = render_datetime post.posted_at.in_time_zone(@community.time_zone), :Y_mon #post.posted_at.to_s(:Y_mon)
                   - else
-                    = render_datetime post.posted_at, :mon_day
+                    = render_datetime post.posted_at.in_time_zone(@community.time_zone), :mon_day
                 %td.post.cut
                   - show_stripped = strip_tags(post.show_text)
                   %a{:href => post.url, :target => "_blank", :title => truncate(show_stripped, :length => 1000)}
