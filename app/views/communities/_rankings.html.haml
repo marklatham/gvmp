@@ -118,6 +118,14 @@
     You can vote any time; about once a week is good. Shares updated nightly. &nbsp; &nbsp;
     = "[#{link_to('FAQ on voting', '/faqs#Voting')}]".html_safe
 
+  - if @community.id == 82
+    %p
+      %strong
+        See also:
+        = link_to "Twitter list UBC VoterMedia", "https://twitter.com/votermedia/lists/ubc-votermedia", :target => "_blank"
+        &
+        = link_to "Meet the AMS Elections Candidates", "http://www.ams.ubc.ca/studentsociety/elections-2/meet-the-candidates/", :target => "_blank"
+
   %p
     %strong
       Past funding shares: see
