@@ -64,9 +64,9 @@
             - elsif ranking[:website].id == 487
               - image_url = "/images/elections-101.gif"
               - url = ranking[:website].url
-            - elsif ranking[:website].id == 488
-              - image_url = "/images/ubc-blankspace.png"
-              - url = ranking[:website].url
+            - elsif ranking[:website].id == 491
+              - image_url = "https://twitter.com/TalonUBC/profile_image?size=bigger"
+              - url = "https://twitter.com/TalonUBC"
             - else
               - image_url = "/images/favicon.ico"
               - url = ranking[:website].url
@@ -122,9 +122,15 @@
     %p
       %strong
         See also:
+        = link_to "Twitter: \#BDS UBC", "https://twitter.com/search?f=realtime&q=%23BDS%20UBC&src=typd", :target => "_blank"
+        &
         = link_to "Twitter list UBC VoterMedia", "https://twitter.com/votermedia/lists/ubc-votermedia", :target => "_blank"
         &
-        = link_to "Meet the AMS Elections Candidates", "http://www.ams.ubc.ca/studentsociety/elections-2/meet-the-candidates/", :target => "_blank"
+        = link_to "Ubyssey: BDS", "http://ubyssey.ca/?s=bds&x=0&y=0", :target => "_blank"
+        &
+        = link_to "BDS Referendum Info", "http://www.ams.ubc.ca/studentsociety/elections-2/referendums/referendum-faqs/", :target => "_blank"
+        &
+        = link_to "VOTE IN BDS REFERENDUM MARCH 23 - 27", "https://amsvoting.as.it.ubc.ca/", :target => "_blank"
 
   %p
     %strong
