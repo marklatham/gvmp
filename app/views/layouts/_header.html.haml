@@ -32,21 +32,9 @@
       - else
         %table
           %tr
-            %td.fb
-              %a{:href => "/auth/facebook"}
-                %table
-                  %tr
-                    %td
-                      Log in via
-                      %br
-                      facebook
-                    %td
-                      = image_tag "facebook_32.png"
             %td.other
               %a{:href => new_user_session_path}
-                Other
-                %br
-                options
+                Login/Register
                 
           -# = link_to 'Register', new_user_registration_path
           -# = link_to 'Register', authentications_path
