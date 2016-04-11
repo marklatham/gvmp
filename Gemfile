@@ -19,18 +19,18 @@ gem "ruby_parser", "2.0.6" #
 gem "sass", "3.1.7" #
 gem "will_paginate", "2.3.16" #
 
-group :development do
+group :development, :test do
   gem "database_cleaner", "0.6.7" #
-  gem "nifty-generators", "0.4.6" #
   gem "rspec-rails", "2.6.1" #
 #  gem "ruby-debug", "0.10.4" # 2016-03-11 had trouble making this work so left it out.
 end
 
+group :development do
+  gem "nifty-generators", "0.4.6" #
+end
+
 group :test do
-  gem "database_cleaner", "0.6.7" #
   gem "mocha", "0.9.12" #
-  gem "rspec-rails", "2.6.1" #
-#  gem "ruby-debug", "0.10.4" #
 end
 
 # These are gems in the original vendor/gems folder.
