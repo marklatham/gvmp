@@ -22,6 +22,7 @@ gem "will_paginate", "2.3.16" #
 group :development, :test do
   gem "database_cleaner", "0.6.7" #
   gem "rspec-rails", "2.6.1" #
+  gem "test-unit", "2.3.0"
 #  gem "ruby-debug", "0.10.4" # 2016-03-11 had trouble making this work so left it out.
 end
 
