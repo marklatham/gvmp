@@ -67,6 +67,9 @@
             - elsif ranking[:website].id == 491
               - image_url = "https://twitter.com/TalonUBC/profile_image?size=bigger"
               - url = "https://twitter.com/TalonUBC"
+            - elsif ranking[:website].id == 496
+              - image_url = "https://twitter.com/reddit/profile_image?size=bigger"
+              - url = "https://twitter.com/reddit"
             - else
               - image_url = "/images/favicon.ico"
               - url = ranking[:website].url
@@ -122,7 +125,7 @@
     %p
       %strong
         See also:
-        = link_to "Twitter list UBC VoterMedia", "https://twitter.com/votermedia/lists/ubc-votermedia", :target => "_blank"
+        = link_to "Twitter list UBC Votermedia", "https://twitter.com/votermedia/lists/ubc-votermedia1", :target => "_blank"
 
   %p
     %strong

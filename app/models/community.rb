@@ -220,6 +220,8 @@ class Community < ActiveRecord::Base
     # If the highest bid is higher than the lowest offer, then a trade of 1% happens.
     # It's a competitive market for public goods:
     
+#    print "Starting main tally loop."
+    
     while min_count0.count0 < max_count1.count1
       # Move one percent share from min_count0 to max_count1:
       
@@ -237,10 +239,13 @@ class Community < ActiveRecord::Base
       
     end
     
+#    print "Finished main tally loop."
+    
     # Share calculations are now completed, so sort & store rankings for this community:
     rankings.sort! do |a,b|
       [b.share, b.count1, b.created_at] <=> [a.share, a.count1, a.created_at]
     end
+    puts "Finished sorting."
     rank_sequence = 0
     rankings.each do |ranking|
       rank_sequence += 1
@@ -248,7 +253,6 @@ class Community < ActiveRecord::Base
       ranking.tallied_at = tally_cutoff
       ranking.save
     end
-    
   end
   
   def check(tally_cutoff, rankings)
